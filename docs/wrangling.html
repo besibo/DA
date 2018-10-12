@@ -264,6 +264,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="chapter" data-level="6.9.1" data-path="wrangling.html"><a href="wrangling.html#principe-2"><i class="fa fa-check"></i><b>6.9.1</b> Principe</a></li>
 <li class="chapter" data-level="6.9.2" data-path="wrangling.html"><a href="wrangling.html#inner_join"><i class="fa fa-check"></i><b>6.9.2</b> <code>inner_join()</code></a></li>
 <li class="chapter" data-level="6.9.3" data-path="wrangling.html"><a href="wrangling.html#left_join"><i class="fa fa-check"></i><b>6.9.3</b> <code>left_join()</code></a></li>
+<li class="chapter" data-level="6.9.4" data-path="wrangling.html"><a href="wrangling.html#accoller-deux-tableaux"><i class="fa fa-check"></i><b>6.9.4</b> Accoller deux tableaux</a></li>
 </ul></li>
 <li class="chapter" data-level="6.10" data-path="wrangling.html"><a href="wrangling.html#exercices-11"><i class="fa fa-check"></i><b>6.10</b> Exercices</a></li>
 </ul></li>
@@ -1361,6 +1362,129 @@ Figure 6.15: Schéma de la fonction <code>left_join()</code> tiré de la ‘chea
 </ul>
 <p>Pour avoir la réponse à toutes ces questions, je vous conseille de lire <a href="http://r4ds.had.co.nz/relational-data.html">ce chapitre</a> de cet ouvrage très complet sur “la science des données” avec R et le <code>tidyverse</code> : <a href="http://r4ds.had.co.nz">R for Data Science</a>.</p>
 <p>Néanmoins, avec les deux fonctions <code>inner_join()</code> et <code>left_join()</code> décrite ici devraient vous permettre de couvrir l’essentiel de vos besoins.</p>
+</div>
+<div id="accoller-deux-tableaux" class="section level3">
+<h3><span class="header-section-number">6.9.4</span> Accoller deux tableaux</h3>
+<p>Outre l’association de tableaux en utilisant des jointures, il est parfois utile d’accoller 2 tableaux :</p>
+<ul>
+<li>soit l’un au-dessous de l’autre, quand ils ont les mêmes nombres de colonnes, et si possible, les mêmes variables aux mêmes endroits. La fonction <code>bind_rows()</code> permet de faire cela.</li>
+<li>soit l’un à côté de l’autre quand ils ont le même nombre de lignes, et si possible les mêmes observations en lignes. La fonction <code>bind_cols()</code> permet de faire cela.</li>
+</ul>
+<p>Prenons un exemple.</p>
+<p>Imaginons que nous ayons 2 tableaux contenant les mêmes variables. Le premier, nommé <code>colorado</code>, contient les informations des vols ayant décollé de New York en 2013 et ayant atteri à l’aéroport de Yempa Valley au Colorado (aéroport <code>HDN</code>).</p>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb313-1" data-line-number="1">colorado &lt;-<span class="st"> </span>flights <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb313-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(dest <span class="op">==</span><span class="st"> &quot;HDN&quot;</span>)</a>
+<a class="sourceLine" id="cb313-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb313-4" data-line-number="4">colorado</a></code></pre></div>
+<pre><code># A tibble: 15 x 19
+    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
+   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
+ 1  2013     1     5      829            830        -1     1047           1111
+ 2  2013     1    12      827            830        -3     1112           1111
+ 3  2013     1    19      843            830        13     1123           1111
+ 4  2013     1    26      828            830        -2     1114           1111
+ 5  2013    12    21      916            830        46     1149           1117
+ 6  2013    12    28      913            829        44     1128           1116
+ 7  2013     2     2      858            830        28     1124           1111
+ 8  2013     2     9       NA            830        NA       NA           1111
+ 9  2013     2    16      834            830         4     1114           1111
+10  2013     2    23      826            830        -4     1050           1111
+11  2013     3     2      854            830        24     1104           1111
+12  2013     3     9      838            830         8     1107           1111
+13  2013     3    16      845            830        15     1154           1111
+14  2013     3    23      835            830         5     1104           1111
+15  2013     3    30      825            830        -5     1045           1111
+# ... with 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
+#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
+#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+<p>Le second est nommé <code>indiana</code>. Il contient les informations des vols ayant décollé de New York en 2013 et ayant atteri à l’aéroport de South Bend en Indiana (aéroport <code>SBN</code>).</p>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb315-1" data-line-number="1">indiana &lt;-<span class="st"> </span>flights <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb315-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(dest <span class="op">==</span><span class="st"> &quot;SBN&quot;</span>)</a>
+<a class="sourceLine" id="cb315-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb315-4" data-line-number="4">indiana</a></code></pre></div>
+<pre><code># A tibble: 10 x 19
+    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
+   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
+ 1  2013    10    18     1820           1745        35     2030           2011
+ 2  2013    11     1     2012           1905        67     2221           2131
+ 3  2013    11    22     2013           1905        68     2224           2131
+ 4  2013    12     1     1241           1215        26     1431           1431
+ 5  2013     8    30     1909           1910        -1     2117           2136
+ 6  2013     9     1      833            840        -7     1030           1040
+ 7  2013     9     8      847            840         7     1043           1040
+ 8  2013     9    20     1948           1950        -2     2207           2216
+ 9  2013     9    22      837            840        -3     1025           1040
+10  2013     9    27     2011           1950        21     2209           2216
+# ... with 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
+#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
+#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+<p>Puisque les variables de ces 2 tableaux sont les mêmes, nous pouvons “empiler” ces 2 tableaux pour n’en former qu’un seul :</p>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb317-1" data-line-number="1"><span class="kw">bind_rows</span>(colorado, indiana)</a></code></pre></div>
+<pre><code># A tibble: 25 x 19
+    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
+   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
+ 1  2013     1     5      829            830        -1     1047           1111
+ 2  2013     1    12      827            830        -3     1112           1111
+ 3  2013     1    19      843            830        13     1123           1111
+ 4  2013     1    26      828            830        -2     1114           1111
+ 5  2013    12    21      916            830        46     1149           1117
+ 6  2013    12    28      913            829        44     1128           1116
+ 7  2013     2     2      858            830        28     1124           1111
+ 8  2013     2     9       NA            830        NA       NA           1111
+ 9  2013     2    16      834            830         4     1114           1111
+10  2013     2    23      826            830        -4     1050           1111
+# ... with 15 more rows, and 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,
+#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;,
+#   distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+<p>Vous noterez que le nombre de lignes du nouveau tableau est la somme des nombres de lignes des 2 tableaux de départ. Bien sûr, cette opération n’est utile que si les tableaux nous sont fournis séparément. Ici, il aurait été bien plus rapide d’obtenir le même résultat en tapant :</p>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb319-1" data-line-number="1">flights <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb319-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(dest <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;HDN&quot;</span>, <span class="st">&quot;SBN&quot;</span>))</a></code></pre></div>
+<pre><code># A tibble: 25 x 19
+    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
+   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
+ 1  2013     1     5      829            830        -1     1047           1111
+ 2  2013     1    12      827            830        -3     1112           1111
+ 3  2013     1    19      843            830        13     1123           1111
+ 4  2013     1    26      828            830        -2     1114           1111
+ 5  2013    10    18     1820           1745        35     2030           2011
+ 6  2013    11     1     2012           1905        67     2221           2131
+ 7  2013    11    22     2013           1905        68     2224           2131
+ 8  2013    12     1     1241           1215        26     1431           1431
+ 9  2013    12    21      916            830        46     1149           1117
+10  2013    12    28      913            829        44     1128           1116
+# ... with 15 more rows, and 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,
+#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;,
+#   distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+<p>Le fonctionnement de <code>bind_cols()</code> est le même :</p>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb321-1" data-line-number="1">a &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, </a>
+<a class="sourceLine" id="cb321-2" data-line-number="2">            <span class="dt">y =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>),</a>
+<a class="sourceLine" id="cb321-3" data-line-number="3">            <span class="dt">z =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>))</a>
+<a class="sourceLine" id="cb321-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb321-5" data-line-number="5">b &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">r =</span> <span class="dv">10</span><span class="op">:</span><span class="dv">8</span>, </a>
+<a class="sourceLine" id="cb321-6" data-line-number="6">            <span class="dt">s =</span> <span class="kw">rnorm</span>(<span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb321-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb321-8" data-line-number="8">a</a></code></pre></div>
+<pre><code># A tibble: 3 x 3
+      x     y z    
+  &lt;int&gt; &lt;dbl&gt; &lt;lgl&gt;
+1     1     2 TRUE 
+2     2     4 FALSE
+3     3     6 FALSE</code></pre>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb323-1" data-line-number="1">b</a></code></pre></div>
+<pre><code># A tibble: 3 x 2
+      r      s
+  &lt;int&gt;  &lt;dbl&gt;
+1    10 -1.22 
+2     9  0.710
+3     8 -0.109</code></pre>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb325-1" data-line-number="1"><span class="kw">bind_cols</span>(a,b)</a></code></pre></div>
+<pre><code># A tibble: 3 x 5
+      x     y z         r      s
+  &lt;int&gt; &lt;dbl&gt; &lt;lgl&gt; &lt;int&gt;  &lt;dbl&gt;
+1     1     2 TRUE     10 -1.22 
+2     2     4 FALSE     9  0.710
+3     3     6 FALSE     8 -0.109</code></pre>
+<p>Ici, puisque <code>a</code> et <code>b</code> ont le même nombre de lignes, il est possible de les accoler. Cela n’a de sens que si les lignes des 2 tableaux correspondent aux mêmes observations.</p>
 <hr />
 </div>
 </div>
