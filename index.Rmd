@@ -31,32 +31,82 @@ description: "Ce livre est un document permettant de prendre en main les logicie
 
 ## Objectifs
 
-Ce livre contient l'ensemble du matériel (contenus, exemples, exercices...) nécessaire à la réalisation des travaux pratiques de biométrie 2.
+Ce livre contient l'ensemble du matériel (contenus, exemples, exercices...) nécessaire à la réalisation des travaux pratiques d'analyse de données consacrés à la prise en main de R et RStudio.
 
 Ces travaux pratiques ont essentiellement 3 objectifs :
 
-1. Vous faire (re)découvrir les logiciels [R](https://cran.r-project.org) et [Rstudio](https://www.rstudio.com) dans lesquels vous allez passer beaucoup de temps en L3 puis en master. Si vous choisissez une spécialité de master qui implique de traiter des données (c'est-à-dire à peu près toutes les spécialités !) et/ou de communiquer des résultats d'analyses statistiques, alors R et RStudio devraient être les logiciels vers lesquels vous vous tournerez naturellement.
+1. Vous faire (re)découvrir les logiciels [R](https://cran.r-project.org) et [Rstudio](https://www.rstudio.com) dans lesquels vous allez passer beaucoup de temps tout au long de votre cursus de master. Vous avez choisi une spécialité de master qui implique de traiter des données et de communiquer des résultats d'analyses statistiques : R et RStudio devraient être les logiciels vers lesquels vous vous tournez naturellement pour faire l'un et l'autre.
 2. Vous faire prendre conscience de l'importance des visualisations graphiques :
   - d'une part, pour comprendre à quoi ressemblent les données en votre possession,
   - d'autre part, pour vous permettre de formuler des hypothèses pertinentes et intéressantes concernant les systèmes que vous étudiez, 
-  - et enfin, pour communiquer efficacement vos trouvailles à un public qui ne connait pas vos données aussi bien que vous (cela inclut évidemment vos enseignants à l'issue de vos stages).  
+  - et enfin, pour communiquer efficacement vos trouvailles à un public qui ne connaît pas vos données aussi bien que vous (cela inclut évidemment vos enseignants à l'issue de vos stages).  
   Les données que vous serez amenés à traiter lors de vos stages, ou plus tard, lorsque vous serez en poste, ont souvent été acquises à grands frais, et au prix d'efforts importants. Il est donc de votre responsabilité d'en tirer le maximum. Et ça commence toujours (ou presque), par la réalisation de visualisations graphiques parlantes.
-3. Vous apprendre comment calculer des statistiques descriptives simples, sur plusieurs types de variables, afin de vous mettre dans les meilleures conditions possible pour aborder d'une part les cours de biométrie 3 du second semestre, et d'autre part les comptes-rendus de TP que vous aurez à produire dans d'autres EC. Vos enseigants attendent de vous la plus grande rigueur lorsque vous analysez et présentez des résultats d'analyses statistiques. Ces TP ont pour objectifs de vous fournir les bases nécessaires pour satisfaire ce niveau d'exigence.
+3. Vous apprendre comment calculer des statistiques descriptives simples, sur plusieurs types de variables, afin de vous mettre dans les meilleures conditions possibles pour aborder d'une part les statistiques plus avancées de cet EC et des EC des semestres 2 et 3, et d'autre part les comptes-rendus de TP et rapports de stage que vous aurez à produire dans ce cursus de master. Vos enseigants attendent de vous la plus grande rigueur lorsque vous analysez et présentez des résultats d'analyses statistiques. Ces TP ont pour objectifs de vous fournir les bases nécessaires pour satisfaire ce niveau d'exigence.
 
 
 ----
 
 ## Organisation
 
-Les séances de travaux pratiques de biométrie 2 durent 1h30 et ont lieu en salle informatique du Pôle Communication Multimédia Réseaux (PCM). Seules 6 heures de TP sont prévues dans la maquette, soit 4 séances de TP. C'est *très peu* ! En fait, c'est très insuffisant pour couvrir correctement la totalité du contenu de cet enseignement. C'est la raison pour laquelle chacune des 3 premières séances de TP est suivie d'**une séance de TEA de 90 minutes**. 
+Globalement, l'EC d'analyse de données contient :
 
-Au début de chaque séance de TP, j'indiquerai un objectif que vous devriez être en mesure d'atteindre en l'espace de 3 heures. Certains iront probablement plus vite et d'autres plus lentement. Lors des séances de TP, je serai disponible pour répondre à chacune de vos questions. À l'issue des 90 minutes de TP, vous changerez de salle (toujours au PCM) et les 90 minutes de TEA commenceront.
+* 15 heures de cours magistraux
+* 9 heures de travaux pratiques (pour chaque groupe)
+* 16 heures de TEA
 
-Pendant le TEA, vous devrez continuer la lecture de ce livre et terminer les exercices demandés. Les exercices devront être déposés sur l'ENT à l'issue de chaque séance de TEA, qu'ils soient terminés ou non. S'ils ne sont pas terminés à l'issue des TEA, vous êtes vivement encourragés à les terminer en dehors des heures de cours. En effet, une correction rapide sera faite lors de la séance de travaux pratiques suivante et nous n'auront que très peu de temps à consacrer à ces corrections. Si vous n'y avez pas sérieusement réfléchi en amont, cela ne vous servira absolument à rien. Pour apprendre à utiliser un logiciel comme R, il faut en effet faire les choses soi-même, "mettre les mains dans le cambouis", se confronter à la difficulté, ne pas avoir peur des messages d'erreurs (il faut d'ailleurs apprendre à les déchiffrer pour comprendre d'où viennent les problèmes), essayer maintes fois, se tromper beaucoup, recommencer, et surtout, ne pas se décourager. Même si ce livre est conçu pour vous faciliter la tâche, l'apprentissage de R est souvent perçu comme une lutte. Mais quand ça fonctionne enfin, c'est extrêmement gratifiant et il n'existe pas à l'heure actuelle de meilleur logiciel pour analyser des données et produire des graphiques de qualité. Vous pouvez me croire sur parôle : j'utilise ce logiciel presque quotidiennement depuis près de 15 ans.
+### Les cours magistraux
 
-Je m'efforcerai de passer 1 ou 2 fois auprès de vous lors des séances de TEA afin de vous débloquer en cas de problème majeur. Vous pouvez aussi [me contacter par email](mailto:bsimonbo@univ-lr.fr). Toutefois, ce document est fait pour vous permettre d'avancer en autonomie. L'expérience montre que la plupart du temps, il suffit de lire correctement pour obtenir la réponse à ses questions. Je vous encourage également à vous **entraider** : c'est très formateur pour celui qui explique, et celui qui rencontre une difficulté a plus de chance de comprendre si c'est quelqu'un d'autre qui lui explique plutôt que la personne qui a rédigé les instructions mal comprises.
+Les cours magistraux sont globalement découpés en 2 blocs à peu près indépendants :
 
-Enfin, les exercices demandés ne seront pas notés, mais tout ce que nous voyons en TP devra être acquis le jour de l'examen. Utilisez donc le temps du TEA pour vous préparer au mieux. L'apprentissage prend du temps, donc autant s'y mettre sérieusement dès maintenant.
+1. un bloc de 10h consacré aux notions statistiques élémentaires, aux statistiques descriptives et aux statistiques inférentielles. 
+
+2. un bloc de 5h consacré aux statistiques multivariées telles que l'Analyse en Composantes Principales (ACP) et l'Analyse Factorielle des Correspondances (AFC).
+
+Tous les aspects vu en cours seront aussi développés lors des séances de TP et de TEA. Vous aurez, pour chaque partie, des exercices à préparer et à déposer sur l'ENT. Ces exercices seront corrigés lors des séances de TP et/ou de TEA. Tout cela doit vous préparer à l'évaluation qui aura lieu en fin de bloc. 
+
+
+### Les Travaux pratiques
+
+Le contenu des séances de travaux pratique sera découpé en 3 parties :
+
+1. Prise en main des logiciels R et RStudio
+2. Illustration du cours sur les statistiques descriptives et inférentielles, mise en pratique et réalisation d'exercices
+3. Illustration du cours sur les statistiques multivariées, mise en pratique et réalisation d'exercices
+
+Pour chaque séance de TP, vous travaillerez en salle banalisée, sur vos ordinateurs personnels. La première séance sera d'ailleurs consacrée à l'installation des logiciels nécessaires à la réalisation des TP ainsi qu'à la présentation de l'organisation.
+
+Les séances de travaux pratiques ne sont *pas toutes obligatoires*. Seules quelques séances (les dates vous seront présentées ulterieurement) seront obligatoires, probablement pas plus d'une par semaine. Pour toutes les autres séances, le fonctionnement sera celui d'une permanence non obligatoire : seuls celles et ceux qui en éprouvent le besoin sont tenus de se déplacer. Ces séances de permanence n'auront lieu que si certains parmi vous m'ont fait part de difficultés ou ont formulé des questions en amont des séances. Si aucune question ne m'a été posée en amont, les permanences n'auront pas lieu. Si une permanence a lieu, elle est ouverte à tous, quel que soit votre groupe de TP. Vous n'êtes d'ailleurs pas tenus de rester pendant 90 minutes : vous venez avec votre question, on y répond ensemble, et vous êtes libre de repartir quand bon vous semble.
+
+**Comment procéder pour savoir si une séance de permanence a lieu, ou pour poser une question ?**
+
+Tout se passera en ligne, grâce au logiciel [Slack](https://slack.com/intl/fr-fr/), qui fonctionne un peu comme un "twitter privé". Slack facilite la communication des équipes et permet de travailler ensemble. Créez-vous un compte en ligne et installez le logiciel sur votre ordinateur (il existe aussi des versions pour tablettes et smartphones). Lorsque vous aurez installé le logiciel, [cliquez sur ce lien](https://join.slack.com/t/geel-2018/shared_invite/enQtNDU2MDY0NzEwNzQzLWU4OTZiODNlOWI4YmIwZDY1MDZlYTg0YmU2OWU4MzFlNDc3YTdjOWU4NzQ3MjExYzIyNTljZGM4YmRkNjFhOGE) pour vous connecter à notre espace de travail commun.
+
+Vous verrez que 3 "chaînes" sont disponibles :
+
+- \#organisation : c'est là que les questions liées à l'organisation du cours, des TP et TEA doivent être posées. Si vous ne savez pas si une séance de permanence a lieu, posez la question ici.
+- \#rstudio : c'est ici que toutes les questions praticuqes liées à l'utilisation de R et RStudio devront êtres posées. Problèmes de syntaxe, problèmes liés à l'interface, à l'installation des packages ou à l'utilisation des fonctions... Tout ce qui concernen R ou RStudio mais pas directement les statistiques sera traité ici. Vous êtes libres de poser des questions, de poster des captures d'écran, des morceaux de code, des messages d'erreur. Et vous êtes bien entendus vivement encouragés à vous entraider et à répondre aux questions de vos collègues. Je n'interviendrai ici que pour répondre aux questions laissées sans réponse ou si les réponses apportées sont inexactes. Le fonctionnement est celui d'un forum de discussion instantanné. 
+- \#statistiques : c'est ici que toutes les questions liées aux méthodes statistiques devront être posées. Comme pour la chaîne \#rstudio, vous êtes encouragés à poster des questions mais aussi des réponses. Le fonctionnement de l'ensemble se veut participatif.
+
+Ainsi, quand vous travaillerez à vos TP ou TEA, prenez l'habitude de garder Slack ouvert sur votre ordinateur. Même si vous n'avez pas de question à poser, votre participation active pour répondre à vos collègues est souhaitée.
+
+Si toutes les questions posées sur Slack ont trouvé une réponse, alors, inutile d'organiser une permanence. Si en revanche, les mêmes questions reviennent fréquemment, ou si des explications "en direct" sont plus efficaces qu'un long message sur Slack, alors une permanence aura lieu.
+
+
+### Le TEA
+
+Les séances de TEA auront toutes lieu "à distance". Je ne suis pas tenu d'être présent lors des séances de TEA, même si une salle banalisée est systématiquement réservée pour vous permettre de vous retrouver et de travailler ensemble. Je m'engage en revanche à être disponible sur Slack pour répondre rapidement aux questions posées lors des TEA. Et si certaines questions n'ont pas trouvé de réponse pendant les séances de TEA, nous y répondront lors du TP suivant.
+
+
+### L'évaluation
+
+L'évaluation se fera sous la forme d'un devoir à la maison qui contiendra une série d'exercices couvrant tous les aspects du cours, de l'importation de données dans RStudio à leur analyse statistique en passant par leur mise en forme, et leur utilisation pour produire des graphiques et des tableaux synthétiques.
+
+Dans le cadre de l'approche compétences, j'essaierai, dans la mesure du possible, d'indiquer quelles compétences sont acquises à l'issue de cet enseignement. Les compétences visées sont les suivantes :
+
+1. Mettre en forme des données acquises afin d'en permettre l'analyse
+2. Analyser des données uni-, bi- ou multi-variées issues d'observations et de mesures sur le terrain et au laboratoire ou issues d'enquêtes, pour répondre à une problématique scientifique précise
+3. Maîtriser le logiciel R pour realiser des analyses statistiques, des représentations graphiques ou des simulations numériques
+
 
 ```{r package_bibliography, include=FALSE}
 # automatically create a bib database for R packages

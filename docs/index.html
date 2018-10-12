@@ -136,7 +136,12 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#objectifs"><i class="fa fa-check"></i><b>1.1</b> Objectifs</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#organisation"><i class="fa fa-check"></i><b>1.2</b> Organisation</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#organisation"><i class="fa fa-check"></i><b>1.2</b> Organisation</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#les-cours-magistraux"><i class="fa fa-check"></i><b>1.2.1</b> Les cours magistraux</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#les-travaux-pratiques"><i class="fa fa-check"></i><b>1.2.2</b> Les Travaux pratiques</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#le-tea"><i class="fa fa-check"></i><b>1.2.3</b> Le TEA</a></li>
+<li class="chapter" data-level="1.2.4" data-path="index.html"><a href="index.html#levaluation"><i class="fa fa-check"></i><b>1.2.4</b> L’évaluation</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="bases.html"><a href="bases.html"><i class="fa fa-check"></i><b>2</b> R et RStudio : les bases</a><ul>
 <li class="chapter" data-level="2.1" data-path="bases.html"><a href="bases.html#que-sont-r-et-rstudio"><i class="fa fa-check"></i><b>2.1</b> Que sont R et RStudio</a><ul>
@@ -291,33 +296,78 @@ code span.wa { color: #bf0303; } /* Warning */
 <h1><span class="header-section-number">1</span> Introduction</h1>
 <div id="objectifs" class="section level2">
 <h2><span class="header-section-number">1.1</span> Objectifs</h2>
-<p>Ce livre contient l’ensemble du matériel (contenus, exemples, exercices…) nécessaire à la réalisation des travaux pratiques de biométrie 2.</p>
+<p>Ce livre contient l’ensemble du matériel (contenus, exemples, exercices…) nécessaire à la réalisation des travaux pratiques d’analyse de données consacrés à la prise en main de R et RStudio.</p>
 <p>Ces travaux pratiques ont essentiellement 3 objectifs :</p>
 <ol style="list-style-type: decimal">
-<li>Vous faire (re)découvrir les logiciels <a href="https://cran.r-project.org">R</a> et <a href="https://www.rstudio.com">Rstudio</a> dans lesquels vous allez passer beaucoup de temps en L3 puis en master. Si vous choisissez une spécialité de master qui implique de traiter des données (c’est-à-dire à peu près toutes les spécialités !) et/ou de communiquer des résultats d’analyses statistiques, alors R et RStudio devraient être les logiciels vers lesquels vous vous tournerez naturellement.</li>
+<li>Vous faire (re)découvrir les logiciels <a href="https://cran.r-project.org">R</a> et <a href="https://www.rstudio.com">Rstudio</a> dans lesquels vous allez passer beaucoup de temps tout au long de votre cursus de master. Vous avez choisi une spécialité de master qui implique de traiter des données et de communiquer des résultats d’analyses statistiques : R et RStudio devraient être les logiciels vers lesquels vous vous tournez naturellement pour faire l’un et l’autre.</li>
 <li>Vous faire prendre conscience de l’importance des visualisations graphiques :</li>
 </ol>
 <ul>
 <li>d’une part, pour comprendre à quoi ressemblent les données en votre possession,</li>
 <li>d’autre part, pour vous permettre de formuler des hypothèses pertinentes et intéressantes concernant les systèmes que vous étudiez,</li>
-<li>et enfin, pour communiquer efficacement vos trouvailles à un public qui ne connait pas vos données aussi bien que vous (cela inclut évidemment vos enseignants à l’issue de vos stages).<br />
+<li>et enfin, pour communiquer efficacement vos trouvailles à un public qui ne connaît pas vos données aussi bien que vous (cela inclut évidemment vos enseignants à l’issue de vos stages).<br />
 Les données que vous serez amenés à traiter lors de vos stages, ou plus tard, lorsque vous serez en poste, ont souvent été acquises à grands frais, et au prix d’efforts importants. Il est donc de votre responsabilité d’en tirer le maximum. Et ça commence toujours (ou presque), par la réalisation de visualisations graphiques parlantes.</li>
 </ul>
 <ol start="3" style="list-style-type: decimal">
-<li>Vous apprendre comment calculer des statistiques descriptives simples, sur plusieurs types de variables, afin de vous mettre dans les meilleures conditions possible pour aborder d’une part les cours de biométrie 3 du second semestre, et d’autre part les comptes-rendus de TP que vous aurez à produire dans d’autres EC. Vos enseigants attendent de vous la plus grande rigueur lorsque vous analysez et présentez des résultats d’analyses statistiques. Ces TP ont pour objectifs de vous fournir les bases nécessaires pour satisfaire ce niveau d’exigence.</li>
+<li>Vous apprendre comment calculer des statistiques descriptives simples, sur plusieurs types de variables, afin de vous mettre dans les meilleures conditions possibles pour aborder d’une part les statistiques plus avancées de cet EC et des EC des semestres 2 et 3, et d’autre part les comptes-rendus de TP et rapports de stage que vous aurez à produire dans ce cursus de master. Vos enseigants attendent de vous la plus grande rigueur lorsque vous analysez et présentez des résultats d’analyses statistiques. Ces TP ont pour objectifs de vous fournir les bases nécessaires pour satisfaire ce niveau d’exigence.</li>
 </ol>
 <hr />
 </div>
 <div id="organisation" class="section level2">
 <h2><span class="header-section-number">1.2</span> Organisation</h2>
-<p>Les séances de travaux pratiques de biométrie 2 durent 1h30 et ont lieu en salle informatique du Pôle Communication Multimédia Réseaux (PCM). Seules 6 heures de TP sont prévues dans la maquette, soit 4 séances de TP. C’est <em>très peu</em> ! En fait, c’est très insuffisant pour couvrir correctement la totalité du contenu de cet enseignement. C’est la raison pour laquelle chacune des 3 premières séances de TP est suivie d’<strong>une séance de TEA de 90 minutes</strong>.</p>
-<p>Au début de chaque séance de TP, j’indiquerai un objectif que vous devriez être en mesure d’atteindre en l’espace de 3 heures. Certains iront probablement plus vite et d’autres plus lentement. Lors des séances de TP, je serai disponible pour répondre à chacune de vos questions. À l’issue des 90 minutes de TP, vous changerez de salle (toujours au PCM) et les 90 minutes de TEA commenceront.</p>
-<p>Pendant le TEA, vous devrez continuer la lecture de ce livre et terminer les exercices demandés. Les exercices devront être déposés sur l’ENT à l’issue de chaque séance de TEA, qu’ils soient terminés ou non. S’ils ne sont pas terminés à l’issue des TEA, vous êtes vivement encourragés à les terminer en dehors des heures de cours. En effet, une correction rapide sera faite lors de la séance de travaux pratiques suivante et nous n’auront que très peu de temps à consacrer à ces corrections. Si vous n’y avez pas sérieusement réfléchi en amont, cela ne vous servira absolument à rien. Pour apprendre à utiliser un logiciel comme R, il faut en effet faire les choses soi-même, “mettre les mains dans le cambouis”, se confronter à la difficulté, ne pas avoir peur des messages d’erreurs (il faut d’ailleurs apprendre à les déchiffrer pour comprendre d’où viennent les problèmes), essayer maintes fois, se tromper beaucoup, recommencer, et surtout, ne pas se décourager. Même si ce livre est conçu pour vous faciliter la tâche, l’apprentissage de R est souvent perçu comme une lutte. Mais quand ça fonctionne enfin, c’est extrêmement gratifiant et il n’existe pas à l’heure actuelle de meilleur logiciel pour analyser des données et produire des graphiques de qualité. Vous pouvez me croire sur parôle : j’utilise ce logiciel presque quotidiennement depuis près de 15 ans.</p>
-<p>Je m’efforcerai de passer 1 ou 2 fois auprès de vous lors des séances de TEA afin de vous débloquer en cas de problème majeur. Vous pouvez aussi <a href="mailto:bsimonbo@univ-lr.fr">me contacter par email</a>. Toutefois, ce document est fait pour vous permettre d’avancer en autonomie. L’expérience montre que la plupart du temps, il suffit de lire correctement pour obtenir la réponse à ses questions. Je vous encourage également à vous <strong>entraider</strong> : c’est très formateur pour celui qui explique, et celui qui rencontre une difficulté a plus de chance de comprendre si c’est quelqu’un d’autre qui lui explique plutôt que la personne qui a rédigé les instructions mal comprises.</p>
-<p>Enfin, les exercices demandés ne seront pas notés, mais tout ce que nous voyons en TP devra être acquis le jour de l’examen. Utilisez donc le temps du TEA pour vous préparer au mieux. L’apprentissage prend du temps, donc autant s’y mettre sérieusement dès maintenant.</p>
+<p>Globalement, l’EC d’analyse de données contient :</p>
+<ul>
+<li>15 heures de cours magistraux</li>
+<li>9 heures de travaux pratiques (pour chaque groupe)</li>
+<li>16 heures de TEA</li>
+</ul>
+<div id="les-cours-magistraux" class="section level3">
+<h3><span class="header-section-number">1.2.1</span> Les cours magistraux</h3>
+<p>Les cours magistraux sont globalement découpés en 2 blocs à peu près indépendants :</p>
+<ol style="list-style-type: decimal">
+<li><p>un bloc de 10h consacré aux notions statistiques élémentaires, aux statistiques descriptives et aux statistiques inférentielles.</p></li>
+<li><p>un bloc de 5h consacré aux statistiques multivariées telles que l’Analyse en Composantes Principales (ACP) et l’Analyse Factorielle des Correspondances (AFC).</p></li>
+</ol>
+<p>Tous les aspects vu en cours seront aussi développés lors des séances de TP et de TEA. Vous aurez, pour chaque partie, des exercices à préparer et à déposer sur l’ENT. Ces exercices seront corrigés lors des séances de TP et/ou de TEA. Tout cela doit vous préparer à l’évaluation qui aura lieu en fin de bloc.</p>
+</div>
+<div id="les-travaux-pratiques" class="section level3">
+<h3><span class="header-section-number">1.2.2</span> Les Travaux pratiques</h3>
+<p>Le contenu des séances de travaux pratique sera découpé en 3 parties :</p>
+<ol style="list-style-type: decimal">
+<li>Prise en main des logiciels R et RStudio</li>
+<li>Illustration du cours sur les statistiques descriptives et inférentielles, mise en pratique et réalisation d’exercices</li>
+<li>Illustration du cours sur les statistiques multivariées, mise en pratique et réalisation d’exercices</li>
+</ol>
+<p>Pour chaque séance de TP, vous travaillerez en salle banalisée, sur vos ordinateurs personnels. La première séance sera d’ailleurs consacrée à l’installation des logiciels nécessaires à la réalisation des TP ainsi qu’à la présentation de l’organisation.</p>
+<p>Les séances de travaux pratiques ne sont <em>pas toutes obligatoires</em>. Seules quelques séances (les dates vous seront présentées ulterieurement) seront obligatoires, probablement pas plus d’une par semaine. Pour toutes les autres séances, le fonctionnement sera celui d’une permanence non obligatoire : seuls celles et ceux qui en éprouvent le besoin sont tenus de se déplacer. Ces séances de permanence n’auront lieu que si certains parmi vous m’ont fait part de difficultés ou ont formulé des questions en amont des séances. Si aucune question ne m’a été posée en amont, les permanences n’auront pas lieu. Si une permanence a lieu, elle est ouverte à tous, quel que soit votre groupe de TP. Vous n’êtes d’ailleurs pas tenus de rester pendant 90 minutes : vous venez avec votre question, on y répond ensemble, et vous êtes libre de repartir quand bon vous semble.</p>
+<p><strong>Comment procéder pour savoir si une séance de permanence a lieu, ou pour poser une question ?</strong></p>
+<p>Tout se passera en ligne, grâce au logiciel <a href="https://slack.com/intl/fr-fr/">Slack</a>, qui fonctionne un peu comme un “twitter privé”. Slack facilite la communication des équipes et permet de travailler ensemble. Créez-vous un compte en ligne et installez le logiciel sur votre ordinateur (il existe aussi des versions pour tablettes et smartphones). Lorsque vous aurez installé le logiciel, <a href="https://join.slack.com/t/geel-2018/shared_invite/enQtNDU2MDY0NzEwNzQzLWU4OTZiODNlOWI4YmIwZDY1MDZlYTg0YmU2OWU4MzFlNDc3YTdjOWU4NzQ3MjExYzIyNTljZGM4YmRkNjFhOGE">cliquez sur ce lien</a> pour vous connecter à notre espace de travail commun.</p>
+<p>Vous verrez que 3 “chaînes” sont disponibles :</p>
+<ul>
+<li>#organisation : c’est là que les questions liées à l’organisation du cours, des TP et TEA doivent être posées. Si vous ne savez pas si une séance de permanence a lieu, posez la question ici.</li>
+<li>#rstudio : c’est ici que toutes les questions praticuqes liées à l’utilisation de R et RStudio devront êtres posées. Problèmes de syntaxe, problèmes liés à l’interface, à l’installation des packages ou à l’utilisation des fonctions… Tout ce qui concernen R ou RStudio mais pas directement les statistiques sera traité ici. Vous êtes libres de poser des questions, de poster des captures d’écran, des morceaux de code, des messages d’erreur. Et vous êtes bien entendus vivement encouragés à vous entraider et à répondre aux questions de vos collègues. Je n’interviendrai ici que pour répondre aux questions laissées sans réponse ou si les réponses apportées sont inexactes. Le fonctionnement est celui d’un forum de discussion instantanné.</li>
+<li>#statistiques : c’est ici que toutes les questions liées aux méthodes statistiques devront être posées. Comme pour la chaîne #rstudio, vous êtes encouragés à poster des questions mais aussi des réponses. Le fonctionnement de l’ensemble se veut participatif.</li>
+</ul>
+<p>Ainsi, quand vous travaillerez à vos TP ou TEA, prenez l’habitude de garder Slack ouvert sur votre ordinateur. Même si vous n’avez pas de question à poser, votre participation active pour répondre à vos collègues est souhaitée.</p>
+<p>Si toutes les questions posées sur Slack ont trouvé une réponse, alors, inutile d’organiser une permanence. Si en revanche, les mêmes questions reviennent fréquemment, ou si des explications “en direct” sont plus efficaces qu’un long message sur Slack, alors une permanence aura lieu.</p>
+</div>
+<div id="le-tea" class="section level3">
+<h3><span class="header-section-number">1.2.3</span> Le TEA</h3>
+<p>Les séances de TEA auront toutes lieu “à distance”. Je ne suis pas tenu d’être présent lors des séances de TEA, même si une salle banalisée est systématiquement réservée pour vous permettre de vous retrouver et de travailler ensemble. Je m’engage en revanche à être disponible sur Slack pour répondre rapidement aux questions posées lors des TEA. Et si certaines questions n’ont pas trouvé de réponse pendant les séances de TEA, nous y répondront lors du TP suivant.</p>
+</div>
+<div id="levaluation" class="section level3">
+<h3><span class="header-section-number">1.2.4</span> L’évaluation</h3>
+<p>L’évaluation se fera sous la forme d’un devoir à la maison qui contiendra une série d’exercices couvrant tous les aspects du cours, de l’importation de données dans RStudio à leur analyse statistique en passant par leur mise en forme, et leur utilisation pour produire des graphiques et des tableaux synthétiques.</p>
+<p>Dans le cadre de l’approche compétences, j’essaierai, dans la mesure du possible, d’indiquer quelles compétences sont acquises à l’issue de cet enseignement. Les compétences visées sont les suivantes :</p>
+<ol style="list-style-type: decimal">
+<li>Mettre en forme des données acquises afin d’en permettre l’analyse</li>
+<li>Analyser des données uni-, bi- ou multi-variées issues d’observations et de mesures sur le terrain et au laboratoire ou issues d’enquêtes, pour répondre à une problématique scientifique précise</li>
+<li>Maîtriser le logiciel R pour realiser des analyses statistiques, des représentations graphiques ou des simulations numériques</li>
+</ol>
 <!-- Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab). -->
 <!-- You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015]. -->
 
+</div>
 </div>
 </div>
             </section>
