@@ -25,7 +25,7 @@
 <meta name="author" content="Benoît Simon-Bouhet">
 
 
-<meta name="date" content="2018-10-12">
+<meta name="date" content="2018-10-14">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -233,7 +233,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="chapter" data-level="5.3" data-path="tidyr.html"><a href="tidyr.html#importer-des-donnees-depuis-un-tableur"><i class="fa fa-check"></i><b>5.3</b> Importer des données depuis un tableur</a><ul>
 <li class="chapter" data-level="5.3.1" data-path="tidyr.html"><a href="tidyr.html#les-regles-de-base"><i class="fa fa-check"></i><b>5.3.1</b> Les règles de base</a></li>
 <li class="chapter" data-level="5.3.2" data-path="tidyr.html"><a href="tidyr.html#tableur"><i class="fa fa-check"></i><b>5.3.2</b> Fichiers au format tableur (.xls ou .xlsx)</a></li>
-<li class="chapter" data-level="5.3.3" data-path="tidyr.html"><a href="tidyr.html#fichiers-au-format-texte-brut-.csv"><i class="fa fa-check"></i><b>5.3.3</b> Fichiers au format texte brut (.csv)</a></li>
+<li class="chapter" data-level="5.3.3" data-path="tidyr.html"><a href="tidyr.html#plaintext"><i class="fa fa-check"></i><b>5.3.3</b> Fichiers au format texte brut (.csv)</a></li>
 <li class="chapter" data-level="5.3.4" data-path="tidyr.html"><a href="tidyr.html#exercices-8"><i class="fa fa-check"></i><b>5.3.4</b> Exercices</a></li>
 </ul></li>
 </ul></li>
@@ -257,7 +257,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="chapter" data-level="6.6" data-path="wrangling.html"><a href="wrangling.html#selectionner-des-variables-avec-select"><i class="fa fa-check"></i><b>6.6</b> Sélectionner des variables avec <code>select()</code></a></li>
 <li class="chapter" data-level="6.7" data-path="wrangling.html"><a href="wrangling.html#creer-de-nouvelles-variables-avec-mutate"><i class="fa fa-check"></i><b>6.7</b> Créer de nouvelles variables avec <code>mutate()</code></a><ul>
 <li class="chapter" data-level="6.7.1" data-path="wrangling.html"><a href="wrangling.html#principe-1"><i class="fa fa-check"></i><b>6.7.1</b> Principe</a></li>
-<li class="chapter" data-level="6.7.2" data-path="wrangling.html"><a href="wrangling.html#exercices-10"><i class="fa fa-check"></i><b>6.7.2</b> Exercices</a></li>
+<li class="chapter" data-level="6.7.2" data-path="wrangling.html"><a href="wrangling.html#transformer-des-variables-en-facteurs"><i class="fa fa-check"></i><b>6.7.2</b> Transformer des variables en facteurs</a></li>
+<li class="chapter" data-level="6.7.3" data-path="wrangling.html"><a href="wrangling.html#exercices-10"><i class="fa fa-check"></i><b>6.7.3</b> Exercices</a></li>
 </ul></li>
 <li class="chapter" data-level="6.8" data-path="wrangling.html"><a href="wrangling.html#arrange"><i class="fa fa-check"></i><b>6.8</b> Trier des lignes avec <code>arrange()</code></a></li>
 <li class="chapter" data-level="6.9" data-path="wrangling.html"><a href="wrangling.html#associer-plusieurs-tableaux-avec-left_join-et-inner_join"><i class="fa fa-check"></i><b>6.9</b> Associer plusieurs tableaux avec <code>left_join()</code> et <code>inner_join()</code></a><ul>
@@ -754,7 +755,7 @@ Figure 5.6: Les bons réglages pour ce fichier
 </ul>
 <p>Nous verrons dans la partie <a href="wrangling.html#wrangling">6</a> comment effectuer simplement ces différentes opérations</p>
 </div>
-<div id="fichiers-au-format-texte-brut-.csv" class="section level3">
+<div id="plaintext" class="section level3">
 <h3><span class="header-section-number">5.3.3</span> Fichiers au format texte brut (.csv)</h3>
 <p>Nous allons utiliser les mêmes données que précédemment, mais cette fois-ci, elles sont contenues dans un fichier au format <code>.csv</code>. Téléchargez le fichier <a href="data/dauphin.csv">dauphin.csv</a> (pour cela, faites un clic droit sur le lien et choisissez <code>Enregistrez la cible du lien sous...</code> ou une mention équivalente), placez-le dans votre répertoire de travail, et ouvrez-le avec le bloc notes Windows ou tout autre éditeur de texte brut disponible sur votre ordinateur. <strong>Attention</strong> : Microsoft Word n’est pas un éditeur de texte brut. Un fichier au format <code>.doc</code> ou <code>.docx</code> est illisible dans un éditeur de texte brut car outre le texte, ces formats de documents contiennent toutes les informations concernant la mise en forme du texte (polices de caractères, tailles, couleurs et autres attributs, présence de figures, de tableaux dans le document, etc.).</p>
 <p>À l’inverse, les fichiers au format <code>.txt</code>, <code>.csv</code> et même <code>.R</code> (vos scripts !) sont des fichiers au format texte brut. Vous pouvez d’ailleurs essayer d’ouvrir <code>dauphin.csv</code> depuis RStudio, en allant dans la fenêtre <code>Files</code> puis en cliquant sur le nom du fichier et en choisissant <code>View File</code>. RStudio ouvre un nouvel onglet à côté de votre script vous permettant d’inspecter le contenu de ce fichier. Par rapport au fichier excel, vous pouvez noter un certain nombre de différences :</p>

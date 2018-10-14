@@ -9,6 +9,7 @@ Dans ce chapitre, nous aurons besoin des packages suivants :
 library(dplyr)
 library(ggplot2)
 library(nycflights13)
+library(forcats)
 ```
 
 ```{r include=FALSE}
@@ -592,7 +593,7 @@ flights %>%
 knitr::include_graphics('images/mutate.png')
 ```
 
-La fonction `mutate()` permet de créer de nouvelles variables à partir des variables existantes, ou de modifier des variables déjà présentes dans un jeu de données. Il est en effet fréquent d'avoir besoin de calculer de nouvelles variables, souvnet plus informatives que les variables disponibles.
+La fonction `mutate()` permet de créer de nouvelles variables à partir des variables existantes, ou de modifier des variables déjà présentes dans un jeu de données. Il est en effet fréquent d'avoir besoin de calculer de nouvelles variables, souvent plus informatives que les variables disponibles.
 
 Voyons un exemple. Nous commençons par créer un nouveau jeu de données `flights_sml` en sélectionnant uniquement les variables qui nous seront utiles :
 
@@ -635,6 +636,172 @@ gain_speed <- flights_sml %>%
          distance = distance * 1.60934,
          speed = (distance / air_time) * 60)
 ```
+
+
+### Transformer des variables en facteurs
+
+Il n'est pas rare que les tableaux de données que nous importons contiennent des colonnes numériques ou de chaînes de caractères qui devraient en réalité être reconnues en tant que facteurs. La fonction mutate nous permet de changer rapidement le type d'une variable afin qu'elle soit reconnue comme un facteur.
+
+À titre d'exemple, nous allons importer le jeu de données contenu dans le fichier `squid.txt` que vous pourrez [télécharger ici](data/squid.txt). Placez-le dans votre répertoire de travail et utilisez la méthode décrite à la section \@ref(plaintext) pour obtenir la commande suivante :
+
+```{r, include=FALSE}
+library(readr)
+squid <- read_delim("data/squid.txt", "\t", 
+    escape_double = FALSE, trim_ws = TRUE)
+```
+
+```{r eval=FALSE}
+library(readr)
+squid <- read_delim("squid.txt", "\t", 
+    escape_double = FALSE, trim_ws = TRUE)
+squid
+```
+
+```{r, echo=FALSE}
+squid
+```
+
+Ce jeu de données contient des informations sur l'Indice Gonado-Somatique (`GSI`) de 2644 pieuvres collectées dans 4 stations d'échantillonnage sur une période de 2 ans. La variable `Location` est codée sous forme  d'entiers, or il devrait s'agir d'un facteur. La fonction `mutate()` nous permet d'effectuer la transformation :
+
+```{r, tidy=FALSE}
+squid %>% 
+  mutate(Location = factor(Location))
+```
+
+De même, la variable `Sex` est codée sous forme numérique, or il devrait s'agir d'un facteur, les `1` correspondants aux mâles et les `2` aux femelles. Nous pouvons là encore faire la modification grâce à la fonction `mutate()` :
+
+```{r, tidy=FALSE}
+squid2 <- squid %>% 
+  mutate(Location = factor(Location),
+         Sex = factor(Sex, levels = c(1, 2), labels = c("Male", "Female")))
+
+squid2
+```
+
+`squid2` contient maintenant le tableau de départ avec les variables `Location` et `Sex` codées sous forme de facteur. Si nous faisons un graphique avec ces nouveaux facteurs, l'ordre des catégories sera celui spécifié par la fonction `factor()`. Ainsi, si nous faisons par exemple un boxplot de `GSI` en fonction du `Sex`, voilà ce que nous obtenons :
+
+```{r, tidy=FALSE, fig.asp= 1.5, out.width='50%', fig.width=4, fig.cap="Indice Gonado Somatique  selon le sexe."}
+squid2 %>% 
+  ggplot(aes(x = Sex, y = GSI)) +
+    geom_boxplot(notch = TRUE)
+```
+
+Comment faire pour inverser l'ordre des catégories sur l'axe des abscisses ? Il faut inverser l'ordre des catégories dans le facteur `Sex`. L'ordre dans lequel les catégories apparaissent sur un graphique est en effet déterminé par l'ordre dans lequel les niveaux du facteur sont organisés. D'habitude, les niveaux sont automatiquement triés par ordre alphabétique quand les catégories sont des chaînes de caractères, et en ordre croissant quand la variable est numérique. Ici les niveaux sont les suivants :
+
+```{r}
+levels(squid2$Sex)
+```
+
+`Male` apparaît avant `Female`, car les niveaux de départ étaient `1` pour les mâles et `2` pour les femelles. C'est donc cet ordre qui est conservé. Le package `forcats` fournit de nombreuses fonctions permettant de manipuler les facteurs. Toutes commencent par `fct_`. Nous pouvons ici utiliser `fct_rev()` pour inverser l'ordre des niveaux. Pensez à installer et charger `forcats` si ce n'est pas déjà fait. Si vous avez chargé le `tidyverse`, `forcats` est déjà disponible :
+
+```{r, tidy = FALSE}
+library(forcats)
+squid3 <- squid2 %>% 
+  mutate(Sex = fct_rev(Sex))
+
+levels(squid3$Sex)
+```
+
+```{r, tidy=FALSE, fig.asp= 1.5, out.width='50%', fig.width=4, fig.cap="Indice Gonado Somatique  selon le sexe."}
+squid3 %>% 
+  ggplot(aes(x = Sex, y = GSI)) +
+    geom_boxplot(notch = TRUE)
+```
+
+Revenons maintenant au jeu de données `dauphin`. 
+
+```{r}
+dauphin
+```
+
+Commençons par supprimer la variable `ID`, qui est totalement redondante avec les numéros de ligne : 
+
+```{r, tidy=FALSE}
+dauphin <- dauphin %>% 
+  select(-ID)
+dauphin
+```
+
+Les variables `Sexe`, `Statut` et `Organe` devrait elles aussi être encodées sous forme de facteurs. Plutôt que de taper le code ci dessous (qui fonctionne très bien) :
+
+```{r, tidy=FALSE, eval=FALSE}
+dauphin %>% 
+  mutate(Sexe = factor(Sexe),
+         Statut = factor(Statut),
+         Organe = factor(Organe))
+```
+
+Nous pouvons utiliser la fonction `mutate_if()`, qui appliquera la même fonction à toutes les variables respectant une condition précise. Ici, toutes les colonnes possédant le type `<chr>` sont des colonnes que nous souhaitons transformer en facteur. Nous pouvons donc taper ceci :
+
+```{r, tidy=FALSE}
+dauphin <- dauphin %>% 
+  mutate_if(is.character, as.factor)
+dauphin
+```
+
+Nous constatons ici que nos 3 variables catégorielles ont bien été transformées en facteurs (et seulement ces variables).
+
+Nous allons encore réaliser 2 modifications :
+
+1. Nous allons transformer les niveaux `f` et `m` du facteur `Sexe` en `Female` et `Male` respectivement.
+2. Nous allons re-ordonner les niveaux du facteur `Statut`. Actuellement, les niveaux de ce facteur sont les suivants :
+
+```{r}
+levels(dauphin$Statut)
+```
+
+Or il exsite un ordre des statuts reproducteurs qui reflète une progression biologique : 
+`imm` (immature), `mat` (mature), `pnl` (pregnant non lactating), `l` (lactating), `pl` (pregnant lactating), `repos` (repos somatique).
+
+Commençons par changer les niveaux du facteur `Sexe`. Pour cela, nous pouvons utiliser la fonction `fct_recode()` :
+
+```{r, tidy=FALSE}
+dauphin %>% 
+  mutate(Sexe = fct_recode(Sexe, 
+                           "Female" = "f",
+                           "Male" = "m"))
+```
+
+Nous pouvons maintenant modifier l'ordre des niveaux de `Satut` :
+
+```{r, tidy=FALSE}
+dauphin <- dauphin %>% 
+  mutate(Sexe = fct_recode(Sexe, 
+                           "Female" = "f",
+                           "Male" = "m"),
+         Statut = fct_relevel(Statut, "imm", "mat", "pnl", "l", "pl", "repos"))
+dauphin
+levels(dauphin$Statut)
+```
+
+Toutes les transformations que nous avons fait subir à ce jeu de données n'ont qu'un seul objectif : "ranger" ce jeu de données. Nous avons importé `dauphin` depuis un fichier externe, puis nous avons supprimé les variables inutiles et modifié celles qui devaient l'être. Toutes ces étapes peuvent être enchaînées grâce au pipe, de la façon suivante :
+
+```{r, tidy=FALSE}
+# Importation et mise en forme du jeu de données `dauphin`
+library(readxl)
+dauphin <- read_excel("data/dauphin.xls", na = "*", skip = 9) %>%   # Importation, puis
+  rename(ID = `N°`,                          # On donne des noms courts, puis
+         Statut = `Statut reproducteur`,
+         Taille = `Taille en cm`,
+         Age = `Age en années`,
+         Cd = `Cd (mg.kg-1)`,
+         Cu = `Cu (mg.kg-1)`,
+         Hg = `Hg (mg.kg-1)`) %>% 
+  mutate_if(is.character, as.factor) %>%    # On transforme en facteurs les variables <chr>, puis
+  mutate(Sexe = fct_recode(Sexe,            # On modifie les niveau de `Sexe` et l'ordre des niveaux de Statut
+                           "Female" = "f",
+                           "Male" = "m"),
+         Statut = fct_relevel(Statut, "imm", "mat", "pnl", "l", "pl", "repos"))
+
+dauphin
+```
+
+Outre les fonction `fct_rev()`, `fct_recode()` et `fct_relevel()` abordées ici, on peut aussi noter : 
+* `fct_reorder()` et `fct_reorder2()`, pour ordonner automatiquement les niveaux d'un facteur en fonction d'une autre variable numerique (pour avoir par exemple des séries rangées par ordre de moyenne croissante sur un graphique)
+* `fct_infreq()`, pour ordonner automatiquement les niveaux d'un facteur oar ordre de fréquence croissante, ce qui est notamment utile pour faire des barplots ordonnés
+* `fct_collapse()`, pour fusionner deux ou plusieurs niveaux d'un facteur
+
+Nous n'avons pas le temps de développer ici des exemples, mais sachez que ces fonctiosn existent. Vous trouverez des exemples détaillés dans [le chapitre consacré aux facteurs](http://r4ds.had.co.nz/factors.html#modifying-factor-levels) de l'ouvrage en ligne [R for Data Science](http://r4ds.had.co.nz/). C'est en anglais, mais les exemples sont très parlants. N'hésitez pas à consulter cet ouvrage et à faire des essais de mise en application avec les jeux de données vus ici (e.g. `dauphin` ou `squid`).
 
 
 ### Exercices

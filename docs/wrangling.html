@@ -25,7 +25,7 @@
 <meta name="author" content="Benoît Simon-Bouhet">
 
 
-<meta name="date" content="2018-10-12">
+<meta name="date" content="2018-10-14">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -233,7 +233,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="chapter" data-level="5.3" data-path="tidyr.html"><a href="tidyr.html#importer-des-donnees-depuis-un-tableur"><i class="fa fa-check"></i><b>5.3</b> Importer des données depuis un tableur</a><ul>
 <li class="chapter" data-level="5.3.1" data-path="tidyr.html"><a href="tidyr.html#les-regles-de-base"><i class="fa fa-check"></i><b>5.3.1</b> Les règles de base</a></li>
 <li class="chapter" data-level="5.3.2" data-path="tidyr.html"><a href="tidyr.html#tableur"><i class="fa fa-check"></i><b>5.3.2</b> Fichiers au format tableur (.xls ou .xlsx)</a></li>
-<li class="chapter" data-level="5.3.3" data-path="tidyr.html"><a href="tidyr.html#fichiers-au-format-texte-brut-.csv"><i class="fa fa-check"></i><b>5.3.3</b> Fichiers au format texte brut (.csv)</a></li>
+<li class="chapter" data-level="5.3.3" data-path="tidyr.html"><a href="tidyr.html#plaintext"><i class="fa fa-check"></i><b>5.3.3</b> Fichiers au format texte brut (.csv)</a></li>
 <li class="chapter" data-level="5.3.4" data-path="tidyr.html"><a href="tidyr.html#exercices-8"><i class="fa fa-check"></i><b>5.3.4</b> Exercices</a></li>
 </ul></li>
 </ul></li>
@@ -257,7 +257,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="chapter" data-level="6.6" data-path="wrangling.html"><a href="wrangling.html#selectionner-des-variables-avec-select"><i class="fa fa-check"></i><b>6.6</b> Sélectionner des variables avec <code>select()</code></a></li>
 <li class="chapter" data-level="6.7" data-path="wrangling.html"><a href="wrangling.html#creer-de-nouvelles-variables-avec-mutate"><i class="fa fa-check"></i><b>6.7</b> Créer de nouvelles variables avec <code>mutate()</code></a><ul>
 <li class="chapter" data-level="6.7.1" data-path="wrangling.html"><a href="wrangling.html#principe-1"><i class="fa fa-check"></i><b>6.7.1</b> Principe</a></li>
-<li class="chapter" data-level="6.7.2" data-path="wrangling.html"><a href="wrangling.html#exercices-10"><i class="fa fa-check"></i><b>6.7.2</b> Exercices</a></li>
+<li class="chapter" data-level="6.7.2" data-path="wrangling.html"><a href="wrangling.html#transformer-des-variables-en-facteurs"><i class="fa fa-check"></i><b>6.7.2</b> Transformer des variables en facteurs</a></li>
+<li class="chapter" data-level="6.7.3" data-path="wrangling.html"><a href="wrangling.html#exercices-10"><i class="fa fa-check"></i><b>6.7.3</b> Exercices</a></li>
 </ul></li>
 <li class="chapter" data-level="6.8" data-path="wrangling.html"><a href="wrangling.html#arrange"><i class="fa fa-check"></i><b>6.8</b> Trier des lignes avec <code>arrange()</code></a></li>
 <li class="chapter" data-level="6.9" data-path="wrangling.html"><a href="wrangling.html#associer-plusieurs-tableaux-avec-left_join-et-inner_join"><i class="fa fa-check"></i><b>6.9</b> Associer plusieurs tableaux avec <code>left_join()</code> et <code>inner_join()</code></a><ul>
@@ -296,7 +297,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <p>Dans ce chapitre, nous aurons besoin des packages suivants :</p>
 <div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb215-1" data-line-number="1"><span class="kw">library</span>(dplyr)</a>
 <a class="sourceLine" id="cb215-2" data-line-number="2"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb215-3" data-line-number="3"><span class="kw">library</span>(nycflights13)</a></code></pre></div>
+<a class="sourceLine" id="cb215-3" data-line-number="3"><span class="kw">library</span>(nycflights13)</a>
+<a class="sourceLine" id="cb215-4" data-line-number="4"><span class="kw">library</span>(forcats)</a></code></pre></div>
 <hr />
 </div>
 <div id="le-pipe" class="section level2">
@@ -1028,7 +1030,7 @@ Figure 6.9: Schéma de la fonction <code>select()</code> tiré de la ‘cheatshe
 Figure 6.10: Schéma de la fonction <code>mutate()</code> tiré de la ‘cheatsheet’ de <code>dplyr</code> et <code>tidyr</code>
 </p>
 </div>
-<p>La fonction <code>mutate()</code> permet de créer de nouvelles variables à partir des variables existantes, ou de modifier des variables déjà présentes dans un jeu de données. Il est en effet fréquent d’avoir besoin de calculer de nouvelles variables, souvnet plus informatives que les variables disponibles.</p>
+<p>La fonction <code>mutate()</code> permet de créer de nouvelles variables à partir des variables existantes, ou de modifier des variables déjà présentes dans un jeu de données. Il est en effet fréquent d’avoir besoin de calculer de nouvelles variables, souvent plus informatives que les variables disponibles.</p>
 <p>Voyons un exemple. Nous commençons par créer un nouveau jeu de données <code>flights_sml</code> en sélectionnant uniquement les variables qui nous seront utiles :</p>
 <div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb276-1" data-line-number="1">flights_sml &lt;-<span class="st"> </span>flights <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb276-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(year<span class="op">:</span>day,</a>
@@ -1099,8 +1101,242 @@ il atterrit avec seulement 5 minutes de retard, 10 minutes ont été gagnées en
 <a class="sourceLine" id="cb282-3" data-line-number="3">         <span class="dt">distance =</span> distance <span class="op">*</span><span class="st"> </span><span class="fl">1.60934</span>,</a>
 <a class="sourceLine" id="cb282-4" data-line-number="4">         <span class="dt">speed =</span> (distance <span class="op">/</span><span class="st"> </span>air_time) <span class="op">*</span><span class="st"> </span><span class="dv">60</span>)</a></code></pre></div>
 </div>
+<div id="transformer-des-variables-en-facteurs" class="section level3">
+<h3><span class="header-section-number">6.7.2</span> Transformer des variables en facteurs</h3>
+<p>Il n’est pas rare que les tableaux de données que nous importons contiennent des colonnes numériques ou de chaînes de caractères qui devraient en réalité être reconnues en tant que facteurs. La fonction mutate nous permet de changer rapidement le type d’une variable afin qu’elle soit reconnue comme un facteur.</p>
+<p>À titre d’exemple, nous allons importer le jeu de données contenu dans le fichier <code>squid.txt</code> que vous pourrez <a href="data/squid.txt">télécharger ici</a>. Placez-le dans votre répertoire de travail et utilisez la méthode décrite à la section <a href="tidyr.html#plaintext">5.3.3</a> pour obtenir la commande suivante :</p>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb283-1" data-line-number="1"><span class="kw">library</span>(readr)</a>
+<a class="sourceLine" id="cb283-2" data-line-number="2">squid &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;squid.txt&quot;</span>, <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">escape_double =</span> <span class="ot">FALSE</span>, <span class="dt">trim_ws =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb283-3" data-line-number="3">squid</a></code></pre></div>
+<pre><code># A tibble: 2,644 x 6
+   Sample  Year Month Location   Sex   GSI
+    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt; &lt;int&gt; &lt;dbl&gt;
+ 1      1     1     1        1     2 10.4 
+ 2      2     1     1        3     2  9.83
+ 3      3     1     1        1     2  9.74
+ 4      4     1     1        1     2  9.31
+ 5      5     1     1        1     2  8.99
+ 6      6     1     1        1     2  8.77
+ 7      7     1     1        1     2  8.26
+ 8      8     1     1        3     2  7.40
+ 9      9     1     1        3     2  7.22
+10     10     1     2        1     2  6.84
+# ... with 2,634 more rows</code></pre>
+<p>Ce jeu de données contient des informations sur l’Indice Gonado-Somatique (<code>GSI</code>) de 2644 pieuvres collectées dans 4 stations d’échantillonnage sur une période de 2 ans. La variable <code>Location</code> est codée sous forme d’entiers, or il devrait s’agir d’un facteur. La fonction <code>mutate()</code> nous permet d’effectuer la transformation :</p>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb285-1" data-line-number="1">squid <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb285-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Location =</span> <span class="kw">factor</span>(Location))</a></code></pre></div>
+<pre><code># A tibble: 2,644 x 6
+   Sample  Year Month Location   Sex   GSI
+    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;fct&gt;    &lt;int&gt; &lt;dbl&gt;
+ 1      1     1     1 1            2 10.4 
+ 2      2     1     1 3            2  9.83
+ 3      3     1     1 1            2  9.74
+ 4      4     1     1 1            2  9.31
+ 5      5     1     1 1            2  8.99
+ 6      6     1     1 1            2  8.77
+ 7      7     1     1 1            2  8.26
+ 8      8     1     1 3            2  7.40
+ 9      9     1     1 3            2  7.22
+10     10     1     2 1            2  6.84
+# ... with 2,634 more rows</code></pre>
+<p>De même, la variable <code>Sex</code> est codée sous forme numérique, or il devrait s’agir d’un facteur, les <code>1</code> correspondants aux mâles et les <code>2</code> aux femelles. Nous pouvons là encore faire la modification grâce à la fonction <code>mutate()</code> :</p>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb287-1" data-line-number="1">squid2 &lt;-<span class="st"> </span>squid <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb287-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Location =</span> <span class="kw">factor</span>(Location),</a>
+<a class="sourceLine" id="cb287-3" data-line-number="3">         <span class="dt">Sex =</span> <span class="kw">factor</span>(Sex, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>)))</a>
+<a class="sourceLine" id="cb287-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb287-5" data-line-number="5">squid2</a></code></pre></div>
+<pre><code># A tibble: 2,644 x 6
+   Sample  Year Month Location Sex      GSI
+    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;fct&gt;    &lt;fct&gt;  &lt;dbl&gt;
+ 1      1     1     1 1        Female 10.4 
+ 2      2     1     1 3        Female  9.83
+ 3      3     1     1 1        Female  9.74
+ 4      4     1     1 1        Female  9.31
+ 5      5     1     1 1        Female  8.99
+ 6      6     1     1 1        Female  8.77
+ 7      7     1     1 1        Female  8.26
+ 8      8     1     1 3        Female  7.40
+ 9      9     1     1 3        Female  7.22
+10     10     1     2 1        Female  6.84
+# ... with 2,634 more rows</code></pre>
+<p><code>squid2</code> contient maintenant le tableau de départ avec les variables <code>Location</code> et <code>Sex</code> codées sous forme de facteur. Si nous faisons un graphique avec ces nouveaux facteurs, l’ordre des catégories sera celui spécifié par la fonction <code>factor()</code>. Ainsi, si nous faisons par exemple un boxplot de <code>GSI</code> en fonction du <code>Sex</code>, voilà ce que nous obtenons :</p>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb289-1" data-line-number="1">squid2 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb289-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Sex, <span class="dt">y =</span> GSI)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb289-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_boxplot</span>(<span class="dt">notch =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-137"></span>
+<img src="figure/unnamed-chunk-137-1.png" alt="Indice Gonado Somatique  selon le sexe." width="50%" />
+<p class="caption">
+Figure 6.11: Indice Gonado Somatique selon le sexe.
+</p>
+</div>
+<p>Comment faire pour inverser l’ordre des catégories sur l’axe des abscisses ? Il faut inverser l’ordre des catégories dans le facteur <code>Sex</code>. L’ordre dans lequel les catégories apparaissent sur un graphique est en effet déterminé par l’ordre dans lequel les niveaux du facteur sont organisés. D’habitude, les niveaux sont automatiquement triés par ordre alphabétique quand les catégories sont des chaînes de caractères, et en ordre croissant quand la variable est numérique. Ici les niveaux sont les suivants :</p>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb290-1" data-line-number="1"><span class="kw">levels</span>(squid2<span class="op">$</span>Sex)</a></code></pre></div>
+<pre><code>[1] &quot;Male&quot;   &quot;Female&quot;</code></pre>
+<p><code>Male</code> apparaît avant <code>Female</code>, car les niveaux de départ étaient <code>1</code> pour les mâles et <code>2</code> pour les femelles. C’est donc cet ordre qui est conservé. Le package <code>forcats</code> fournit de nombreuses fonctions permettant de manipuler les facteurs. Toutes commencent par <code>fct_</code>. Nous pouvons ici utiliser <code>fct_rev()</code> pour inverser l’ordre des niveaux. Pensez à installer et charger <code>forcats</code> si ce n’est pas déjà fait. Si vous avez chargé le <code>tidyverse</code>, <code>forcats</code> est déjà disponible :</p>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb292-1" data-line-number="1"><span class="kw">library</span>(forcats)</a>
+<a class="sourceLine" id="cb292-2" data-line-number="2">squid3 &lt;-<span class="st"> </span>squid2 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb292-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Sex =</span> <span class="kw">fct_rev</span>(Sex))</a>
+<a class="sourceLine" id="cb292-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb292-5" data-line-number="5"><span class="kw">levels</span>(squid3<span class="op">$</span>Sex)</a></code></pre></div>
+<pre><code>[1] &quot;Female&quot; &quot;Male&quot;  </code></pre>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb294-1" data-line-number="1">squid3 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb294-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Sex, <span class="dt">y =</span> GSI)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb294-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_boxplot</span>(<span class="dt">notch =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-140"></span>
+<img src="figure/unnamed-chunk-140-1.png" alt="Indice Gonado Somatique  selon le sexe." width="50%" />
+<p class="caption">
+Figure 6.12: Indice Gonado Somatique selon le sexe.
+</p>
+</div>
+<p>Revenons maintenant au jeu de données <code>dauphin</code>.</p>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb295-1" data-line-number="1">dauphin</a></code></pre></div>
+<pre><code># A tibble: 93 x 9
+   ID        Sexe  Statut Taille   Age     Cd    Cu    Hg Organe
+   &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; 
+ 1 Numéro 1  f     imm       315     3  29.6   3.24 NA    rein  
+ 2 Numéro 2  f     imm       357     4  55.1   4.42 NA    rein  
+ 3 Numéro 3  f     pnl       439    34 129.    5.01  9.02 rein  
+ 4 Numéro 4  f     imm       316     4  71.2   4.33 NA    rein  
+ 5 Numéro 5  f     l         435    26 192     5.15 NA    rein  
+ 6 Numéro 6  f     pnl       388     6  NA     4.12  4.53 rein  
+ 7 Numéro 7  f     mat       410    NA  76     5.1  33.9  foie  
+ 8 Numéro 8  m     imm       355    NA  74.4   4.72 13.3  foie  
+ 9 Numéro 9  m     imm       222    NA   0.09  9.5   2.89 foie  
+10 Numéro 10 m     imm       412     9  85.6   5.42 NA    rein  
+# ... with 83 more rows</code></pre>
+<p>Commençons par supprimer la variable <code>ID</code>, qui est totalement redondante avec les numéros de ligne :</p>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb297-1" data-line-number="1">dauphin &lt;-<span class="st"> </span>dauphin <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb297-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>ID)</a>
+<a class="sourceLine" id="cb297-3" data-line-number="3">dauphin</a></code></pre></div>
+<pre><code># A tibble: 93 x 8
+   Sexe  Statut Taille   Age     Cd    Cu    Hg Organe
+   &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; 
+ 1 f     imm       315     3  29.6   3.24 NA    rein  
+ 2 f     imm       357     4  55.1   4.42 NA    rein  
+ 3 f     pnl       439    34 129.    5.01  9.02 rein  
+ 4 f     imm       316     4  71.2   4.33 NA    rein  
+ 5 f     l         435    26 192     5.15 NA    rein  
+ 6 f     pnl       388     6  NA     4.12  4.53 rein  
+ 7 f     mat       410    NA  76     5.1  33.9  foie  
+ 8 m     imm       355    NA  74.4   4.72 13.3  foie  
+ 9 m     imm       222    NA   0.09  9.5   2.89 foie  
+10 m     imm       412     9  85.6   5.42 NA    rein  
+# ... with 83 more rows</code></pre>
+<p>Les variables <code>Sexe</code>, <code>Statut</code> et <code>Organe</code> devrait elles aussi être encodées sous forme de facteurs. Plutôt que de taper le code ci dessous (qui fonctionne très bien) :</p>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb299-1" data-line-number="1">dauphin <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb299-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Sexe =</span> <span class="kw">factor</span>(Sexe),</a>
+<a class="sourceLine" id="cb299-3" data-line-number="3">         <span class="dt">Statut =</span> <span class="kw">factor</span>(Statut),</a>
+<a class="sourceLine" id="cb299-4" data-line-number="4">         <span class="dt">Organe =</span> <span class="kw">factor</span>(Organe))</a></code></pre></div>
+<p>Nous pouvons utiliser la fonction <code>mutate_if()</code>, qui appliquera la même fonction à toutes les variables respectant une condition précise. Ici, toutes les colonnes possédant le type <code>&lt;chr&gt;</code> sont des colonnes que nous souhaitons transformer en facteur. Nous pouvons donc taper ceci :</p>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb300-1" data-line-number="1">dauphin &lt;-<span class="st"> </span>dauphin <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb300-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate_if</span>(is.character, as.factor)</a>
+<a class="sourceLine" id="cb300-3" data-line-number="3">dauphin</a></code></pre></div>
+<pre><code># A tibble: 93 x 8
+   Sexe  Statut Taille   Age     Cd    Cu    Hg Organe
+   &lt;fct&gt; &lt;fct&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt; 
+ 1 f     imm       315     3  29.6   3.24 NA    rein  
+ 2 f     imm       357     4  55.1   4.42 NA    rein  
+ 3 f     pnl       439    34 129.    5.01  9.02 rein  
+ 4 f     imm       316     4  71.2   4.33 NA    rein  
+ 5 f     l         435    26 192     5.15 NA    rein  
+ 6 f     pnl       388     6  NA     4.12  4.53 rein  
+ 7 f     mat       410    NA  76     5.1  33.9  foie  
+ 8 m     imm       355    NA  74.4   4.72 13.3  foie  
+ 9 m     imm       222    NA   0.09  9.5   2.89 foie  
+10 m     imm       412     9  85.6   5.42 NA    rein  
+# ... with 83 more rows</code></pre>
+<p>Nous constatons ici que nos 3 variables catégorielles ont bien été transformées en facteurs (et seulement ces variables).</p>
+<p>Nous allons encore réaliser 2 modifications :</p>
+<ol style="list-style-type: decimal">
+<li>Nous allons transformer les niveaux <code>f</code> et <code>m</code> du facteur <code>Sexe</code> en <code>Female</code> et <code>Male</code> respectivement.</li>
+<li>Nous allons re-ordonner les niveaux du facteur <code>Statut</code>. Actuellement, les niveaux de ce facteur sont les suivants :</li>
+</ol>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb302-1" data-line-number="1"><span class="kw">levels</span>(dauphin<span class="op">$</span>Statut)</a></code></pre></div>
+<pre><code>[1] &quot;imm&quot;   &quot;l&quot;     &quot;mat&quot;   &quot;pl&quot;    &quot;pnl&quot;   &quot;repos&quot;</code></pre>
+<p>Or il exsite un ordre des statuts reproducteurs qui reflète une progression biologique :
+<code>imm</code> (immature), <code>mat</code> (mature), <code>pnl</code> (pregnant non lactating), <code>l</code> (lactating), <code>pl</code> (pregnant lactating), <code>repos</code> (repos somatique).</p>
+<p>Commençons par changer les niveaux du facteur <code>Sexe</code>. Pour cela, nous pouvons utiliser la fonction <code>fct_recode()</code> :</p>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb304-1" data-line-number="1">dauphin <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb304-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Sexe =</span> <span class="kw">fct_recode</span>(Sexe, </a>
+<a class="sourceLine" id="cb304-3" data-line-number="3">                           <span class="st">&quot;Female&quot;</span> =<span class="st"> &quot;f&quot;</span>,</a>
+<a class="sourceLine" id="cb304-4" data-line-number="4">                           <span class="st">&quot;Male&quot;</span> =<span class="st"> &quot;m&quot;</span>))</a></code></pre></div>
+<pre><code># A tibble: 93 x 8
+   Sexe   Statut Taille   Age     Cd    Cu    Hg Organe
+   &lt;fct&gt;  &lt;fct&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt; 
+ 1 Female imm       315     3  29.6   3.24 NA    rein  
+ 2 Female imm       357     4  55.1   4.42 NA    rein  
+ 3 Female pnl       439    34 129.    5.01  9.02 rein  
+ 4 Female imm       316     4  71.2   4.33 NA    rein  
+ 5 Female l         435    26 192     5.15 NA    rein  
+ 6 Female pnl       388     6  NA     4.12  4.53 rein  
+ 7 Female mat       410    NA  76     5.1  33.9  foie  
+ 8 Male   imm       355    NA  74.4   4.72 13.3  foie  
+ 9 Male   imm       222    NA   0.09  9.5   2.89 foie  
+10 Male   imm       412     9  85.6   5.42 NA    rein  
+# ... with 83 more rows</code></pre>
+<p>Nous pouvons maintenant modifier l’ordre des niveaux de <code>Satut</code> :</p>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb306-1" data-line-number="1">dauphin &lt;-<span class="st"> </span>dauphin <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb306-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Sexe =</span> <span class="kw">fct_recode</span>(Sexe, </a>
+<a class="sourceLine" id="cb306-3" data-line-number="3">                           <span class="st">&quot;Female&quot;</span> =<span class="st"> &quot;f&quot;</span>,</a>
+<a class="sourceLine" id="cb306-4" data-line-number="4">                           <span class="st">&quot;Male&quot;</span> =<span class="st"> &quot;m&quot;</span>),</a>
+<a class="sourceLine" id="cb306-5" data-line-number="5">         <span class="dt">Statut =</span> <span class="kw">fct_relevel</span>(Statut, <span class="st">&quot;imm&quot;</span>, <span class="st">&quot;mat&quot;</span>, <span class="st">&quot;pnl&quot;</span>, <span class="st">&quot;l&quot;</span>, <span class="st">&quot;pl&quot;</span>, <span class="st">&quot;repos&quot;</span>))</a>
+<a class="sourceLine" id="cb306-6" data-line-number="6">dauphin</a></code></pre></div>
+<pre><code># A tibble: 93 x 8
+   Sexe   Statut Taille   Age     Cd    Cu    Hg Organe
+   &lt;fct&gt;  &lt;fct&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt; 
+ 1 Female imm       315     3  29.6   3.24 NA    rein  
+ 2 Female imm       357     4  55.1   4.42 NA    rein  
+ 3 Female pnl       439    34 129.    5.01  9.02 rein  
+ 4 Female imm       316     4  71.2   4.33 NA    rein  
+ 5 Female l         435    26 192     5.15 NA    rein  
+ 6 Female pnl       388     6  NA     4.12  4.53 rein  
+ 7 Female mat       410    NA  76     5.1  33.9  foie  
+ 8 Male   imm       355    NA  74.4   4.72 13.3  foie  
+ 9 Male   imm       222    NA   0.09  9.5   2.89 foie  
+10 Male   imm       412     9  85.6   5.42 NA    rein  
+# ... with 83 more rows</code></pre>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb308-1" data-line-number="1"><span class="kw">levels</span>(dauphin<span class="op">$</span>Statut)</a></code></pre></div>
+<pre><code>[1] &quot;imm&quot;   &quot;mat&quot;   &quot;pnl&quot;   &quot;l&quot;     &quot;pl&quot;    &quot;repos&quot;</code></pre>
+<p>Toutes les transformations que nous avons fait subir à ce jeu de données n’ont qu’un seul objectif : “ranger” ce jeu de données. Nous avons importé <code>dauphin</code> depuis un fichier externe, puis nous avons supprimé les variables inutiles et modifié celles qui devaient l’être. Toutes ces étapes peuvent être enchaînées grâce au pipe, de la façon suivante :</p>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb310-1" data-line-number="1"><span class="co"># Importation et mise en forme du jeu de données `dauphin`</span></a>
+<a class="sourceLine" id="cb310-2" data-line-number="2"><span class="kw">library</span>(readxl)</a>
+<a class="sourceLine" id="cb310-3" data-line-number="3">dauphin &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;data/dauphin.xls&quot;</span>, <span class="dt">na =</span> <span class="st">&quot;*&quot;</span>, <span class="dt">skip =</span> <span class="dv">9</span>) <span class="op">%&gt;%</span><span class="st">   </span><span class="co"># Importation, puis</span></a>
+<a class="sourceLine" id="cb310-4" data-line-number="4"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">ID =</span> <span class="st">`</span><span class="dt">N°</span><span class="st">`</span>,                          <span class="co"># On donne des noms courts, puis</span></a>
+<a class="sourceLine" id="cb310-5" data-line-number="5">         <span class="dt">Statut =</span> <span class="st">`</span><span class="dt">Statut reproducteur</span><span class="st">`</span>,</a>
+<a class="sourceLine" id="cb310-6" data-line-number="6">         <span class="dt">Taille =</span> <span class="st">`</span><span class="dt">Taille en cm</span><span class="st">`</span>,</a>
+<a class="sourceLine" id="cb310-7" data-line-number="7">         <span class="dt">Age =</span> <span class="st">`</span><span class="dt">Age en années</span><span class="st">`</span>,</a>
+<a class="sourceLine" id="cb310-8" data-line-number="8">         <span class="dt">Cd =</span> <span class="st">`</span><span class="dt">Cd (mg.kg-1)</span><span class="st">`</span>,</a>
+<a class="sourceLine" id="cb310-9" data-line-number="9">         <span class="dt">Cu =</span> <span class="st">`</span><span class="dt">Cu (mg.kg-1)</span><span class="st">`</span>,</a>
+<a class="sourceLine" id="cb310-10" data-line-number="10">         <span class="dt">Hg =</span> <span class="st">`</span><span class="dt">Hg (mg.kg-1)</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb310-11" data-line-number="11"><span class="st">  </span><span class="kw">mutate_if</span>(is.character, as.factor) <span class="op">%&gt;%</span><span class="st">    </span><span class="co"># On transforme en facteurs les variables &lt;chr&gt;, puis</span></a>
+<a class="sourceLine" id="cb310-12" data-line-number="12"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Sexe =</span> <span class="kw">fct_recode</span>(Sexe,            <span class="co"># On modifie les niveau de `Sexe` et l&#39;ordre des niveaux de Statut</span></a>
+<a class="sourceLine" id="cb310-13" data-line-number="13">                           <span class="st">&quot;Female&quot;</span> =<span class="st"> &quot;f&quot;</span>,</a>
+<a class="sourceLine" id="cb310-14" data-line-number="14">                           <span class="st">&quot;Male&quot;</span> =<span class="st"> &quot;m&quot;</span>),</a>
+<a class="sourceLine" id="cb310-15" data-line-number="15">         <span class="dt">Statut =</span> <span class="kw">fct_relevel</span>(Statut, <span class="st">&quot;imm&quot;</span>, <span class="st">&quot;mat&quot;</span>, <span class="st">&quot;pnl&quot;</span>, <span class="st">&quot;l&quot;</span>, <span class="st">&quot;pl&quot;</span>, <span class="st">&quot;repos&quot;</span>))</a>
+<a class="sourceLine" id="cb310-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb310-17" data-line-number="17">dauphin</a></code></pre></div>
+<pre><code># A tibble: 93 x 9
+   ID        Sexe   Statut Taille   Age     Cd    Cu    Hg Organe
+   &lt;fct&gt;     &lt;fct&gt;  &lt;fct&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt; 
+ 1 Numéro 1  Female imm       315     3  29.6   3.24 NA    rein  
+ 2 Numéro 2  Female imm       357     4  55.1   4.42 NA    rein  
+ 3 Numéro 3  Female pnl       439    34 129.    5.01  9.02 rein  
+ 4 Numéro 4  Female imm       316     4  71.2   4.33 NA    rein  
+ 5 Numéro 5  Female l         435    26 192     5.15 NA    rein  
+ 6 Numéro 6  Female pnl       388     6  NA     4.12  4.53 rein  
+ 7 Numéro 7  Female mat       410    NA  76     5.1  33.9  foie  
+ 8 Numéro 8  Male   imm       355    NA  74.4   4.72 13.3  foie  
+ 9 Numéro 9  Male   imm       222    NA   0.09  9.5   2.89 foie  
+10 Numéro 10 Male   imm       412     9  85.6   5.42 NA    rein  
+# ... with 83 more rows</code></pre>
+<p>Outre les fonction <code>fct_rev()</code>, <code>fct_recode()</code> et <code>fct_relevel()</code> abordées ici, on peut aussi noter :
+* <code>fct_reorder()</code> et <code>fct_reorder2()</code>, pour ordonner automatiquement les niveaux d’un facteur en fonction d’une autre variable numerique (pour avoir par exemple des séries rangées par ordre de moyenne croissante sur un graphique)
+* <code>fct_infreq()</code>, pour ordonner automatiquement les niveaux d’un facteur oar ordre de fréquence croissante, ce qui est notamment utile pour faire des barplots ordonnés
+* <code>fct_collapse()</code>, pour fusionner deux ou plusieurs niveaux d’un facteur</p>
+<p>Nous n’avons pas le temps de développer ici des exemples, mais sachez que ces fonctiosn existent. Vous trouverez des exemples détaillés dans <a href="http://r4ds.had.co.nz/factors.html#modifying-factor-levels">le chapitre consacré aux facteurs</a> de l’ouvrage en ligne <a href="http://r4ds.had.co.nz/">R for Data Science</a>. C’est en anglais, mais les exemples sont très parlants. N’hésitez pas à consulter cet ouvrage et à faire des essais de mise en application avec les jeux de données vus ici (e.g. <code>dauphin</code> ou <code>squid</code>).</p>
+</div>
 <div id="exercices-10" class="section level3">
-<h3><span class="header-section-number">6.7.2</span> Exercices</h3>
+<h3><span class="header-section-number">6.7.3</span> Exercices</h3>
 <ol style="list-style-type: decimal">
 <li><p>Dans <code>ggplot2</code> le jeu de données <code>mpg</code> contient des informations sur 234 modèles de voitures. Examinez ce jeu de données avec la fonction <code>View()</code> et consultez l’aide de ce jeu de données pour savoir à quoi correspondent les différentes variables. Quelle(s) variable(s) nous renseignent sur la consommation des véhicules ? À quoi correspond la variable <code>disp</code> ?</p></li>
 <li><p>La consommation est donnée en miles par gallon. Créez une nouvelle variable <code>conso</code> qui contiendra la consommation exprimée en nombre de litres pour 100 kilomètres.</p></li>
@@ -1109,16 +1345,16 @@ il atterrit avec seulement 5 minutes de retard, 10 minutes ont été gagnées en
 <div class="figure" style="text-align: center"><span id="fig:consommation"></span>
 <img src="figure/consommation-1.png" alt="Consommation en fonction de la cylindrée" width="90%" />
 <p class="caption">
-Figure 6.11: Consommation en fonction de la cylindrée
+Figure 6.13: Consommation en fonction de la cylindrée
 </p>
 </div>
 <ol start="4" style="list-style-type: decimal">
-<li>Ce graphique présente-t’il correctement l’ensemble des données de ces 2 variables ? Pourquoi ? Comparez le graphique <a href="wrangling.html#fig:consommation">6.11</a> de la question 3 ci-dessus et le graphique <a href="wrangling.html#fig:consommation2">6.12</a> présenté ci-dessous. Selon vous, quels arguments et/ou fonctions ont été modifiés pour arriver à ce nouveau graphique ? Quels sont les avantages et les inconvénients de ce graphique par rapport au précédent ?</li>
+<li>Ce graphique présente-t’il correctement l’ensemble des données de ces 2 variables ? Pourquoi ? Comparez le graphique <a href="wrangling.html#fig:consommation">6.13</a> de la question 3 ci-dessus et le graphique <a href="wrangling.html#fig:consommation2">6.14</a> présenté ci-dessous. Selon vous, quels arguments et/ou fonctions ont été modifiés pour arriver à ce nouveau graphique ? Quels sont les avantages et les inconvénients de ce graphique par rapport au précédent ?</li>
 </ol>
 <div class="figure" style="text-align: center"><span id="fig:consommation2"></span>
 <img src="figure/consommation2-1.png" alt="Consommation en fonction de la cylindrée" width="90%" />
 <p class="caption">
-Figure 6.12: Consommation en fonction de la cylindrée
+Figure 6.14: Consommation en fonction de la cylindrée
 </p>
 </div>
 <hr />
@@ -1129,13 +1365,13 @@ Figure 6.12: Consommation en fonction de la cylindrée
 <div class="figure" style="text-align: center"><span id="fig:arrangefig"></span>
 <img src="images/arrange.png" alt="Schéma de la fonction `arrange()` tiré de la 'cheatsheet' de `dplyr` et `tidyr`" width="40%" />
 <p class="caption">
-Figure 6.13: Schéma de la fonction <code>arrange()</code> tiré de la ‘cheatsheet’ de <code>dplyr</code> et <code>tidyr</code>
+Figure 6.15: Schéma de la fonction <code>arrange()</code> tiré de la ‘cheatsheet’ de <code>dplyr</code> et <code>tidyr</code>
 </p>
 </div>
 <p>La fonction <code>arrange()</code> permet de trier des tableaux en ordonnant les éléments d’une ou plusieurs colonnes. Les tris peuvent être en ordre croissants (c’est le cas par défaut) ou décroissants (grâce à la fonction <code>desc()</code>, abbréviation de “descending”).</p>
 <p><code>arrange()</code> fonctionne donc comme <code>filter()</code>, mais au lieu de sélectionner des lignes, cette fonction change leur ordre. Il faut lui fournir le nom d’un tableau et au minimum le nom d’une variable selon laquelle le tri doit être réalisé. Si plusieurs variables sont fournies, chaque variable supplémentaire permet de résoudre les égalités. Ainsi, pour ordonner le tableau <code>flights</code> par ordre croissant de retard au départ (<code>dep_delay</code>), on tape :</p>
-<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb283-1" data-line-number="1">flights <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb283-2" data-line-number="2"><span class="st">  </span><span class="kw">arrange</span>(dep_delay)</a></code></pre></div>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb312-1" data-line-number="1">flights <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb312-2" data-line-number="2"><span class="st">  </span><span class="kw">arrange</span>(dep_delay)</a></code></pre></div>
 <pre><code># A tibble: 336,776 x 19
     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
@@ -1153,8 +1389,8 @@ Figure 6.13: Schéma de la fonction <code>arrange()</code> tiré de la ‘cheats
 #   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
 #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
 <p>Notez que la variable <code>dep-delay</code> est maintenant triée en ordre croissant. Notez également que 2 vols ont eu exactement 25 minutes d’avance. Comparez le tableau précédent avec celui-ci :</p>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb285-1" data-line-number="1">flights <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb285-2" data-line-number="2"><span class="st">  </span><span class="kw">arrange</span>(dep_delay, month, day)</a></code></pre></div>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb314-1" data-line-number="1">flights <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb314-2" data-line-number="2"><span class="st">  </span><span class="kw">arrange</span>(dep_delay, month, day)</a></code></pre></div>
 <pre><code># A tibble: 336,776 x 19
     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
@@ -1173,8 +1409,8 @@ Figure 6.13: Schéma de la fonction <code>arrange()</code> tiré de la ‘cheats
 #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
 <p>Les lignes des 2 vols ayant 25 minutes d’avance au décollage ont été inversées : le vol du mois de mars apparait maintenant avant le vol du mois d’octobre. La variable <code>month</code> a été utilisée pour ordonner les lignes en cas d’égalité de la variable <code>dep_delay</code>.</p>
 <p>Comme indiqué plus haut, il est possible de trier les données par ordre décroissant :</p>
-<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb287-1" data-line-number="1">flights <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb287-2" data-line-number="2"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(dep_delay))</a></code></pre></div>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb316-1" data-line-number="1">flights <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb316-2" data-line-number="2"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(dep_delay))</a></code></pre></div>
 <pre><code># A tibble: 336,776 x 19
     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
@@ -1197,9 +1433,9 @@ Figure 6.13: Schéma de la fonction <code>arrange()</code> tiré de la ‘cheats
 <li>grouper les données par destination (variable <code>dest</code>) et compter le nombre de vols. Ces deux opérations peuvent être effectuées avec <code>group_by()</code> puis <code>summarise()</code>, ou directement avec <code>count()</code>. <em>Puis,</em></li>
 <li>trier les données par effectif décroissant.</li>
 </ol>
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb289-1" data-line-number="1">flights <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb289-2" data-line-number="2"><span class="st">  </span><span class="kw">count</span>(dest) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb289-3" data-line-number="3"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(n))</a></code></pre></div>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb318-1" data-line-number="1">flights <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb318-2" data-line-number="2"><span class="st">  </span><span class="kw">count</span>(dest) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb318-3" data-line-number="3"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(n))</a></code></pre></div>
 <pre><code># A tibble: 105 x 2
    dest      n
    &lt;chr&gt; &lt;int&gt;
@@ -1227,10 +1463,10 @@ Figure 6.13: Schéma de la fonction <code>arrange()</code> tiré de la ‘cheats
 </blockquote>
 <p>Autrement dit, les informations concernant les vols vont dans un tableau, les informations concernant les aéroports dans un autre tableau, et celles concernant les avions dans un troisième tableau. Cela semble évident, pourtant, on constate souvent qu’un même tableau contient des variables qui concernent des unités d’observations différentes.</p>
 <p>Lorsque nous avons plusieurs tableaux à disposition, il peut alors être nécessaire de récuppérer des informations dans plusieurs d’entre eux afn, notamment de produire des tableaux de synthèse. Par exemple, dans la section <a href="wrangling.html#arrange">6.8</a> ci-dessus, nous avons affiché les destinations les plus fréquentes au départ des aéroports de New York. Donnons un nom à ce tableau pour pouvoir le ré-utiliser :</p>
-<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb291-1" data-line-number="1">popular_dest &lt;-<span class="st"> </span>flights <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb291-2" data-line-number="2"><span class="st">  </span><span class="kw">count</span>(dest) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb291-3" data-line-number="3"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(n))</a>
-<a class="sourceLine" id="cb291-4" data-line-number="4">popular_dest</a></code></pre></div>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb320-1" data-line-number="1">popular_dest &lt;-<span class="st"> </span>flights <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb320-2" data-line-number="2"><span class="st">  </span><span class="kw">count</span>(dest) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb320-3" data-line-number="3"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(n))</a>
+<a class="sourceLine" id="cb320-4" data-line-number="4">popular_dest</a></code></pre></div>
 <pre><code># A tibble: 105 x 2
    dest      n
    &lt;chr&gt; &lt;int&gt;
@@ -1253,13 +1489,13 @@ Figure 6.13: Schéma de la fonction <code>arrange()</code> tiré de la ‘cheats
 <div class="figure" style="text-align: center"><span id="fig:inner"></span>
 <img src="images/innerjoin.png" alt="Schéma de la fonction `inner_join()` tiré de la 'cheatsheet' de `dplyr` et `tidyr`" width="50%" />
 <p class="caption">
-Figure 6.14: Schéma de la fonction <code>inner_join()</code> tiré de la ‘cheatsheet’ de <code>dplyr</code> et <code>tidyr</code>
+Figure 6.16: Schéma de la fonction <code>inner_join()</code> tiré de la ‘cheatsheet’ de <code>dplyr</code> et <code>tidyr</code>
 </p>
 </div>
 <p>La fonction <code>inner_join()</code> permet de relier des tableaux en ne conservant que les lignes qui sont présentes à la fois dans l’un et dans l’autre. Il faut identifier dans chacun des tableaux une colonne contenant des données en commun, qui servira de guide pour mettre les lignes correctes les unes en face des autres. Ici, nous partons de notre tableau <code>popular_dest</code>, qui contient les codes des aéroports dans sa colonne <code>dest</code>. Et nous faisons une “jointure interne” avec le tableau <code>airports</code> qui contient lui aussi une colonne contenant les codes des aéroports : la variable <code>faa</code>.</p>
-<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb293-1" data-line-number="1">inner_popular &lt;-<span class="st"> </span>popular_dest <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb293-2" data-line-number="2"><span class="st">  </span><span class="kw">inner_join</span>(airports, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;dest&quot;</span> =<span class="st"> &quot;faa&quot;</span>))</a>
-<a class="sourceLine" id="cb293-3" data-line-number="3">inner_popular</a></code></pre></div>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb322-1" data-line-number="1">inner_popular &lt;-<span class="st"> </span>popular_dest <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb322-2" data-line-number="2"><span class="st">  </span><span class="kw">inner_join</span>(airports, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;dest&quot;</span> =<span class="st"> &quot;faa&quot;</span>))</a>
+<a class="sourceLine" id="cb322-3" data-line-number="3">inner_popular</a></code></pre></div>
 <pre><code># A tibble: 101 x 9
    dest      n name                   lat    lon   alt    tz dst   tzone       
    &lt;chr&gt; &lt;int&gt; &lt;chr&gt;                &lt;dbl&gt;  &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;       
@@ -1275,10 +1511,10 @@ Figure 6.14: Schéma de la fonction <code>inner_join()</code> tiré de la ‘che
 10 DCA    9705 Ronald Reagan Washi…  38.9  -77.0    15    -5 A     America/New…
 # ... with 91 more rows</code></pre>
 <p>Le nouvel objet <code>inner_popular</code> contient donc les données du tableau <code>popular_dest</code> auxquelles ont été ajoutées les colonnes correspondantes du tableau airports. Si tout ce qui nous intéresse, c’est de connaitre le nom complet des aéroports les plus populaires, on peut utiliser <code>select()</code> pour ne garder que les variables intéressantes :</p>
-<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb295-1" data-line-number="1">inner_popular &lt;-<span class="st"> </span>popular_dest <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb295-2" data-line-number="2"><span class="st">  </span><span class="kw">inner_join</span>(airports, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;dest&quot;</span> =<span class="st"> &quot;faa&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb295-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(dest, name, n)</a>
-<a class="sourceLine" id="cb295-4" data-line-number="4">inner_popular</a></code></pre></div>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb324-1" data-line-number="1">inner_popular &lt;-<span class="st"> </span>popular_dest <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb324-2" data-line-number="2"><span class="st">  </span><span class="kw">inner_join</span>(airports, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;dest&quot;</span> =<span class="st"> &quot;faa&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb324-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(dest, name, n)</a>
+<a class="sourceLine" id="cb324-4" data-line-number="4">inner_popular</a></code></pre></div>
 <pre><code># A tibble: 101 x 3
    dest  name                                   n
    &lt;chr&gt; &lt;chr&gt;                              &lt;int&gt;
@@ -1299,25 +1535,25 @@ Figure 6.14: Schéma de la fonction <code>inner_join()</code> tiré de la ‘che
 <li><code>ATL</code> est bien l’aéroport d’Atlanta.</li>
 <li><code>inner_popular</code> contient 101 lignes alors que notre tableau de départ en contenait 105.</li>
 </ul>
-<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb297-1" data-line-number="1"><span class="kw">nrow</span>(popular_dest)</a></code></pre></div>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb326-1" data-line-number="1"><span class="kw">nrow</span>(popular_dest)</a></code></pre></div>
 <pre><code>[1] 105</code></pre>
-<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb299-1" data-line-number="1"><span class="kw">nrow</span>(inner_popular)</a></code></pre></div>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb328-1" data-line-number="1"><span class="kw">nrow</span>(inner_popular)</a></code></pre></div>
 <pre><code>[1] 101</code></pre>
-<p>Certaines lignes ont donc été supprimées car le code aéroport dans <code>popular_dest</code> (notre tableau de départ) n’a pas été retrouvé dans la colonne <code>faa</code> du tableau <code>airports</code>. C’est le principe même de la jointure interne (voir figure <a href="wrangling.html#fig:inner">6.14</a>) : seules les lignes communes trouvées dans les 2 tableaux sont conservées. Si l’on souhaite absolument conserver toutes les lignes du tableau de départ, il faut faire une jointure gauche, ou “left join”.</p>
+<p>Certaines lignes ont donc été supprimées car le code aéroport dans <code>popular_dest</code> (notre tableau de départ) n’a pas été retrouvé dans la colonne <code>faa</code> du tableau <code>airports</code>. C’est le principe même de la jointure interne (voir figure <a href="wrangling.html#fig:inner">6.16</a>) : seules les lignes communes trouvées dans les 2 tableaux sont conservées. Si l’on souhaite absolument conserver toutes les lignes du tableau de départ, il faut faire une jointure gauche, ou “left join”.</p>
 </div>
 <div id="left_join" class="section level3">
 <h3><span class="header-section-number">6.9.3</span> <code>left_join()</code></h3>
 <div class="figure" style="text-align: center"><span id="fig:left"></span>
 <img src="images/leftjoin.png" alt="Schéma de la fonction `left_join()` tiré de la 'cheatsheet' de `dplyr` et `tidyr`" width="50%" />
 <p class="caption">
-Figure 6.15: Schéma de la fonction <code>left_join()</code> tiré de la ‘cheatsheet’ de <code>dplyr</code> et <code>tidyr</code>
+Figure 6.17: Schéma de la fonction <code>left_join()</code> tiré de la ‘cheatsheet’ de <code>dplyr</code> et <code>tidyr</code>
 </p>
 </div>
-<p>Comme indiqué par la figure <a href="wrangling.html#fig:left">6.15</a> ci-dessus, une jointure gauche permet de conserver toutes les lignes du tableau de gauche, et de leur faire correspondre des lignes du second tableau. Si aucune correspondance n’est trouvée dans le second tableau, des données manquantes sont ajoutées sous forme de <code>NA</code>s. Voyons ce que cela donne avec le même exemple que précédemment :</p>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" data-line-number="1">left_popular &lt;-<span class="st"> </span>popular_dest <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb301-2" data-line-number="2"><span class="st">  </span><span class="kw">left_join</span>(airports, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;dest&quot;</span> =<span class="st"> &quot;faa&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb301-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(dest, name, n)</a>
-<a class="sourceLine" id="cb301-4" data-line-number="4">left_popular</a></code></pre></div>
+<p>Comme indiqué par la figure <a href="wrangling.html#fig:left">6.17</a> ci-dessus, une jointure gauche permet de conserver toutes les lignes du tableau de gauche, et de leur faire correspondre des lignes du second tableau. Si aucune correspondance n’est trouvée dans le second tableau, des données manquantes sont ajoutées sous forme de <code>NA</code>s. Voyons ce que cela donne avec le même exemple que précédemment :</p>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb330-1" data-line-number="1">left_popular &lt;-<span class="st"> </span>popular_dest <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb330-2" data-line-number="2"><span class="st">  </span><span class="kw">left_join</span>(airports, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;dest&quot;</span> =<span class="st"> &quot;faa&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb330-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(dest, name, n)</a>
+<a class="sourceLine" id="cb330-4" data-line-number="4">left_popular</a></code></pre></div>
 <pre><code># A tibble: 105 x 3
    dest  name                                   n
    &lt;chr&gt; &lt;chr&gt;                              &lt;int&gt;
@@ -1333,18 +1569,18 @@ Figure 6.15: Schéma de la fonction <code>left_join()</code> tiré de la ‘chea
 10 DCA   Ronald Reagan Washington Natl       9705
 # ... with 95 more rows</code></pre>
 <p>En apparence, le tableau <code>left_popular</code>, créé avec <code>left_join()</code> semble identique au tableau <code>inner_popular</code> créé avec <code>inner_join()</code>. Pourtant, ce n’est pas le cas :</p>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb303-1" data-line-number="1"><span class="kw">identical</span>(inner_popular, left_popular)</a></code></pre></div>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb332-1" data-line-number="1"><span class="kw">identical</span>(inner_popular, left_popular)</a></code></pre></div>
 <pre><code>[1] FALSE</code></pre>
 <p>En l’occurence, nous avons vu que <code>inner_popular</code> ne contenait pas autant de ligne que le tableau de départ <code>popular_dest</code>. Avec une jointure gauche, les lignes du tableau de départ sont toutes conservées. <code>popular_dest</code> et <code>left_popular</code> ont donc le même nombre de lignes.</p>
-<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb305-1" data-line-number="1"><span class="kw">nrow</span>(inner_popular)</a></code></pre></div>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb334-1" data-line-number="1"><span class="kw">nrow</span>(inner_popular)</a></code></pre></div>
 <pre><code>[1] 101</code></pre>
-<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb307-1" data-line-number="1"><span class="kw">nrow</span>(left_popular)</a></code></pre></div>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb336-1" data-line-number="1"><span class="kw">nrow</span>(left_popular)</a></code></pre></div>
 <pre><code>[1] 105</code></pre>
-<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb309-1" data-line-number="1"><span class="kw">nrow</span>(popular_dest)</a></code></pre></div>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb338-1" data-line-number="1"><span class="kw">nrow</span>(popular_dest)</a></code></pre></div>
 <pre><code>[1] 105</code></pre>
 <p>Pour savoir quelles lignes de <code>popular_dest</code> manquent dans <code>inner_dest</code> (il devrait y en avoir 4), il suffit de filtrer les lignes de <code>left_dest</code> qui contiennent des données manquantes dans la colonne <code>name</code> :</p>
-<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb311-1" data-line-number="1">left_popular <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb311-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(<span class="kw">is.na</span>(name))</a></code></pre></div>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb340-1" data-line-number="1">left_popular <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb340-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(<span class="kw">is.na</span>(name))</a></code></pre></div>
 <pre><code># A tibble: 4 x 3
   dest  name      n
   &lt;chr&gt; &lt;chr&gt; &lt;int&gt;
@@ -1372,10 +1608,10 @@ Figure 6.15: Schéma de la fonction <code>left_join()</code> tiré de la ‘chea
 </ul>
 <p>Prenons un exemple.</p>
 <p>Imaginons que nous ayons 2 tableaux contenant les mêmes variables. Le premier, nommé <code>colorado</code>, contient les informations des vols ayant décollé de New York en 2013 et ayant atteri à l’aéroport de Yempa Valley au Colorado (aéroport <code>HDN</code>).</p>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb313-1" data-line-number="1">colorado &lt;-<span class="st"> </span>flights <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb313-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(dest <span class="op">==</span><span class="st"> &quot;HDN&quot;</span>)</a>
-<a class="sourceLine" id="cb313-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb313-4" data-line-number="4">colorado</a></code></pre></div>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb342-1" data-line-number="1">colorado &lt;-<span class="st"> </span>flights <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb342-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(dest <span class="op">==</span><span class="st"> &quot;HDN&quot;</span>)</a>
+<a class="sourceLine" id="cb342-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb342-4" data-line-number="4">colorado</a></code></pre></div>
 <pre><code># A tibble: 15 x 19
     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
@@ -1398,10 +1634,10 @@ Figure 6.15: Schéma de la fonction <code>left_join()</code> tiré de la ‘chea
 #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
 #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
 <p>Le second est nommé <code>indiana</code>. Il contient les informations des vols ayant décollé de New York en 2013 et ayant atteri à l’aéroport de South Bend en Indiana (aéroport <code>SBN</code>).</p>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb315-1" data-line-number="1">indiana &lt;-<span class="st"> </span>flights <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb315-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(dest <span class="op">==</span><span class="st"> &quot;SBN&quot;</span>)</a>
-<a class="sourceLine" id="cb315-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb315-4" data-line-number="4">indiana</a></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb344-1" data-line-number="1">indiana &lt;-<span class="st"> </span>flights <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb344-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(dest <span class="op">==</span><span class="st"> &quot;SBN&quot;</span>)</a>
+<a class="sourceLine" id="cb344-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb344-4" data-line-number="4">indiana</a></code></pre></div>
 <pre><code># A tibble: 10 x 19
     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
@@ -1419,7 +1655,7 @@ Figure 6.15: Schéma de la fonction <code>left_join()</code> tiré de la ‘chea
 #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
 #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
 <p>Puisque les variables de ces 2 tableaux sont les mêmes, nous pouvons “empiler” ces 2 tableaux pour n’en former qu’un seul :</p>
-<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb317-1" data-line-number="1"><span class="kw">bind_rows</span>(colorado, indiana)</a></code></pre></div>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb346-1" data-line-number="1"><span class="kw">bind_rows</span>(colorado, indiana)</a></code></pre></div>
 <pre><code># A tibble: 25 x 19
     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
@@ -1437,8 +1673,8 @@ Figure 6.15: Schéma de la fonction <code>left_join()</code> tiré de la ‘chea
 #   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;,
 #   distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
 <p>Vous noterez que le nombre de lignes du nouveau tableau est la somme des nombres de lignes des 2 tableaux de départ. Bien sûr, cette opération n’est utile que si les tableaux nous sont fournis séparément. Ici, il aurait été bien plus rapide d’obtenir le même résultat en tapant :</p>
-<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb319-1" data-line-number="1">flights <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb319-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(dest <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;HDN&quot;</span>, <span class="st">&quot;SBN&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb348-1" data-line-number="1">flights <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb348-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(dest <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;HDN&quot;</span>, <span class="st">&quot;SBN&quot;</span>))</a></code></pre></div>
 <pre><code># A tibble: 25 x 19
     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
@@ -1456,28 +1692,28 @@ Figure 6.15: Schéma de la fonction <code>left_join()</code> tiré de la ‘chea
 #   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;,
 #   distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
 <p>Le fonctionnement de <code>bind_cols()</code> est le même :</p>
-<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb321-1" data-line-number="1">a &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, </a>
-<a class="sourceLine" id="cb321-2" data-line-number="2">            <span class="dt">y =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>),</a>
-<a class="sourceLine" id="cb321-3" data-line-number="3">            <span class="dt">z =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>))</a>
-<a class="sourceLine" id="cb321-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb321-5" data-line-number="5">b &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">r =</span> <span class="dv">10</span><span class="op">:</span><span class="dv">8</span>, </a>
-<a class="sourceLine" id="cb321-6" data-line-number="6">            <span class="dt">s =</span> <span class="kw">rnorm</span>(<span class="dv">3</span>))</a>
-<a class="sourceLine" id="cb321-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb321-8" data-line-number="8">a</a></code></pre></div>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb350-1" data-line-number="1">a &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, </a>
+<a class="sourceLine" id="cb350-2" data-line-number="2">            <span class="dt">y =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>),</a>
+<a class="sourceLine" id="cb350-3" data-line-number="3">            <span class="dt">z =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>))</a>
+<a class="sourceLine" id="cb350-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb350-5" data-line-number="5">b &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">r =</span> <span class="dv">10</span><span class="op">:</span><span class="dv">8</span>, </a>
+<a class="sourceLine" id="cb350-6" data-line-number="6">            <span class="dt">s =</span> <span class="kw">rnorm</span>(<span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb350-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb350-8" data-line-number="8">a</a></code></pre></div>
 <pre><code># A tibble: 3 x 3
       x     y z    
   &lt;int&gt; &lt;dbl&gt; &lt;lgl&gt;
 1     1     2 TRUE 
 2     2     4 FALSE
 3     3     6 FALSE</code></pre>
-<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb323-1" data-line-number="1">b</a></code></pre></div>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb352-1" data-line-number="1">b</a></code></pre></div>
 <pre><code># A tibble: 3 x 2
       r      s
   &lt;int&gt;  &lt;dbl&gt;
 1    10 -1.22 
 2     9  0.710
 3     8 -0.109</code></pre>
-<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb325-1" data-line-number="1"><span class="kw">bind_cols</span>(a,b)</a></code></pre></div>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb354-1" data-line-number="1"><span class="kw">bind_cols</span>(a,b)</a></code></pre></div>
 <pre><code># A tibble: 3 x 5
       x     y z         r      s
   &lt;int&gt; &lt;dbl&gt; &lt;lgl&gt; &lt;int&gt;  &lt;dbl&gt;

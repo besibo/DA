@@ -369,7 +369,7 @@ Enfin, vous pouvez égalememnt noter que certaines variables devraient être mod
 Nous verrons dans la partie \@ref(wrangling) comment effectuer simplement ces différentes opérations
 
 
-### Fichiers au format texte brut (.csv)
+### Fichiers au format texte brut (.csv) {#plaintext}
 
 Nous allons utiliser les mêmes données que précédemment, mais cette fois-ci, elles sont contenues dans un fichier au format `.csv`. Téléchargez le fichier [dauphin.csv](data/dauphin.csv) (pour cela, faites un clic droit sur le lien et choisissez `Enregistrez la cible du lien sous...` ou une mention équivalente), placez-le dans votre répertoire de travail, et ouvrez-le avec le bloc notes Windows ou tout autre éditeur de texte brut disponible sur votre ordinateur. **Attention** : Microsoft Word n'est pas un éditeur de texte brut. Un fichier au format `.doc` ou `.docx` est illisible dans un éditeur de texte brut car outre le texte, ces formats de documents contiennent toutes les informations concernant la mise en forme du texte (polices de caractères, tailles, couleurs et autres attributs, présence de figures, de tableaux dans le document, etc.).
 
