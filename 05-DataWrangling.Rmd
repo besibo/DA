@@ -787,6 +787,7 @@ dauphin <- read_excel("data/dauphin.xls", na = "*", skip = 9) %>%   # Importatio
          Cd = `Cd (mg.kg-1)`,
          Cu = `Cu (mg.kg-1)`,
          Hg = `Hg (mg.kg-1)`) %>% 
+  select(-ID) %>%                           # On supprime la colonne `ID`, puis
   mutate_if(is.character, as.factor) %>%    # On transforme en facteurs les variables <chr>, puis
   mutate(Sexe = fct_recode(Sexe,            # On modifie les niveau de `Sexe` et l'ordre des niveaux de Statut
                            "Female" = "f",

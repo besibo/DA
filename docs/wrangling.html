@@ -25,7 +25,7 @@
 <meta name="author" content="Benoît Simon-Bouhet">
 
 
-<meta name="date" content="2018-10-14">
+<meta name="date" content="2018-10-15">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -1308,26 +1308,27 @@ Figure 6.12: Indice Gonado Somatique selon le sexe.
 <a class="sourceLine" id="cb310-8" data-line-number="8">         <span class="dt">Cd =</span> <span class="st">`</span><span class="dt">Cd (mg.kg-1)</span><span class="st">`</span>,</a>
 <a class="sourceLine" id="cb310-9" data-line-number="9">         <span class="dt">Cu =</span> <span class="st">`</span><span class="dt">Cu (mg.kg-1)</span><span class="st">`</span>,</a>
 <a class="sourceLine" id="cb310-10" data-line-number="10">         <span class="dt">Hg =</span> <span class="st">`</span><span class="dt">Hg (mg.kg-1)</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb310-11" data-line-number="11"><span class="st">  </span><span class="kw">mutate_if</span>(is.character, as.factor) <span class="op">%&gt;%</span><span class="st">    </span><span class="co"># On transforme en facteurs les variables &lt;chr&gt;, puis</span></a>
-<a class="sourceLine" id="cb310-12" data-line-number="12"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Sexe =</span> <span class="kw">fct_recode</span>(Sexe,            <span class="co"># On modifie les niveau de `Sexe` et l&#39;ordre des niveaux de Statut</span></a>
-<a class="sourceLine" id="cb310-13" data-line-number="13">                           <span class="st">&quot;Female&quot;</span> =<span class="st"> &quot;f&quot;</span>,</a>
-<a class="sourceLine" id="cb310-14" data-line-number="14">                           <span class="st">&quot;Male&quot;</span> =<span class="st"> &quot;m&quot;</span>),</a>
-<a class="sourceLine" id="cb310-15" data-line-number="15">         <span class="dt">Statut =</span> <span class="kw">fct_relevel</span>(Statut, <span class="st">&quot;imm&quot;</span>, <span class="st">&quot;mat&quot;</span>, <span class="st">&quot;pnl&quot;</span>, <span class="st">&quot;l&quot;</span>, <span class="st">&quot;pl&quot;</span>, <span class="st">&quot;repos&quot;</span>))</a>
-<a class="sourceLine" id="cb310-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb310-17" data-line-number="17">dauphin</a></code></pre></div>
-<pre><code># A tibble: 93 x 9
-   ID        Sexe   Statut Taille   Age     Cd    Cu    Hg Organe
-   &lt;fct&gt;     &lt;fct&gt;  &lt;fct&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt; 
- 1 Numéro 1  Female imm       315     3  29.6   3.24 NA    rein  
- 2 Numéro 2  Female imm       357     4  55.1   4.42 NA    rein  
- 3 Numéro 3  Female pnl       439    34 129.    5.01  9.02 rein  
- 4 Numéro 4  Female imm       316     4  71.2   4.33 NA    rein  
- 5 Numéro 5  Female l         435    26 192     5.15 NA    rein  
- 6 Numéro 6  Female pnl       388     6  NA     4.12  4.53 rein  
- 7 Numéro 7  Female mat       410    NA  76     5.1  33.9  foie  
- 8 Numéro 8  Male   imm       355    NA  74.4   4.72 13.3  foie  
- 9 Numéro 9  Male   imm       222    NA   0.09  9.5   2.89 foie  
-10 Numéro 10 Male   imm       412     9  85.6   5.42 NA    rein  
+<a class="sourceLine" id="cb310-11" data-line-number="11"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>ID) <span class="op">%&gt;%</span><span class="st">                           </span><span class="co"># On supprime la colonne `ID`, puis</span></a>
+<a class="sourceLine" id="cb310-12" data-line-number="12"><span class="st">  </span><span class="kw">mutate_if</span>(is.character, as.factor) <span class="op">%&gt;%</span><span class="st">    </span><span class="co"># On transforme en facteurs les variables &lt;chr&gt;, puis</span></a>
+<a class="sourceLine" id="cb310-13" data-line-number="13"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Sexe =</span> <span class="kw">fct_recode</span>(Sexe,            <span class="co"># On modifie les niveau de `Sexe` et l&#39;ordre des niveaux de Statut</span></a>
+<a class="sourceLine" id="cb310-14" data-line-number="14">                           <span class="st">&quot;Female&quot;</span> =<span class="st"> &quot;f&quot;</span>,</a>
+<a class="sourceLine" id="cb310-15" data-line-number="15">                           <span class="st">&quot;Male&quot;</span> =<span class="st"> &quot;m&quot;</span>),</a>
+<a class="sourceLine" id="cb310-16" data-line-number="16">         <span class="dt">Statut =</span> <span class="kw">fct_relevel</span>(Statut, <span class="st">&quot;imm&quot;</span>, <span class="st">&quot;mat&quot;</span>, <span class="st">&quot;pnl&quot;</span>, <span class="st">&quot;l&quot;</span>, <span class="st">&quot;pl&quot;</span>, <span class="st">&quot;repos&quot;</span>))</a>
+<a class="sourceLine" id="cb310-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb310-18" data-line-number="18">dauphin</a></code></pre></div>
+<pre><code># A tibble: 93 x 8
+   Sexe   Statut Taille   Age     Cd    Cu    Hg Organe
+   &lt;fct&gt;  &lt;fct&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt; 
+ 1 Female imm       315     3  29.6   3.24 NA    rein  
+ 2 Female imm       357     4  55.1   4.42 NA    rein  
+ 3 Female pnl       439    34 129.    5.01  9.02 rein  
+ 4 Female imm       316     4  71.2   4.33 NA    rein  
+ 5 Female l         435    26 192     5.15 NA    rein  
+ 6 Female pnl       388     6  NA     4.12  4.53 rein  
+ 7 Female mat       410    NA  76     5.1  33.9  foie  
+ 8 Male   imm       355    NA  74.4   4.72 13.3  foie  
+ 9 Male   imm       222    NA   0.09  9.5   2.89 foie  
+10 Male   imm       412     9  85.6   5.42 NA    rein  
 # ... with 83 more rows</code></pre>
 <p>Outre les fonction <code>fct_rev()</code>, <code>fct_recode()</code> et <code>fct_relevel()</code> abordées ici, on peut aussi noter :
 * <code>fct_reorder()</code> et <code>fct_reorder2()</code>, pour ordonner automatiquement les niveaux d’un facteur en fonction d’une autre variable numerique (pour avoir par exemple des séries rangées par ordre de moyenne croissante sur un graphique)
