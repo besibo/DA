@@ -360,11 +360,12 @@ Figure 6.1: Notre premier graphique, produit grâce au pipe
 <div id="principe" class="section level3">
 <h3><span class="header-section-number">6.4.1</span> Principe</h3>
 <div class="figure" style="text-align: center"><span id="fig:filterfig"></span>
-<img src="images/filter.png" alt="Schéma de la fonction `filter()` tiré de la 'cheatsheet' de `dplyr` et `tidyr`" width="50%" />
+<img src="images/filter.png" alt="Schéma de la fonction filter() tiré de la ‘cheatsheet’ de dplyr et tidyr." width="50%" />
 <p class="caption">
-Figure 6.2: Schéma de la fonction <code>filter()</code> tiré de la ‘cheatsheet’ de <code>dplyr</code> et <code>tidyr</code>
+Figure 6.2: Schéma de la fonction <code>filter()</code> tiré de la ‘cheatsheet’ de <code>dplyr</code> et <code>tidyr</code>.
 </p>
 </div>
+
 <p>Comme son nom l’indique, <code>filter()</code> permet de filtrer des lignes en spécifiant un ou des critères de tri portant sur une ou plusieurs variables. Nous avons déjà utilisé cette fonction à plusieurs reprises pour créer les jeux de données <code>alaska_flights</code> et <code>small_weather</code> :</p>
 <div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb220-1" title="1">alaska_flights &lt;-<span class="st"> </span>flights <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb220-2" title="2"><span class="st">  </span><span class="kw">filter</span>(carrier <span class="op">==</span><span class="st"> &quot;AS&quot;</span>)</a></code></pre></div>
@@ -523,11 +524,12 @@ Figure 6.2: Schéma de la fonction <code>filter()</code> tiré de la ‘cheatshe
 <h3><span class="header-section-number">6.5.1</span> Principe de la fonction <code>summarise()</code></h3>
 <p><img src="images/summarizearrow.png" width="70%" style="display: block; margin: auto;" /></p>
 <div class="figure" style="text-align: center"><span id="fig:summarisefig2"></span>
-<img src="images/summarize.png" alt="Schéma de la fonction `summarise()` tiré de la 'cheatsheet' de `dplyr` et `tidyr`" width="40%" />
+<img src="images/summarize.png" alt="Schéma de la fonction summarise() tiré de la ‘cheatsheet’ de dplyr et tidyr." width="40%" />
 <p class="caption">
-Figure 6.3: Schéma de la fonction <code>summarise()</code> tiré de la ‘cheatsheet’ de <code>dplyr</code> et <code>tidyr</code>
+Figure 6.3: Schéma de la fonction <code>summarise()</code> tiré de la ‘cheatsheet’ de <code>dplyr</code> et <code>tidyr</code>.
 </p>
 </div>
+
 <p>La figure <a href="wrangling.html#fig:summarisefig2">6.3</a> ci-dessus indique comment fonctionne la fonction <code>summarise()</code> : elle prend plusieurs valeurs (potentiellement, un très grand nombre) et les réduit à une unique valeur qui les résume. Lorsque l’on applique cette démarche à plusieurs colonnes d’un tableau, on obtient un tableau qui ne contient plus qu’une unique ligne de résumé.</p>
 <p>La valeur qui résume les données est choisie par l’utilisateur. Il peut s’agir par exemple d’un calcul moyenne ou de variance, il peut s’agir de calculer une somme, ou d’extraire la valeur maximale ou minimale, ou encore, il peut tout simplement s’agir de déterminer un nombre d’observations.</p>
 <p>Ainsi, pour connaître la température moyenne et l’écart-type des températures dans les aéroports de New York, il suffit d’utiliser le tableau <code>weather</code> et sa variable <code>temp</code> que nous avons déjà utilisés dans les chapitres précédents :</p>
@@ -561,9 +563,9 @@ Figure 6.3: Schéma de la fonction <code>summarise()</code> tiré de la ‘cheat
 <h3><span class="header-section-number">6.5.2</span> Intérêt de la fonction <code>group_by()</code></h3>
 <p>La fonction devient particulièrement puissante lorsqu’elle est combinée avec la fonction <code>group_by()</code> :</p>
 <div class="figure" style="text-align: center"><span id="fig:groupby"></span>
-<img src="images/groupby.png" alt="(ref:groupby" width="65%" />
+<img src="images/groupby.png" alt="Fonctionnement de group_by() travaillant de concert avec summarise(), tiré de la ‘cheatsheet’ de dplyr et tidyr." width="65%" />
 <p class="caption">
-Figure 6.4: (ref:groupby
+Figure 6.4: Fonctionnement de <code>group_by()</code> travaillant de concert avec <code>summarise()</code>, tiré de la ‘cheatsheet’ de <code>dplyr</code> et <code>tidyr</code>.
 </p>
 </div>
 
@@ -887,11 +889,12 @@ Sachant qu’en divisant des mph par 1.151 on obtient des vitesses en nœuds, qu
 <div id="selectionner-des-variables-avec-select" class="section level2">
 <h2><span class="header-section-number">6.6</span> Sélectionner des variables avec <code>select()</code></h2>
 <div class="figure" style="text-align: center"><span id="fig:selectfig"></span>
-<img src="images/select.png" alt="Schéma de la fonction `select()` tiré de la 'cheatsheet' de `dplyr` et `tidyr`" width="50%" />
+<img src="images/select.png" alt="Schéma de la fonction select() tiré de la ‘cheatsheet’ de dplyr et tidyr." width="50%" />
 <p class="caption">
-Figure 6.9: Schéma de la fonction <code>select()</code> tiré de la ‘cheatsheet’ de <code>dplyr</code> et <code>tidyr</code>
+Figure 6.9: Schéma de la fonction <code>select()</code> tiré de la ‘cheatsheet’ de <code>dplyr</code> et <code>tidyr</code>.
 </p>
 </div>
+
 <p>Il n’est pas rare de travailler avec des tableaux contenant des centaines, voir des milliers de colonnes. Dans de tels cas, il peut être utile de réduire le jeu de données aux variables qui vous intéressent. Le rôle de la fonction <code>select()</code> est de retenir uniquement les colonnes dont on a spécifié le nom, afin de recentrer l’analyse sur les variables utiles.</p>
 <p><code>select()</code> n’est pas particulièrement utile pour le jeu de données <code>flights</code> puisqu’il ne contient que 19 variables. Toutefois, on peut malgré tout comprendre le fonctionnement général. Par exemle, pour sélectionner uniquement les colonnes <code>year</code>, <code>month</code> et <code>day</code>, on tape :</p>
 <div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb263-1" title="1"><span class="co"># Sélection de variables par leur nom</span></a>
@@ -1024,11 +1027,12 @@ Figure 6.9: Schéma de la fonction <code>select()</code> tiré de la ‘cheatshe
 <div id="principe-1" class="section level3">
 <h3><span class="header-section-number">6.7.1</span> Principe</h3>
 <div class="figure" style="text-align: center"><span id="fig:mutatefig"></span>
-<img src="images/mutate.png" alt="Schéma de la fonction `mutate()` tiré de la 'cheatsheet' de `dplyr` et `tidyr`" width="50%" />
+<img src="images/mutate.png" alt="Schéma de la fonction mutate() tiré de la ‘cheatsheet’ de dplyr et tidyr." width="50%" />
 <p class="caption">
-Figure 6.10: Schéma de la fonction <code>mutate()</code> tiré de la ‘cheatsheet’ de <code>dplyr</code> et <code>tidyr</code>
+Figure 6.10: Schéma de la fonction <code>mutate()</code> tiré de la ‘cheatsheet’ de <code>dplyr</code> et <code>tidyr</code>.
 </p>
 </div>
+
 <p>La fonction <code>mutate()</code> permet de créer de nouvelles variables à partir des variables existantes, ou de modifier des variables déjà présentes dans un jeu de données. Il est en effet fréquent d’avoir besoin de calculer de nouvelles variables, souvent plus informatives que les variables disponibles.</p>
 <p>Voyons un exemple. Nous commençons par créer un nouveau jeu de données <code>flights_sml</code> en sélectionnant uniquement les variables qui nous seront utiles :</p>
 <div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb276-1" title="1">flights_sml &lt;-<span class="st"> </span>flights <span class="op">%&gt;%</span><span class="st"> </span></a>
@@ -1364,11 +1368,12 @@ Figure 6.14: Consommation en fonction de la cylindrée
 <div id="arrange" class="section level2">
 <h2><span class="header-section-number">6.8</span> Trier des lignes avec <code>arrange()</code></h2>
 <div class="figure" style="text-align: center"><span id="fig:arrangefig"></span>
-<img src="images/arrange.png" alt="Schéma de la fonction `arrange()` tiré de la 'cheatsheet' de `dplyr` et `tidyr`" width="40%" />
+<img src="images/arrange.png" alt="Schéma de la fonction arrange() tiré de la ‘cheatsheet’ de dplyr et tidyr." width="40%" />
 <p class="caption">
-Figure 6.15: Schéma de la fonction <code>arrange()</code> tiré de la ‘cheatsheet’ de <code>dplyr</code> et <code>tidyr</code>
+Figure 6.15: Schéma de la fonction <code>arrange()</code> tiré de la ‘cheatsheet’ de <code>dplyr</code> et <code>tidyr</code>.
 </p>
 </div>
+
 <p>La fonction <code>arrange()</code> permet de trier des tableaux en ordonnant les éléments d’une ou plusieurs colonnes. Les tris peuvent être en ordre croissants (c’est le cas par défaut) ou décroissants (grâce à la fonction <code>desc()</code>, abbréviation de “descending”).</p>
 <p><code>arrange()</code> fonctionne donc comme <code>filter()</code>, mais au lieu de sélectionner des lignes, cette fonction change leur ordre. Il faut lui fournir le nom d’un tableau et au minimum le nom d’une variable selon laquelle le tri doit être réalisé. Si plusieurs variables sont fournies, chaque variable supplémentaire permet de résoudre les égalités. Ainsi, pour ordonner le tableau <code>flights</code> par ordre croissant de retard au départ (<code>dep_delay</code>), on tape :</p>
 <div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb312-1" title="1">flights <span class="op">%&gt;%</span><span class="st"> </span></a>
@@ -1488,9 +1493,9 @@ Figure 6.15: Schéma de la fonction <code>arrange()</code> tiré de la ‘cheats
 <div id="inner_join" class="section level3">
 <h3><span class="header-section-number">6.9.2</span> <code>inner_join()</code></h3>
 <div class="figure" style="text-align: center"><span id="fig:inner"></span>
-<img src="images/innerjoin.png" alt="Schéma de la fonction inner_join() tiré de la ‘cheatsheet’ de dplyr et tidyr" width="50%" />
+<img src="images/innerjoin.png" alt="Schéma de la fonction inner_join() tiré de la ‘cheatsheet’ de dplyr et tidyr." width="50%" />
 <p class="caption">
-Figure 6.16: Schéma de la fonction <code>inner_join()</code> tiré de la ‘cheatsheet’ de <code>dplyr</code> et <code>tidyr</code>
+Figure 6.16: Schéma de la fonction <code>inner_join()</code> tiré de la ‘cheatsheet’ de <code>dplyr</code> et <code>tidyr</code>.
 </p>
 </div>
 
@@ -1546,9 +1551,9 @@ Figure 6.16: Schéma de la fonction <code>inner_join()</code> tiré de la ‘che
 <div id="left_join" class="section level3">
 <h3><span class="header-section-number">6.9.3</span> <code>left_join()</code></h3>
 <div class="figure" style="text-align: center"><span id="fig:left"></span>
-<img src="images/leftjoin.png" alt="Schéma de la fonction left_join() tiré de la ‘cheatsheet’ de dplyr et tidyr" width="50%" />
+<img src="images/leftjoin.png" alt="Schéma de la fonction left_join() tiré de la ‘cheatsheet’ de dplyr et tidyr." width="50%" />
 <p class="caption">
-Figure 6.17: Schéma de la fonction <code>left_join()</code> tiré de la ‘cheatsheet’ de <code>dplyr</code> et <code>tidyr</code>
+Figure 6.17: Schéma de la fonction <code>left_join()</code> tiré de la ‘cheatsheet’ de <code>dplyr</code> et <code>tidyr</code>.
 </p>
 </div>
 

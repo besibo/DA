@@ -264,25 +264,25 @@ indépendants :
   Factorielle des Correspondances (AFC).
 \end{enumerate}
 
-Mon objectif n'est de traiter à tout pris l'ensemble du matériel dans ce
-faible volume horaire. Nous prendrons le temps de traiter correctement
-l'ensemble du matériel, quitte à ajouter des séances si besoin. Je suis
-convaincu que tout le monde est capable de comprendre les grands
-principes des statistiques, et de réaliser des analyses statistiques
-dans un logiciel tel que R, y compris les plus réfractaires aux
-mathématiques. Mais il est nécessaire de démystifier cette discipline
-essentielle, et si certains ont besoin de plus de temps que d'autres,
-nous prendrons ce temps. Les TP et TEA, décrits plus bas, sont justement
-organisés pour permettre à chacun d'avancer à son rythme. Mais ne vous y
-trompez pas, cela vous demandera \textbf{beaucoup} de travail pendant
-ces 3 semaines.
+Mon objectif n'est pas de traiter à tout prix l'ensemble du matériel
+dans ce faible volume horaire. Nous prendrons le temps de traiter
+correctement l'ensemble du matériel, quitte à ajouter des séances si
+besoin. Je suis convaincu que tout le monde est capable de comprendre
+les grands principes des statistiques, et de réaliser des analyses
+statistiques dans un logiciel tel que R, y compris les plus réfractaires
+aux mathématiques. Mais il est nécessaire de démystifier cette
+discipline essentielle, et si certains ont besoin de plus de temps que
+d'autres, nous prendrons ce temps. Les TP et TEA, décrits plus bas, sont
+justement organisés pour permettre à chacun d'avancer à son rythme. Mais
+ne vous y trompez pas, cela vous demandera \textbf{beaucoup} de travail
+pendant ces 3 semaines.
 
 Tous les aspects vu en cours seront en effet développés lors des séances
 de TP et de TEA. Vous aurez, pour chaque partie, des exercices à
 préparer et à déposer sur l'ENT. Ces exercices seront corrigés lors des
-séances de TP et/ou de TEA. Tout cela doit d'une par vous préparer à
+séances de TP et/ou de TEA. Tout cela doit d'une part vous préparer à
 l'évaluation qui aura lieu en fin de bloc, mais surtout, cela doit vous
-permettre d'acquérir des compétences en analyses de données, compétences
+permettre d'acquérir des compétences en analyse de données, compétences
 qui seront attendues de vous lorsque vous sortirez diplômé.e de ce
 master.
 
@@ -320,18 +320,19 @@ questions en amont des séances. Si aucune question ne m'a été posée en
 amont, les permanences n'auront pas lieu. Si une permanence a lieu, elle
 est ouverte à tous, quel que soit votre groupe de TP. Vous n'êtes
 d'ailleurs pas tenus de rester pendant 90 minutes : vous venez avec
-votre question, on y répond ensemble, et vous êtes libre de repartir
+votre question, on y répond ensemble, et vous êtes libres de repartir
 quand bon vous semble. Les années précédentes, je voyais certains de vos
 collègues à chaque séance de permanence alors que d'autres ne sont
 jamais venus. Si vous n'en avez pas besoin, libre à vous de ne pas
 venir. Tant que le travail est fait et que les exercices ne vous posent
-pas de problème, libre à vous de vous organiser comme vous l'entendez.
+pas de problème, vous êtes libres de vous organiser comme vous
+l'entendez.
 
-Attention toutefois, venir aux séances de permanence en n'ayant pas
+Attention toutefois, venir à une séance de permanence en n'ayant pas
 préparé de question au préalable ne vous sera d'aucune aide. C'est parce
 que vous avez travaillé en amont de ces séances et que vous arrivez avec
-des questions que ces les permanences sont utiles et efficaices. Donc si
-vous venez, c'est que vous avez bossé en amont.
+des questions que ces permanences sont utiles et efficaces. Donc si vous
+venez, c'est que vous avez bossé en amont !
 
 \textbf{Comment procéder pour savoir si une séance de permanence a lieu,
 ou pour poser une question ?}
@@ -354,10 +355,10 @@ Vous verrez que 3 ``chaînes'' sont disponibles :
   cours, des TP et TEA doivent être posées. Si vous ne savez pas si une
   séance de permanence a lieu, posez la question ici.
 \item
-  \#rstudio : c'est ici que toutes les questions praticuqes liées à
+  \#rstudio : c'est ici que toutes les questions pratiques liées à
   l'utilisation de R et RStudio devront êtres posées. Problèmes de
   syntaxe, problèmes liés à l'interface, à l'installation des packages
-  ou à l'utilisation des fonctions\ldots{} Tout ce qui concernen R ou
+  ou à l'utilisation des fonctions\ldots{} Tout ce qui concerne R ou
   RStudio mais pas directement les statistiques sera traité ici. Vous
   êtes libres de poser des questions, de poster des captures d'écran,
   des morceaux de code, des messages d'erreur. Et vous êtes bien
@@ -6853,8 +6854,12 @@ production de graphiques et l'analyse statistique de vos données.
 
 }
 
-\caption{Schéma de la fonction `filter()` tiré de la 'cheatsheet' de `dplyr` et `tidyr`}\label{fig:filterfig}
+\caption{Schéma de la fonction \texttt{filter()} tiré de la
+`cheatsheet' de \texttt{dplyr} et \texttt{tidyr}.}\label{fig:filterfig}
 \end{figure}
+
+
+
 
 Comme son nom l'indique, \texttt{filter()} permet de filtrer des lignes
 en spécifiant un ou des critères de tri portant sur une ou plusieurs
@@ -7192,8 +7197,12 @@ et
 
 }
 
-\caption{Schéma de la fonction `summarise()` tiré de la 'cheatsheet' de `dplyr` et `tidyr`}\label{fig:summarisefig2}
+\caption{Schéma de la fonction \texttt{summarise()} tiré de la
+`cheatsheet' de \texttt{dplyr} et \texttt{tidyr}.}\label{fig:summarisefig2}
 \end{figure}
+
+
+
 
 La figure \ref{fig:summarisefig2} ci-dessus indique comment fonctionne
 la fonction \texttt{summarise()} : elle prend plusieurs valeurs
@@ -7282,7 +7291,9 @@ avec la fonction \texttt{group\_by()} :
 
 }
 
-\caption{(ref:groupby}\label{fig:groupby}
+\caption{Fonctionnement de \texttt{group\_by()} travaillant de
+concert avec \texttt{summarise()}, tiré de la `cheatsheet' de
+\texttt{dplyr} et \texttt{tidyr}.}\label{fig:groupby}
 \end{figure}
 
 
@@ -7878,8 +7889,12 @@ nœuds, que nous apprend cette commande :
 
 }
 
-\caption{Schéma de la fonction `select()` tiré de la 'cheatsheet' de `dplyr` et `tidyr`}\label{fig:selectfig}
+\caption{Schéma de la fonction \texttt{select()} tiré de la
+`cheatsheet' de \texttt{dplyr} et \texttt{tidyr}.}\label{fig:selectfig}
 \end{figure}
+
+
+
 
 Il n'est pas rare de travailler avec des tableaux contenant des
 centaines, voir des milliers de colonnes. Dans de tels cas, il peut être
@@ -8113,8 +8128,12 @@ renommer certaines variables sans en éliminer aucune :
 
 }
 
-\caption{Schéma de la fonction `mutate()` tiré de la 'cheatsheet' de `dplyr` et `tidyr`}\label{fig:mutatefig}
+\caption{Schéma de la fonction \texttt{mutate()} tiré de la
+`cheatsheet' de \texttt{dplyr} et \texttt{tidyr}.}\label{fig:mutatefig}
 \end{figure}
+
+
+
 
 La fonction \texttt{mutate()} permet de créer de nouvelles variables à
 partir des variables existantes, ou de modifier des variables déjà
@@ -8770,8 +8789,12 @@ données vus ici (e.g.~\texttt{dauphin} ou \texttt{squid}).
 
 }
 
-\caption{Schéma de la fonction `arrange()` tiré de la 'cheatsheet' de `dplyr` et `tidyr`}\label{fig:arrangefig}
+\caption{Schéma de la fonction \texttt{arrange()} tiré de la
+`cheatsheet' de \texttt{dplyr} et \texttt{tidyr}.}\label{fig:arrangefig}
 \end{figure}
+
+
+
 
 La fonction \texttt{arrange()} permet de trier des tableaux en ordonnant
 les éléments d'une ou plusieurs colonnes. Les tris peuvent être en ordre
@@ -9001,7 +9024,7 @@ spécifiés par l'utilisateur.
 }
 
 \caption{Schéma de la fonction \texttt{inner\_join()} tiré de la
-`cheatsheet' de \texttt{dplyr} et \texttt{tidyr}}\label{fig:inner}
+`cheatsheet' de \texttt{dplyr} et \texttt{tidyr}.}\label{fig:inner}
 \end{figure}
 
 
@@ -9128,7 +9151,7 @@ départ, il faut faire une jointure gauche, ou ``left join''.
 }
 
 \caption{Schéma de la fonction \texttt{left\_join()} tiré de la
-`cheatsheet' de \texttt{dplyr} et \texttt{tidyr}}\label{fig:left}
+`cheatsheet' de \texttt{dplyr} et \texttt{tidyr}.}\label{fig:left}
 \end{figure}
 
 

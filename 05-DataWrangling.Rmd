@@ -100,9 +100,11 @@ Enfin, gardez en tête qu'il existe beaucoup plus de fonctions dans `dplyr` que 
 
 ### Principe
 
-```{r, filterfig, echo = FALSE, out.width='50%', fig.align='center', fig.cap="Schéma de la fonction `filter()` tiré de la 'cheatsheet' de `dplyr` et `tidyr`"}
+```{r, filterfig, echo = FALSE, out.width='50%', fig.align='center', fig.cap="(ref:filter)"}
 knitr::include_graphics('images/filter.png')
 ```
+
+(ref:filter) Schéma de la fonction `filter()` tiré de la 'cheatsheet' de `dplyr` et `tidyr`.
 
 Comme son nom l'indique, `filter()` permet de filtrer des lignes en spécifiant un ou des critères de tri portant sur une ou plusieurs variables. Nous avons déjà utilisé cette fonction à plusieurs reprises pour créer les jeux de données `alaska_flights` et `small_weather` :
 
@@ -238,9 +240,11 @@ identical(atl_sea_fall, atl_sea_fall2)
 knitr::include_graphics('images/summarizearrow.png')
 ```
 
-```{r, summarisefig2, echo = FALSE, out.width='40%', fig.align='center', fig.cap="Schéma de la fonction `summarise()` tiré de la 'cheatsheet' de `dplyr` et `tidyr`"}
+```{r, summarisefig2, echo = FALSE, out.width='40%', fig.align='center', fig.cap="(ref:summarise)"}
 knitr::include_graphics('images/summarize.png')
 ```
+
+(ref:summarise) Schéma de la fonction `summarise()` tiré de la 'cheatsheet' de `dplyr` et `tidyr`.
 
 La figure \@ref(fig:summarisefig2) ci-dessus indique comment fonctionne la fonction `summarise()` : elle prend plusieurs valeurs (potentiellement, un très grand nombre) et les réduit à une unique valeur qui les résume. Lorsque l'on applique cette démarche à plusieurs colonnes d'un tableau, on obtient un tableau qui ne contient plus qu'une unique ligne de résumé.
 
@@ -284,11 +288,11 @@ La température moyenne est donc de `r round(temper[1,1],1)` degrés Farenheit e
 
 La fonction devient particulièrement puissante lorsqu'elle est combinée avec la fonction `group_by()` :
 
-```{r, groupby, echo = FALSE, out.width='65%', fig.align='center', fig.cap="(ref:groupby"}
+```{r, groupby, echo = FALSE, out.width='65%', fig.align='center', fig.cap="(ref:groupby)"}
 knitr::include_graphics('images/groupby.png')
 ```
 
-(ref:groupby) Fonctionnement de `group_by()` travaillant de concert avec `summarise()`, tiré de la 'cheatsheet' de `dplyr` et `tidyr`
+(ref:groupby) Fonctionnement de `group_by()` travaillant de concert avec `summarise()`, tiré de la 'cheatsheet' de `dplyr` et `tidyr`.
 
 Comme son nom l'indique, la fonction `group_by()` permet de créer des sous-groupes dans un tableau, afin que le résumé des données soit calculé pour chacun des sous-groupes plutôt que sur l'ensemble du tableau. En ce sens, son fonctionnement est analogue à celui des `facet`s de `ggplot2` qui permettent de scinder les données d'un graphique en plusieurs sous-groupes.
 
@@ -514,9 +518,11 @@ sort(unique(weather$wind_speed)) / 1.151
 
 ## Sélectionner des variables avec `select()`
 
-```{r, selectfig, echo = FALSE, out.width='50%', fig.align='center', fig.cap="Schéma de la fonction `select()` tiré de la 'cheatsheet' de `dplyr` et `tidyr`"}
+```{r, selectfig, echo = FALSE, out.width='50%', fig.align='center', fig.cap="(ref:select)"}
 knitr::include_graphics('images/select.png')
 ```
+
+(ref:select) Schéma de la fonction `select()` tiré de la 'cheatsheet' de `dplyr` et `tidyr`.
 
 Il n'est pas rare de travailler avec des tableaux contenant des centaines, voir des milliers de colonnes. Dans de tels cas, il peut être utile de réduire le jeu de données aux variables qui vous intéressent. Le rôle de la fonction `select()` est de retenir uniquement les colonnes dont on a spécifié le nom, afin de recentrer l'analyse sur les variables utiles.
 
@@ -591,9 +597,11 @@ flights %>%
 
 ### Principe
 
-```{r, mutatefig, echo = FALSE, out.width='50%', fig.align='center', fig.cap="Schéma de la fonction `mutate()` tiré de la 'cheatsheet' de `dplyr` et `tidyr`"}
+```{r, mutatefig, echo = FALSE, out.width='50%', fig.align='center', fig.cap="(ref:mutate)"}
 knitr::include_graphics('images/mutate.png')
 ```
+
+(ref:mutate) Schéma de la fonction `mutate()` tiré de la 'cheatsheet' de `dplyr` et `tidyr`.
 
 La fonction `mutate()` permet de créer de nouvelles variables à partir des variables existantes, ou de modifier des variables déjà présentes dans un jeu de données. Il est en effet fréquent d'avoir besoin de calculer de nouvelles variables, souvent plus informatives que les variables disponibles.
 
@@ -849,9 +857,11 @@ mpg %>%
 
 ## Trier des lignes avec `arrange()` {#arrange}
 
-```{r, arrangefig, echo = FALSE, out.width='40%', fig.align='center', fig.cap="Schéma de la fonction `arrange()` tiré de la 'cheatsheet' de `dplyr` et `tidyr`"}
+```{r, arrangefig, echo = FALSE, out.width='40%', fig.align='center', fig.cap="(ref:arrange)"}
 knitr::include_graphics('images/arrange.png')
 ```
+
+(ref:arrange) Schéma de la fonction `arrange()` tiré de la 'cheatsheet' de `dplyr` et `tidyr`.
 
 La fonction `arrange()` permet de trier des tableaux en ordonnant les éléments d'une ou plusieurs colonnes. Les tris peuvent être en ordre croissants (c'est le cas par défaut) ou décroissants (grâce à la fonction `desc()`, abbréviation de "descending").
 
@@ -923,7 +933,7 @@ popular_dest
 knitr::include_graphics('images/innerjoin.png')
 ```
 
-(ref:innerjoin) Schéma de la fonction `inner_join()` tiré de la 'cheatsheet' de `dplyr` et `tidyr`
+(ref:innerjoin) Schéma de la fonction `inner_join()` tiré de la 'cheatsheet' de `dplyr` et `tidyr`.
 
 La fonction `inner_join()` permet de relier des tableaux en ne conservant que les lignes qui sont présentes à la fois dans l'un et dans l'autre. Il faut identifier dans chacun des tableaux une colonne contenant des données en commun, qui servira de guide pour mettre les lignes correctes les unes en face des autres. Ici, nous partons de notre tableau `popular_dest`, qui contient les codes des aéroports dans sa colonne `dest`. Et nous faisons une "jointure interne" avec le tableau `airports` qui contient lui aussi une colonne contenant les codes des aéroports : la variable `faa`.
 
@@ -961,7 +971,7 @@ Certaines lignes ont donc été supprimées car le code aéroport dans `popular_
 knitr::include_graphics('images/leftjoin.png')
 ```
 
-(ref:leftjoin) Schéma de la fonction `left_join()` tiré de la 'cheatsheet' de `dplyr` et `tidyr`
+(ref:leftjoin) Schéma de la fonction `left_join()` tiré de la 'cheatsheet' de `dplyr` et `tidyr`.
 
 Comme indiqué par la figure \@ref(fig:left) ci-dessus, une jointure gauche permet de conserver toutes les lignes du tableau de gauche, et de leur faire correspondre des lignes du second tableau. Si aucune correspondance n'est trouvée dans le second tableau, des données manquantes sont ajoutées sous forme de `NA`s. Voyons ce que cela donne avec le même exemple que précédemment :
 
