@@ -1303,9 +1303,9 @@ Figure 4.53: Association de <code>color</code> à une variable catégorielle
 <a class="sourceLine" id="cb146-7" title="7">       <span class="dt">y =</span> <span class="st">&quot;Retard à l&#39;arrivée à destination (minutes)&quot;</span>,</a>
 <a class="sourceLine" id="cb146-8" title="8">       <span class="dt">color =</span> <span class="st">&quot;Mois&quot;</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:varcolorlabel2"></span>
-<img src="figure/varcolorlabel2-1.png" alt="Exemple d'utilisation de `labs()`" width="90%" />
+<img src="figure/varcolorlabel2-1.png" alt="Exemple d'utilisation de `labs()`." width="90%" />
 <p class="caption">
-Figure 4.54: Exemple d’utilisation de <code>labs()</code>
+Figure 4.54: Exemple d’utilisation de <code>labs()</code>.
 </p>
 </div>
 <p>À partir de maintenant, vous devriez systématiquement légender les axes de vos graphiques en n’oubliant pas de préciser les unités, pour tous les graphiques que vous intégrez dans vos rapports, compte-rendus, mémoires, etc.</p>
@@ -1636,18 +1636,18 @@ Figure 4.61: Nombre de vols par compagnie aérienne au départ des 3 aéroports 
 <a class="sourceLine" id="cb155-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb155-3" title="3"><span class="st">  </span><span class="kw">scale_color_viridis_d</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:varcolorviridis"></span>
-<img src="figure/varcolorviridis-1.png" alt="Association de `color` à une variable catégorielle" width="90%" />
+<img src="figure/varcolorviridis-1.png" alt="Association de `color` à une variable catégorielle." width="90%" />
 <p class="caption">
-Figure 4.62: Association de <code>color</code> à une variable catégorielle
+Figure 4.62: Association de <code>color</code> à une variable catégorielle.
 </p>
 </div>
 <div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> alaska_flights, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay, <span class="dt">color =</span> arr_time)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb156-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb156-3" title="3"><span class="st">  </span><span class="kw">scale_color_viridis_c</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:varcolorviridis2"></span>
-<img src="figure/varcolorviridis2-1.png" alt="Association de `color` à une variable numérique" width="90%" />
+<img src="figure/varcolorviridis2-1.png" alt="Association de `color` à une variable numérique." width="90%" />
 <p class="caption">
-Figure 4.63: Association de <code>color</code> à une variable numérique
+Figure 4.63: Association de <code>color</code> à une variable numérique.
 </p>
 </div>
 <p>Pour les 2 figures <a href="viz.html#fig:varcolorviridis">4.62</a> et <a href="viz.html#fig:varcolorviridis2">4.63</a>, j’utilise la palette de couleur <code>viridis</code>. Pour ces 2 graphiques, c’est la couleur des points qui change. Puisque cette couleur est spécifiée avec l’esthétique <code>color</code> et non plus <code>fill</code>, la fonction utilisée est <code>scale_color_XXX()</code> et non plus <code>scale_fill_XXX()</code>.</p>
@@ -1728,9 +1728,9 @@ Figure 4.66: Utilisation du thème minimaliste.
 <a class="sourceLine" id="cb160-8" title="8"><span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Accent&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb160-9" title="9"><span class="st">  </span><span class="kw">theme_minimal</span>(<span class="dt">base_family =</span> <span class="st">&quot;Futura LT Book&quot;</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:themefont"></span>
-<img src="figure/themefont-1.png" alt="Modification de la police de caractère." width="90%" />
+<img src="figure/themefont-1.png" alt="Modification de la police de caractères." width="90%" />
 <p class="caption">
-Figure 4.67: Modification de la police de caractère.
+Figure 4.67: Modification de la police de caractères.
 </p>
 </div>
 <p>Le choix d’un thème et d’une police adaptés doivent vous permettre de faire des graphiques originaux et clairs. Rappelez-vous toujours que vos choix en matière de graphiques doivent avoir pour objectif principal de rendre les tendances plus faciles à décrypter pour un lecteur non familier de vos données. C’est un outil de communication au même titre que n’importe quel paragraphe d’un rapport ou compte-rendu. Et comme pour un paragraphe, la première version d’un graphique est rarement la bonne.</p>
@@ -1810,7 +1810,7 @@ gitbook.start({
 "size": 2
 },
 "edit": null,
-"download": ["Data-Analysis.pdf", "Data-Analysis.epub"],
+"download": ["Data-Analysis.pdf"],
 "toc": {
 "collapse": "subsection"
 }

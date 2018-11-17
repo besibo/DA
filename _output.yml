@@ -14,4 +14,3 @@ bookdown::pdf_book:
   keep_tex: yes
   dev: cairo_pdf
   pandoc_args: --highlight-style=my.theme
-bookdown::epub_book: default

@@ -929,7 +929,7 @@ ggplot(alaska_flights, aes(x = dep_delay, y = arr_delay, color = factor(month)))
 Nous pouvons ajouter sur ce graphique les éléments précisés plus haut en ajoutant la fonction `labs()` sur une nouvelle couche du graphique :
 
 
-```{r, varcolorlabel2, tidy=FALSE, warning=FALSE, fig.cap="Exemple d'utilisation de `labs()`"}
+```{r, varcolorlabel2, tidy=FALSE, warning=FALSE, fig.cap="Exemple d'utilisation de `labs()`."}
 ggplot(alaska_flights, aes(x = dep_delay, y = arr_delay, color = factor(month))) +
   geom_point() +
   labs(title = "Relation linéaire positive entre le retard des vols au départ et à l'arrivée",
@@ -1041,13 +1041,13 @@ ggplot(flights, aes(x = fct_infreq(carrier), fill = origin)) +
 
 Dernière chose concernant les couleurs : un choix de fonction `scale_XXX_XXX()` inaproprié est la cause d'erreur la plus fréquente ! Par exemple, si on reprend le code des figures \@ref(fig:varcolor) et \@ref(fig:varcolor2) et que l'on modifie les palettes de couleurs, notez que les fonctions utilisées ne sont pas les mêmes :
 
-```{r, varcolorviridis, tidy=FALSE, warning=FALSE, fig.cap="Association de `color` à une variable catégorielle"}
+```{r, varcolorviridis, tidy=FALSE, warning=FALSE, fig.cap="Association de `color` à une variable catégorielle."}
 ggplot(data = alaska_flights, mapping = aes(x = dep_delay, y = arr_delay, color = factor(month))) +
   geom_point() +
   scale_color_viridis_d()
 ```
 
-```{r, varcolorviridis2, tidy=FALSE, warning=FALSE, fig.cap="Association de `color` à une variable numérique"}
+```{r, varcolorviridis2, tidy=FALSE, warning=FALSE, fig.cap="Association de `color` à une variable numérique."}
 ggplot(data = alaska_flights, mapping = aes(x = dep_delay, y = arr_delay, color = arr_time)) +
   geom_point() +
   scale_color_viridis_c()
@@ -1122,7 +1122,7 @@ ggplot(flights, aes(x = fct_infreq(carrier), fill = origin)) +
 
 L'argument `base_family` de chaque thème permet de spécifier une police de caractère différente de celle utilisée par défaut. Évidemment, vous ne pourrez utiliser que des polices qui sont disponibles sur l'ordinateur que vous utilisez. Dans l'exemple de la figure \@ref(fig:themefont) ci-dessous, j'utilise la police "Futura LT Book". Si cette police n'est pas disponible sur votre ordinateur, ce code produira une erreur. Si c'est le cas, remplacez-la par une police de votre ordinateur. Attention, son nom exact doit être utilisé. Cela signifie bien sûr le respect des espaces, majuscules, etc.
 
-```{r themefont, fig.asp = 1, tidy=FALSE, warning = FALSE, fig.cap="Modification de la police de caractère."}
+```{r themefont, fig.asp = 1, tidy=FALSE, warning = FALSE, fig.cap="Modification de la police de caractères."}
 ggplot(flights, aes(x = fct_infreq(carrier), fill = origin)) +
   geom_bar(color = "black") +
   facet_wrap(~origin, ncol = 1) +
