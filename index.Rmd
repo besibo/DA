@@ -134,9 +134,14 @@ knitr::write_bib(c(
 options(replace.assign = TRUE, width = 80)
 options(repos = "http://cran.r-project.org/")
 
-list.of.packages <- c("nycflights13", "gapminder", "knitr", "tidyverse", "gridExtra")
+list.of.packages <- c("nycflights13", "gapminder", "knitr", "tidyverse", "gridExtra", "devtools")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages)
+
+if( !("EDAWR" %in% installed.packages()[,"Package"]) ) {
+  library(devtools)
+  install_github("rstudio/EDAWR")
+}
 
 library(knitr)
 library(tidyverse)
