@@ -13,4 +13,5 @@ bookdown::pdf_book:
   citation_package: natbib
   keep_tex: yes
   dev: cairo_pdf
+  pandoc_args: --highlight-style=my.theme
 bookdown::epub_book: default

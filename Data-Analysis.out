@@ -24,7 +24,7 @@
 \BOOKMARK [2][-]{subsection.4.10}{Exercices}{section.4}% 24
 \BOOKMARK [1][-]{section.5}{\(Ar\)ranger des données avec tidyr}{}% 25
 \BOOKMARK [2][-]{subsection.5.1}{Prérequis}{section.5}% 26
-\BOOKMARK [2][-]{subsection.5.2}{C'est\040quoi\040des\040tidy\040data\040?}{section.5}% 27
+\BOOKMARK [2][-]{subsection.5.2}{C'est\040quoi\040des\040``tidy\040data''\040?}{section.5}% 27
 \BOOKMARK [2][-]{subsection.5.3}{Importer des données depuis un tableur}{section.5}% 28
 \BOOKMARK [1][-]{section.6}{Tripatouiller les données avec dplyr}{}% 29
 \BOOKMARK [2][-]{subsection.6.1}{Pré-requis}{section.6}% 30
