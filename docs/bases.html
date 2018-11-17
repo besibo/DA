@@ -400,12 +400,14 @@ code > span. { color: #1f1c1b; } /* Normal */
 <span class="co"># Quelle est la structure de ce tableau ?</span>
 <span class="kw">str</span>(airquality)
 
-<span class="co"># Réalisation d&#39;un graphique présentant la relation entre la concentration en ozone atmosphérique en ppb et la température en degrés Farenheit</span>
+<span class="co"># Réalisation d&#39;un graphique présentant la relation entre la concentration en ozone </span>
+<span class="co"># atmosphérique en ppb et la température en degrés Farenheit</span>
 <span class="kw">ggplot</span>(<span class="dt">data =</span> airquality, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Temp, <span class="dt">y =</span> Ozone)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;loess&quot;</span>)
 
-<span class="co"># On constate une augmentation importante de la concentration d&#39;ozone pour des températures supérieures à 75ºF</span></code></pre></div>
+<span class="co"># On constate une augmentation importante de la concentration d&#39;ozone </span>
+<span class="co"># pour des températures supérieures à 75ºF</span></code></pre></div>
 <p>Même si vous ne comprenez pas encore les commandes qui figurent dans ce script (ça viendra !), voici ce que vous devez en retenir :</p>
 <ol style="list-style-type: decimal">
 <li>Le script contient plus de lignes de commentaires que de commandes R</li>
@@ -739,7 +741,7 @@ gitbook.start({
 "size": 2
 },
 "edit": null,
-"download": ["Data-Analysis.epub"],
+"download": ["Data-Analysis.pdf", "Data-Analysis.epub"],
 "toc": {
 "collapse": "subsection"
 }

@@ -127,16 +127,18 @@
   \postdate{\par}
     \date{2018-11-17}
 
-\usepackage{booktabs}
-\usepackage{amsthm}
-\makeatletter
-\def\thm@space@setup{%
-  \thm@preskip=8pt plus 2pt minus 4pt
-  \thm@postskip=\thm@preskip
-}
-\makeatother
-\usepackage{fancyhdr}
-\usepackage{geometry}
+\usepackage[french]{babel}
+\usepackage{mathspec}  % \usepackage{fontspec}
+\usepackage{natbib}
+
+\usepackage{setspace,booktabs,rotating,placeins,hvfloat,textcomp}
+
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{enumitem}
+
+\setallmainfonts[Ligatures = TeX]{ArcherPro-Medium}
+\onehalfspace
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[section]
@@ -805,12 +807,14 @@ Ci-dessous, un exemple de script
 \CommentTok{# Quelle est la structure de ce tableau ?}
 \KeywordTok{str}\NormalTok{(airquality)}
 
-\CommentTok{# Réalisation d'un graphique présentant la relation entre la concentration en ozone atmosphérique en ppb et la température en degrés Farenheit}
+\CommentTok{# Réalisation d'un graphique présentant la relation entre la concentration en ozone }
+\CommentTok{# atmosphérique en ppb et la température en degrés Farenheit}
 \KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ airquality, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ Temp, }\DataTypeTok{y =}\NormalTok{ Ozone)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"loess"}\NormalTok{)}
 
-\CommentTok{# On constate une augmentation importante de la concentration d'ozone pour des températures supérieures à 75ºF}
+\CommentTok{# On constate une augmentation importante de la concentration d'ozone }
+\CommentTok{# pour des températures supérieures à 75ºF}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3721,15 +3725,18 @@ ajoutant l'argument \texttt{notch\ =\ TRUE} à la fonction
 \end{Highlighting}
 \end{Shaded}
 
-\textbackslash{}begin\{figure\}{[}htpb{]}
+\begin{figure}[htpb]
 
-\{\centering \includegraphics[width=0.9\linewidth]{figure/notchedboxplot-1}
+{\centering \includegraphics[width=0.9\linewidth]{figure/notchedboxplot-1} 
 
-\}
+}
 
-\textbackslash{}caption\{Boxplot des températures mensuelles. Les
-intervalles de confiance à 95\% de la médiane sont
-affichés.\}\label{fig:notchedboxplot} \textbackslash{}end\{figure\}
+\caption{Boxplot des températures mensuelles. Les intervalles de
+confiance à 95\% de la médiane sont affichés.}\label{fig:notchedboxplot}
+\end{figure}
+
+
+
 
 Comme l'indique la légende de la figure \ref{fig:notchedboxplot}, cette
 encoche correspond à l'étendue de l'intervalle de confiance à 95\% de la

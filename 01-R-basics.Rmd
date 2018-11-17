@@ -154,12 +154,14 @@ head(airquality)
 # Quelle est la structure de ce tableau ?
 str(airquality)
 
-# Réalisation d'un graphique présentant la relation entre la concentration en ozone atmosphérique en ppb et la température en degrés Farenheit
+# Réalisation d'un graphique présentant la relation entre la concentration en ozone 
+# atmosphérique en ppb et la température en degrés Farenheit
 ggplot(data = airquality, mapping = aes(x = Temp, y = Ozone)) +
   geom_point() +
   geom_smooth(method = "loess")
 
-# On constate une augmentation importante de la concentration d'ozone pour des températures supérieures à 75ºF
+# On constate une augmentation importante de la concentration d'ozone 
+# pour des températures supérieures à 75ºF
 ```
 
 Même si vous ne comprenez pas encore les commandes qui figurent dans ce script (ça viendra !), voici ce que vous devez en retenir :
