@@ -25,7 +25,7 @@
 <meta name="author" content="Benoît Simon-Bouhet">
 
 
-<meta name="date" content="2018-11-13">
+<meta name="date" content="2018-11-17">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -244,6 +244,7 @@ code > span. { color: #1f1c1b; } /* Normal */
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>Références</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Publié avec bookdown</a></li>
+
 </ul>
 
       </nav>
@@ -913,11 +914,12 @@ Figure 4.35: Distribution des températures avec visualisation des données mens
 <span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">20</span>, <span class="dt">color =</span> <span class="st">&quot;grey30&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="kw">factor</span>(month), <span class="dt">ncol =</span> <span class="dv">3</span>)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:wrap"></span>
-<img src="figure/wrap-1.png" alt="Un exemple d'utilisation de `facet_wrap()`" width="90%" />
+<img src="figure/wrap-1.png" alt="Un exemple d’utilisation de facet_wrap()." width="90%" />
 <p class="caption">
-Figure 4.36: Un exemple d’utilisation de <code>facet_wrap()</code>
+Figure 4.36: Un exemple d’utilisation de <code>facet_wrap()</code>.
 </p>
 </div>
+
 <p>La couche supplémentaire créée avec <code>facet_wrap</code> permet donc de scinder les données en fonction d’une variable. Attention à la syntaxe ; il ne faut pas oublier le symbole <code>~</code> devant la variable que l’on souhaite utiliser pour scinder les données. Il va sans dire que la variable utilisée doit être catégorielle et non continue, c’est la raison pour laquelle j’utilise la notation <code>factor(month)</code> et non simplement <code>month</code>.</p>
 <p>Avec la fonction <code>facet_wrap()</code>, il est possible d’indiquer à R comment les différents graphiques doivent être agencés en spécifiant soit le nombre de colonnes souhaité avec <code>ncol</code>, soit le nombre de lignes souhaitées avec <code>nrow</code>.</p>
 </div>
@@ -928,11 +930,12 @@ Figure 4.36: Un exemple d’utilisation de <code>facet_wrap()</code>
 <span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">20</span>, <span class="dt">color =</span> <span class="st">&quot;grey30&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">facet_grid</span>(<span class="kw">factor</span>(month) <span class="op">~</span><span class="st"> </span>origin)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:grid"></span>
-<img src="figure/grid-1.png" alt="Un exemple d'utilisation de `facet_grid()`" width="90%" />
+<img src="figure/grid-1.png" alt="Un exemple d’utilisation de facet_grid()." width="90%" />
 <p class="caption">
-Figure 4.37: Un exemple d’utilisation de <code>facet_grid()</code>
+Figure 4.37: Un exemple d’utilisation de <code>facet_grid()</code>.
 </p>
 </div>
+
 <p>Ici, nous avons utilisé la variable <code>month</code> (transformée en facteur) et la variable <code>origin</code> pour créer un histogramme pour chaque combinaison des modalités de ces 2 variables. Il est donc possible comparer facilement des températures inter-mensuelles au sein d’un aéroport donné (en colonnes), ou de comparer des températures enregistrées le même mois dans des aéroports distincts (en lignes).</p>
 <p><code>facet_grid()</code> doit elle aussi être utilisée avec le symbole <code>~</code>. Comme pour les indices d’un tableau, on met à gauche du <code>~</code> la variable qui figurera en lignes, et à droite du <code>~</code> celle qui figurera en colonnes. Les arguments <code>nrow</code> et <code>ncol</code> ne peuvent donc pas être utilisés : c’est le nombre de niveaux de chaque variable catégorielle fournie à <code>facet_grid()</code> qui détermine le nombre de lignes et de colonnes du graphique.</p>
 <p>Vous devriez maintenant être convaincus de la puissance de la grammaire des graphiques. En utilisant un langage standardisé et en ajoutant des couches une à une sur un graphique, il est posible d’obtenir rapidement des visualisations très complexes et néanmoins très claires, qui font apparaître des srtuctures intéressantes dans nos données (des tendances, des groupes, des similitudes, des liaisons, des différences, etc).</p>
@@ -1021,7 +1024,9 @@ Figure 4.41: Distribution des températures de Novembre 2013
 <h2><span class="header-section-number">4.8</span> Les diagrammes bâtons</h2>
 <p>Comme nous venons de le voir, les histogrammes et les boîtes à moustaches permettent de visualiser la distribution d’une <strong>variable numérique continue</strong>. Nous aurons aussi souvent besoin de visualiser la distribution d’une <strong>variable catégorielle</strong>. C’est une tâche plus simple qui consiste à compter combien d’éléments tombent dans chacune des catégories de la variable catégorielle. Le meilleur moyen de visualiser de telles données de comptage (<em>aka</em> fréquences) est de réaliser un diagramme bâtons, autrement appelé <strong>barplot</strong> ou <strong>barchart</strong>.</p>
 <p>Une difficulté, toutefois, concerne la façon dont les données sont présentées : est-ce que la variable d’intérêt est “pré-comptée” ou non ? Par exemple, le code ci-dessous crée 2 <code>data.frame</code> qui représentent la même collection de fruits : 3 pommes et 2 oranges :</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fruits &lt;-<span class="st"> </span><span class="kw">data_frame</span>(<span class="dt">fruit =</span> <span class="kw">c</span>(<span class="st">&quot;pomme&quot;</span>, <span class="st">&quot;pomme&quot;</span>, <span class="st">&quot;pomme&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;orange&quot;</span>))
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fruits &lt;-<span class="st"> </span><span class="kw">data_frame</span>(
+  <span class="dt">fruit =</span> <span class="kw">c</span>(<span class="st">&quot;pomme&quot;</span>, <span class="st">&quot;pomme&quot;</span>, <span class="st">&quot;pomme&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;orange&quot;</span>)
+)
 fruits</code></pre></div>
 <pre><code># A tibble: 5 x 1
   fruit 
@@ -1031,7 +1036,10 @@ fruits</code></pre></div>
 3 pomme 
 4 orange
 5 orange</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fruits_counted &lt;-<span class="st"> </span><span class="kw">data_frame</span>(<span class="dt">fruit =</span> <span class="kw">c</span>(<span class="st">&quot;pomme&quot;</span>, <span class="st">&quot;orange&quot;</span>), <span class="dt">nombre =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">2</span>))
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fruits_counted &lt;-<span class="st"> </span><span class="kw">data_frame</span>(
+  <span class="dt">fruit =</span> <span class="kw">c</span>(<span class="st">&quot;pomme&quot;</span>, <span class="st">&quot;orange&quot;</span>),
+  <span class="dt">nombre =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">2</span>)
+)
 fruits_counted</code></pre></div>
 <pre><code># A tibble: 2 x 2
   fruit  nombre
@@ -1633,11 +1641,12 @@ Figure 4.63: Association de <code>color</code> à une variable numérique
        <span class="dt">title =</span> <span class="st">&quot;Couverture inégale des aéroports de New York par les compagnies aériennes&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Accent&quot;</span>)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:theme1"></span>
-<img src="figure/theme1-1.png" alt="Utilisation du thème par défaut : `theme_gray()`." width="90%" />
+<img src="figure/theme1-1.png" alt="(ref:gray" width="90%" />
 <p class="caption">
-Figure 4.64: Utilisation du thème par défaut : <code>theme_gray()</code>.
+Figure 4.64: (ref:gray
 </p>
 </div>
+
 <p>Le thème utilisé par défaut est <code>theme_gray()</code>. Il est notamment responsable de l’arrière plan gris et du quadrillage blanc. Pour changer de thème, il suffit d’ajouter une couche au graphique en donnant le nom du nouveau thème :</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(flights, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">fct_infreq</span>(carrier), <span class="dt">fill =</span> origin)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span>
@@ -1649,11 +1658,12 @@ Figure 4.64: Utilisation du thème par défaut : <code>theme_gray()</code>.
 <span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Accent&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:themebw"></span>
-<img src="figure/themebw-1.png" alt="Utilisation du thème `theme_bw()`." width="90%" />
+<img src="figure/themebw-1.png" alt="Utilisation du thème theme_bw()." width="90%" />
 <p class="caption">
 Figure 4.65: Utilisation du thème <code>theme_bw()</code>.
 </p>
 </div>
+
 <p>Les thèmes complets que vous pouvez utiliser sont les suivants :</p>
 <ul>
 <li><code>theme_bw()</code> : fond blanc et quadrillage.</li>
@@ -1728,7 +1738,7 @@ small_flights &lt;-<span class="st"> </span>flights <span class="op">%&gt;%</spa
 
 </div>
 </div>
-<h3>References</h3>
+<h3>Références</h3>
 <div id="refs" class="references">
 <div id="ref-wilkinson2005">
 <p>Wilkinson, Leland. 2005. <em>The Grammar of Graphics</em>. 2nd ed. New-York: Springer-Verlag. <a href="https://www.springer.com/us/book/9780387245447" class="uri">https://www.springer.com/us/book/9780387245447</a>.</p>
@@ -1773,7 +1783,7 @@ gitbook.start({
 "size": 2
 },
 "edit": null,
-"download": null,
+"download": ["Data-Analysis.epub"],
 "toc": {
 "collapse": "subsection"
 }

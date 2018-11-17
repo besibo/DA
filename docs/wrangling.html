@@ -25,7 +25,7 @@
 <meta name="author" content="Benoît Simon-Bouhet">
 
 
-<meta name="date" content="2018-11-13">
+<meta name="date" content="2018-11-17">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -244,6 +244,7 @@ code > span. { color: #1f1c1b; } /* Normal */
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>Références</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Publié avec bookdown</a></li>
+
 </ul>
 
       </nav>
@@ -277,8 +278,7 @@ code > span. { color: #1f1c1b; } /* Normal */
 <h2><span class="header-section-number">6.2</span> Le pipe <code>%&gt;%</code></h2>
 <p>Avant d’entrer dans le vif du sujet, je souhaite introduire ici la notion de “pipe” (prononcer à l’anglo-saxonne). Le pipe est un opérateur que nous avons déjà vu apparaître à plusieurs reprises dans les chapitres précédents sans expliquer son fonctionnement.</p>
 <p>Le pipe, noté <code>%&gt;%</code>, peut être obtenu en pressant les touches <code>ctrl + shift + M</code> de votre clavier. Il permet d’enchaîner logiquement des actions les unes à la suite des autres. Globalement, le pipe prend l’objet situé à sa gauche, et le transmet à la fonction situé à sa droite. En d’autres termes, les 2 expressions suivantes sont strictement équivalentes :</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Ici, &#39;f&#39; est une fonction quelconque, &#39;x&#39; et &#39;y&#39; sont 2 objets dont la fonction</span>
-<span class="co"># a besoin.</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Ici, &quot;f&quot; est une fonction quelconque, &quot;x&quot; et &quot;y&quot; sont 2 objets dont la fonction a besoin.</span>
 
 <span class="co"># Il s&#39;agit d&#39;un exemple fictif : ne tapez pas ceci dans votre script !</span>
 <span class="kw">f</span>(x, y)
@@ -535,11 +535,12 @@ Figure 6.3: Schéma de la fonction <code>summarise()</code> tiré de la ‘cheat
 <h3><span class="header-section-number">6.5.2</span> Intérêt de la fonction <code>group_by()</code></h3>
 <p>La fonction devient particulièrement puissante lorsqu’elle est combinée avec la fonction <code>group_by()</code> :</p>
 <div class="figure" style="text-align: center"><span id="fig:groupby"></span>
-<img src="images/groupby.png" alt="Fonctionnement de `group_by()` travaillant de concert avec `summarise()`, tiré de la 'cheatsheet' de `dplyr` et `tidyr`" width="65%" />
+<img src="images/groupby.png" alt="(ref:groupby" width="65%" />
 <p class="caption">
-Figure 6.4: Fonctionnement de <code>group_by()</code> travaillant de concert avec <code>summarise()</code>, tiré de la ‘cheatsheet’ de <code>dplyr</code> et <code>tidyr</code>
+Figure 6.4: (ref:groupby
 </p>
 </div>
+
 <p>Comme son nom l’indique, la fonction <code>group_by()</code> permet de créer des sous-groupes dans un tableau, afin que le résumé des données soit calculé pour chacun des sous-groupes plutôt que sur l’ensemble du tableau. En ce sens, son fonctionnement est analogue à celui des <code>facet</code>s de <code>ggplot2</code> qui permettent de scinder les données d’un graphique en plusieurs sous-groupes.</p>
 <p>Pour revenir à l’exemple des températures, imaginons que nous souhaitions calculer les températures moyennes et les écart-types pour chaque mois de l’année. Voilà comment procéder :</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">weather <span class="op">%&gt;%</span><span class="st"> </span>
@@ -847,7 +848,7 @@ Figure 6.8: Évolution des températures moyenne dans 3 aéroports de New York e
 <p>Selon vous, pourquoi les points sont-ils organisés en bandes horizontales ?<br />
 Selon vous, pourquoi n’y a t’il jamais de vent entre 0 et environ 3 miles à l’heure (mph) ?<br />
 Sachant qu’en divisant des mph par 1.151 on obtient des vitesses en nœuds, que nous apprend cette commande :</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sort</span>(<span class="kw">unique</span>(weather<span class="op">$</span>wind_speed))<span class="op">/</span><span class="fl">1.151</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sort</span>(<span class="kw">unique</span>(weather<span class="op">$</span>wind_speed)) <span class="op">/</span><span class="st"> </span><span class="fl">1.151</span></code></pre></div>
 <pre><code> [1]   0.000000   2.999427   3.999235   4.999044   5.998853   6.998662
  [7]   7.998471   8.998280   9.998089  10.997897  11.997706  12.997515
 [13]  13.997324  14.997133  15.996942  16.996751  17.996560  18.996368
@@ -1077,11 +1078,12 @@ flights_sml</code></pre></div>
 <p>Il n’est pas rare que les tableaux de données que nous importons contiennent des colonnes numériques ou de chaînes de caractères qui devraient en réalité être reconnues en tant que facteurs. La fonction mutate nous permet de changer rapidement le type d’une variable afin qu’elle soit reconnue comme un facteur.</p>
 <p>À titre d’exemple, nous allons importer le jeu de données contenu dans le fichier <code>squid.txt</code> que vous pourrez <a href="data/squid.txt">télécharger ici</a>. Placez-le dans votre répertoire de travail et utilisez la méthode décrite à la section <a href="tidyr.html#plaintext">5.3.3</a> pour obtenir la commande suivante :</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
-squid &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;squid.txt&quot;</span>, <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">escape_double =</span> <span class="ot">FALSE</span>, <span class="dt">trim_ws =</span> <span class="ot">TRUE</span>)
+squid &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;squid.txt&quot;</span>, <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, 
+    <span class="dt">escape_double =</span> <span class="ot">FALSE</span>, <span class="dt">trim_ws =</span> <span class="ot">TRUE</span>)
 squid</code></pre></div>
 <pre><code># A tibble: 2,644 x 6
    Sample  Year Month Location   Sex   GSI
-    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt; &lt;int&gt; &lt;dbl&gt;
+    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
  1      1     1     1        1     2 10.4 
  2      2     1     1        3     2  9.83
  3      3     1     1        1     2  9.74
@@ -1098,7 +1100,7 @@ squid</code></pre></div>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Location =</span> <span class="kw">factor</span>(Location))</code></pre></div>
 <pre><code># A tibble: 2,644 x 6
    Sample  Year Month Location   Sex   GSI
-    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;fct&gt;    &lt;int&gt; &lt;dbl&gt;
+    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;    &lt;dbl&gt; &lt;dbl&gt;
  1      1     1     1 1            2 10.4 
  2      2     1     1 3            2  9.83
  3      3     1     1 1            2  9.74
@@ -1118,7 +1120,7 @@ squid</code></pre></div>
 squid2</code></pre></div>
 <pre><code># A tibble: 2,644 x 6
    Sample  Year Month Location Sex      GSI
-    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;fct&gt;    &lt;fct&gt;  &lt;dbl&gt;
+    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;    &lt;fct&gt;  &lt;dbl&gt;
  1      1     1     1 1        Female 10.4 
  2      2     1     1 3        Female  9.83
  3      3     1     1 1        Female  9.74
@@ -1455,11 +1457,12 @@ popular_dest</code></pre></div>
 <div id="inner_join" class="section level3">
 <h3><span class="header-section-number">6.9.2</span> <code>inner_join()</code></h3>
 <div class="figure" style="text-align: center"><span id="fig:inner"></span>
-<img src="images/innerjoin.png" alt="Schéma de la fonction `inner_join()` tiré de la 'cheatsheet' de `dplyr` et `tidyr`" width="50%" />
+<img src="images/innerjoin.png" alt="Schéma de la fonction inner_join() tiré de la ‘cheatsheet’ de dplyr et tidyr" width="50%" />
 <p class="caption">
 Figure 6.16: Schéma de la fonction <code>inner_join()</code> tiré de la ‘cheatsheet’ de <code>dplyr</code> et <code>tidyr</code>
 </p>
 </div>
+
 <p>La fonction <code>inner_join()</code> permet de relier des tableaux en ne conservant que les lignes qui sont présentes à la fois dans l’un et dans l’autre. Il faut identifier dans chacun des tableaux une colonne contenant des données en commun, qui servira de guide pour mettre les lignes correctes les unes en face des autres. Ici, nous partons de notre tableau <code>popular_dest</code>, qui contient les codes des aéroports dans sa colonne <code>dest</code>. Et nous faisons une “jointure interne” avec le tableau <code>airports</code> qui contient lui aussi une colonne contenant les codes des aéroports : la variable <code>faa</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">inner_popular &lt;-<span class="st"> </span>popular_dest <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">inner_join</span>(airports, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;dest&quot;</span> =<span class="st"> &quot;faa&quot;</span>))
@@ -1512,11 +1515,12 @@ inner_popular</code></pre></div>
 <div id="left_join" class="section level3">
 <h3><span class="header-section-number">6.9.3</span> <code>left_join()</code></h3>
 <div class="figure" style="text-align: center"><span id="fig:left"></span>
-<img src="images/leftjoin.png" alt="Schéma de la fonction `left_join()` tiré de la 'cheatsheet' de `dplyr` et `tidyr`" width="50%" />
+<img src="images/leftjoin.png" alt="Schéma de la fonction left_join() tiré de la ‘cheatsheet’ de dplyr et tidyr" width="50%" />
 <p class="caption">
 Figure 6.17: Schéma de la fonction <code>left_join()</code> tiré de la ‘cheatsheet’ de <code>dplyr</code> et <code>tidyr</code>
 </p>
 </div>
+
 <p>Comme indiqué par la figure <a href="wrangling.html#fig:left">6.17</a> ci-dessus, une jointure gauche permet de conserver toutes les lignes du tableau de gauche, et de leur faire correspondre des lignes du second tableau. Si aucune correspondance n’est trouvée dans le second tableau, des données manquantes sont ajoutées sous forme de <code>NA</code>s. Voyons ce que cela donne avec le même exemple que précédemment :</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">left_popular &lt;-<span class="st"> </span>popular_dest <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">left_join</span>(airports, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;dest&quot;</span> =<span class="st"> &quot;faa&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
@@ -1758,7 +1762,7 @@ gitbook.start({
 "size": 2
 },
 "edit": null,
-"download": null,
+"download": ["Data-Analysis.epub"],
 "toc": {
 "collapse": "subsection"
 }

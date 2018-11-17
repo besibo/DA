@@ -8,7 +8,6 @@ output:
     highlight: kate
     config:
       edit: null
-      download: no
       sharing:
         twitter: no
         facebook: no
@@ -23,6 +22,7 @@ url: 'https\://besibo.github.io/DA/'
 github-repo: "besibo/DA"
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
+papersize: a4paper
 link-citations: yes
 description: "Ce livre est un document permettant de prendre en main les logiciels R et RStudio afin de réaliser des représentations graphiques et des statistiques descriptives simples dans le cadre des travaux pratiques d'Analyse de Données."
 ---

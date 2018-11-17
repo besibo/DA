@@ -580,11 +580,13 @@ ggplot(weather, aes(x = temp, fill = factor(month))) +
 
 qui produit un graphique certes assez joli, mais difficile à interpréter, mieux vaut faire ceci : 
 
-```{r wrap, warning=FALSE, tidy=FALSE, message=FALSE, fig.asp=1.2, fig.cap="Un exemple d'utilisation de `facet_wrap()`"}
+```{r wrap, warning=FALSE, tidy=FALSE, message=FALSE, fig.asp=1.2, fig.cap='(ref:wrap)'}
 ggplot(weather, aes(x = temp, fill = factor(month))) +
   geom_histogram(bins = 20, color = "grey30") +
   facet_wrap(~factor(month), ncol = 3)
 ```
+
+(ref:wrap) Un exemple d'utilisation de `facet_wrap()`.
 
 La couche supplémentaire créée avec `facet_wrap` permet donc de scinder les données en fonction d'une variable. Attention à la syntaxe ; il ne faut pas oublier le symbole `~` devant la variable que l'on souhaite utiliser pour scinder les données. Il va sans dire que la variable utilisée doit être catégorielle et non continue, c'est la raison pour laquelle j'utilise la notation `factor(month)` et non simplement `month`.
 
@@ -594,11 +596,13 @@ Avec la fonction `facet_wrap()`, il est possible d'indiquer à R comment les dif
 
 Une autre fonction nommée `facet_grid()` permet d'agencer des sous-graphiques selon 2 variables catégorielles. Par exemple :
 
-```{r grid, warning=FALSE, tidy=FALSE, message=FALSE, fig.asp=1.2, fig.cap="Un exemple d'utilisation de `facet_grid()`"}
+```{r grid, warning=FALSE, tidy=FALSE, message=FALSE, fig.asp=1.2, fig.cap="(ref:grid)"}
 ggplot(weather, aes(x = temp, fill = factor(month))) +
   geom_histogram(bins = 20, color = "grey30") +
   facet_grid(factor(month) ~ origin)
 ```
+
+(ref:grid) Un exemple d'utilisation de `facet_grid()`.
 
 Ici, nous avons utilisé la variable `month` (transformée en facteur) et la variable `origin` pour créer un histogramme pour chaque combinaison des modalités de ces 2 variables. Il est donc possible comparer facilement des températures inter-mensuelles au sein d'un aéroport donné (en colonnes), ou de comparer des températures enregistrées le même mois dans des aéroports distincts (en lignes). 
 
@@ -1062,7 +1066,7 @@ Il est posible de spécifier chaque élément manuellement. Nous nous contentero
 
 Reprenons par exemple le code de la figure \@ref(fig:barfacetbrewer) et ajoutons un titre :
 
-```{r theme1, fig.asp = 1, tidy=FALSE, warning = FALSE, fig.cap="Utilisation du thème par défaut : `theme_gray()`."}
+```{r theme1, fig.asp = 1, tidy=FALSE, warning = FALSE, fig.cap="(ref:gray"}
 ggplot(flights, aes(x = fct_infreq(carrier), fill = origin)) +
   geom_bar(color = "black") +
   facet_wrap(~origin, ncol = 1) +
@@ -1073,9 +1077,11 @@ ggplot(flights, aes(x = fct_infreq(carrier), fill = origin)) +
   scale_fill_brewer(palette = "Accent")
 ```
 
+(ref:gray) Utilisation du thème par défaut : `theme_gray()`.
+
 Le thème utilisé par défaut est `theme_gray()`. Il est notamment responsable de l'arrière plan gris et du quadrillage blanc. Pour changer de thème, il suffit d'ajouter une couche au graphique en donnant le nom du nouveau thème :
 
-```{r themebw, fig.asp = 1, tidy=FALSE, warning = FALSE, fig.cap="Utilisation du thème `theme_bw()`."}
+```{r themebw, fig.asp = 1, tidy=FALSE, warning = FALSE, fig.cap="(ref:bw)"}
 ggplot(flights, aes(x = fct_infreq(carrier), fill = origin)) +
   geom_bar(color = "black") +
   facet_wrap(~origin, ncol = 1) +
@@ -1086,6 +1092,8 @@ ggplot(flights, aes(x = fct_infreq(carrier), fill = origin)) +
   scale_fill_brewer(palette = "Accent") +
   theme_bw()
 ```
+
+(ref:bw) Utilisation du thème `theme_bw()`.
 
 Les thèmes complets que vous pouvez utiliser sont les suivants :
 

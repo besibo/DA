@@ -25,7 +25,7 @@
 <meta name="author" content="Benoît Simon-Bouhet">
 
 
-<meta name="date" content="2018-11-13">
+<meta name="date" content="2018-11-17">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -244,6 +244,7 @@ code > span. { color: #1f1c1b; } /* Normal */
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>Références</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Publié avec bookdown</a></li>
+
 </ul>
 
       </nav>
@@ -768,15 +769,16 @@ Figure 5.10: Les données, dans un format correct, permettant l’importation
 </p>
 </div>
 <p>Nous n’avons plus qu’à copier-coller dans notre script le code généré automatiquement en bas à droite de la fenêtre (comme précédemment, la ligne <code>library(readr)</code> est inutile : nous avons déjà chargé ce package en début de chapitre).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dauphin2 &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;data/dauphin.csv&quot;</span>, <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">escape_double =</span> <span class="ot">FALSE</span>, <span class="dt">locale =</span> <span class="kw">locale</span>(<span class="dt">decimal_mark =</span> <span class="st">&quot;,&quot;</span>), 
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dauphin2 &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;data/dauphin.csv&quot;</span>, 
+    <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">escape_double =</span> <span class="ot">FALSE</span>, <span class="dt">locale =</span> <span class="kw">locale</span>(<span class="dt">decimal_mark =</span> <span class="st">&quot;,&quot;</span>), 
     <span class="dt">trim_ws =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>Parsed with column specification:
 cols(
-  Id = col_integer(),
+  Id = col_double(),
   Sexe = col_character(),
   Statut = col_character(),
-  Taille = col_integer(),
-  Age = col_integer(),
+  Taille = col_double(),
+  Age = col_double(),
   Cd = col_double(),
   Cu = col_double(),
   Hg = col_double(),
@@ -807,7 +809,7 @@ cols(
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dauphin2</code></pre></div>
 <pre><code># A tibble: 93 x 9
       Id Sexe  Statut Taille   Age     Cd    Cu    Hg Organe
-   &lt;int&gt; &lt;chr&gt; &lt;chr&gt;   &lt;int&gt; &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; 
+   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; 
  1     1 f     imm       315     3  29.6   3.24 NA    rein  
  2     2 f     imm       357     4  55.1   4.42 NA    rein  
  3     3 f     pnl       439    34 129.    5.01  9.02 rein  
@@ -887,7 +889,7 @@ gitbook.start({
 "size": 2
 },
 "edit": null,
-"download": null,
+"download": ["Data-Analysis.epub"],
 "toc": {
 "collapse": "subsection"
 }
