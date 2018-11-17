@@ -17,6 +17,7 @@ output:
         collapse: subsection
   bookdown::pdf_book:
     highlight: kate
+    citation_package: natbib
   #   keep_tex: yes
   #   dev: 'cairo_pdf'
 url: 'https\://besibo.github.io/DA/'
