@@ -15,7 +15,8 @@ output:
         all: no
       toc:
         collapse: subsection
-  # bookdown::pdf_book:
+  bookdown::pdf_book:
+    highlight: kate
   #   keep_tex: yes
   #   dev: 'cairo_pdf'
 url: 'https\://besibo.github.io/DA/'
