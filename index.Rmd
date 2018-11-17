@@ -136,6 +136,7 @@ options(repos = "http://cran.r-project.org/")
 
 library(knitr)
 library(tidyverse)
+install.packages("nycflights13")
 
 opts_chunk$set(fig.path = 'figure/', cache.path = 'cache/', tidy = TRUE,
                fig.align = 'center', out.width = '90%', fig.asp = 0.618,
