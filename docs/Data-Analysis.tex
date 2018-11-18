@@ -21,12 +21,16 @@
 \usepackage{microtype}
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\usepackage[margin=1in]{geometry}
+\usepackage[left=3.75cm, right=3.75cm, top=3cm, bottom=3cm]{geometry}
 \usepackage{hyperref}
+\PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
 \hypersetup{unicode=true,
             pdftitle={Analyse de Données},
             pdfauthor={Benoît Simon-Bouhet},
-            pdfborder={0 0 0},
+            colorlinks=true,
+            linkcolor=Maroon,
+            citecolor=Blue,
+            urlcolor=blue,
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
 \usepackage{natbib}
@@ -125,7 +129,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2018-11-17}
+    \date{2018-11-18}
 
 \usepackage[french]{babel}
 \usepackage{mathspec}  % \usepackage{fontspec}
@@ -137,7 +141,7 @@
 \usepackage{multicol}
 \usepackage{enumitem}
 
-\setallmainfonts[Ligatures = TeX]{ArcherPro-Medium}
+\setallmainfonts[Ligatures = TeX]{FuturaLT-Book}
 \onehalfspace
 
 \usepackage{amsthm}
@@ -158,6 +162,7 @@
 \maketitle
 
 {
+\hypersetup{linkcolor=black}
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
@@ -442,7 +447,7 @@ enseignement. Les compétences visées sont les suivantes :
 \section{R et RStudio : les bases}\label{bases}}
 
 Avant de commencer à explorer des données dans R, il y a plusieurs
-concepts clés qu'il faut comprendre premier lieu :
+concepts clés qu'il faut comprendre en premier lieu :
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -459,7 +464,7 @@ Même si vous pensez être déjà à l'aise avec ces concepts, lisez
 attentivement ce chapitre et faites les exercices demandés. Cela vous
 rafraîchira probablement la mémoire, et il n'est pas impossible que vous
 appreniez une chose ou deux au passage. Une bonne maîtrise des éléments
-présentés dans ce chapitre est un effet nécessaire pour aborder
+présentés dans ce chapitre est en effet nécessaire pour aborder
 sereinement les chapitres suivants, à commencer par le chapitre
 \ref{dataset}, qui présente quelques jeux de données que nous
 explorerons en détail dans cet ouvrage.
@@ -474,7 +479,7 @@ je vous encourage à consulter si vous souhaitez obtenir plus de détails
 \item
   L'ouvrage intitulé
   \href{https://moderndive.com/index.html}{ModernDive}, de Chester Ismay
-  et Albert Y. Kim. Une bonne partie de cet ouvrage est très largement
+  et Albert Y. Kim. Une bonne partie de ce livre est très largement
   inspirée de cet ouvrage. C'est en anglais, mais c'est un très bon
   texte d'introduction aux statistiques sous R et RStudio.
 \item
@@ -484,10 +489,10 @@ je vous encourage à consulter si vous souhaitez obtenir plus de détails
   anglais toujours) que vous pouvez suivre en apprenant.
 \item
   Les tutoriels en ligne de DataCamp. DataCamp est une plateforme de
-  e-learning accessible depuis n'importe quel navigateur internet dont
-  la priorité est l'enseignement des ``data sciences''. Leurs tutoriels
-  vous aideront à apprendre certains des concepts de développés dans ce
-  livre. Avant d'aller plus loin, rendez-vous sur
+  e-learning accessible depuis n'importe quel navigateur internet et
+  dont la priorité est l'enseignement des ``data sciences''. Leurs
+  tutoriels vous aideront à apprendre certains des concepts développés
+  dans ce livre. Avant d'aller plus loin, rendez-vous sur
   \href{https://www.datacamp.com/}{le site de DataCamp} et créez vous un
   compte gratuit.
 \end{enumerate}
@@ -497,7 +502,7 @@ je vous encourage à consulter si vous souhaitez obtenir plus de détails
 \hypertarget{que-sont-r-et-rstudio}{%
 \subsection{Que sont R et RStudio}\label{que-sont-r-et-rstudio}}
 
-Pour l'ensemble de ces TP, j'attends de vous que vous utilisez R
+Pour l'ensemble de ces TP, j'attends de vous que vous utilisiez R
 \emph{via} RStudio. Les utilisateurs novices confondent souvent les
 deux. Pour tenter une analogie simple :
 
@@ -516,7 +521,7 @@ plutôt qu'en actionnant à la main les cables et leviers du moteur.
 
 En l'occurence, R est un langage de programmation capable de produire
 des graphiques et de réaliser des analyses statistiques, des plus
-simples au plus complexes. RStudio est un ``emballage'' qui rend
+simples aux plus complexes. RStudio est un ``emballage'' qui rend
 l'utilisation de R plus aisée. RStudio est ce qu'on appelle un IDE :
 Itegrated Development Environment. On peut utiliser R sans RStudio, mais
 c'est nettement plus compliqué, nettement moins pratique.
@@ -543,10 +548,10 @@ ordre :
 \begin{itemize}
 \tightlist
 \item
-  Note : vous devez installer ce logiciel en premier
+  Vous devez installer ce logiciel en premier.
 \item
-  Cliquez sur le lien de telechargement qui correspond à votre système
-  d'exploitation, puis, sur ``base'', et suivez les instructions
+  Cliquez sur le lien de téléchargement qui correspond à votre système
+  d'exploitation, puis, sur ``base'', et suivez les instructions.
 \end{itemize}
 
 \begin{enumerate}
@@ -561,10 +566,10 @@ ordre :
 \begin{itemize}
 \tightlist
 \item
-  Cliquez sur ``Download RStudio Desktop''
+  Cliquez sur ``Download RStudio Desktop''.
 \item
   Choisissez la version gratuite et cliquez sur le lien de
-  télechargement qui correspond à votre système d'exploitation.
+  téléchargement qui correspond à votre système d'exploitation.
 \end{itemize}
 
 Pour plus de détails sur la façon de procéder, vous pouvez consulter
@@ -583,14 +588,13 @@ l'installation des 2 logiciels, vous disposez de 2 nouveaux logiciels
 sur votre ordinateur. RStudio ne peut fonctionner sans R, mais nous
 travaillerons exclusivement dans RStudio :
 
-\begin{longtable}[]{@{}cc@{}}
-\toprule
-R: Ne pas ouvrir ceci & RStudio: ouvrir ça !\tabularnewline
-\midrule
-\endhead
-&\tabularnewline
-\bottomrule
-\end{longtable}
+\begin{itemize}
+\tightlist
+\item
+  R, ne pas ouvrir ceci : \includegraphics{images/Rlogo.png}
+\item
+  RStudio, ouvrir ça : \includegraphics{images/RStudio-Ball.png}
+\end{itemize}
 
 À l'université, vous trouverez RStudio dans le menu Windows. Quand vous
 ouvrez RStudio pour la première fois, vous devriez obtenir une fenêtre
@@ -601,8 +605,8 @@ qui ressemble à ceci :
 Regardez
 \href{https://campus.datacamp.com/courses/working-with-the-rstudio-ide-part-1/orientation?ex=5}{cette
 vidéo DataCamp} pour découvrir les différents panneaux de l'application,
-en particulier la Console dans laquelle nous executerons très bientôt du
-code R
+en particulier la Console dans laquelle nous exécuterons très bientôt du
+code R.
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
@@ -620,11 +624,10 @@ commandes R, écrites en code R. C'est-à-dire que vous devez
 
 Il n'est pas nécessaire d'être un programmeur pour utiliser R,
 néamnoins, il est nécessaire de programmer ! Il existe en effet un
-ensemble de concepts de programmation de base que les utilisateurs R
+ensemble de concepts de programmation de base que les utilisateurs de R
 doivent comprendre et maîtriser. Par conséquent, bien que ce livre ne
 soit pas un livre sur la programmation, vous en apprendrez juste assez
-sur ces concepts de programmation de base pour explorer et analyser
-efficacement des données.
+en programmation pour explorer et analyser efficacement des données.
 
 \hypertarget{la-console}{%
 \subsubsection{La console}\label{la-console}}
@@ -717,7 +720,7 @@ Avant d'aller plus loin je vous conseille donc vivement de :
 
 Il ne vous reste plus qu'à vérifier que le changement a bien été pris en
 compte en tapant à nouveau \texttt{getwd()} dans la console. Attention,
-vous devez vous assurer d'être dans le bon répertoire de travail
+vous devrez vous assurer d'être dans le bon répertoire de travail
 \textbf{à chaque nouvelle session} !
 
 \hypertarget{les-scripts}{%
@@ -763,7 +766,8 @@ Les avantages de travailler dans un script sont nombreux :
   cela vous permettra de comprendre ce que vous avez fait il y a 6 mois
   quand vous vous re-plongerez dans vos analyses dans quelques temps. Si
   votre démarche vous paraît cohérente maintenant, il n'est en effet pas
-  garanti que vous rappellerez de chaque détail dans 6 mois ou 6 ans.
+  garanti que vous vous souviendrez de chaque détail dans 6 mois ou 6
+  ans.
 \item
   Un script bien structuré et clair permet de rendre vos analyses
   répétables. Si vous passez 15 heures à analyser un tableau de données
@@ -794,14 +798,7 @@ chance. Idéalement, votre script ne devrait contenir que des commandes
 qui fonctionnent et des commentaires expliquant à quoi servent ces
 commandes.
 
-À la fin de chaque séance de TEA, vous devrez déposer sur l'ENT le
-script que vous avez créé durant la séance. Ce script devra porter votre
-nom de famille et se terminer par l'extension \texttt{.R}. Ainsi, si
-Jean-Claude Van Damme faisait des statistiques, il devrait déposer sur
-l'ENT un fichier intitulé \texttt{VanDamme.R} à la fin de chaque séance
-de TEA.
-
-Ci-dessous, un exemple de script
+Ci-dessous, un exemple de script :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -811,7 +808,8 @@ Ci-dessous, un exemple de script
 \CommentTok{# Chargement du package}
 \KeywordTok{library}\NormalTok{(ggplot2)}
 
-\CommentTok{# Mise en méoire des données de qualité de l'air à New-York de mai à septembre 1973}
+\CommentTok{# Mise en mémoire des données de qualité de l'air à New-York de mai à}
+\CommentTok{# septembre 1973}
 \KeywordTok{data}\NormalTok{(airquality)}
 
 \CommentTok{# Affichage des premières lignes du tableau de données}
@@ -820,8 +818,8 @@ Ci-dessous, un exemple de script
 \CommentTok{# Quelle est la structure de ce tableau ?}
 \KeywordTok{str}\NormalTok{(airquality)}
 
-\CommentTok{# Réalisation d'un graphique présentant la relation entre la concentration en ozone }
-\CommentTok{# atmosphérique en ppb et la température en degrés Farenheit}
+\CommentTok{# Réalisation d'un graphique présentant la relation entre la concentration}
+\CommentTok{# en ozone atmosphérique en ppb et la température en degrés Farenheit}
 \KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ airquality, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ Temp, }\DataTypeTok{y =}\NormalTok{ Ozone)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"loess"}\NormalTok{)}
@@ -838,14 +836,14 @@ script (ça viendra !), voici ce que vous devez en retenir :
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Le script contient plus de lignes de commentaires que de commandes R
+  Le script contient plus de lignes de commentaires que de commandes R.
 \item
-  Chaque étape de l'analyse est décrite en détail
+  Chaque étape de l'analyse est décrite en détail.
 \item
-  On peut ajouter des commentaires afin de décrire les résultats
+  On peut ajouter des commentaires afin de décrire les résultats.
 \item
   Seules les commandes pertinentes et qui fonctionnent ont été
-  conservées dans ce script
+  conservées dans ce script.
 \item
   Chaque ligne de commentaire commence par \texttt{\#}. Il est ainsi
   possible de conserver certaines commandes R dans le script, ``pour
@@ -853,9 +851,9 @@ script (ça viendra !), voici ce que vous devez en retenir :
   pour la ligne \texttt{\#\ install.packages("ggplot2")}.
 \end{enumerate}
 
-Si j'éxécute ce script dans la console de RStudio (en sélectionnant
-toutes les lignes et en pressant les touches \texttt{ctrl+enter} ou
-\texttt{command+enter} sous macOS), voilà ce qui est produit :
+Si j'exécute ce script dans la console de RStudio (en sélectionnant
+toutes les lignes et en pressant les touches \texttt{ctrl\ +\ enter} ou
+\texttt{command\ +\ enter} sous macOS), voilà ce qui est produit :
 
 \begin{verbatim}
   Ozone Solar.R Wind Temp Month Day
@@ -884,11 +882,11 @@ toutes les lignes et en pressant les touches \texttt{ctrl+enter} ou
 terminologie}\label{concepts-de-base-en-programmation-et-terminologie}}
 
 Pour vous présenter les concepts de base et la terminologie de la
-programmation dont nous aurons besoin dans R, vous allez suivre les
-tutoriels en ligne suivants, sur le site de DataCamp. Pour chacun des
-tutoriels, j'indique une liste des concepts de programmation couverts.
-Notez que dans ce livre, nous utiliserons une police différente pour
-distinguer le texte normal et les \texttt{commandes-informatiques}.
+programmation dont nous aurons besoin dans R, vous allez suivre des
+tutoriels en ligne sur le site de DataCamp. Pour chacun des tutoriels,
+j'indique une liste des concepts de programmation couverts. Notez que
+dans ce livre, nous utiliserons une police différente pour distinguer le
+texte normal et les \texttt{commandes-informatiques}.
 
 Il est important de noter que, bien que ces tutoriels sont d'excellentes
 introductions, une seule lecture est insuffisante pour un apprentissage
@@ -919,13 +917,13 @@ quoi ils font référence.
   \begin{itemize}
   \tightlist
   \item
-    La console : l'endroit où vous tapez des commandes
+    La console : l'endroit où vous tapez des commandes.
   \item
     Les objets : où les valeurs sont stockées, comment assigner des
-    valeurs à des objets
+    valeurs à des objets.
   \item
     Les types de données : entiers, doubles/numériques, charactères et
-    logiques
+    logiques.
   \end{itemize}
 \item
   \href{https://campus.datacamp.com/courses/introduction-a-r/chapitre-2-les-vecteurs?ex=1}{Chapitre
@@ -943,8 +941,8 @@ quoi ils font référence.
   \begin{itemize}
   \tightlist
   \item
-    Des données catégorielles (et non pas \emph{numériques}) représentés
-    dans R sous forme de \texttt{factor}s.
+    Des données catégorielles (et non pas \emph{numériques})
+    représentées dans R sous forme de \texttt{factor}s.
   \end{itemize}
 \item
   \href{https://campus.datacamp.com/courses/introduction-a-r/chapitre-5-les-jeux-de-donnees?ex=1}{Chapitre
@@ -977,7 +975,7 @@ objets. Les principaux opérateurs de comparaison sont :
 \begin{itemize}
 \tightlist
 \item
-  \texttt{==} : égale à
+  \texttt{==} : égal à
 \item
   \texttt{!=} : différent de
 \item
@@ -1044,8 +1042,8 @@ Il est aussi possible de comparer des chaînes de charactères :
 Manifestement, ``Bonjour'' est supérieur ou égal à ``Au revoir''. En
 fait, R utilise l'ordre alphabétique pour comparer les chaînes de
 caractères. Puisque dans l'alphabet, le ``B'' de ``Bonjour'' arrive
-après le ``A'' de ``Au revoir'', pour R, ``Bonjour'' est bien supérieur
-à ``Au revoir''.
+après le ``A'' de ``Au revoir'', pour R, ``Bonjour'' est supérieur à
+``Au revoir''.
 
 Il est également possible d'utiliser ces opérateurs pour comparer un
 chiffre et un vecteur :
@@ -1063,7 +1061,7 @@ chiffre et un vecteur :
 
 Ici, l'opérateur nous permet d'identifier quels éléments du vecteur
 \texttt{taille\_pop1} sont supérieurs à 80. Il s'agit des éléments
-placés en première, troisième et cinquième position.
+placés en première, troisième et cinquième positions.
 
 Il est aussi possible de comparer 2 vecteurs qui contiennent le même
 nombre d'éléments :
@@ -1144,8 +1142,8 @@ taille, un message d'avertissement est affiché :
 \end{Shaded}
 
 \begin{verbatim}
-Warning in tailles_pop3 > tailles_pop1: la taille d'un objet plus long n'est pas
-multiple de la taille d'un objet plus court
+Warning in tailles_pop3 > tailles_pop1: la taille d'un objet plus long
+n'est pas multiple de la taille d'un objet plus court
 \end{verbatim}
 
 \begin{verbatim}
@@ -1315,10 +1313,10 @@ conseille donc vivement de tenir à jour une liste des fonctions
 décrites, avec une explication de leur fonctionnement et éventuellement
 un exemple de syntaxe.
 
-Certaines fonction ont besoin d'arguments (par exemple, la fonction
+Certaines fonctions ont besoin d'arguments (par exemple, la fonction
 \texttt{factor()}), d'autres peuvent s'en passer (par exemple, la
 fonction \texttt{getwd()}). Pour apprendre comment utiliser une fonction
-particulière, pour découvrir quels sont ses arguments possibles, quelle
+particulière, pour découvrir quels sont ses arguments possibles, quel
 est leur rôle et leur intérêt, la meilleure solution est de consulter
 l'aide de cette fonction. Il suffit pour cela de taper un \texttt{?}
 suivi du nom de la fonction :
@@ -1334,7 +1332,7 @@ d'un fichier d'aide similaire. Cela peut faire un peu peur au premier
 abord (tout est en anglais !), mais ces fichiers d'aide ont l'avantage
 d'être très complets, de fournir des exemples d'utilisation, et ils sont
 tous construits sur le même modèle. Vous avez donc tout intérêt à vous
-familiariser avec eux. vous devriez d'ailleurs prendre l'habitude de
+familiariser avec eux. Vous devriez d'ailleurs prendre l'habitude de
 consulter l'aide de chaque fonction qui vous pose un problème. Par
 exemple, le logarithme (en base 10) de 100 devrait faire 2, car 100 est
 égal à 10\^{}2. Pourtant :
@@ -1386,7 +1384,7 @@ fonction prend donc 2 arguments :
   par défaut, c'est à dire \texttt{exp(1)}.
 \end{enumerate}
 
-Pour calculer le logarithme en base 10 de 100, il faut donc taper, au
+Pour calculer le logarithme de 100 en base 10, il faut donc taper, au
 choix, l'une de ces 3 expressions :
 
 \begin{Shaded}
@@ -1419,14 +1417,14 @@ choix, l'une de ces 3 expressions :
 [1] 2
 \end{verbatim}
 
-Le nom des arguments d'une fonction peut être omis tant que ces
+Le nom des arguments d'une fonction peut être omis tant que ses
 arguments sont indiqués dans l'ordre attendu par la fonction (cet ordre
 est celui qui est précisé à la rubrique ``Usage'' du fichier d'aide de
 la fonction). Il est possible de modifier l'ordre des arguments d'une
 fonction, mais il faut alors être parfaitement explicite et utiliser les
 noms des arguments tels que définis dans le fichier d'aide.
 
-Ainsi, pour calculer le logarithme en base 10 de 100, on ne peut pas
+Ainsi, pour calculer le logarithme de 100 en base 10, on ne peut pas
 taper :
 
 \begin{Shaded}
@@ -1439,7 +1437,7 @@ taper :
 [1] 0.5
 \end{verbatim}
 
-car cela revient à calculer le logarithme en base 100 de 10. On peut en
+car cela revient à calculer le logarithme de 10 en base 100. On peut en
 revanche taper :
 
 \begin{Shaded}
@@ -1471,28 +1469,17 @@ nous utiliseront fréquemment :
   Le package \texttt{ggplot2} pour la visualisation des données dans le
   chapitre \ref{viz}
 \item
-  Le package \texttt{dplyr} pour les manipuler des tableaux données dans
-  le chapitre \ref{wrangling}
+  Le package \texttt{dplyr} pour les manipuler des tableaux de données
+  dans le chapitre \ref{wrangling}
 \end{itemize}
 
 Une bonne analogie pour les packages R : ils sont comme les apps que
-vous téléchargez sur un téléphone portable :
-
-\begin{longtable}[]{@{}cc@{}}
-\toprule
-R : Un nouveau téléphone & Packages: Apps qu'on peut
-telécharger\tabularnewline
-\midrule
-\endhead
-&\tabularnewline
-\bottomrule
-\end{longtable}
-
-R est comme un nouveau téléphone mobile. Il est capable de faire
-certaines choses lorsque vous l'utilisez pour la première fois, mais il
-ne sait pas tout faire. Les packages R sont comme les apps que vous
-pouvez télécharger dans l'App Store et Google Play. Pour utiliser un
-package, comme pour utiliser Instagram, vous devez :
+vous téléchargez sur un téléphone portable. R est comme un nouveau
+téléphone mobile. Il est capable de faire certaines choses lorsque vous
+l'utilisez pour la première fois, mais il ne sait pas tout faire. Les
+packages sont comme les apps que vous pouvez télécharger dans l'App
+Store et Google Play. Pour utiliser un package, comme pour utiliser
+Instagram, vous devez :
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1501,7 +1488,7 @@ package, comme pour utiliser Instagram, vous devez :
   Le télécharger et l'installer. Vous ne le faites qu'une fois.
 \item
   Le charger (en d'autres termes, l'ouvrir) en utilisant la commande
-  \texttt{library\ ()}.
+  \texttt{library()} à chaque nouvelle session de travail.
 \end{enumerate}
 
 Donc, tout comme vous ne pouvez commencer à partager des photos avec vos
@@ -1586,29 +1573,29 @@ avec la commande \texttt{library()}.
 
 Créez un nouveau script que vous nommerez \texttt{VotreNomDeFamille.R}.
 Vous prendrez soin d'ajouter autant de commentaires que nécessaire dans
-votre script afin de le structurer correctement.
+ce script afin de le structurer correctement.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Téléchargez (si besoin) et chagez le package \texttt{ggplot2}
+  Téléchargez (si besoin) et chargez le package \texttt{ggplot2}
 \item
   Chargez le jeu de données \texttt{diamonds} grâce à la commande
   \texttt{data(diamonds)}
 \item
-  Déterminer le nombre de lignes et de colonnes de ce tableau nommé
+  Déterminez le nombre de lignes et de colonnes de ce tableau nommé
   \texttt{diamonds}
 \item
   Créez un nouveau tableau que vous nommerez \texttt{diamants\_chers}
   qui contiendra uniquement les informations des diamants dont le prix
-  est supérieur ou égal à \$15000
+  est supérieur ou égal à \$15000.
 \item
   Combien de diamants coûtent \$15000 ou plus ?
 \item
   Cela représente quelle proportion du jeu de données de départ ?
 \item
-  Triez ce tableau par ordre de prix décroissant et affichez les
+  Triez ce tableau par ordre de prix décroissants et affichez les
   informations des 20 diamants les plus chers.
 \end{enumerate}
 
@@ -1701,21 +1688,23 @@ et exécutez là dans la console (selon les réglages de RStudio et
 
 \begin{verbatim}
 # A tibble: 336,776 x 19
-    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-   <int> <int> <int>    <int>          <int>     <dbl>    <int>          <int>
- 1  2013     1     1      517            515         2      830            819
- 2  2013     1     1      533            529         4      850            830
- 3  2013     1     1      542            540         2      923            850
- 4  2013     1     1      544            545        -1     1004           1022
- 5  2013     1     1      554            600        -6      812            837
- 6  2013     1     1      554            558        -4      740            728
- 7  2013     1     1      555            600        -5      913            854
- 8  2013     1     1      557            600        -3      709            723
- 9  2013     1     1      557            600        -3      838            846
-10  2013     1     1      558            600        -2      753            745
-# ... with 336,766 more rows, and 11 more variables: arr_delay <dbl>,
-#   carrier <chr>, flight <int>, tailnum <chr>, origin <chr>, dest <chr>,
-#   air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>, time_hour <dttm>
+    year month   day dep_time sched_dep_time dep_delay arr_time
+   <int> <int> <int>    <int>          <int>     <dbl>    <int>
+ 1  2013     1     1      517            515         2      830
+ 2  2013     1     1      533            529         4      850
+ 3  2013     1     1      542            540         2      923
+ 4  2013     1     1      544            545        -1     1004
+ 5  2013     1     1      554            600        -6      812
+ 6  2013     1     1      554            558        -4      740
+ 7  2013     1     1      555            600        -5      913
+ 8  2013     1     1      557            600        -3      709
+ 9  2013     1     1      557            600        -3      838
+10  2013     1     1      558            600        -2      753
+# ... with 336,766 more rows, and 12 more variables:
+#   sched_arr_time <int>, arr_delay <dbl>, carrier <chr>,
+#   flight <int>, tailnum <chr>, origin <chr>, dest <chr>,
+#   air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>,
+#   time_hour <dttm>
 \end{verbatim}
 
 Essayons de décrypter cet affichage :
@@ -1868,25 +1857,25 @@ d'utiliser la fonction \texttt{glimpse()} après avoir chargé le package
 \begin{verbatim}
 Observations: 336,776
 Variables: 19
-$ year           <int> 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013...
-$ month          <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1...
-$ day            <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1...
-$ dep_time       <int> 517, 533, 542, 544, 554, 554, 555, 557, 557, 558, 55...
-$ sched_dep_time <int> 515, 529, 540, 545, 600, 558, 600, 600, 600, 600, 60...
-$ dep_delay      <dbl> 2, 4, 2, -1, -6, -4, -5, -3, -3, -2, -2, -2, -2, -2,...
-$ arr_time       <int> 830, 850, 923, 1004, 812, 740, 913, 709, 838, 753, 8...
-$ sched_arr_time <int> 819, 830, 850, 1022, 837, 728, 854, 723, 846, 745, 8...
-$ arr_delay      <dbl> 11, 20, 33, -18, -25, 12, 19, -14, -8, 8, -2, -3, 7,...
-$ carrier        <chr> "UA", "UA", "AA", "B6", "DL", "UA", "B6", "EV", "B6"...
-$ flight         <int> 1545, 1714, 1141, 725, 461, 1696, 507, 5708, 79, 301...
-$ tailnum        <chr> "N14228", "N24211", "N619AA", "N804JB", "N668DN", "N...
-$ origin         <chr> "EWR", "LGA", "JFK", "JFK", "LGA", "EWR", "EWR", "LG...
-$ dest           <chr> "IAH", "IAH", "MIA", "BQN", "ATL", "ORD", "FLL", "IA...
-$ air_time       <dbl> 227, 227, 160, 183, 116, 150, 158, 53, 140, 138, 149...
-$ distance       <dbl> 1400, 1416, 1089, 1576, 762, 719, 1065, 229, 944, 73...
-$ hour           <dbl> 5, 5, 5, 5, 6, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 6, 6...
-$ minute         <dbl> 15, 29, 40, 45, 0, 58, 0, 0, 0, 0, 0, 0, 0, 0, 0, 59...
-$ time_hour      <dttm> 2013-01-01 05:00:00, 2013-01-01 05:00:00, 2013-01-0...
+$ year           <int> 2013, 2013, 2013, 2013, 2013, 2013, 2013, ...
+$ month          <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+$ day            <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+$ dep_time       <int> 517, 533, 542, 544, 554, 554, 555, 557, 55...
+$ sched_dep_time <int> 515, 529, 540, 545, 600, 558, 600, 600, 60...
+$ dep_delay      <dbl> 2, 4, 2, -1, -6, -4, -5, -3, -3, -2, -2, -...
+$ arr_time       <int> 830, 850, 923, 1004, 812, 740, 913, 709, 8...
+$ sched_arr_time <int> 819, 830, 850, 1022, 837, 728, 854, 723, 8...
+$ arr_delay      <dbl> 11, 20, 33, -18, -25, 12, 19, -14, -8, 8, ...
+$ carrier        <chr> "UA", "UA", "AA", "B6", "DL", "UA", "B6", ...
+$ flight         <int> 1545, 1714, 1141, 725, 461, 1696, 507, 570...
+$ tailnum        <chr> "N14228", "N24211", "N619AA", "N804JB", "N...
+$ origin         <chr> "EWR", "LGA", "JFK", "JFK", "LGA", "EWR", ...
+$ dest           <chr> "IAH", "IAH", "MIA", "BQN", "ATL", "ORD", ...
+$ air_time       <dbl> 227, 227, 160, 183, 116, 150, 158, 53, 140...
+$ distance       <dbl> 1400, 1416, 1089, 1576, 762, 719, 1065, 22...
+$ hour           <dbl> 5, 5, 5, 5, 6, 5, 6, 6, 6, 6, 6, 6, 6, 6, ...
+$ minute         <dbl> 15, 29, 40, 45, 0, 58, 0, 0, 0, 0, 0, 0, 0...
+$ time_hour      <dttm> 2013-01-01 05:00:00, 2013-01-01 05:00:00,...
 \end{verbatim}
 
 Ici, les premières observations sont présentées en lignes pour chaque
@@ -2962,20 +2951,21 @@ de ce jeu de données.
 
 \begin{verbatim}
 # A tibble: 26,115 x 15
-   origin  year month   day  hour  temp  dewp humid wind_dir wind_speed
-   <chr>  <dbl> <dbl> <int> <int> <dbl> <dbl> <dbl>    <dbl>      <dbl>
- 1 EWR     2013     1     1     1  39.0  26.1  59.4      270      10.4 
- 2 EWR     2013     1     1     2  39.0  27.0  61.6      250       8.06
- 3 EWR     2013     1     1     3  39.0  28.0  64.4      240      11.5 
- 4 EWR     2013     1     1     4  39.9  28.0  62.2      250      12.7 
- 5 EWR     2013     1     1     5  39.0  28.0  64.4      260      12.7 
- 6 EWR     2013     1     1     6  37.9  28.0  67.2      240      11.5 
- 7 EWR     2013     1     1     7  39.0  28.0  64.4      240      15.0 
- 8 EWR     2013     1     1     8  39.9  28.0  62.2      250      10.4 
- 9 EWR     2013     1     1     9  39.9  28.0  62.2      260      15.0 
-10 EWR     2013     1     1    10  41    28.0  59.6      260      13.8 
-# ... with 26,105 more rows, and 5 more variables: wind_gust <dbl>,
-#   precip <dbl>, pressure <dbl>, visib <dbl>, time_hour <dttm>
+   origin  year month   day  hour  temp  dewp humid wind_dir
+   <chr>  <dbl> <dbl> <int> <int> <dbl> <dbl> <dbl>    <dbl>
+ 1 EWR     2013     1     1     1  39.0  26.1  59.4      270
+ 2 EWR     2013     1     1     2  39.0  27.0  61.6      250
+ 3 EWR     2013     1     1     3  39.0  28.0  64.4      240
+ 4 EWR     2013     1     1     4  39.9  28.0  62.2      250
+ 5 EWR     2013     1     1     5  39.0  28.0  64.4      260
+ 6 EWR     2013     1     1     6  37.9  28.0  67.2      240
+ 7 EWR     2013     1     1     7  39.0  28.0  64.4      240
+ 8 EWR     2013     1     1     8  39.9  28.0  62.2      250
+ 9 EWR     2013     1     1     9  39.9  28.0  62.2      260
+10 EWR     2013     1     1    10  41    28.0  59.6      260
+# ... with 26,105 more rows, and 6 more variables: wind_speed <dbl>,
+#   wind_gust <dbl>, precip <dbl>, pressure <dbl>, visib <dbl>,
+#   time_hour <dttm>
 \end{verbatim}
 
 Nous allons nous intéresser à la variable \texttt{temp}, qui contient un
@@ -3474,8 +3464,8 @@ difficile. Il est donc vivement conseillé, pour spécifier
 \end{Shaded}
 
 \begin{verbatim}
- [1]  10  15  20  25  30  35  40  45  50  55  60  65  70  75  80  85  90  95 100
-[20] 105
+ [1]  10  15  20  25  30  35  40  45  50  55  60  65  70  75  80  85
+[17]  90  95 100 105
 \end{verbatim}
 
 \begin{Shaded}
@@ -4661,225 +4651,335 @@ de taper :
 \end{Shaded}
 
 \begin{verbatim}
-  [1] "white"                "aliceblue"            "antiquewhite"        
-  [4] "antiquewhite1"        "antiquewhite2"        "antiquewhite3"       
-  [7] "antiquewhite4"        "aquamarine"           "aquamarine1"         
- [10] "aquamarine2"          "aquamarine3"          "aquamarine4"         
- [13] "azure"                "azure1"               "azure2"              
- [16] "azure3"               "azure4"               "beige"               
- [19] "bisque"               "bisque1"              "bisque2"             
- [22] "bisque3"              "bisque4"              "black"               
- [25] "blanchedalmond"       "blue"                 "blue1"               
- [28] "blue2"                "blue3"                "blue4"               
- [31] "blueviolet"           "brown"                "brown1"              
- [34] "brown2"               "brown3"               "brown4"              
- [37] "burlywood"            "burlywood1"           "burlywood2"          
- [40] "burlywood3"           "burlywood4"           "cadetblue"           
- [43] "cadetblue1"           "cadetblue2"           "cadetblue3"          
- [46] "cadetblue4"           "chartreuse"           "chartreuse1"         
- [49] "chartreuse2"          "chartreuse3"          "chartreuse4"         
- [52] "chocolate"            "chocolate1"           "chocolate2"          
- [55] "chocolate3"           "chocolate4"           "coral"               
- [58] "coral1"               "coral2"               "coral3"              
- [61] "coral4"               "cornflowerblue"       "cornsilk"            
- [64] "cornsilk1"            "cornsilk2"            "cornsilk3"           
- [67] "cornsilk4"            "cyan"                 "cyan1"               
- [70] "cyan2"                "cyan3"                "cyan4"               
- [73] "darkblue"             "darkcyan"             "darkgoldenrod"       
- [76] "darkgoldenrod1"       "darkgoldenrod2"       "darkgoldenrod3"      
- [79] "darkgoldenrod4"       "darkgray"             "darkgreen"           
- [82] "darkgrey"             "darkkhaki"            "darkmagenta"         
- [85] "darkolivegreen"       "darkolivegreen1"      "darkolivegreen2"     
- [88] "darkolivegreen3"      "darkolivegreen4"      "darkorange"          
- [91] "darkorange1"          "darkorange2"          "darkorange3"         
- [94] "darkorange4"          "darkorchid"           "darkorchid1"         
- [97] "darkorchid2"          "darkorchid3"          "darkorchid4"         
-[100] "darkred"              "darksalmon"           "darkseagreen"        
-[103] "darkseagreen1"        "darkseagreen2"        "darkseagreen3"       
-[106] "darkseagreen4"        "darkslateblue"        "darkslategray"       
-[109] "darkslategray1"       "darkslategray2"       "darkslategray3"      
-[112] "darkslategray4"       "darkslategrey"        "darkturquoise"       
-[115] "darkviolet"           "deeppink"             "deeppink1"           
-[118] "deeppink2"            "deeppink3"            "deeppink4"           
-[121] "deepskyblue"          "deepskyblue1"         "deepskyblue2"        
-[124] "deepskyblue3"         "deepskyblue4"         "dimgray"             
-[127] "dimgrey"              "dodgerblue"           "dodgerblue1"         
-[130] "dodgerblue2"          "dodgerblue3"          "dodgerblue4"         
-[133] "firebrick"            "firebrick1"           "firebrick2"          
-[136] "firebrick3"           "firebrick4"           "floralwhite"         
-[139] "forestgreen"          "gainsboro"            "ghostwhite"          
-[142] "gold"                 "gold1"                "gold2"               
-[145] "gold3"                "gold4"                "goldenrod"           
-[148] "goldenrod1"           "goldenrod2"           "goldenrod3"          
-[151] "goldenrod4"           "gray"                 "gray0"               
-[154] "gray1"                "gray2"                "gray3"               
-[157] "gray4"                "gray5"                "gray6"               
-[160] "gray7"                "gray8"                "gray9"               
-[163] "gray10"               "gray11"               "gray12"              
-[166] "gray13"               "gray14"               "gray15"              
-[169] "gray16"               "gray17"               "gray18"              
-[172] "gray19"               "gray20"               "gray21"              
-[175] "gray22"               "gray23"               "gray24"              
-[178] "gray25"               "gray26"               "gray27"              
-[181] "gray28"               "gray29"               "gray30"              
-[184] "gray31"               "gray32"               "gray33"              
-[187] "gray34"               "gray35"               "gray36"              
-[190] "gray37"               "gray38"               "gray39"              
-[193] "gray40"               "gray41"               "gray42"              
-[196] "gray43"               "gray44"               "gray45"              
-[199] "gray46"               "gray47"               "gray48"              
-[202] "gray49"               "gray50"               "gray51"              
-[205] "gray52"               "gray53"               "gray54"              
-[208] "gray55"               "gray56"               "gray57"              
-[211] "gray58"               "gray59"               "gray60"              
-[214] "gray61"               "gray62"               "gray63"              
-[217] "gray64"               "gray65"               "gray66"              
-[220] "gray67"               "gray68"               "gray69"              
-[223] "gray70"               "gray71"               "gray72"              
-[226] "gray73"               "gray74"               "gray75"              
-[229] "gray76"               "gray77"               "gray78"              
-[232] "gray79"               "gray80"               "gray81"              
-[235] "gray82"               "gray83"               "gray84"              
-[238] "gray85"               "gray86"               "gray87"              
-[241] "gray88"               "gray89"               "gray90"              
-[244] "gray91"               "gray92"               "gray93"              
-[247] "gray94"               "gray95"               "gray96"              
-[250] "gray97"               "gray98"               "gray99"              
-[253] "gray100"              "green"                "green1"              
-[256] "green2"               "green3"               "green4"              
-[259] "greenyellow"          "grey"                 "grey0"               
-[262] "grey1"                "grey2"                "grey3"               
-[265] "grey4"                "grey5"                "grey6"               
-[268] "grey7"                "grey8"                "grey9"               
-[271] "grey10"               "grey11"               "grey12"              
-[274] "grey13"               "grey14"               "grey15"              
-[277] "grey16"               "grey17"               "grey18"              
-[280] "grey19"               "grey20"               "grey21"              
-[283] "grey22"               "grey23"               "grey24"              
-[286] "grey25"               "grey26"               "grey27"              
-[289] "grey28"               "grey29"               "grey30"              
-[292] "grey31"               "grey32"               "grey33"              
-[295] "grey34"               "grey35"               "grey36"              
-[298] "grey37"               "grey38"               "grey39"              
-[301] "grey40"               "grey41"               "grey42"              
-[304] "grey43"               "grey44"               "grey45"              
-[307] "grey46"               "grey47"               "grey48"              
-[310] "grey49"               "grey50"               "grey51"              
-[313] "grey52"               "grey53"               "grey54"              
-[316] "grey55"               "grey56"               "grey57"              
-[319] "grey58"               "grey59"               "grey60"              
-[322] "grey61"               "grey62"               "grey63"              
-[325] "grey64"               "grey65"               "grey66"              
-[328] "grey67"               "grey68"               "grey69"              
-[331] "grey70"               "grey71"               "grey72"              
-[334] "grey73"               "grey74"               "grey75"              
-[337] "grey76"               "grey77"               "grey78"              
-[340] "grey79"               "grey80"               "grey81"              
-[343] "grey82"               "grey83"               "grey84"              
-[346] "grey85"               "grey86"               "grey87"              
-[349] "grey88"               "grey89"               "grey90"              
-[352] "grey91"               "grey92"               "grey93"              
-[355] "grey94"               "grey95"               "grey96"              
-[358] "grey97"               "grey98"               "grey99"              
-[361] "grey100"              "honeydew"             "honeydew1"           
-[364] "honeydew2"            "honeydew3"            "honeydew4"           
-[367] "hotpink"              "hotpink1"             "hotpink2"            
-[370] "hotpink3"             "hotpink4"             "indianred"           
-[373] "indianred1"           "indianred2"           "indianred3"          
-[376] "indianred4"           "ivory"                "ivory1"              
-[379] "ivory2"               "ivory3"               "ivory4"              
-[382] "khaki"                "khaki1"               "khaki2"              
-[385] "khaki3"               "khaki4"               "lavender"            
-[388] "lavenderblush"        "lavenderblush1"       "lavenderblush2"      
-[391] "lavenderblush3"       "lavenderblush4"       "lawngreen"           
-[394] "lemonchiffon"         "lemonchiffon1"        "lemonchiffon2"       
-[397] "lemonchiffon3"        "lemonchiffon4"        "lightblue"           
-[400] "lightblue1"           "lightblue2"           "lightblue3"          
-[403] "lightblue4"           "lightcoral"           "lightcyan"           
-[406] "lightcyan1"           "lightcyan2"           "lightcyan3"          
-[409] "lightcyan4"           "lightgoldenrod"       "lightgoldenrod1"     
-[412] "lightgoldenrod2"      "lightgoldenrod3"      "lightgoldenrod4"     
-[415] "lightgoldenrodyellow" "lightgray"            "lightgreen"          
-[418] "lightgrey"            "lightpink"            "lightpink1"          
-[421] "lightpink2"           "lightpink3"           "lightpink4"          
-[424] "lightsalmon"          "lightsalmon1"         "lightsalmon2"        
-[427] "lightsalmon3"         "lightsalmon4"         "lightseagreen"       
-[430] "lightskyblue"         "lightskyblue1"        "lightskyblue2"       
-[433] "lightskyblue3"        "lightskyblue4"        "lightslateblue"      
-[436] "lightslategray"       "lightslategrey"       "lightsteelblue"      
-[439] "lightsteelblue1"      "lightsteelblue2"      "lightsteelblue3"     
-[442] "lightsteelblue4"      "lightyellow"          "lightyellow1"        
-[445] "lightyellow2"         "lightyellow3"         "lightyellow4"        
-[448] "limegreen"            "linen"                "magenta"             
-[451] "magenta1"             "magenta2"             "magenta3"            
-[454] "magenta4"             "maroon"               "maroon1"             
-[457] "maroon2"              "maroon3"              "maroon4"             
-[460] "mediumaquamarine"     "mediumblue"           "mediumorchid"        
-[463] "mediumorchid1"        "mediumorchid2"        "mediumorchid3"       
-[466] "mediumorchid4"        "mediumpurple"         "mediumpurple1"       
-[469] "mediumpurple2"        "mediumpurple3"        "mediumpurple4"       
-[472] "mediumseagreen"       "mediumslateblue"      "mediumspringgreen"   
-[475] "mediumturquoise"      "mediumvioletred"      "midnightblue"        
-[478] "mintcream"            "mistyrose"            "mistyrose1"          
-[481] "mistyrose2"           "mistyrose3"           "mistyrose4"          
-[484] "moccasin"             "navajowhite"          "navajowhite1"        
-[487] "navajowhite2"         "navajowhite3"         "navajowhite4"        
-[490] "navy"                 "navyblue"             "oldlace"             
-[493] "olivedrab"            "olivedrab1"           "olivedrab2"          
-[496] "olivedrab3"           "olivedrab4"           "orange"              
-[499] "orange1"              "orange2"              "orange3"             
-[502] "orange4"              "orangered"            "orangered1"          
-[505] "orangered2"           "orangered3"           "orangered4"          
-[508] "orchid"               "orchid1"              "orchid2"             
-[511] "orchid3"              "orchid4"              "palegoldenrod"       
-[514] "palegreen"            "palegreen1"           "palegreen2"          
-[517] "palegreen3"           "palegreen4"           "paleturquoise"       
-[520] "paleturquoise1"       "paleturquoise2"       "paleturquoise3"      
-[523] "paleturquoise4"       "palevioletred"        "palevioletred1"      
-[526] "palevioletred2"       "palevioletred3"       "palevioletred4"      
-[529] "papayawhip"           "peachpuff"            "peachpuff1"          
-[532] "peachpuff2"           "peachpuff3"           "peachpuff4"          
-[535] "peru"                 "pink"                 "pink1"               
-[538] "pink2"                "pink3"                "pink4"               
-[541] "plum"                 "plum1"                "plum2"               
-[544] "plum3"                "plum4"                "powderblue"          
-[547] "purple"               "purple1"              "purple2"             
-[550] "purple3"              "purple4"              "red"                 
-[553] "red1"                 "red2"                 "red3"                
-[556] "red4"                 "rosybrown"            "rosybrown1"          
-[559] "rosybrown2"           "rosybrown3"           "rosybrown4"          
-[562] "royalblue"            "royalblue1"           "royalblue2"          
-[565] "royalblue3"           "royalblue4"           "saddlebrown"         
-[568] "salmon"               "salmon1"              "salmon2"             
-[571] "salmon3"              "salmon4"              "sandybrown"          
-[574] "seagreen"             "seagreen1"            "seagreen2"           
-[577] "seagreen3"            "seagreen4"            "seashell"            
-[580] "seashell1"            "seashell2"            "seashell3"           
-[583] "seashell4"            "sienna"               "sienna1"             
-[586] "sienna2"              "sienna3"              "sienna4"             
-[589] "skyblue"              "skyblue1"             "skyblue2"            
-[592] "skyblue3"             "skyblue4"             "slateblue"           
-[595] "slateblue1"           "slateblue2"           "slateblue3"          
-[598] "slateblue4"           "slategray"            "slategray1"          
-[601] "slategray2"           "slategray3"           "slategray4"          
-[604] "slategrey"            "snow"                 "snow1"               
-[607] "snow2"                "snow3"                "snow4"               
-[610] "springgreen"          "springgreen1"         "springgreen2"        
-[613] "springgreen3"         "springgreen4"         "steelblue"           
-[616] "steelblue1"           "steelblue2"           "steelblue3"          
-[619] "steelblue4"           "tan"                  "tan1"                
-[622] "tan2"                 "tan3"                 "tan4"                
-[625] "thistle"              "thistle1"             "thistle2"            
-[628] "thistle3"             "thistle4"             "tomato"              
-[631] "tomato1"              "tomato2"              "tomato3"             
-[634] "tomato4"              "turquoise"            "turquoise1"          
-[637] "turquoise2"           "turquoise3"           "turquoise4"          
-[640] "violet"               "violetred"            "violetred1"          
-[643] "violetred2"           "violetred3"           "violetred4"          
-[646] "wheat"                "wheat1"               "wheat2"              
-[649] "wheat3"               "wheat4"               "whitesmoke"          
-[652] "yellow"               "yellow1"              "yellow2"             
-[655] "yellow3"              "yellow4"              "yellowgreen"         
+  [1] "white"                "aliceblue"           
+  [3] "antiquewhite"         "antiquewhite1"       
+  [5] "antiquewhite2"        "antiquewhite3"       
+  [7] "antiquewhite4"        "aquamarine"          
+  [9] "aquamarine1"          "aquamarine2"         
+ [11] "aquamarine3"          "aquamarine4"         
+ [13] "azure"                "azure1"              
+ [15] "azure2"               "azure3"              
+ [17] "azure4"               "beige"               
+ [19] "bisque"               "bisque1"             
+ [21] "bisque2"              "bisque3"             
+ [23] "bisque4"              "black"               
+ [25] "blanchedalmond"       "blue"                
+ [27] "blue1"                "blue2"               
+ [29] "blue3"                "blue4"               
+ [31] "blueviolet"           "brown"               
+ [33] "brown1"               "brown2"              
+ [35] "brown3"               "brown4"              
+ [37] "burlywood"            "burlywood1"          
+ [39] "burlywood2"           "burlywood3"          
+ [41] "burlywood4"           "cadetblue"           
+ [43] "cadetblue1"           "cadetblue2"          
+ [45] "cadetblue3"           "cadetblue4"          
+ [47] "chartreuse"           "chartreuse1"         
+ [49] "chartreuse2"          "chartreuse3"         
+ [51] "chartreuse4"          "chocolate"           
+ [53] "chocolate1"           "chocolate2"          
+ [55] "chocolate3"           "chocolate4"          
+ [57] "coral"                "coral1"              
+ [59] "coral2"               "coral3"              
+ [61] "coral4"               "cornflowerblue"      
+ [63] "cornsilk"             "cornsilk1"           
+ [65] "cornsilk2"            "cornsilk3"           
+ [67] "cornsilk4"            "cyan"                
+ [69] "cyan1"                "cyan2"               
+ [71] "cyan3"                "cyan4"               
+ [73] "darkblue"             "darkcyan"            
+ [75] "darkgoldenrod"        "darkgoldenrod1"      
+ [77] "darkgoldenrod2"       "darkgoldenrod3"      
+ [79] "darkgoldenrod4"       "darkgray"            
+ [81] "darkgreen"            "darkgrey"            
+ [83] "darkkhaki"            "darkmagenta"         
+ [85] "darkolivegreen"       "darkolivegreen1"     
+ [87] "darkolivegreen2"      "darkolivegreen3"     
+ [89] "darkolivegreen4"      "darkorange"          
+ [91] "darkorange1"          "darkorange2"         
+ [93] "darkorange3"          "darkorange4"         
+ [95] "darkorchid"           "darkorchid1"         
+ [97] "darkorchid2"          "darkorchid3"         
+ [99] "darkorchid4"          "darkred"             
+[101] "darksalmon"           "darkseagreen"        
+[103] "darkseagreen1"        "darkseagreen2"       
+[105] "darkseagreen3"        "darkseagreen4"       
+[107] "darkslateblue"        "darkslategray"       
+[109] "darkslategray1"       "darkslategray2"      
+[111] "darkslategray3"       "darkslategray4"      
+[113] "darkslategrey"        "darkturquoise"       
+[115] "darkviolet"           "deeppink"            
+[117] "deeppink1"            "deeppink2"           
+[119] "deeppink3"            "deeppink4"           
+[121] "deepskyblue"          "deepskyblue1"        
+[123] "deepskyblue2"         "deepskyblue3"        
+[125] "deepskyblue4"         "dimgray"             
+[127] "dimgrey"              "dodgerblue"          
+[129] "dodgerblue1"          "dodgerblue2"         
+[131] "dodgerblue3"          "dodgerblue4"         
+[133] "firebrick"            "firebrick1"          
+[135] "firebrick2"           "firebrick3"          
+[137] "firebrick4"           "floralwhite"         
+[139] "forestgreen"          "gainsboro"           
+[141] "ghostwhite"           "gold"                
+[143] "gold1"                "gold2"               
+[145] "gold3"                "gold4"               
+[147] "goldenrod"            "goldenrod1"          
+[149] "goldenrod2"           "goldenrod3"          
+[151] "goldenrod4"           "gray"                
+[153] "gray0"                "gray1"               
+[155] "gray2"                "gray3"               
+[157] "gray4"                "gray5"               
+[159] "gray6"                "gray7"               
+[161] "gray8"                "gray9"               
+[163] "gray10"               "gray11"              
+[165] "gray12"               "gray13"              
+[167] "gray14"               "gray15"              
+[169] "gray16"               "gray17"              
+[171] "gray18"               "gray19"              
+[173] "gray20"               "gray21"              
+[175] "gray22"               "gray23"              
+[177] "gray24"               "gray25"              
+[179] "gray26"               "gray27"              
+[181] "gray28"               "gray29"              
+[183] "gray30"               "gray31"              
+[185] "gray32"               "gray33"              
+[187] "gray34"               "gray35"              
+[189] "gray36"               "gray37"              
+[191] "gray38"               "gray39"              
+[193] "gray40"               "gray41"              
+[195] "gray42"               "gray43"              
+[197] "gray44"               "gray45"              
+[199] "gray46"               "gray47"              
+[201] "gray48"               "gray49"              
+[203] "gray50"               "gray51"              
+[205] "gray52"               "gray53"              
+[207] "gray54"               "gray55"              
+[209] "gray56"               "gray57"              
+[211] "gray58"               "gray59"              
+[213] "gray60"               "gray61"              
+[215] "gray62"               "gray63"              
+[217] "gray64"               "gray65"              
+[219] "gray66"               "gray67"              
+[221] "gray68"               "gray69"              
+[223] "gray70"               "gray71"              
+[225] "gray72"               "gray73"              
+[227] "gray74"               "gray75"              
+[229] "gray76"               "gray77"              
+[231] "gray78"               "gray79"              
+[233] "gray80"               "gray81"              
+[235] "gray82"               "gray83"              
+[237] "gray84"               "gray85"              
+[239] "gray86"               "gray87"              
+[241] "gray88"               "gray89"              
+[243] "gray90"               "gray91"              
+[245] "gray92"               "gray93"              
+[247] "gray94"               "gray95"              
+[249] "gray96"               "gray97"              
+[251] "gray98"               "gray99"              
+[253] "gray100"              "green"               
+[255] "green1"               "green2"              
+[257] "green3"               "green4"              
+[259] "greenyellow"          "grey"                
+[261] "grey0"                "grey1"               
+[263] "grey2"                "grey3"               
+[265] "grey4"                "grey5"               
+[267] "grey6"                "grey7"               
+[269] "grey8"                "grey9"               
+[271] "grey10"               "grey11"              
+[273] "grey12"               "grey13"              
+[275] "grey14"               "grey15"              
+[277] "grey16"               "grey17"              
+[279] "grey18"               "grey19"              
+[281] "grey20"               "grey21"              
+[283] "grey22"               "grey23"              
+[285] "grey24"               "grey25"              
+[287] "grey26"               "grey27"              
+[289] "grey28"               "grey29"              
+[291] "grey30"               "grey31"              
+[293] "grey32"               "grey33"              
+[295] "grey34"               "grey35"              
+[297] "grey36"               "grey37"              
+[299] "grey38"               "grey39"              
+[301] "grey40"               "grey41"              
+[303] "grey42"               "grey43"              
+[305] "grey44"               "grey45"              
+[307] "grey46"               "grey47"              
+[309] "grey48"               "grey49"              
+[311] "grey50"               "grey51"              
+[313] "grey52"               "grey53"              
+[315] "grey54"               "grey55"              
+[317] "grey56"               "grey57"              
+[319] "grey58"               "grey59"              
+[321] "grey60"               "grey61"              
+[323] "grey62"               "grey63"              
+[325] "grey64"               "grey65"              
+[327] "grey66"               "grey67"              
+[329] "grey68"               "grey69"              
+[331] "grey70"               "grey71"              
+[333] "grey72"               "grey73"              
+[335] "grey74"               "grey75"              
+[337] "grey76"               "grey77"              
+[339] "grey78"               "grey79"              
+[341] "grey80"               "grey81"              
+[343] "grey82"               "grey83"              
+[345] "grey84"               "grey85"              
+[347] "grey86"               "grey87"              
+[349] "grey88"               "grey89"              
+[351] "grey90"               "grey91"              
+[353] "grey92"               "grey93"              
+[355] "grey94"               "grey95"              
+[357] "grey96"               "grey97"              
+[359] "grey98"               "grey99"              
+[361] "grey100"              "honeydew"            
+[363] "honeydew1"            "honeydew2"           
+[365] "honeydew3"            "honeydew4"           
+[367] "hotpink"              "hotpink1"            
+[369] "hotpink2"             "hotpink3"            
+[371] "hotpink4"             "indianred"           
+[373] "indianred1"           "indianred2"          
+[375] "indianred3"           "indianred4"          
+[377] "ivory"                "ivory1"              
+[379] "ivory2"               "ivory3"              
+[381] "ivory4"               "khaki"               
+[383] "khaki1"               "khaki2"              
+[385] "khaki3"               "khaki4"              
+[387] "lavender"             "lavenderblush"       
+[389] "lavenderblush1"       "lavenderblush2"      
+[391] "lavenderblush3"       "lavenderblush4"      
+[393] "lawngreen"            "lemonchiffon"        
+[395] "lemonchiffon1"        "lemonchiffon2"       
+[397] "lemonchiffon3"        "lemonchiffon4"       
+[399] "lightblue"            "lightblue1"          
+[401] "lightblue2"           "lightblue3"          
+[403] "lightblue4"           "lightcoral"          
+[405] "lightcyan"            "lightcyan1"          
+[407] "lightcyan2"           "lightcyan3"          
+[409] "lightcyan4"           "lightgoldenrod"      
+[411] "lightgoldenrod1"      "lightgoldenrod2"     
+[413] "lightgoldenrod3"      "lightgoldenrod4"     
+[415] "lightgoldenrodyellow" "lightgray"           
+[417] "lightgreen"           "lightgrey"           
+[419] "lightpink"            "lightpink1"          
+[421] "lightpink2"           "lightpink3"          
+[423] "lightpink4"           "lightsalmon"         
+[425] "lightsalmon1"         "lightsalmon2"        
+[427] "lightsalmon3"         "lightsalmon4"        
+[429] "lightseagreen"        "lightskyblue"        
+[431] "lightskyblue1"        "lightskyblue2"       
+[433] "lightskyblue3"        "lightskyblue4"       
+[435] "lightslateblue"       "lightslategray"      
+[437] "lightslategrey"       "lightsteelblue"      
+[439] "lightsteelblue1"      "lightsteelblue2"     
+[441] "lightsteelblue3"      "lightsteelblue4"     
+[443] "lightyellow"          "lightyellow1"        
+[445] "lightyellow2"         "lightyellow3"        
+[447] "lightyellow4"         "limegreen"           
+[449] "linen"                "magenta"             
+[451] "magenta1"             "magenta2"            
+[453] "magenta3"             "magenta4"            
+[455] "maroon"               "maroon1"             
+[457] "maroon2"              "maroon3"             
+[459] "maroon4"              "mediumaquamarine"    
+[461] "mediumblue"           "mediumorchid"        
+[463] "mediumorchid1"        "mediumorchid2"       
+[465] "mediumorchid3"        "mediumorchid4"       
+[467] "mediumpurple"         "mediumpurple1"       
+[469] "mediumpurple2"        "mediumpurple3"       
+[471] "mediumpurple4"        "mediumseagreen"      
+[473] "mediumslateblue"      "mediumspringgreen"   
+[475] "mediumturquoise"      "mediumvioletred"     
+[477] "midnightblue"         "mintcream"           
+[479] "mistyrose"            "mistyrose1"          
+[481] "mistyrose2"           "mistyrose3"          
+[483] "mistyrose4"           "moccasin"            
+[485] "navajowhite"          "navajowhite1"        
+[487] "navajowhite2"         "navajowhite3"        
+[489] "navajowhite4"         "navy"                
+[491] "navyblue"             "oldlace"             
+[493] "olivedrab"            "olivedrab1"          
+[495] "olivedrab2"           "olivedrab3"          
+[497] "olivedrab4"           "orange"              
+[499] "orange1"              "orange2"             
+[501] "orange3"              "orange4"             
+[503] "orangered"            "orangered1"          
+[505] "orangered2"           "orangered3"          
+[507] "orangered4"           "orchid"              
+[509] "orchid1"              "orchid2"             
+[511] "orchid3"              "orchid4"             
+[513] "palegoldenrod"        "palegreen"           
+[515] "palegreen1"           "palegreen2"          
+[517] "palegreen3"           "palegreen4"          
+[519] "paleturquoise"        "paleturquoise1"      
+[521] "paleturquoise2"       "paleturquoise3"      
+[523] "paleturquoise4"       "palevioletred"       
+[525] "palevioletred1"       "palevioletred2"      
+[527] "palevioletred3"       "palevioletred4"      
+[529] "papayawhip"           "peachpuff"           
+[531] "peachpuff1"           "peachpuff2"          
+[533] "peachpuff3"           "peachpuff4"          
+[535] "peru"                 "pink"                
+[537] "pink1"                "pink2"               
+[539] "pink3"                "pink4"               
+[541] "plum"                 "plum1"               
+[543] "plum2"                "plum3"               
+[545] "plum4"                "powderblue"          
+[547] "purple"               "purple1"             
+[549] "purple2"              "purple3"             
+[551] "purple4"              "red"                 
+[553] "red1"                 "red2"                
+[555] "red3"                 "red4"                
+[557] "rosybrown"            "rosybrown1"          
+[559] "rosybrown2"           "rosybrown3"          
+[561] "rosybrown4"           "royalblue"           
+[563] "royalblue1"           "royalblue2"          
+[565] "royalblue3"           "royalblue4"          
+[567] "saddlebrown"          "salmon"              
+[569] "salmon1"              "salmon2"             
+[571] "salmon3"              "salmon4"             
+[573] "sandybrown"           "seagreen"            
+[575] "seagreen1"            "seagreen2"           
+[577] "seagreen3"            "seagreen4"           
+[579] "seashell"             "seashell1"           
+[581] "seashell2"            "seashell3"           
+[583] "seashell4"            "sienna"              
+[585] "sienna1"              "sienna2"             
+[587] "sienna3"              "sienna4"             
+[589] "skyblue"              "skyblue1"            
+[591] "skyblue2"             "skyblue3"            
+[593] "skyblue4"             "slateblue"           
+[595] "slateblue1"           "slateblue2"          
+[597] "slateblue3"           "slateblue4"          
+[599] "slategray"            "slategray1"          
+[601] "slategray2"           "slategray3"          
+[603] "slategray4"           "slategrey"           
+[605] "snow"                 "snow1"               
+[607] "snow2"                "snow3"               
+[609] "snow4"                "springgreen"         
+[611] "springgreen1"         "springgreen2"        
+[613] "springgreen3"         "springgreen4"        
+[615] "steelblue"            "steelblue1"          
+[617] "steelblue2"           "steelblue3"          
+[619] "steelblue4"           "tan"                 
+[621] "tan1"                 "tan2"                
+[623] "tan3"                 "tan4"                
+[625] "thistle"              "thistle1"            
+[627] "thistle2"             "thistle3"            
+[629] "thistle4"             "tomato"              
+[631] "tomato1"              "tomato2"             
+[633] "tomato3"              "tomato4"             
+[635] "turquoise"            "turquoise1"          
+[637] "turquoise2"           "turquoise3"          
+[639] "turquoise4"           "violet"              
+[641] "violetred"            "violetred1"          
+[643] "violetred2"           "violetred3"          
+[645] "violetred4"           "wheat"               
+[647] "wheat1"               "wheat2"              
+[649] "wheat3"               "wheat4"              
+[651] "whitesmoke"           "yellow"              
+[653] "yellow1"              "yellow2"             
+[655] "yellow3"              "yellow4"             
+[657] "yellowgreen"         
 \end{verbatim}
 
 Pour savoir à quelle couleur correspond chaque nom, le plus simple est
@@ -6256,20 +6356,20 @@ nouvel objet nommé \texttt{dauphin}. Il est stocké sous la forme d'un
 
 \begin{verbatim}
 # A tibble: 93 x 9
-   `N°`  Sexe  `Statut reprodu~ `Taille en cm` `Age en années` `Cd (mg.kg-1)`
-   <chr> <chr> <chr>                     <dbl>           <dbl>          <dbl>
- 1 Numé~ f     imm                         315               3          29.6 
- 2 Numé~ f     imm                         357               4          55.1 
- 3 Numé~ f     pnl                         439              34         129.  
- 4 Numé~ f     imm                         316               4          71.2 
- 5 Numé~ f     l                           435              26         192   
- 6 Numé~ f     pnl                         388               6          NA   
- 7 Numé~ f     mat                         410              NA          76   
- 8 Numé~ m     imm                         355              NA          74.4 
- 9 Numé~ m     imm                         222              NA           0.09
-10 Numé~ m     imm                         412               9          85.6 
-# ... with 83 more rows, and 3 more variables: `Cu (mg.kg-1)` <dbl>, `Hg
-#   (mg.kg-1)` <dbl>, Organe <chr>
+   `N°`  Sexe  `Statut reprodu~ `Taille en cm` `Age en années`
+   <chr> <chr> <chr>                     <dbl>           <dbl>
+ 1 Numé~ f     imm                         315               3
+ 2 Numé~ f     imm                         357               4
+ 3 Numé~ f     pnl                         439              34
+ 4 Numé~ f     imm                         316               4
+ 5 Numé~ f     l                           435              26
+ 6 Numé~ f     pnl                         388               6
+ 7 Numé~ f     mat                         410              NA
+ 8 Numé~ m     imm                         355              NA
+ 9 Numé~ m     imm                         222              NA
+10 Numé~ m     imm                         412               9
+# ... with 83 more rows, and 4 more variables: `Cd (mg.kg-1)` <dbl>,
+#   `Cu (mg.kg-1)` <dbl>, `Hg (mg.kg-1)` <dbl>, Organe <chr>
 \end{verbatim}
 
 Notez toutefois que les noms de colonnes complexes sont toujours
@@ -6986,21 +7086,23 @@ manquantes sont présentes :
 
 \begin{verbatim}
 # A tibble: 8,255 x 19
-    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-   <int> <int> <int>    <int>          <int>     <dbl>    <int>          <int>
- 1  2013     1     1       NA           1630        NA       NA           1815
- 2  2013     1     1       NA           1935        NA       NA           2240
- 3  2013     1     1       NA           1500        NA       NA           1825
- 4  2013     1     1       NA            600        NA       NA            901
- 5  2013     1     2       NA           1540        NA       NA           1747
- 6  2013     1     2       NA           1620        NA       NA           1746
- 7  2013     1     2       NA           1355        NA       NA           1459
- 8  2013     1     2       NA           1420        NA       NA           1644
- 9  2013     1     2       NA           1321        NA       NA           1536
-10  2013     1     2       NA           1545        NA       NA           1910
-# ... with 8,245 more rows, and 11 more variables: arr_delay <dbl>,
-#   carrier <chr>, flight <int>, tailnum <chr>, origin <chr>, dest <chr>,
-#   air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>, time_hour <dttm>
+    year month   day dep_time sched_dep_time dep_delay arr_time
+   <int> <int> <int>    <int>          <int>     <dbl>    <int>
+ 1  2013     1     1       NA           1630        NA       NA
+ 2  2013     1     1       NA           1935        NA       NA
+ 3  2013     1     1       NA           1500        NA       NA
+ 4  2013     1     1       NA            600        NA       NA
+ 5  2013     1     2       NA           1540        NA       NA
+ 6  2013     1     2       NA           1620        NA       NA
+ 7  2013     1     2       NA           1355        NA       NA
+ 8  2013     1     2       NA           1420        NA       NA
+ 9  2013     1     2       NA           1321        NA       NA
+10  2013     1     2       NA           1545        NA       NA
+# ... with 8,245 more rows, and 12 more variables:
+#   sched_arr_time <int>, arr_delay <dbl>, carrier <chr>,
+#   flight <int>, tailnum <chr>, origin <chr>, dest <chr>,
+#   air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>,
+#   time_hour <dttm>
 \end{verbatim}
 
 Seules les lignes contenant \texttt{NA} dans la colonne
@@ -7023,21 +7125,23 @@ l'heure d'atterrissage est manquante :
 
 \begin{verbatim}
 # A tibble: 458 x 19
-    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-   <int> <int> <int>    <int>          <int>     <dbl>    <int>          <int>
- 1  2013     1     1     2016           1930        46       NA           2220
- 2  2013     1     2     2041           2045        -4       NA           2359
- 3  2013     1     2     2145           2129        16       NA             33
- 4  2013     1     9      615            615         0       NA            855
- 5  2013     1     9     2042           2040         2       NA           2357
- 6  2013     1    11     1344           1350        -6       NA           1518
- 7  2013     1    13     1907           1634       153       NA           1837
- 8  2013     1    13     2239           2159        40       NA             30
- 9  2013     1    16      837            840        -3       NA           1030
-10  2013     1    25     1452           1500        -8       NA           1619
-# ... with 448 more rows, and 11 more variables: arr_delay <dbl>,
-#   carrier <chr>, flight <int>, tailnum <chr>, origin <chr>, dest <chr>,
-#   air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>, time_hour <dttm>
+    year month   day dep_time sched_dep_time dep_delay arr_time
+   <int> <int> <int>    <int>          <int>     <dbl>    <int>
+ 1  2013     1     1     2016           1930        46       NA
+ 2  2013     1     2     2041           2045        -4       NA
+ 3  2013     1     2     2145           2129        16       NA
+ 4  2013     1     9      615            615         0       NA
+ 5  2013     1     9     2042           2040         2       NA
+ 6  2013     1    11     1344           1350        -6       NA
+ 7  2013     1    13     1907           1634       153       NA
+ 8  2013     1    13     2239           2159        40       NA
+ 9  2013     1    16      837            840        -3       NA
+10  2013     1    25     1452           1500        -8       NA
+# ... with 448 more rows, and 12 more variables:
+#   sched_arr_time <int>, arr_delay <dbl>, carrier <chr>,
+#   flight <int>, tailnum <chr>, origin <chr>, dest <chr>,
+#   air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>,
+#   time_hour <dttm>
 \end{verbatim}
 
 Notez l'utilisation du \texttt{!} pour la première condition. Nous
@@ -7055,21 +7159,23 @@ Cette syntaxe est équivalente à :
 
 \begin{verbatim}
 # A tibble: 458 x 19
-    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-   <int> <int> <int>    <int>          <int>     <dbl>    <int>          <int>
- 1  2013     1     1     2016           1930        46       NA           2220
- 2  2013     1     2     2041           2045        -4       NA           2359
- 3  2013     1     2     2145           2129        16       NA             33
- 4  2013     1     9      615            615         0       NA            855
- 5  2013     1     9     2042           2040         2       NA           2357
- 6  2013     1    11     1344           1350        -6       NA           1518
- 7  2013     1    13     1907           1634       153       NA           1837
- 8  2013     1    13     2239           2159        40       NA             30
- 9  2013     1    16      837            840        -3       NA           1030
-10  2013     1    25     1452           1500        -8       NA           1619
-# ... with 448 more rows, and 11 more variables: arr_delay <dbl>,
-#   carrier <chr>, flight <int>, tailnum <chr>, origin <chr>, dest <chr>,
-#   air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>, time_hour <dttm>
+    year month   day dep_time sched_dep_time dep_delay arr_time
+   <int> <int> <int>    <int>          <int>     <dbl>    <int>
+ 1  2013     1     1     2016           1930        46       NA
+ 2  2013     1     2     2041           2045        -4       NA
+ 3  2013     1     2     2145           2129        16       NA
+ 4  2013     1     9      615            615         0       NA
+ 5  2013     1     9     2042           2040         2       NA
+ 6  2013     1    11     1344           1350        -6       NA
+ 7  2013     1    13     1907           1634       153       NA
+ 8  2013     1    13     2239           2159        40       NA
+ 9  2013     1    16      837            840        -3       NA
+10  2013     1    25     1452           1500        -8       NA
+# ... with 448 more rows, and 12 more variables:
+#   sched_arr_time <int>, arr_delay <dbl>, carrier <chr>,
+#   flight <int>, tailnum <chr>, origin <chr>, dest <chr>,
+#   air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>,
+#   time_hour <dttm>
 \end{verbatim}
 
 Dans la fonction \texttt{filter()}, séparer plusieurs conditions par des
@@ -7101,21 +7207,23 @@ décembre :
 
 \begin{verbatim}
 # A tibble: 962 x 19
-    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-   <int> <int> <int>    <int>          <int>     <dbl>    <int>          <int>
- 1  2013    10     1      638            640        -2      839            905
- 2  2013    10     1      729            735        -6     1049           1040
- 3  2013    10     1      824            830        -6     1030           1059
- 4  2013    10     1      853            900        -7     1217           1157
- 5  2013    10     1     1328           1330        -2     1543           1553
- 6  2013    10     1     1459           1500        -1     1817           1829
- 7  2013    10     1     1544           1545        -1     1815           1819
- 8  2013    10     1     1754           1800        -6     2102           2103
- 9  2013    10     1     1825           1830        -5     2159           2150
-10  2013    10     1     1841           1840         1     2058           2116
-# ... with 952 more rows, and 11 more variables: arr_delay <dbl>,
-#   carrier <chr>, flight <int>, tailnum <chr>, origin <chr>, dest <chr>,
-#   air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>, time_hour <dttm>
+    year month   day dep_time sched_dep_time dep_delay arr_time
+   <int> <int> <int>    <int>          <int>     <dbl>    <int>
+ 1  2013    10     1      638            640        -2      839
+ 2  2013    10     1      729            735        -6     1049
+ 3  2013    10     1      824            830        -6     1030
+ 4  2013    10     1      853            900        -7     1217
+ 5  2013    10     1     1328           1330        -2     1543
+ 6  2013    10     1     1459           1500        -1     1817
+ 7  2013    10     1     1544           1545        -1     1815
+ 8  2013    10     1     1754           1800        -6     2102
+ 9  2013    10     1     1825           1830        -5     2159
+10  2013    10     1     1841           1840         1     2058
+# ... with 952 more rows, and 12 more variables:
+#   sched_arr_time <int>, arr_delay <dbl>, carrier <chr>,
+#   flight <int>, tailnum <chr>, origin <chr>, dest <chr>,
+#   air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>,
+#   time_hour <dttm>
 \end{verbatim}
 
 Examinez ce tableau avec \texttt{View()} pour vérifier que la variable
@@ -7143,21 +7251,23 @@ l'expression contenant \texttt{\textbar{}} par une expression contenant
 
 \begin{verbatim}
 # A tibble: 962 x 19
-    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-   <int> <int> <int>    <int>          <int>     <dbl>    <int>          <int>
- 1  2013    10     1      638            640        -2      839            905
- 2  2013    10     1      729            735        -6     1049           1040
- 3  2013    10     1      824            830        -6     1030           1059
- 4  2013    10     1      853            900        -7     1217           1157
- 5  2013    10     1     1328           1330        -2     1543           1553
- 6  2013    10     1     1459           1500        -1     1817           1829
- 7  2013    10     1     1544           1545        -1     1815           1819
- 8  2013    10     1     1754           1800        -6     2102           2103
- 9  2013    10     1     1825           1830        -5     2159           2150
-10  2013    10     1     1841           1840         1     2058           2116
-# ... with 952 more rows, and 11 more variables: arr_delay <dbl>,
-#   carrier <chr>, flight <int>, tailnum <chr>, origin <chr>, dest <chr>,
-#   air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>, time_hour <dttm>
+    year month   day dep_time sched_dep_time dep_delay arr_time
+   <int> <int> <int>    <int>          <int>     <dbl>    <int>
+ 1  2013    10     1      638            640        -2      839
+ 2  2013    10     1      729            735        -6     1049
+ 3  2013    10     1      824            830        -6     1030
+ 4  2013    10     1      853            900        -7     1217
+ 5  2013    10     1     1328           1330        -2     1543
+ 6  2013    10     1     1459           1500        -1     1817
+ 7  2013    10     1     1544           1545        -1     1815
+ 8  2013    10     1     1754           1800        -6     2102
+ 9  2013    10     1     1825           1830        -5     2159
+10  2013    10     1     1841           1840         1     2058
+# ... with 952 more rows, and 12 more variables:
+#   sched_arr_time <int>, arr_delay <dbl>, carrier <chr>,
+#   flight <int>, tailnum <chr>, origin <chr>, dest <chr>,
+#   air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>,
+#   time_hour <dttm>
 \end{verbatim}
 
 Ici, toutes les lignes du tableau dont la variable \texttt{dest} est
@@ -7250,11 +7360,11 @@ sont \texttt{NA} car une valeur de température est manquante :
 
 \begin{verbatim}
 # A tibble: 1 x 15
-  origin  year month   day  hour  temp  dewp humid wind_dir wind_speed wind_gust
-  <chr>  <dbl> <dbl> <int> <int> <dbl> <dbl> <dbl>    <dbl>      <dbl>     <dbl>
-1 EWR     2013     8    22     9    NA    NA    NA      320       12.7        NA
-# ... with 4 more variables: precip <dbl>, pressure <dbl>, visib <dbl>,
-#   time_hour <dttm>
+  origin  year month   day  hour  temp  dewp humid wind_dir wind_speed
+  <chr>  <dbl> <dbl> <int> <int> <dbl> <dbl> <dbl>    <dbl>      <dbl>
+1 EWR     2013     8    22     9    NA    NA    NA      320       12.7
+# ... with 5 more variables: wind_gust <dbl>, precip <dbl>,
+#   pressure <dbl>, visib <dbl>, time_hour <dttm>
 \end{verbatim}
 
 Pour obtenir les valeurs souhaitées, il faut indiquer à R d'exclure les
@@ -7977,21 +8087,22 @@ la notation \texttt{-} :
 
 \begin{verbatim}
 # A tibble: 336,776 x 16
-   dep_time sched_dep_time dep_delay arr_time sched_arr_time arr_delay carrier
-      <int>          <int>     <dbl>    <int>          <int>     <dbl> <chr>  
- 1      517            515         2      830            819        11 UA     
- 2      533            529         4      850            830        20 UA     
- 3      542            540         2      923            850        33 AA     
- 4      544            545        -1     1004           1022       -18 B6     
- 5      554            600        -6      812            837       -25 DL     
- 6      554            558        -4      740            728        12 UA     
- 7      555            600        -5      913            854        19 B6     
- 8      557            600        -3      709            723       -14 EV     
- 9      557            600        -3      838            846        -8 B6     
-10      558            600        -2      753            745         8 AA     
-# ... with 336,766 more rows, and 9 more variables: flight <int>,
-#   tailnum <chr>, origin <chr>, dest <chr>, air_time <dbl>, distance <dbl>,
-#   hour <dbl>, minute <dbl>, time_hour <dttm>
+   dep_time sched_dep_time dep_delay arr_time sched_arr_time arr_delay
+      <int>          <int>     <dbl>    <int>          <int>     <dbl>
+ 1      517            515         2      830            819        11
+ 2      533            529         4      850            830        20
+ 3      542            540         2      923            850        33
+ 4      544            545        -1     1004           1022       -18
+ 5      554            600        -6      812            837       -25
+ 6      554            558        -4      740            728        12
+ 7      555            600        -5      913            854        19
+ 8      557            600        -3      709            723       -14
+ 9      557            600        -3      838            846        -8
+10      558            600        -2      753            745         8
+# ... with 336,766 more rows, and 10 more variables: carrier <chr>,
+#   flight <int>, tailnum <chr>, origin <chr>, dest <chr>,
+#   air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>,
+#   time_hour <dttm>
 \end{verbatim}
 
 Il y a beaucoup de fonctions permettant de sélectionner des variables
@@ -8025,19 +8136,19 @@ contenant le mot ``time'' ainsi :
 
 \begin{verbatim}
 # A tibble: 336,776 x 6
-   dep_time sched_dep_time arr_time sched_arr_time air_time time_hour          
-      <int>          <int>    <int>          <int>    <dbl> <dttm>             
- 1      517            515      830            819      227 2013-01-01 05:00:00
- 2      533            529      850            830      227 2013-01-01 05:00:00
- 3      542            540      923            850      160 2013-01-01 05:00:00
- 4      544            545     1004           1022      183 2013-01-01 05:00:00
- 5      554            600      812            837      116 2013-01-01 06:00:00
- 6      554            558      740            728      150 2013-01-01 05:00:00
- 7      555            600      913            854      158 2013-01-01 06:00:00
- 8      557            600      709            723       53 2013-01-01 06:00:00
- 9      557            600      838            846      140 2013-01-01 06:00:00
-10      558            600      753            745      138 2013-01-01 06:00:00
-# ... with 336,766 more rows
+   dep_time sched_dep_time arr_time sched_arr_time air_time
+      <int>          <int>    <int>          <int>    <dbl>
+ 1      517            515      830            819      227
+ 2      533            529      850            830      227
+ 3      542            540      923            850      160
+ 4      544            545     1004           1022      183
+ 5      554            600      812            837      116
+ 6      554            558      740            728      150
+ 7      555            600      913            854      158
+ 8      557            600      709            723       53
+ 9      557            600      838            846      140
+10      558            600      753            745      138
+# ... with 336,766 more rows, and 1 more variable: time_hour <dttm>
 \end{verbatim}
 
 Évidemment, le tableau \texttt{flights} n'est pas modifié par cette
@@ -8095,21 +8206,22 @@ renommer certaines variables sans en éliminer aucune :
 
 \begin{verbatim}
 # A tibble: 336,776 x 19
-    year month   day heure_depart sched_dep_time retard_depart arr_time
-   <int> <int> <int>        <int>          <int>         <dbl>    <int>
- 1  2013     1     1          517            515             2      830
- 2  2013     1     1          533            529             4      850
- 3  2013     1     1          542            540             2      923
- 4  2013     1     1          544            545            -1     1004
- 5  2013     1     1          554            600            -6      812
- 6  2013     1     1          554            558            -4      740
- 7  2013     1     1          555            600            -5      913
- 8  2013     1     1          557            600            -3      709
- 9  2013     1     1          557            600            -3      838
-10  2013     1     1          558            600            -2      753
-# ... with 336,766 more rows, and 12 more variables: sched_arr_time <int>,
-#   arr_delay <dbl>, carrier <chr>, flight <int>, tailnum <chr>, origin <chr>,
-#   dest <chr>, air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>,
+    year month   day heure_depart sched_dep_time retard_depart
+   <int> <int> <int>        <int>          <int>         <dbl>
+ 1  2013     1     1          517            515             2
+ 2  2013     1     1          533            529             4
+ 3  2013     1     1          542            540             2
+ 4  2013     1     1          544            545            -1
+ 5  2013     1     1          554            600            -6
+ 6  2013     1     1          554            558            -4
+ 7  2013     1     1          555            600            -5
+ 8  2013     1     1          557            600            -3
+ 9  2013     1     1          557            600            -3
+10  2013     1     1          558            600            -2
+# ... with 336,766 more rows, and 13 more variables: arr_time <int>,
+#   sched_arr_time <int>, arr_delay <dbl>, carrier <chr>,
+#   flight <int>, tailnum <chr>, origin <chr>, dest <chr>,
+#   air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>,
 #   time_hour <dttm>
 \end{verbatim}
 
@@ -8818,21 +8930,23 @@ croissant de retard au départ (\texttt{dep\_delay}), on tape :
 
 \begin{verbatim}
 # A tibble: 336,776 x 19
-    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-   <int> <int> <int>    <int>          <int>     <dbl>    <int>          <int>
- 1  2013    12     7     2040           2123       -43       40           2352
- 2  2013     2     3     2022           2055       -33     2240           2338
- 3  2013    11    10     1408           1440       -32     1549           1559
- 4  2013     1    11     1900           1930       -30     2233           2243
- 5  2013     1    29     1703           1730       -27     1947           1957
- 6  2013     8     9      729            755       -26     1002            955
- 7  2013    10    23     1907           1932       -25     2143           2143
- 8  2013     3    30     2030           2055       -25     2213           2250
- 9  2013     3     2     1431           1455       -24     1601           1631
-10  2013     5     5      934            958       -24     1225           1309
-# ... with 336,766 more rows, and 11 more variables: arr_delay <dbl>,
-#   carrier <chr>, flight <int>, tailnum <chr>, origin <chr>, dest <chr>,
-#   air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>, time_hour <dttm>
+    year month   day dep_time sched_dep_time dep_delay arr_time
+   <int> <int> <int>    <int>          <int>     <dbl>    <int>
+ 1  2013    12     7     2040           2123       -43       40
+ 2  2013     2     3     2022           2055       -33     2240
+ 3  2013    11    10     1408           1440       -32     1549
+ 4  2013     1    11     1900           1930       -30     2233
+ 5  2013     1    29     1703           1730       -27     1947
+ 6  2013     8     9      729            755       -26     1002
+ 7  2013    10    23     1907           1932       -25     2143
+ 8  2013     3    30     2030           2055       -25     2213
+ 9  2013     3     2     1431           1455       -24     1601
+10  2013     5     5      934            958       -24     1225
+# ... with 336,766 more rows, and 12 more variables:
+#   sched_arr_time <int>, arr_delay <dbl>, carrier <chr>,
+#   flight <int>, tailnum <chr>, origin <chr>, dest <chr>,
+#   air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>,
+#   time_hour <dttm>
 \end{verbatim}
 
 Notez que la variable \texttt{dep-delay} est maintenant triée en ordre
@@ -8848,21 +8962,23 @@ d'avance. Comparez le tableau précédent avec celui-ci :
 
 \begin{verbatim}
 # A tibble: 336,776 x 19
-    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-   <int> <int> <int>    <int>          <int>     <dbl>    <int>          <int>
- 1  2013    12     7     2040           2123       -43       40           2352
- 2  2013     2     3     2022           2055       -33     2240           2338
- 3  2013    11    10     1408           1440       -32     1549           1559
- 4  2013     1    11     1900           1930       -30     2233           2243
- 5  2013     1    29     1703           1730       -27     1947           1957
- 6  2013     8     9      729            755       -26     1002            955
- 7  2013     3    30     2030           2055       -25     2213           2250
- 8  2013    10    23     1907           1932       -25     2143           2143
- 9  2013     3     2     1431           1455       -24     1601           1631
-10  2013     5     5      934            958       -24     1225           1309
-# ... with 336,766 more rows, and 11 more variables: arr_delay <dbl>,
-#   carrier <chr>, flight <int>, tailnum <chr>, origin <chr>, dest <chr>,
-#   air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>, time_hour <dttm>
+    year month   day dep_time sched_dep_time dep_delay arr_time
+   <int> <int> <int>    <int>          <int>     <dbl>    <int>
+ 1  2013    12     7     2040           2123       -43       40
+ 2  2013     2     3     2022           2055       -33     2240
+ 3  2013    11    10     1408           1440       -32     1549
+ 4  2013     1    11     1900           1930       -30     2233
+ 5  2013     1    29     1703           1730       -27     1947
+ 6  2013     8     9      729            755       -26     1002
+ 7  2013     3    30     2030           2055       -25     2213
+ 8  2013    10    23     1907           1932       -25     2143
+ 9  2013     3     2     1431           1455       -24     1601
+10  2013     5     5      934            958       -24     1225
+# ... with 336,766 more rows, and 12 more variables:
+#   sched_arr_time <int>, arr_delay <dbl>, carrier <chr>,
+#   flight <int>, tailnum <chr>, origin <chr>, dest <chr>,
+#   air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>,
+#   time_hour <dttm>
 \end{verbatim}
 
 Les lignes des 2 vols ayant 25 minutes d'avance au décollage ont été
@@ -8882,21 +8998,23 @@ décroissant :
 
 \begin{verbatim}
 # A tibble: 336,776 x 19
-    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-   <int> <int> <int>    <int>          <int>     <dbl>    <int>          <int>
- 1  2013     1     9      641            900      1301     1242           1530
- 2  2013     6    15     1432           1935      1137     1607           2120
- 3  2013     1    10     1121           1635      1126     1239           1810
- 4  2013     9    20     1139           1845      1014     1457           2210
- 5  2013     7    22      845           1600      1005     1044           1815
- 6  2013     4    10     1100           1900       960     1342           2211
- 7  2013     3    17     2321            810       911      135           1020
- 8  2013     6    27      959           1900       899     1236           2226
- 9  2013     7    22     2257            759       898      121           1026
-10  2013    12     5      756           1700       896     1058           2020
-# ... with 336,766 more rows, and 11 more variables: arr_delay <dbl>,
-#   carrier <chr>, flight <int>, tailnum <chr>, origin <chr>, dest <chr>,
-#   air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>, time_hour <dttm>
+    year month   day dep_time sched_dep_time dep_delay arr_time
+   <int> <int> <int>    <int>          <int>     <dbl>    <int>
+ 1  2013     1     9      641            900      1301     1242
+ 2  2013     6    15     1432           1935      1137     1607
+ 3  2013     1    10     1121           1635      1126     1239
+ 4  2013     9    20     1139           1845      1014     1457
+ 5  2013     7    22      845           1600      1005     1044
+ 6  2013     4    10     1100           1900       960     1342
+ 7  2013     3    17     2321            810       911      135
+ 8  2013     6    27      959           1900       899     1236
+ 9  2013     7    22     2257            759       898      121
+10  2013    12     5      756           1700       896     1058
+# ... with 336,766 more rows, and 12 more variables:
+#   sched_arr_time <int>, arr_delay <dbl>, carrier <chr>,
+#   flight <int>, tailnum <chr>, origin <chr>, dest <chr>,
+#   air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>,
+#   time_hour <dttm>
 \end{verbatim}
 
 Cela est particulièrement utile après l'obtention de résumés groupés
@@ -9050,18 +9168,18 @@ contenant les codes des aéroports : la variable \texttt{faa}.
 
 \begin{verbatim}
 # A tibble: 101 x 9
-   dest      n name                   lat    lon   alt    tz dst   tzone       
-   <chr> <int> <chr>                <dbl>  <dbl> <int> <dbl> <chr> <chr>       
- 1 ORD   17283 Chicago Ohare Intl    42.0  -87.9   668    -6 A     America/Chi~
- 2 ATL   17215 Hartsfield Jackson ~  33.6  -84.4  1026    -5 A     America/New~
- 3 LAX   16174 Los Angeles Intl      33.9 -118.    126    -8 A     America/Los~
- 4 BOS   15508 General Edward Lawr~  42.4  -71.0    19    -5 A     America/New~
- 5 MCO   14082 Orlando Intl          28.4  -81.3    96    -5 A     America/New~
- 6 CLT   14064 Charlotte Douglas I~  35.2  -80.9   748    -5 A     America/New~
- 7 SFO   13331 San Francisco Intl    37.6 -122.     13    -8 A     America/Los~
- 8 FLL   12055 Fort Lauderdale Hol~  26.1  -80.2     9    -5 A     America/New~
- 9 MIA   11728 Miami Intl            25.8  -80.3     8    -5 A     America/New~
-10 DCA    9705 Ronald Reagan Washi~  38.9  -77.0    15    -5 A     America/New~
+   dest      n name             lat    lon   alt    tz dst   tzone   
+   <chr> <int> <chr>          <dbl>  <dbl> <int> <dbl> <chr> <chr>   
+ 1 ORD   17283 Chicago Ohare~  42.0  -87.9   668    -6 A     America~
+ 2 ATL   17215 Hartsfield Ja~  33.6  -84.4  1026    -5 A     America~
+ 3 LAX   16174 Los Angeles I~  33.9 -118.    126    -8 A     America~
+ 4 BOS   15508 General Edwar~  42.4  -71.0    19    -5 A     America~
+ 5 MCO   14082 Orlando Intl    28.4  -81.3    96    -5 A     America~
+ 6 CLT   14064 Charlotte Dou~  35.2  -80.9   748    -5 A     America~
+ 7 SFO   13331 San Francisco~  37.6 -122.     13    -8 A     America~
+ 8 FLL   12055 Fort Lauderda~  26.1  -80.2     9    -5 A     America~
+ 9 MIA   11728 Miami Intl      25.8  -80.3     8    -5 A     America~
+10 DCA    9705 Ronald Reagan~  38.9  -77.0    15    -5 A     America~
 # ... with 91 more rows
 \end{verbatim}
 
@@ -9331,26 +9449,27 @@ Valley au Colorado (aéroport \texttt{HDN}).
 
 \begin{verbatim}
 # A tibble: 15 x 19
-    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-   <int> <int> <int>    <int>          <int>     <dbl>    <int>          <int>
- 1  2013     1     5      829            830        -1     1047           1111
- 2  2013     1    12      827            830        -3     1112           1111
- 3  2013     1    19      843            830        13     1123           1111
- 4  2013     1    26      828            830        -2     1114           1111
- 5  2013    12    21      916            830        46     1149           1117
- 6  2013    12    28      913            829        44     1128           1116
- 7  2013     2     2      858            830        28     1124           1111
- 8  2013     2     9       NA            830        NA       NA           1111
- 9  2013     2    16      834            830         4     1114           1111
-10  2013     2    23      826            830        -4     1050           1111
-11  2013     3     2      854            830        24     1104           1111
-12  2013     3     9      838            830         8     1107           1111
-13  2013     3    16      845            830        15     1154           1111
-14  2013     3    23      835            830         5     1104           1111
-15  2013     3    30      825            830        -5     1045           1111
-# ... with 11 more variables: arr_delay <dbl>, carrier <chr>, flight <int>,
-#   tailnum <chr>, origin <chr>, dest <chr>, air_time <dbl>, distance <dbl>,
-#   hour <dbl>, minute <dbl>, time_hour <dttm>
+    year month   day dep_time sched_dep_time dep_delay arr_time
+   <int> <int> <int>    <int>          <int>     <dbl>    <int>
+ 1  2013     1     5      829            830        -1     1047
+ 2  2013     1    12      827            830        -3     1112
+ 3  2013     1    19      843            830        13     1123
+ 4  2013     1    26      828            830        -2     1114
+ 5  2013    12    21      916            830        46     1149
+ 6  2013    12    28      913            829        44     1128
+ 7  2013     2     2      858            830        28     1124
+ 8  2013     2     9       NA            830        NA       NA
+ 9  2013     2    16      834            830         4     1114
+10  2013     2    23      826            830        -4     1050
+11  2013     3     2      854            830        24     1104
+12  2013     3     9      838            830         8     1107
+13  2013     3    16      845            830        15     1154
+14  2013     3    23      835            830         5     1104
+15  2013     3    30      825            830        -5     1045
+# ... with 12 more variables: sched_arr_time <int>, arr_delay <dbl>,
+#   carrier <chr>, flight <int>, tailnum <chr>, origin <chr>,
+#   dest <chr>, air_time <dbl>, distance <dbl>, hour <dbl>,
+#   minute <dbl>, time_hour <dttm>
 \end{verbatim}
 
 Le second est nommé \texttt{indiana}. Il contient les informations des
@@ -9368,21 +9487,22 @@ South Bend en Indiana (aéroport \texttt{SBN}).
 
 \begin{verbatim}
 # A tibble: 10 x 19
-    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-   <int> <int> <int>    <int>          <int>     <dbl>    <int>          <int>
- 1  2013    10    18     1820           1745        35     2030           2011
- 2  2013    11     1     2012           1905        67     2221           2131
- 3  2013    11    22     2013           1905        68     2224           2131
- 4  2013    12     1     1241           1215        26     1431           1431
- 5  2013     8    30     1909           1910        -1     2117           2136
- 6  2013     9     1      833            840        -7     1030           1040
- 7  2013     9     8      847            840         7     1043           1040
- 8  2013     9    20     1948           1950        -2     2207           2216
- 9  2013     9    22      837            840        -3     1025           1040
-10  2013     9    27     2011           1950        21     2209           2216
-# ... with 11 more variables: arr_delay <dbl>, carrier <chr>, flight <int>,
-#   tailnum <chr>, origin <chr>, dest <chr>, air_time <dbl>, distance <dbl>,
-#   hour <dbl>, minute <dbl>, time_hour <dttm>
+    year month   day dep_time sched_dep_time dep_delay arr_time
+   <int> <int> <int>    <int>          <int>     <dbl>    <int>
+ 1  2013    10    18     1820           1745        35     2030
+ 2  2013    11     1     2012           1905        67     2221
+ 3  2013    11    22     2013           1905        68     2224
+ 4  2013    12     1     1241           1215        26     1431
+ 5  2013     8    30     1909           1910        -1     2117
+ 6  2013     9     1      833            840        -7     1030
+ 7  2013     9     8      847            840         7     1043
+ 8  2013     9    20     1948           1950        -2     2207
+ 9  2013     9    22      837            840        -3     1025
+10  2013     9    27     2011           1950        21     2209
+# ... with 12 more variables: sched_arr_time <int>, arr_delay <dbl>,
+#   carrier <chr>, flight <int>, tailnum <chr>, origin <chr>,
+#   dest <chr>, air_time <dbl>, distance <dbl>, hour <dbl>,
+#   minute <dbl>, time_hour <dttm>
 \end{verbatim}
 
 Puisque les variables de ces 2 tableaux sont les mêmes, nous pouvons
@@ -9396,21 +9516,22 @@ Puisque les variables de ces 2 tableaux sont les mêmes, nous pouvons
 
 \begin{verbatim}
 # A tibble: 25 x 19
-    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-   <int> <int> <int>    <int>          <int>     <dbl>    <int>          <int>
- 1  2013     1     5      829            830        -1     1047           1111
- 2  2013     1    12      827            830        -3     1112           1111
- 3  2013     1    19      843            830        13     1123           1111
- 4  2013     1    26      828            830        -2     1114           1111
- 5  2013    12    21      916            830        46     1149           1117
- 6  2013    12    28      913            829        44     1128           1116
- 7  2013     2     2      858            830        28     1124           1111
- 8  2013     2     9       NA            830        NA       NA           1111
- 9  2013     2    16      834            830         4     1114           1111
-10  2013     2    23      826            830        -4     1050           1111
-# ... with 15 more rows, and 11 more variables: arr_delay <dbl>, carrier <chr>,
-#   flight <int>, tailnum <chr>, origin <chr>, dest <chr>, air_time <dbl>,
-#   distance <dbl>, hour <dbl>, minute <dbl>, time_hour <dttm>
+    year month   day dep_time sched_dep_time dep_delay arr_time
+   <int> <int> <int>    <int>          <int>     <dbl>    <int>
+ 1  2013     1     5      829            830        -1     1047
+ 2  2013     1    12      827            830        -3     1112
+ 3  2013     1    19      843            830        13     1123
+ 4  2013     1    26      828            830        -2     1114
+ 5  2013    12    21      916            830        46     1149
+ 6  2013    12    28      913            829        44     1128
+ 7  2013     2     2      858            830        28     1124
+ 8  2013     2     9       NA            830        NA       NA
+ 9  2013     2    16      834            830         4     1114
+10  2013     2    23      826            830        -4     1050
+# ... with 15 more rows, and 12 more variables: sched_arr_time <int>,
+#   arr_delay <dbl>, carrier <chr>, flight <int>, tailnum <chr>,
+#   origin <chr>, dest <chr>, air_time <dbl>, distance <dbl>,
+#   hour <dbl>, minute <dbl>, time_hour <dttm>
 \end{verbatim}
 
 Vous noterez que le nombre de lignes du nouveau tableau est la somme des
@@ -9427,21 +9548,22 @@ aurait été bien plus rapide d'obtenir le même résultat en tapant :
 
 \begin{verbatim}
 # A tibble: 25 x 19
-    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-   <int> <int> <int>    <int>          <int>     <dbl>    <int>          <int>
- 1  2013     1     5      829            830        -1     1047           1111
- 2  2013     1    12      827            830        -3     1112           1111
- 3  2013     1    19      843            830        13     1123           1111
- 4  2013     1    26      828            830        -2     1114           1111
- 5  2013    10    18     1820           1745        35     2030           2011
- 6  2013    11     1     2012           1905        67     2221           2131
- 7  2013    11    22     2013           1905        68     2224           2131
- 8  2013    12     1     1241           1215        26     1431           1431
- 9  2013    12    21      916            830        46     1149           1117
-10  2013    12    28      913            829        44     1128           1116
-# ... with 15 more rows, and 11 more variables: arr_delay <dbl>, carrier <chr>,
-#   flight <int>, tailnum <chr>, origin <chr>, dest <chr>, air_time <dbl>,
-#   distance <dbl>, hour <dbl>, minute <dbl>, time_hour <dttm>
+    year month   day dep_time sched_dep_time dep_delay arr_time
+   <int> <int> <int>    <int>          <int>     <dbl>    <int>
+ 1  2013     1     5      829            830        -1     1047
+ 2  2013     1    12      827            830        -3     1112
+ 3  2013     1    19      843            830        13     1123
+ 4  2013     1    26      828            830        -2     1114
+ 5  2013    10    18     1820           1745        35     2030
+ 6  2013    11     1     2012           1905        67     2221
+ 7  2013    11    22     2013           1905        68     2224
+ 8  2013    12     1     1241           1215        26     1431
+ 9  2013    12    21      916            830        46     1149
+10  2013    12    28      913            829        44     1128
+# ... with 15 more rows, and 12 more variables: sched_arr_time <int>,
+#   arr_delay <dbl>, carrier <chr>, flight <int>, tailnum <chr>,
+#   origin <chr>, dest <chr>, air_time <dbl>, distance <dbl>,
+#   hour <dbl>, minute <dbl>, time_hour <dttm>
 \end{verbatim}
 
 Le fonctionnement de \texttt{bind\_cols()} est le même :

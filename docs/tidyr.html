@@ -25,7 +25,7 @@
 <meta name="author" content="Benoît Simon-Bouhet">
 
 
-<meta name="date" content="2018-11-17">
+<meta name="date" content="2018-11-18">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -715,20 +715,20 @@ Figure 5.6: Les bons réglages pour ce fichier
 <p>La commande <code>library(readxl)</code> est inutile puisque nous l’avons déjà saisie au début de ce chapitre. Nous disposons maintenant d’un nouvel objet nommé <code>dauphin</code>. Il est stocké sous la forme d’un <code>tibble</code> :</p>
 <div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb202-1" title="1">dauphin</a></code></pre></div>
 <pre><code># A tibble: 93 x 9
-   `N°`  Sexe  `Statut reprodu… `Taille en cm` `Age en années` `Cd (mg.kg-1)`
-   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;                     &lt;dbl&gt;           &lt;dbl&gt;          &lt;dbl&gt;
- 1 Numé… f     imm                         315               3          29.6 
- 2 Numé… f     imm                         357               4          55.1 
- 3 Numé… f     pnl                         439              34         129.  
- 4 Numé… f     imm                         316               4          71.2 
- 5 Numé… f     l                           435              26         192   
- 6 Numé… f     pnl                         388               6          NA   
- 7 Numé… f     mat                         410              NA          76   
- 8 Numé… m     imm                         355              NA          74.4 
- 9 Numé… m     imm                         222              NA           0.09
-10 Numé… m     imm                         412               9          85.6 
-# ... with 83 more rows, and 3 more variables: `Cu (mg.kg-1)` &lt;dbl&gt;, `Hg
-#   (mg.kg-1)` &lt;dbl&gt;, Organe &lt;chr&gt;</code></pre>
+   `N°`  Sexe  `Statut reprodu… `Taille en cm` `Age en années`
+   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;                     &lt;dbl&gt;           &lt;dbl&gt;
+ 1 Numé… f     imm                         315               3
+ 2 Numé… f     imm                         357               4
+ 3 Numé… f     pnl                         439              34
+ 4 Numé… f     imm                         316               4
+ 5 Numé… f     l                           435              26
+ 6 Numé… f     pnl                         388               6
+ 7 Numé… f     mat                         410              NA
+ 8 Numé… m     imm                         355              NA
+ 9 Numé… m     imm                         222              NA
+10 Numé… m     imm                         412               9
+# ... with 83 more rows, and 4 more variables: `Cd (mg.kg-1)` &lt;dbl&gt;,
+#   `Cu (mg.kg-1)` &lt;dbl&gt;, `Hg (mg.kg-1)` &lt;dbl&gt;, Organe &lt;chr&gt;</code></pre>
 <p>Notez toutefois que les noms de colonnes complexes sont toujours présents. Avec de tels noms, les variables ne seront pas faciles à manipuler et les risques d’erreurs de frappes seront nombreux. Nous avons tout intérêt à les modifier à l’aide de la fonction <code>names()</code> :</p>
 <div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" title="1"><span class="kw">names</span>(dauphin) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;ID&quot;</span>, <span class="st">&quot;Sexe&quot;</span>, <span class="st">&quot;Statut&quot;</span>, <span class="st">&quot;Taille&quot;</span>, <span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Cd&quot;</span>, <span class="st">&quot;Cu&quot;</span>, <span class="st">&quot;Hg&quot;</span>, <span class="st">&quot;Organe&quot;</span>)</a>
 <a class="sourceLine" id="cb204-2" title="2">dauphin</a></code></pre></div>
