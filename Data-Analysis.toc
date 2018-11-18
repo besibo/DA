@@ -36,11 +36,11 @@
 \contentsline {subsection}{\numberline {4.2}La grammaire des graphiques}{28}{subsection.4.2}
 \contentsline {subsubsection}{\numberline {4.2.1}Éléments de la grammaire}{28}{subsubsection.4.2.1}
 \contentsline {subsubsection}{\numberline {4.2.2}Gapminder}{28}{subsubsection.4.2.2}
-\contentsline {subsubsection}{\numberline {4.2.3}Autres éléments de la grammaire des graphiques}{30}{subsubsection.4.2.3}
+\contentsline {subsubsection}{\numberline {4.2.3}Autres éléments de la grammaire des graphiques}{29}{subsubsection.4.2.3}
 \contentsline {subsubsection}{\numberline {4.2.4}Le package \texttt {ggplot2}}{30}{subsubsection.4.2.4}
 \contentsline {subsection}{\numberline {4.3}Les nuages de points}{31}{subsection.4.3}
 \contentsline {subsubsection}{\numberline {4.3.1}La couche de base : la fonction \texttt {ggplot()}}{31}{subsubsection.4.3.1}
-\contentsline {subsubsection}{\numberline {4.3.2}Ajout d'une couche supplémentaire : l'objet géométrique}{31}{subsubsection.4.3.2}
+\contentsline {subsubsection}{\numberline {4.3.2}Ajout d'une couche supplémentaire : l'objet géométrique}{32}{subsubsection.4.3.2}
 \contentsline {subsubsection}{\numberline {4.3.3}Exercices}{34}{subsubsection.4.3.3}
 \contentsline {subsubsection}{\numberline {4.3.4}Over-plotting}{34}{subsubsection.4.3.4}
 \contentsline {subsubsection}{\numberline {4.3.5}Couleur, taille et forme}{36}{subsubsection.4.3.5}
