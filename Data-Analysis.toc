@@ -45,8 +45,8 @@
 \contentsline {subsubsection}{\numberline {4.3.4}Over-plotting}{34}{subsubsection.4.3.4}
 \contentsline {subsubsection}{\numberline {4.3.5}Couleur, taille et forme}{36}{subsubsection.4.3.5}
 \contentsline {subsubsection}{\numberline {4.3.6}Exercices}{43}{subsubsection.4.3.6}
-\contentsline {subsection}{\numberline {4.4}Les graphiques en lignes}{43}{subsection.4.4}
-\contentsline {subsubsection}{\numberline {4.4.1}Un nouveau jeu de données}{43}{subsubsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4}Les graphiques en lignes}{44}{subsection.4.4}
+\contentsline {subsubsection}{\numberline {4.4.1}Un nouveau jeu de données}{44}{subsubsection.4.4.1}
 \contentsline {subsubsection}{\numberline {4.4.2}Exercice}{45}{subsubsection.4.4.2}
 \contentsline {subsubsection}{\numberline {4.4.3}La fonction \texttt {geom\_line()}}{45}{subsubsection.4.4.3}
 \contentsline {subsubsection}{\numberline {4.4.4}À quel endroit placer \texttt {aes()} et les arguments \texttt {color}, \texttt {size}, etc. ?}{48}{subsubsection.4.4.4}

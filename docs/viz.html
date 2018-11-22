@@ -25,7 +25,7 @@
 <meta name="author" content="Benoît Simon-Bouhet">
 
 
-<meta name="date" content="2018-11-19">
+<meta name="date" content="2018-11-22">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -293,7 +293,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <p>Dans les chapitres <a href="bases.html#bases">2</a> et <a href="dataset.html#dataset">3</a>, nous avons vu ce qui me semble être les concepts essentiels avant de commencer à explorer en détail des données dans R. Les éléments de syntaxe abordés dans la section <a href="bases.html#code">2.2</a> sont nombreux et vous n’avez probablement pas tout retenu. C’est pourquoi je vous conseille de garder les tutoriels de DataCamp à portée de main afin de pouvoir refaire les parties que vous maîtrisez le moins. Ce n’est qu’en répétant plusieurs fois ces tutoriels que les choses seront vraiment comprises et que vous les retiendrez. Ainsi, si des éléments de code présentés ci-dessous vous semblent obscurs, revenez en arrière : toutes les réponses à vos questions se trouvent probablement dans les chapitres précédents.</p>
 <p>Après la découverte des bases du langage R, nous abordons maintenant les parties de ce livre qui concernent la “science des données” (ou “Data Science” pour nos amis anglo-saxons). Nous allons voir dans ce chapitre qu’outre les fonctions <code>View()</code> et <code>glimpse()</code>, l’exploration visuelle <em>via</em> la représentation graphique des données est un moyen indispensable et très puissant pour comprendre ce qui se passe dans un jeu de données. <strong>La visualisation de vos données devrait toujours être un préambule à toute analyse statistique.</strong></p>
 <p>La visualisation des données est en outre un excellent point de départ quand on découvre la programmation sous R, car ses bénéfices sont clairs et immédiats : vous pouvez créer des graphiques élégants et informatifs qui vous aident à comprendre les données. Dans ce chapitre, vous allez donc plonger dans l’art de la visualisation des données, en apprenant la structure de base des graphiques réalisés avec <code>ggplot2</code> qui permettent de transformer des données numériques et catégorielles en graphiques.</p>
-<p>Toutefois, la visualisation seule ne suffit généralement pas. Il est en effet souvent nécessaire de transformer les données pour produire des représentations plus parlantes. Ainsi, dans les chapitres <a href="tidyr.html#tidyr">5</a> et <a href="wrangling.html#wrangling">6</a>, vous découvrirez les verbes clés qui vous permettront de sélectionner des variables importantes, de filtrer les observations clés, de créer de nouvelles variables, de calculer des résumés, d’associer des tableaux ou de les remettre en forme.</p>
+<p>Toutefois, la visualisation seule ne suffit généralement pas. Il est en effet souvent nécessaire de transformer les données pour produire des représentations plus parlantes. Ainsi, dans les chapitres <a href="tidyr.html#tidyr">5</a> et <a href="wrangling.html#wrangling">6</a>, vous découvrirez les verbes clés qui vous permettront de sélectionner des variables importantes, de filtrer des observations, de créer de nouvelles variables, de calculer des résumés, d’associer des tableaux ou de les remettre en forme.</p>
 <p>Ce n’est qu’en combinant les transformations de données et représentations graphiques d’une part, avec votre curiosité et votre esprit critique d’autre part, que vous serez véritablement en mesure de réaliser une analyse exploratoire utile de vos données. C’est la seule façon d’identifier des questions intéressantes et pertinentes sur vos données, afin de tenter d’y répondre par les analyses statistiques et la modélisation par la suite.</p>
 <hr />
 <div id="prerequis" class="section level2">
@@ -309,7 +309,7 @@ code span.wa { color: #bf0303; } /* Warning */
 </div>
 <div id="gggraph" class="section level2">
 <h2><span class="header-section-number">4.2</span> La grammaire des graphiques</h2>
-<p>Les lettres <code>gg</code> du package <code>ggplot</code> sont l’abbréviation de “grammar of graphics” : la grammaire des graphiques. De la même manière que nous construisons des phrases en respectant des règles grammaticales précises (usage des noms, des verbes, des sujets et adjectifs…), la grammaire des graphiques établit un certain nombre de règles permettant de construire des graphiques : elle précise les composants d’un graphique en suivant le cadre théorique défini par <span class="citation">Wilkinson (<a href="#ref-wilkinson2005">2005</a>)</span>.</p>
+<p>Les lettres <code>gg</code> du package <code>ggplot2</code> sont l’abbréviation de “<strong>g</strong>rammar of <strong>g</strong>raphics” : la grammaire des graphiques. De la même manière que nous construisons des phrases en respectant des règles grammaticales précises (usage des noms, des verbes, des sujets et adjectifs…), la grammaire des graphiques établit un certain nombre de règles permettant de construire des graphiques : elle précise les composants d’un graphique en suivant le cadre théorique défini par <span class="citation">Wilkinson (<a href="#ref-wilkinson2005">2005</a>)</span>.</p>
 <div id="elements-de-la-grammaire" class="section level3">
 <h3><span class="header-section-number">4.2.1</span> Éléments de la grammaire</h3>
 <p>En bref, la grammaire des graphiques nous dit que :</p>
@@ -319,7 +319,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <p>Pour clarifier, on peut disséquer un graphique en 3 éléments essentiels :</p>
 <ol style="list-style-type: decimal">
 <li><code>data</code> : le jeu de données contenant les variables que l’on va associer à des objets géométriques</li>
-<li><code>geom</code> : les objets géométriques en question. Cela fait référence aux types d’objets que l’on peut observer sur le graphiques (des points, des lignes, des barres, etc)</li>
+<li><code>geom</code> : les objets géométriques en question. Cela fait référence aux types d’objets que l’on peut observer sur le graphique (des points, des lignes, des barres, etc.)</li>
 <li><code>aes</code> : les attributs esthétiques des objets géométriques présents sur le graphique. Par exemple, la position sur les axes <code>x</code> et <code>y</code>, la couleur, la taille, la transparence, la forme, etc. Chacun de ces attributs esthétiques peut-être associé à une variable de notre jeu de données.</li>
 </ol>
 <p>Examinons un exemple pour bien comprendre.</p>
@@ -440,18 +440,18 @@ Figure 4.1: Espérance de vie en fonction du PIB par habitant en 2007
 <div id="clouds" class="section level2">
 <h2><span class="header-section-number">4.3</span> Les nuages de points</h2>
 <p>C’est probablement le plus simple des 5 types de graphiques cités plus haut. Il s’agit de graphiques bi-variés pour lesquels une variable est associée à l’axe des abscisses, et une autre est associée à l’axe des ordonnées. Comme pour le graphique présenté à la figure <a href="viz.html#fig:gapmind">4.1</a> ci-dessus, d’autres variables peuvent être associées à des caractéristiques esthétiques des points (transparence, taille, couleur, forme…).</p>
-<p>Nous allons ici nous intéresser à la relation qui existe entre :</p>
+<p>Ici, dans le jeu de données <code>flights</code>, nous allons nous intéresser à la relation qui existe entre :</p>
 <ol style="list-style-type: decimal">
 <li><code>dep_delay</code> : le retard des vols au décollage, que nous placerons sur l’axe des “x”</li>
-<li><code>arr_delay</code> : le retard des mêmes vols à l’aterrissage, que nous placerons sur l’axe des “y”</li>
+<li><code>arr_delay</code> : le retard des mêmes vols à l’atterrissage, que nous placerons sur l’axe des “y”</li>
 </ol>
-<p>Afin d’avoir un jeu de données plus facile à utiliser, nous nous contenterons de visualiser les vols d’Alaska Airlines, donc le code de compagnie aérienne est <code>&quot;AS&quot;</code>.</p>
+<p>Afin d’avoir un jeu de données plus facile à utiliser, nous nous contenterons de visualiser les vols d’Alaska Airlines, dont le code de compagnie aérienne est <code>&quot;AS&quot;</code>.</p>
 <div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" title="1">alaska_flights &lt;-<span class="st"> </span>flights <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb74-2" title="2"><span class="st">  </span><span class="kw">filter</span>(carrier <span class="op">==</span><span class="st"> &quot;AS&quot;</span>)</a></code></pre></div>
 <p>Il est normal que vous ne compreniez pas encore les commandes ci-dessus : elles seront décrites dans le chapitre <a href="wrangling.html#wrangling">6</a>. Retenez juste que nous avons créé un nouveau tableau, nommé <code>alaska_flights</code>, qui contient toutes les informations des vols d’Alaska Airlines. Commencez par examiner ce tableau avec la fonction <code>View()</code>. En quoi est-il différent du tableau <code>flights</code> ?</p>
 <div id="la-couche-de-base-la-fonction-ggplot" class="section level3">
 <h3><span class="header-section-number">4.3.1</span> La couche de base : la fonction <code>ggplot()</code></h3>
-<p>La fonction <code>ggplot()</code> permet d’établir la première base du graphique. C’est grâce à cette fonction que l’on précise quel jeu de données utiliser et quelle variables placer sur les axes :</p>
+<p>La fonction <code>ggplot()</code> permet d’établir la première base du graphique. C’est grâce à cette fonction que l’on précise quel jeu de données utiliser et quelles variables placer sur les axes :</p>
 <div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> alaska_flights, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay))</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-37"></span>
 <img src="figure/unnamed-chunk-37-1.png" alt="Un graphique sans `geom`" width="90%" />
@@ -467,13 +467,13 @@ Figure 4.2: Un graphique sans <code>geom</code>
 <div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> alaska_flights, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb76-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <pre><code>Warning: Removed 5 rows containing missing values (geom_point).</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-38"></span>
-<img src="figure/unnamed-chunk-38-1.png" alt="Retards à l'arrivée en fonction des retard au décollage pour les vols d'Alaska Airline au départ de New York City en 2013" width="90%" />
+<div class="figure" style="text-align: center"><span id="fig:points"></span>
+<img src="figure/points-1.png" alt="Retards à l'arrivée en fonction des retards au décollage pour les vols d'Alaska Airlines au départ de New York City en 2013" width="90%" />
 <p class="caption">
-Figure 4.3: Retards à l’arrivée en fonction des retard au décollage pour les vols d’Alaska Airline au départ de New York City en 2013
+Figure 4.3: Retards à l’arrivée en fonction des retards au décollage pour les vols d’Alaska Airlines au départ de New York City en 2013
 </p>
 </div>
-<p>Plusieurs choses importantes sont à remarquer ici :</p>
+<p>Plusieurs choses importantes sont à remarquer sur la figure <a href="viz.html#fig:points">4.3</a> :</p>
 <ol style="list-style-type: decimal">
 <li>le graphique présente maintenant une couche supplémentaire constituée de points.</li>
 <li>la fonction <code>geom_point()</code> nous prévient que 5 lignes contenant des données manquantes n’ont pas été intégrées au graphique. Les données manquent soit pour une variable, soit pour l’autre, soit pour les 2. Il est donc impossible de les faire apparaître sur le graphique.</li>
@@ -512,51 +512,54 @@ Figure 4.3: Retards à l’arrivée en fonction des retard au décollage pour le
 <ol style="list-style-type: decimal">
 <li>Donnez une raison pratique expliquant pourquoi les variables <code>dep_delay</code> et <code>arr_delay</code> ont une relation positive</li>
 <li>Quelles variables (pas nécessairement dans le tableau <code>alaska_flights</code>) pourraient avoir une corrélation négative (relation négative) avec <code>dep_delay</code> ? Pourquoi ? Rappelez-vous que nous étudions ici des variables numériques.</li>
-<li>Selon vous, pourquoi tant de points sont-il regroupés près de (0, 0) ? À quoi le point (0,0) correspond-il pour les vols d’Alaska Airline ?</li>
+<li>Selon vous, pourquoi tant de points sont-il regroupés près de (0, 0) ? À quoi le point (0,0) correspond-il pour les vols d’Alaska Airlines ?</li>
 <li>Citez les éléments de ce graphique/de ces données qui vous sautent le plus aux yeux ?</li>
 <li>Créez un nouveau nuage de points en utilisant d’autres variables du jeu de données <code>alaska_flights</code></li>
 </ol>
 </div>
 <div id="over-plotting" class="section level3">
 <h3><span class="header-section-number">4.3.4</span> Over-plotting</h3>
-<p>L’over-plotting est la superposition importante d’une grande quantité d’information sur une zone restreinte d’un graphique. Dans notre cas, nous observons un over-plotting important autour de (0,0). Cet effet est gênant car il est difficile de se faire une idée précise du nombre de points accumulés dans cette zone. La façon la plus simple de régler le problème est de modifier la transparence grâce à l’argument <code>alpha</code> de la fonction <code>geom_point()</code>. Par défaut, cette valeur est fixée à 1, pour une opacité totale. Une valeur de 0 rend les points totalement transparents, et donc invisibles. Trouver la bonne valeur peut demander de tâtonner une peu :</p>
+<p>L’over-plotting est la superposition importante d’une grande quantité d’information sur une zone restreinte d’un graphique. Dans notre cas, nous observons un over-plotting important autour de (0,0). Cet effet est gênant car il est difficile de se faire une idée précise du nombre de points accumulés dans cette zone. La façon la plus simple de régler le problème est de modifier la transparence des points grâce à l’argument <code>alpha</code> de la fonction <code>geom_point()</code>. Par défaut, cette valeur est fixée à 1, pour une opacité totale. Une valeur de 0 rend les points totalement transparents, et donc invisibles. Trouver la bonne valeur peut demander de tâtonner un peu. Le code suivant produit la figure <a href="viz.html#fig:transparent">4.4</a> :</p>
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> alaska_flights, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb79-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.2</span>)</a></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-40"></span>
-<img src="figure/unnamed-chunk-40-1.png" alt="La même figure, avec des points semi-transparents" width="90%" />
+<div class="figure" style="text-align: center"><span id="fig:transparent"></span>
+<img src="figure/transparent-1.png" alt="La même figure, avec des points semi-transparents." width="90%" />
 <p class="caption">
-Figure 4.4: La même figure, avec des points semi-transparents
+Figure 4.4: La même figure, avec des points semi-transparents.
 </p>
 </div>
-<p>Notez que :</p>
+<p>Sur cette figure, notez que :</p>
 <ul>
 <li>la transparence est additive : plus il y a de points, plus la zone est foncée car les points se superposent et rendent la zone plus opaque.</li>
-<li>l’argument <code>alpha = 0.2</code> n’est pas intégré à l’intérieur d’une fonction <code>aes()</code> car il n’est pas associé à une variable : c’est un simple paramètre.</li>
+<li>l’argument <code>alpha =</code> n’est pas intégré à l’intérieur d’une fonction <code>aes()</code> car ici, il n’est pas associé à une variable : c’est un simple paramètre.</li>
 </ul>
-<p>L’over-plotting est souvent rencontré lorsque l’on représente plusieurs nuages de points pour les différentes valeurs d’une variable catégorielle. par exemple, si on transforme les mois de l’année en facteur (<code>factor(month)</code>), ont peut regarder s’il existe une relation entre les retards à l’aterrissage et le mois de l’année :</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> alaska_flights, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">factor</span>(month), <span class="dt">y =</span> arr_delay)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb80-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-41"></span>
-<img src="figure/unnamed-chunk-41-1.png" alt="Retards à l'arrivée pour les 12 mois de l'année 2013" width="90%" />
+<p>L’over-plotting est souvent rencontré lorsque l’on représente plusieurs nuages de points pour les différentes valeurs d’une variable catégorielle. Par exemple, si on transforme la variable <code>month</code> en facteur (<code>factor(month)</code>), ont peut regarder s’il existe une relation entre les retards à l’atterrissage et le mois de l’année :</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> alaska_flights, </a>
+<a class="sourceLine" id="cb80-2" title="2">       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">factor</span>(month), <span class="dt">y =</span> arr_delay)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb80-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:transpfactor"></span>
+<img src="figure/transpfactor-1.png" alt="Retards à l'arrivée pour les 12 mois de l'année 2013." width="90%" />
 <p class="caption">
-Figure 4.5: Retards à l’arrivée pour les 12 mois de l’année 2013
+Figure 4.5: Retards à l’arrivée pour les 12 mois de l’année 2013.
 </p>
 </div>
-<p>Ici, l’ajout de transparence ne serait pas suffisant. Une autre solution est d’appliquer la mothode dîte de “jittering”, ou tremblement. Elle consiste à ajouter un bruit aléatoire horizontal et/ou vertical aux points d’un graphique. Ici, on peut ajouter un léger bruit horizontal afin de disperser un peu les points pour chaque mois de l’année. On n’ajoute pas de bruit vertical car on ne souhaite pas que les valeurs de retard (sur l’axe des <code>y</code>) soient altérées :</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> alaska_flights, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">factor</span>(month), <span class="dt">y =</span> arr_delay)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb81-2" title="2"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.25</span>)</a></code></pre></div>
+<p>Ici (figure <a href="viz.html#fig:transpfactor">4.5</a>), l’ajout de transparence ne serait pas suffisant. Une autre solution est d’appliquer la méthode dîte du “jittering”, ou tremblement. Elle consiste à ajouter un bruit aléatoire horizontal et/ou vertical aux points d’un graphique. Ici, on peut ajouter un léger bruit horizontal afin de disperser un peu les points pour chaque mois de l’année. On n’ajoute pas de bruit vertical car on ne souhaite pas que les valeurs de retard (sur l’axe des <code>y</code>) soient altérées :</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> alaska_flights, </a>
+<a class="sourceLine" id="cb81-2" title="2">       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">factor</span>(month), <span class="dt">y =</span> arr_delay)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb81-3" title="3"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.25</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:jittering"></span>
-<img src="figure/jittering-1.png" alt="Retards à l'arrivée pour les 12 mois de l'année 2013" width="90%" />
+<img src="figure/jittering-1.png" alt="Retards à l'arrivée pour les 12 mois de l'année 2013." width="90%" />
 <p class="caption">
-Figure 4.6: Retards à l’arrivée pour les 12 mois de l’année 2013
+Figure 4.6: Retards à l’arrivée pour les 12 mois de l’année 2013.
 </p>
 </div>
-<p>On y voit déjà plus clair. L’argument <code>width</code> permet de spécifier l’intensité de la dispersion horizontale. Pour ajouter du bruit vertical (ce qui n’est pas souhaitable ici !), on peut ajouter l’argument <code>height</code>. le graphique de la figure <a href="viz.html#fig:jittering">4.6</a> est parfois appelé un “stripchart”. C’est un graphique du type “nuage de points”, mais pour lequel l’une des 2 variables et numérique, et l’autre est catégorielle.</p>
+<p>On y voit déjà plus clair. L’argument <code>width</code> permet de spécifier l’intensité de la dispersion horizontale. Pour ajouter du bruit vertical (ce qui n’est pas souhaitable ici !), on peut ajouter l’argument <code>height</code>. Le graphique de la figure <a href="viz.html#fig:jittering">4.6</a> est parfois appelé un “stripchart”. C’est un graphique du type “nuage de points”, mais pour lequel l’une des 2 variables est numérique, et l’autre est catégorielle.</p>
 <p>Il est évidemment possible d’ajouter de la transparence :</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> alaska_flights, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">factor</span>(month), <span class="dt">y =</span> arr_delay)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb82-2" title="2"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>)</a></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-42"></span>
-<img src="figure/unnamed-chunk-42-1.png" alt="Retards à l'arrivée pour les 12 mois de l'année 2013" width="90%" />
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> alaska_flights, </a>
+<a class="sourceLine" id="cb82-2" title="2">       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">factor</span>(month), <span class="dt">y =</span> arr_delay)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb82-3" title="3"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>)</a></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-39"></span>
+<img src="figure/unnamed-chunk-39-1.png" alt="Retards à l'arrivée pour les 12 mois de l'année 2013" width="90%" />
 <p class="caption">
 Figure 4.7: Retards à l’arrivée pour les 12 mois de l’année 2013
 </p>
@@ -565,7 +568,7 @@ Figure 4.7: Retards à l’arrivée pour les 12 mois de l’année 2013
 <div id="couleur-taille-et-forme" class="section level3">
 <h3><span class="header-section-number">4.3.5</span> Couleur, taille et forme</h3>
 <p>L’argument <code>color</code> (ou <code>colour</code>, les deux orthographes fonctionnent) permet de spécifier la couleur des points. L’argument <code>size</code> permet de spécifier la taille des points. L’argument <code>shape</code> permet de spécifier la forme utilisée en guise de symbole. Ces 3 arguments peuvent être utilisés comme des paramètres, pour modifier l’ensemble des points d’un graphique. Mais ils peuvent aussi être associés à une variable, pour apporter une information supplémentaire.</p>
-<p>Comparez les deux graphiques suivants :</p>
+<p>Comparez les deux graphiques suivants (figures <a href="viz.html#fig:rightcolor">4.8</a> et <a href="viz.html#fig:wrongcolor">4.9</a>) :</p>
 <div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> alaska_flights, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb83-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:rightcolor"></span>
@@ -611,7 +614,7 @@ Figure 4.12: Association de <code>shape</code> à un facteur
 </p>
 </div>
 <p>Vous noterez que seuls les 6 premiers niveaux d’un facteur se voient attribuer une forme automatiquement. Au delà de 6 symboles différents sur un même graphique, le résultat est souvent illisible. Il est possible d’ajouter plus de 6 symboles, mais cela demande de modifier la légende manuellement et concrètement nous n’en aurons jamais besoin. Lorsque plus de 6 séries doivent être distinguées, d’autres solutions bien plus pertinentes (par exemple les <code>factet</code>s) devraient être utilisées.</p>
-<p>Comme pour la couleur, il est possible d’e spécifier’utiliser l’argument <code>shape</code> en tant que paramètre du graphique sans l’associer à une variable. Il faut alors fournir un code compris entre 0 et 24 :</p>
+<p>Comme pour la couleur, il est possible d’utiliser l’argument <code>shape</code> en tant que paramètre du graphique sans l’associer à une variable. Il faut alors fournir un code compris entre 0 et 24 :</p>
 <div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> alaska_flights, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb88-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">4</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:shapeplot2"></span>
@@ -621,7 +624,7 @@ Figure 4.13: Utilisation de <code>shape</code> en tant que paramètre
 </p>
 </div>
 <p>Notez qu’ici, <code>ggplot()</code> ne crée pas de légende : tous les points ont le même symbole, ce symbole n’est pas associé à une variable, une légende est donc inutile.</p>
-<p>Parmis les valeur possibles pour <code>shape</code>, les symboles 21 à 24 sont des symboles dont on peut spécifier séparément la couleur du contour, avec <code>color</code> et la couleur du fond avec <code>fill</code> :</p>
+<p>Parmi les valeurs possibles pour <code>shape</code>, les symboles 21 à 24 sont des symboles dont on peut spécifier séparément la couleur de contour, avec <code>color</code> et la couleur de fond avec <code>fill</code> :</p>
 <div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> alaska_flights, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb89-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">fill =</span> <span class="st">&quot;steelblue&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;orange&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:shapecolorplot"></span>
@@ -631,7 +634,7 @@ Figure 4.14: Utilisation de <code>shape</code>, <code>color</code> et <code>fill
 </p>
 </div>
 <p>N’hésitez pas à zoomer pour bien observer les points et comprendre ce qui se passe. Un conseil, faites des choix raisonnables ! Trop de couleurs n’est pas forcément souhaitable.</p>
-<p>Enfin, on peut ajuster la taille des symboles avec l’argument <code>size</code>. Tout comme il n’est pas possible d’associer une variable continue à <code>shape</code>, et il n’est pas conseillé d’associer une variable catégorielle nominale (c’est à dire un facteur non ordonné) à <code>size</code>. Associer une variable continue est en ravanche parfois utile :</p>
+<p>Enfin, on peut ajuster la taille des symboles avec l’argument <code>size</code>. Tout comme il n’est pas possible d’associer une variable continue à <code>shape</code>, il n’est pas conseillé d’associer une variable catégorielle nominale (c’est-à-dire un facteur non ordonné) à <code>size</code>. Associer une variable continue est en ravanche parfois utile :</p>
 <div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> alaska_flights, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb90-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">size =</span> arr_time), <span class="dt">alpha =</span> <span class="fl">0.1</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:sizeplot"></span>
@@ -640,14 +643,15 @@ Figure 4.14: Utilisation de <code>shape</code>, <code>color</code> et <code>fill
 Figure 4.15: Association d’une variable continue à la taille des symboles avec l’argument <code>size</code>
 </p>
 </div>
-<p>Si l’over-plotting est ici très important (c’est pourquoi j’ai utilisé <code>alpha</code>), on constate néanmoins que les vols avec les retards les plus importants sont presque tous arrivés très tôt dans la journée (“500” signifie 5h00 du matin). Il s’agit probablement de vols qui devaient arriver dans la nuit, avant minuit, et qui sont finalement arrivés en tout début de journée, etnre 00h01 et 5h00 du matin. Comme pour les autres arguments, il est possible d’utiliser <code>size</code> avec une valeur fixe, la même pour tous les symboles, lorsque cet argument n’est pas associé à une variable.</p>
-<p>Enfin un conseil : évitez de trop surcharger vos graphiques. En combinant l’ensemble de ces arguments, il est malheureusement très facile d’obtenir des graphiques peu lisibles, ou contenant tellement d’information qu’ils en deviennent difficiles à déchiffrer. Faites preuve de modération :</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> alaska_flights, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay, <span class="dt">size =</span> arr_time)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb91-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.6</span>, </a>
-<a class="sourceLine" id="cb91-3" title="3">             <span class="dt">shape =</span> <span class="dv">22</span>,</a>
-<a class="sourceLine" id="cb91-4" title="4">             <span class="dt">color =</span> <span class="st">&quot;orange&quot;</span>,</a>
-<a class="sourceLine" id="cb91-5" title="5">             <span class="dt">fill =</span> <span class="st">&quot;steelblue&quot;</span>,</a>
-<a class="sourceLine" id="cb91-6" title="6">             <span class="dt">stroke =</span> <span class="dv">2</span>)</a></code></pre></div>
+<p>Si l’over-plotting est ici très important (c’est pourquoi j’ai utilisé <code>alpha</code>), on constate néanmoins que les vols avec les retards les plus importants sont presque tous arrivés très tôt dans la journée (“500” signifie 5h00 du matin). Il s’agit probablement de vols qui devaient arriver dans la nuit, avant minuit, et qui sont finalement arrivés en tout début de journée, entre 00h01 et 5h00 du matin. Comme pour les autres arguments, il est possible d’utiliser <code>size</code> avec une valeur fixe, la même pour tous les symboles, lorsque cet argument n’est pas associé à une variable.</p>
+<p>Enfin un conseil : évitez de trop surcharger vos graphiques. En combinant l’ensemble de ces arguments, il est malheureusement très facile d’obtenir des graphiques peu lisibles, ou contenant tellement d’informations qu’ils en deviennent difficiles à déchiffrer. Faites preuve de modération :</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> alaska_flights, </a>
+<a class="sourceLine" id="cb91-2" title="2">       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay, <span class="dt">size =</span> arr_time)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb91-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.6</span>, </a>
+<a class="sourceLine" id="cb91-4" title="4">             <span class="dt">shape =</span> <span class="dv">22</span>,</a>
+<a class="sourceLine" id="cb91-5" title="5">             <span class="dt">color =</span> <span class="st">&quot;orange&quot;</span>,</a>
+<a class="sourceLine" id="cb91-6" title="6">             <span class="dt">fill =</span> <span class="st">&quot;steelblue&quot;</span>,</a>
+<a class="sourceLine" id="cb91-7" title="7">             <span class="dt">stroke =</span> <span class="dv">2</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:badplot"></span>
 <img src="figure/badplot-1.png" alt="Sometimes, less is more!" width="90%" />
 <p class="caption">
@@ -657,20 +661,26 @@ Figure 4.16: Sometimes, less is more!
 </div>
 <div id="exercices-3" class="section level3">
 <h3><span class="header-section-number">4.3.6</span> Exercices</h3>
-<p>À quoi sert l’argument <code>stroke</code> ?</p>
-<p>Avec le jeu de données <code>diamonds</code>, tapez les commandes suivantes pour créer un nouveau tableau <code>diams</code> contenant moins de lignes (5000 au lieu de près de 54000) :</p>
+<ol style="list-style-type: decimal">
+<li><p>À quoi sert l’argument <code>stroke</code> ?</p></li>
+<li><p>Avec le jeu de données <code>diamonds</code>, tapez les commandes suivantes pour créer un nouveau tableau <code>diams</code> contenant moins de lignes (5000 au lieu de près de 54000) :</p></li>
+</ol>
 <div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" title="1"><span class="kw">library</span>(dplyr)</a>
 <a class="sourceLine" id="cb92-2" title="2"><span class="kw">set.seed</span>(<span class="dv">4532</span>) <span class="co"># Afin que tout le monde récupère les mêmes lignes</span></a>
 <a class="sourceLine" id="cb92-3" title="3">diams &lt;-<span class="st"> </span>diamonds <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb92-4" title="4"><span class="st">  </span><span class="kw">sample_n</span>(<span class="dv">5000</span>)</a></code></pre></div>
-<p>Avec ce nouveau tableau <code>diams</code>, tapez le code permettant de créer le graphique <a href="viz.html#fig:exodiamonds">4.17</a> (Indice : affichez le tableau <code>diams</code> dans la console afin de voir quelles sont les variables disponibles).</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Avec ce nouveau tableau <code>diams</code>, tapez le code permettant de créer le graphique <a href="viz.html#fig:exodiamonds">4.17</a> (Indice : affichez le tableau <code>diams</code> dans la console afin de voir quelles sont les variables disponibles).</li>
+</ol>
 <div class="figure" style="text-align: center"><span id="fig:exodiamonds"></span>
-<img src="figure/exodiamonds-1.png" alt="Prix de 5000 diamants en fonction de leur taille en carats et de leur couleur." width="90%" />
+<img src="figure/exodiamonds-1.png" alt="Prix de 5000 diamants en fonction de leur taille en carats et de leur clarté" width="90%" />
 <p class="caption">
-Figure 4.17: Prix de 5000 diamants en fonction de leur taille en carats et de leur couleur.
+Figure 4.17: Prix de 5000 diamants en fonction de leur taille en carats et de leur clarté
 </p>
 </div>
-<p>Selon vous, à quoi sont dues les bandes verticales que l’on observe sur ce graphique ?</p>
+<ol start="4" style="list-style-type: decimal">
+<li>Selon vous, à quoi sont dues les bandes verticales que l’on observe sur ce graphique ?</li>
+</ol>
 <hr />
 </div>
 </div>
@@ -832,8 +842,8 @@ Figure 4.27: Températures horaires et vitesse du vent à l’aéroport de Newar
 <div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" title="1"><span class="kw">ggplot</span>(weather, <span class="kw">aes</span>(<span class="dt">x =</span> temp)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb107-2" title="2"><span class="st">  </span><span class="kw">geom_histogram</span>()</a></code></pre></div>
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-47"></span>
-<img src="figure/unnamed-chunk-47-1.png" alt="Histogramme des températures enregistrées en 2013 dans les 3 aéroports de New York" width="90%" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-44"></span>
+<img src="figure/unnamed-chunk-44-1.png" alt="Histogramme des températures enregistrées en 2013 dans les 3 aéroports de New York" width="90%" />
 <p class="caption">
 Figure 4.28: Histogramme des températures enregistrées en 2013 dans les 3 aéroports de New York
 </p>
@@ -848,8 +858,8 @@ Figure 4.28: Histogramme des températures enregistrées en 2013 dans les 3 aér
 <p>Comme pour les nuages de points utilisant les symboles 21 à 24, il est possible de spécifier la couleur de remplissage des barres avec l’argument <code>fill</code> et la couleur du contour des barres avec l’argument <code>color</code> :</p>
 <div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" title="1"><span class="kw">ggplot</span>(weather, <span class="kw">aes</span>(<span class="dt">x =</span> temp)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb109-2" title="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">fill =</span> <span class="st">&quot;steelblue&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;grey80&quot;</span>)</a></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-48"></span>
-<img src="figure/unnamed-chunk-48-1.png" alt="Utilisation des arguments `fill` et `color` pour modifier l'aspect de l'histogramme." width="90%" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-45"></span>
+<img src="figure/unnamed-chunk-45-1.png" alt="Utilisation des arguments `fill` et `color` pour modifier l'aspect de l'histogramme." width="90%" />
 <p class="caption">
 Figure 4.29: Utilisation des arguments <code>fill</code> et <code>color</code> pour modifier l’aspect de l’histogramme.
 </p>
@@ -866,8 +876,8 @@ Figure 4.29: Utilisation des arguments <code>fill</code> et <code>color</code> p
 </ol>
 <div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" title="1"><span class="kw">ggplot</span>(weather, <span class="kw">aes</span>(<span class="dt">x =</span> temp)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb110-2" title="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">60</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>)</a></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-49"></span>
-<img src="figure/unnamed-chunk-49-1.png" alt="Modification du nombre de classes" width="90%" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-46"></span>
+<img src="figure/unnamed-chunk-46-1.png" alt="Modification du nombre de classes" width="90%" />
 <p class="caption">
 Figure 4.30: Modification du nombre de classes
 </p>
@@ -876,8 +886,8 @@ Figure 4.30: Modification du nombre de classes
 <div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" title="1"><span class="kw">ggplot</span>(weather, <span class="kw">aes</span>(<span class="dt">x =</span> temp)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb111-2" title="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">60</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb111-3" title="3"><span class="st">  </span><span class="kw">geom_rug</span>(<span class="dt">alpha =</span> <span class="fl">0.1</span>)</a></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-50"></span>
-<img src="figure/unnamed-chunk-50-1.png" alt="Ajout des données brutes sous forme de 'tapis' (`rug`) sous l'histogramme." width="90%" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-47"></span>
+<img src="figure/unnamed-chunk-47-1.png" alt="Ajout des données brutes sous forme de 'tapis' (`rug`) sous l'histogramme." width="90%" />
 <p class="caption">
 Figure 4.31: Ajout des données brutes sous forme de ‘tapis’ (<code>rug</code>) sous l’histogramme.
 </p>
@@ -886,8 +896,8 @@ Figure 4.31: Ajout des données brutes sous forme de ‘tapis’ (<code>rug</cod
 <p>On peut également modifier la largeur des classes avec <code>binwidth</code> :</p>
 <div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" title="1"><span class="kw">ggplot</span>(weather, <span class="kw">aes</span>(<span class="dt">x =</span> temp)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb112-2" title="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">10</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>)</a></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-51"></span>
-<img src="figure/unnamed-chunk-51-1.png" alt="Modification de la largeur des classes avec `binwidth`" width="90%" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-48"></span>
+<img src="figure/unnamed-chunk-48-1.png" alt="Modification de la largeur des classes avec `binwidth`" width="90%" />
 <p class="caption">
 Figure 4.32: Modification de la largeur des classes avec <code>binwidth</code>
 </p>
@@ -895,8 +905,8 @@ Figure 4.32: Modification de la largeur des classes avec <code>binwidth</code>
 <p>Ici chaque catégorie recouvre 10 degrés farenheit, ce qui est probablement trop large puisque la bimodalité de la distribution est devenue presque invisible. Enfin, il est possible de déterminer manuellement les limites des classes souhaitées avec l’argument <code>breaks</code> :</p>
 <div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" title="1"><span class="kw">ggplot</span>(weather, <span class="kw">aes</span>(<span class="dt">x =</span> temp)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb113-2" title="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">80</span>, <span class="dv">105</span>), <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>)</a></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-52"></span>
-<img src="figure/unnamed-chunk-52-1.png" alt="Spécification manuelle des limites de classes de tailles (classes irrégulières)" width="90%" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-49"></span>
+<img src="figure/unnamed-chunk-49-1.png" alt="Spécification manuelle des limites de classes de tailles (classes irrégulières)" width="90%" />
 <p class="caption">
 Figure 4.33: Spécification manuelle des limites de classes de tailles (classes irrégulières)
 </p>
@@ -930,8 +940,8 @@ Figure 4.34: Un exemple d’utilisation de l’argument <code>break</code>
 <p>Ainsi, si l’on souhaite connaître la distribution des températures pour chaque mois de l’année 2013, plutôt que de faire ceci :</p>
 <div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" title="1"><span class="kw">ggplot</span>(weather, <span class="kw">aes</span>(<span class="dt">x =</span> temp, <span class="dt">fill =</span> <span class="kw">factor</span>(month))) <span class="op">+</span></a>
 <a class="sourceLine" id="cb119-2" title="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">20</span>, <span class="dt">color =</span> <span class="st">&quot;grey30&quot;</span>)</a></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-54"></span>
-<img src="figure/unnamed-chunk-54-1.png" alt="Distribution des températures avec visualisation des données mensuelles." width="90%" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-51"></span>
+<img src="figure/unnamed-chunk-51-1.png" alt="Distribution des températures avec visualisation des données mensuelles." width="90%" />
 <p class="caption">
 Figure 4.35: Distribution des températures avec visualisation des données mensuelles.
 </p>
@@ -990,8 +1000,8 @@ Figure 4.37: Un exemple d’utilisation de <code>facet_grid()</code>.
 <a class="sourceLine" id="cb122-2" title="2"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
 <pre><code>Warning: Continuous x aesthetic -- did you forget aes(group=...)?</code></pre>
 <pre><code>Warning: Removed 1 rows containing non-finite values (stat_boxplot).</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-55"></span>
-<img src="figure/unnamed-chunk-55-1.png" alt="Un boxplot for peu utile..." width="90%" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-52"></span>
+<img src="figure/unnamed-chunk-52-1.png" alt="Un boxplot for peu utile..." width="90%" />
 <p class="caption">
 Figure 4.38: Un boxplot for peu utile…
 </p>
@@ -1000,8 +1010,8 @@ Figure 4.38: Un boxplot for peu utile…
 <p>En effet, les boxplots sont généralement utilisés pour examiner la distribution d’une variable numérique pour chaque niveau d’une variable catégorielle (un facteur). Il nous faut donc, ici encore, transformer <code>month</code> en facteur car dans notre tableau de départ, cette variable est considérée comme une variable numérique continue :</p>
 <div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" title="1"><span class="kw">ggplot</span>(weather, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">factor</span>(month), <span class="dt">y =</span> temp)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb125-2" title="2"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-56"></span>
-<img src="figure/unnamed-chunk-56-1.png" alt="Boxplot des températures mensuelles" width="90%" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-53"></span>
+<img src="figure/unnamed-chunk-53-1.png" alt="Boxplot des températures mensuelles" width="90%" />
 <p class="caption">
 Figure 4.39: Boxplot des températures mensuelles
 </p>

@@ -129,7 +129,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2018-11-19}
+    \date{2018-11-22}
 
 \usepackage[french]{babel}
 \usepackage{mathspec}  % \usepackage{fontspec}
@@ -140,6 +140,7 @@
 \usepackage{graphicx}
 \usepackage{multicol}
 \usepackage{enumitem}
+\usepackage{longtable}
 
 \setallmainfonts[Ligatures = TeX]{FuturaLT-Book}
 \onehalfspace
@@ -2061,9 +2062,9 @@ Toutefois, la visualisation seule ne suffit généralement pas. Il est en
 effet souvent nécessaire de transformer les données pour produire des
 représentations plus parlantes. Ainsi, dans les chapitres \ref{tidyr} et
 \ref{wrangling}, vous découvrirez les verbes clés qui vous permettront
-de sélectionner des variables importantes, de filtrer les observations
-clés, de créer de nouvelles variables, de calculer des résumés,
-d'associer des tableaux ou de les remettre en forme.
+de sélectionner des variables importantes, de filtrer des observations,
+de créer de nouvelles variables, de calculer des résumés, d'associer des
+tableaux ou de les remettre en forme.
 
 Ce n'est qu'en combinant les transformations de données et
 représentations graphiques d'une part, avec votre curiosité et votre
@@ -2118,14 +2119,14 @@ niveaux d'une variable catégorielle.
 \hypertarget{gggraph}{%
 \subsection{La grammaire des graphiques}\label{gggraph}}
 
-Les lettres \texttt{gg} du package \texttt{ggplot} sont l'abbréviation
-de ``grammar of graphics'' : la grammaire des graphiques. De la même
-manière que nous construisons des phrases en respectant des règles
-grammaticales précises (usage des noms, des verbes, des sujets et
-adjectifs\ldots{}), la grammaire des graphiques établit un certain
-nombre de règles permettant de construire des graphiques : elle précise
-les composants d'un graphique en suivant le cadre théorique défini par
-\citet{wilkinson2005}.
+Les lettres \texttt{gg} du package \texttt{ggplot2} sont l'abbréviation
+de ``\textbf{g}rammar of \textbf{g}raphics'' : la grammaire des
+graphiques. De la même manière que nous construisons des phrases en
+respectant des règles grammaticales précises (usage des noms, des
+verbes, des sujets et adjectifs\ldots{}), la grammaire des graphiques
+établit un certain nombre de règles permettant de construire des
+graphiques : elle précise les composants d'un graphique en suivant le
+cadre théorique défini par \citet{wilkinson2005}.
 
 \hypertarget{elements-de-la-grammaire}{%
 \subsubsection{Éléments de la
@@ -2150,8 +2151,8 @@ Pour clarifier, on peut disséquer un graphique en 3 éléments essentiels
   associer à des objets géométriques
 \item
   \texttt{geom} : les objets géométriques en question. Cela fait
-  référence aux types d'objets que l'on peut observer sur le graphiques
-  (des points, des lignes, des barres, etc)
+  référence aux types d'objets que l'on peut observer sur le graphique
+  (des points, des lignes, des barres, etc.)
 \item
   \texttt{aes} : les attributs esthétiques des objets géométriques
   présents sur le graphique. Par exemple, la position sur les axes
@@ -2179,28 +2180,19 @@ package \texttt{gapminder}}.
 Pour l'année 2007, le jeu de données contient des informations pour 142
 pays. Examinons les premières lignes de ce jeu de données :
 
-\begin{table}
-
-\caption{\label{tab:unnamed-chunk-35}Les 6 premières lignes du jeu de données `gapminder` pour l'année 2007}
-\centering
-\begin{tabular}[t]{l|l|r|r|r}
-\hline
+\begin{longtable}[t]{llrrr}
+\caption{\label{tab:unnamed-chunk-35}Les 6 premières lignes du jeu de données `gapminder` pour l'année 2007}\\
+\toprule
 Country & Continent & Life Expectancy & Population & GDP per Capita\\
-\hline
+\midrule
 Afghanistan & Asia & 43.828 & 31889923 & 974.5803\\
-\hline
 Albania & Europe & 76.423 & 3600523 & 5937.0295\\
-\hline
 Algeria & Africa & 72.301 & 33333216 & 6223.3675\\
-\hline
 Angola & Africa & 42.731 & 12420476 & 4797.2313\\
-\hline
 Argentina & Americas & 75.320 & 40301927 & 12779.3796\\
-\hline
 Australia & Oceania & 81.235 & 20434176 & 34435.3674\\
-\hline
-\end{tabular}
-\end{table}
+\bottomrule
+\end{longtable}
 
 Pour chaque ligne, les variables suivantes sont décrites :
 
@@ -2349,7 +2341,8 @@ ordonnées. Comme pour le graphique présenté à la figure
 des caractéristiques esthétiques des points (transparence, taille,
 couleur, forme\ldots{}).
 
-Nous allons ici nous intéresser à la relation qui existe entre :
+Ici, dans le jeu de données \texttt{flights}, nous allons nous
+intéresser à la relation qui existe entre :
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2358,12 +2351,12 @@ Nous allons ici nous intéresser à la relation qui existe entre :
   \texttt{dep\_delay} : le retard des vols au décollage, que nous
   placerons sur l'axe des ``x''
 \item
-  \texttt{arr\_delay} : le retard des mêmes vols à l'aterrissage, que
+  \texttt{arr\_delay} : le retard des mêmes vols à l'atterrissage, que
   nous placerons sur l'axe des ``y''
 \end{enumerate}
 
 Afin d'avoir un jeu de données plus facile à utiliser, nous nous
-contenterons de visualiser les vols d'Alaska Airlines, donc le code de
+contenterons de visualiser les vols d'Alaska Airlines, dont le code de
 compagnie aérienne est \texttt{"AS"}.
 
 \begin{Shaded}
@@ -2386,7 +2379,7 @@ quoi est-il différent du tableau \texttt{flights} ?
 
 La fonction \texttt{ggplot()} permet d'établir la première base du
 graphique. C'est grâce à cette fonction que l'on précise quel jeu de
-données utiliser et quelle variables placer sur les axes :
+données utiliser et quelles variables placer sur les axes :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2424,16 +2417,17 @@ Les nuages de points sont créés par la fonction \texttt{geom\_point()} :
 Warning: Removed 5 rows containing missing values (geom_point).
 \end{verbatim}
 
-\begin{figure}[htpb]
+\begin{figure}[!htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-38-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/points-1} 
 
 }
 
-\caption{Retards à l'arrivée en fonction des retard au décollage pour les vols d'Alaska Airline au départ de New York City en 2013}\label{fig:unnamed-chunk-38}
+\caption{Retards à l'arrivée en fonction des retards au décollage pour les vols d'Alaska Airlines au départ de New York City en 2013}\label{fig:points}
 \end{figure}
 
-Plusieurs choses importantes sont à remarquer ici :
+Plusieurs choses importantes sont à remarquer sur la figure
+\ref{fig:points} :
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2541,7 +2535,7 @@ Quelques remarques concernant les couches :
   Rappelez-vous que nous étudions ici des variables numériques.
 \item
   Selon vous, pourquoi tant de points sont-il regroupés près de (0, 0) ?
-  À quoi le point (0,0) correspond-il pour les vols d'Alaska Airline ?
+  À quoi le point (0,0) correspond-il pour les vols d'Alaska Airlines ?
 \item
   Citez les éléments de ce graphique/de ces données qui vous sautent le
   plus aux yeux ?
@@ -2558,11 +2552,12 @@ d'information sur une zone restreinte d'un graphique. Dans notre cas,
 nous observons un over-plotting important autour de (0,0). Cet effet est
 gênant car il est difficile de se faire une idée précise du nombre de
 points accumulés dans cette zone. La façon la plus simple de régler le
-problème est de modifier la transparence grâce à l'argument
+problème est de modifier la transparence des points grâce à l'argument
 \texttt{alpha} de la fonction \texttt{geom\_point()}. Par défaut, cette
 valeur est fixée à 1, pour une opacité totale. Une valeur de 0 rend les
 points totalement transparents, et donc invisibles. Trouver la bonne
-valeur peut demander de tâtonner une peu :
+valeur peut demander de tâtonner un peu. Le code suivant produit la
+figure \ref{fig:transparent} :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2573,14 +2568,14 @@ valeur peut demander de tâtonner une peu :
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-40-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/transparent-1} 
 
 }
 
-\caption{La même figure, avec des points semi-transparents}\label{fig:unnamed-chunk-40}
+\caption{La même figure, avec des points semi-transparents.}\label{fig:transparent}
 \end{figure}
 
-Notez que :
+Sur cette figure, notez que :
 
 \begin{itemize}
 \tightlist
@@ -2588,44 +2583,47 @@ Notez que :
   la transparence est additive : plus il y a de points, plus la zone est
   foncée car les points se superposent et rendent la zone plus opaque.
 \item
-  l'argument \texttt{alpha\ =\ 0.2} n'est pas intégré à l'intérieur
-  d'une fonction \texttt{aes()} car il n'est pas associé à une variable
-  : c'est un simple paramètre.
+  l'argument \texttt{alpha\ =} n'est pas intégré à l'intérieur d'une
+  fonction \texttt{aes()} car ici, il n'est pas associé à une variable :
+  c'est un simple paramètre.
 \end{itemize}
 
 L'over-plotting est souvent rencontré lorsque l'on représente plusieurs
 nuages de points pour les différentes valeurs d'une variable
-catégorielle. par exemple, si on transforme les mois de l'année en
-facteur (\texttt{factor(month)}), ont peut regarder s'il existe une
-relation entre les retards à l'aterrissage et le mois de l'année :
+catégorielle. Par exemple, si on transforme la variable \texttt{month}
+en facteur (\texttt{factor(month)}), ont peut regarder s'il existe une
+relation entre les retards à l'atterrissage et le mois de l'année :
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ alaska_flights, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{factor}\NormalTok{(month), }\DataTypeTok{y =}\NormalTok{ arr_delay)) }\OperatorTok{+}
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ alaska_flights, }
+       \DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{factor}\NormalTok{(month), }\DataTypeTok{y =}\NormalTok{ arr_delay)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-41-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/transpfactor-1} 
 
 }
 
-\caption{Retards à l'arrivée pour les 12 mois de l'année 2013}\label{fig:unnamed-chunk-41}
+\caption{Retards à l'arrivée pour les 12 mois de l'année 2013.}\label{fig:transpfactor}
 \end{figure}
 
-Ici, l'ajout de transparence ne serait pas suffisant. Une autre solution
-est d'appliquer la mothode dîte de ``jittering'', ou tremblement. Elle
-consiste à ajouter un bruit aléatoire horizontal et/ou vertical aux
-points d'un graphique. Ici, on peut ajouter un léger bruit horizontal
-afin de disperser un peu les points pour chaque mois de l'année. On
-n'ajoute pas de bruit vertical car on ne souhaite pas que les valeurs de
-retard (sur l'axe des \texttt{y}) soient altérées :
+Ici (figure \ref{fig:transpfactor}), l'ajout de transparence ne serait
+pas suffisant. Une autre solution est d'appliquer la méthode dîte du
+``jittering'', ou tremblement. Elle consiste à ajouter un bruit
+aléatoire horizontal et/ou vertical aux points d'un graphique. Ici, on
+peut ajouter un léger bruit horizontal afin de disperser un peu les
+points pour chaque mois de l'année. On n'ajoute pas de bruit vertical
+car on ne souhaite pas que les valeurs de retard (sur l'axe des
+\texttt{y}) soient altérées :
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ alaska_flights, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{factor}\NormalTok{(month), }\DataTypeTok{y =}\NormalTok{ arr_delay)) }\OperatorTok{+}
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ alaska_flights, }
+       \DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{factor}\NormalTok{(month), }\DataTypeTok{y =}\NormalTok{ arr_delay)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_jitter}\NormalTok{(}\DataTypeTok{width =} \FloatTok{0.25}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -2636,33 +2634,34 @@ retard (sur l'axe des \texttt{y}) soient altérées :
 
 }
 
-\caption{Retards à l'arrivée pour les 12 mois de l'année 2013}\label{fig:jittering}
+\caption{Retards à l'arrivée pour les 12 mois de l'année 2013.}\label{fig:jittering}
 \end{figure}
 
 On y voit déjà plus clair. L'argument \texttt{width} permet de spécifier
 l'intensité de la dispersion horizontale. Pour ajouter du bruit vertical
 (ce qui n'est pas souhaitable ici !), on peut ajouter l'argument
-\texttt{height}. le graphique de la figure \ref{fig:jittering} est
+\texttt{height}. Le graphique de la figure \ref{fig:jittering} est
 parfois appelé un ``stripchart''. C'est un graphique du type ``nuage de
-points'', mais pour lequel l'une des 2 variables et numérique, et
+points'', mais pour lequel l'une des 2 variables est numérique, et
 l'autre est catégorielle.
 
 Il est évidemment possible d'ajouter de la transparence :
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ alaska_flights, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{factor}\NormalTok{(month), }\DataTypeTok{y =}\NormalTok{ arr_delay)) }\OperatorTok{+}
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ alaska_flights, }
+       \DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{factor}\NormalTok{(month), }\DataTypeTok{y =}\NormalTok{ arr_delay)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_jitter}\NormalTok{(}\DataTypeTok{width =} \FloatTok{0.25}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-42-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-39-1} 
 
 }
 
-\caption{Retards à l'arrivée pour les 12 mois de l'année 2013}\label{fig:unnamed-chunk-42}
+\caption{Retards à l'arrivée pour les 12 mois de l'année 2013}\label{fig:unnamed-chunk-39}
 \end{figure}
 
 \hypertarget{couleur-taille-et-forme}{%
@@ -2677,7 +2676,8 @@ pour modifier l'ensemble des points d'un graphique. Mais ils peuvent
 aussi être associés à une variable, pour apporter une information
 supplémentaire.
 
-Comparez les deux graphiques suivants :
+Comparez les deux graphiques suivants (figures \ref{fig:rightcolor} et
+\ref{fig:wrongcolor}) :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2790,7 +2790,7 @@ Lorsque plus de 6 séries doivent être distinguées, d'autres solutions
 bien plus pertinentes (par exemple les \texttt{factet}s) devraient être
 utilisées.
 
-Comme pour la couleur, il est possible d'e spécifier'utiliser l'argument
+Comme pour la couleur, il est possible d'utiliser l'argument
 \texttt{shape} en tant que paramètre du graphique sans l'associer à une
 variable. Il faut alors fournir un code compris entre 0 et 24 :
 
@@ -2814,9 +2814,9 @@ Notez qu'ici, \texttt{ggplot()} ne crée pas de légende : tous les points
 ont le même symbole, ce symbole n'est pas associé à une variable, une
 légende est donc inutile.
 
-Parmis les valeur possibles pour \texttt{shape}, les symboles 21 à 24
-sont des symboles dont on peut spécifier séparément la couleur du
-contour, avec \texttt{color} et la couleur du fond avec \texttt{fill} :
+Parmi les valeurs possibles pour \texttt{shape}, les symboles 21 à 24
+sont des symboles dont on peut spécifier séparément la couleur de
+contour, avec \texttt{color} et la couleur de fond avec \texttt{fill} :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2840,8 +2840,8 @@ couleurs n'est pas forcément souhaitable.
 
 Enfin, on peut ajuster la taille des symboles avec l'argument
 \texttt{size}. Tout comme il n'est pas possible d'associer une variable
-continue à \texttt{shape}, et il n'est pas conseillé d'associer une
-variable catégorielle nominale (c'est à dire un facteur non ordonné) à
+continue à \texttt{shape}, il n'est pas conseillé d'associer une
+variable catégorielle nominale (c'est-à-dire un facteur non ordonné) à
 \texttt{size}. Associer une variable continue est en ravanche parfois
 utile :
 
@@ -2866,7 +2866,7 @@ Si l'over-plotting est ici très important (c'est pourquoi j'ai utilisé
 plus importants sont presque tous arrivés très tôt dans la journée
 (``500'' signifie 5h00 du matin). Il s'agit probablement de vols qui
 devaient arriver dans la nuit, avant minuit, et qui sont finalement
-arrivés en tout début de journée, etnre 00h01 et 5h00 du matin. Comme
+arrivés en tout début de journée, entre 00h01 et 5h00 du matin. Comme
 pour les autres arguments, il est possible d'utiliser \texttt{size} avec
 une valeur fixe, la même pour tous les symboles, lorsque cet argument
 n'est pas associé à une variable.
@@ -2874,12 +2874,13 @@ n'est pas associé à une variable.
 Enfin un conseil : évitez de trop surcharger vos graphiques. En
 combinant l'ensemble de ces arguments, il est malheureusement très
 facile d'obtenir des graphiques peu lisibles, ou contenant tellement
-d'information qu'ils en deviennent difficiles à déchiffrer. Faites
+d'informations qu'ils en deviennent difficiles à déchiffrer. Faites
 preuve de modération :
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ alaska_flights, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ dep_delay, }\DataTypeTok{y =}\NormalTok{ arr_delay, }\DataTypeTok{size =}\NormalTok{ arr_time)) }\OperatorTok{+}
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ alaska_flights, }
+       \DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ dep_delay, }\DataTypeTok{y =}\NormalTok{ arr_delay, }\DataTypeTok{size =}\NormalTok{ arr_time)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{alpha =} \FloatTok{0.6}\NormalTok{, }
              \DataTypeTok{shape =} \DecValTok{22}\NormalTok{,}
              \DataTypeTok{color =} \StringTok{"orange"}\NormalTok{,}
@@ -2900,11 +2901,15 @@ preuve de modération :
 \hypertarget{exercices-3}{%
 \subsubsection{Exercices}\label{exercices-3}}
 
-À quoi sert l'argument \texttt{stroke} ?
-
-Avec le jeu de données \texttt{diamonds}, tapez les commandes suivantes
-pour créer un nouveau tableau \texttt{diams} contenant moins de lignes
-(5000 au lieu de près de 54000) :
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  À quoi sert l'argument \texttt{stroke} ?
+\item
+  Avec le jeu de données \texttt{diamonds}, tapez les commandes
+  suivantes pour créer un nouveau tableau \texttt{diams} contenant moins
+  de lignes (5000 au lieu de près de 54000) :
+\end{enumerate}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2915,10 +2920,16 @@ pour créer un nouveau tableau \texttt{diams} contenant moins de lignes
 \end{Highlighting}
 \end{Shaded}
 
-Avec ce nouveau tableau \texttt{diams}, tapez le code permettant de
-créer le graphique \ref{fig:exodiamonds} (Indice : affichez le tableau
-\texttt{diams} dans la console afin de voir quelles sont les variables
-disponibles).
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Avec ce nouveau tableau \texttt{diams}, tapez le code permettant de
+  créer le graphique \ref{fig:exodiamonds} (Indice : affichez le tableau
+  \texttt{diams} dans la console afin de voir quelles sont les variables
+  disponibles).
+\end{enumerate}
 
 \begin{figure}[htpb]
 
@@ -2926,11 +2937,17 @@ disponibles).
 
 }
 
-\caption{Prix de 5000 diamants en fonction de leur taille en carats et de leur couleur.}\label{fig:exodiamonds}
+\caption{Prix de 5000 diamants en fonction de leur taille en carats et de leur clarté}\label{fig:exodiamonds}
 \end{figure}
 
-Selon vous, à quoi sont dues les bandes verticales que l'on observe sur
-ce graphique ?
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Selon vous, à quoi sont dues les bandes verticales que l'on observe
+  sur ce graphique ?
+\end{enumerate}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
@@ -3304,11 +3321,11 @@ s'intéresser à la distribution des températures tout au long de l'année
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-47-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-44-1} 
 
 }
 
-\caption{Histogramme des températures enregistrées en 2013 dans les 3 aéroports de New York}\label{fig:unnamed-chunk-47}
+\caption{Histogramme des températures enregistrées en 2013 dans les 3 aéroports de New York}\label{fig:unnamed-chunk-44}
 \end{figure}
 
 On observe plusieurs choses :
@@ -3345,11 +3362,11 @@ l'argument \texttt{color} :
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-48-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-45-1} 
 
 }
 
-\caption{Utilisation des arguments `fill` et `color` pour modifier l'aspect de l'histogramme.}\label{fig:unnamed-chunk-48}
+\caption{Utilisation des arguments `fill` et `color` pour modifier l'aspect de l'histogramme.}\label{fig:unnamed-chunk-45}
 \end{figure}
 
 \hypertarget{la-taille-des-classes}{%
@@ -3384,11 +3401,11 @@ l'histogramme de l'une des 3 façons suivantes :
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-49-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-46-1} 
 
 }
 
-\caption{Modification du nombre de classes}\label{fig:unnamed-chunk-49}
+\caption{Modification du nombre de classes}\label{fig:unnamed-chunk-46}
 \end{figure}
 
 Ici, augmenter le nombre de classes à 60 permet de prendre conscience
@@ -3408,11 +3425,11 @@ continues qu'on pouvait le croire :
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-50-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-47-1} 
 
 }
 
-\caption{Ajout des données brutes sous forme de 'tapis' (`rug`) sous l'histogramme.}\label{fig:unnamed-chunk-50}
+\caption{Ajout des données brutes sous forme de 'tapis' (`rug`) sous l'histogramme.}\label{fig:unnamed-chunk-47}
 \end{figure}
 
 Notez la transparence importante utilisée pour \texttt{geom\_rug()}. On
@@ -3431,11 +3448,11 @@ On peut également modifier la largeur des classes avec \texttt{binwidth}
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-51-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-48-1} 
 
 }
 
-\caption{Modification de la largeur des classes avec `binwidth`}\label{fig:unnamed-chunk-51}
+\caption{Modification de la largeur des classes avec `binwidth`}\label{fig:unnamed-chunk-48}
 \end{figure}
 
 Ici chaque catégorie recouvre 10 degrés farenheit, ce qui est
@@ -3453,11 +3470,11 @@ manuellement les limites des classes souhaitées avec l'argument
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-52-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-49-1} 
 
 }
 
-\caption{Spécification manuelle des limites de classes de tailles (classes irrégulières)}\label{fig:unnamed-chunk-52}
+\caption{Spécification manuelle des limites de classes de tailles (classes irrégulières)}\label{fig:unnamed-chunk-49}
 \end{figure}
 
 Vous constatez ici que les choix effectués ne sont pas très pertinents :
@@ -3543,11 +3560,11 @@ chaque mois de l'année 2013, plutôt que de faire ceci :
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-54-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-51-1} 
 
 }
 
-\caption{Distribution des températures avec visualisation des données mensuelles.}\label{fig:unnamed-chunk-54}
+\caption{Distribution des températures avec visualisation des données mensuelles.}\label{fig:unnamed-chunk-51}
 \end{figure}
 
 qui produit un graphique certes assez joli, mais difficile à
@@ -3690,11 +3707,11 @@ Warning: Removed 1 rows containing non-finite values (stat_boxplot).
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-55-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-52-1} 
 
 }
 
-\caption{Un boxplot for peu utile...}\label{fig:unnamed-chunk-55}
+\caption{Un boxplot for peu utile...}\label{fig:unnamed-chunk-52}
 \end{figure}
 
 Comme précédemment, R nous avertit qu'une observation n'a pas été
@@ -3717,11 +3734,11 @@ variable est considérée comme une variable numérique continue :
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-56-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-53-1} 
 
 }
 
-\caption{Boxplot des températures mensuelles}\label{fig:unnamed-chunk-56}
+\caption{Boxplot des températures mensuelles}\label{fig:unnamed-chunk-53}
 \end{figure}
 
 Les différents éléments d'un boxplot, sont les suivants :
@@ -6876,11 +6893,11 @@ Voilà comment traduire cela avec le pipe :
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-94-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-91-1} 
 
 }
 
-\caption{Notre premier graphique, produit grâce au pipe}\label{fig:unnamed-chunk-94}
+\caption{Notre premier graphique, produit grâce au pipe}\label{fig:unnamed-chunk-91}
 \end{figure}
 
 Notez bien qu'ici, aucun objet intermédiaire n'a été créé. Notez
@@ -8508,11 +8525,11 @@ l'ordre des catégories sera celui spécifié par la fonction
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.5\linewidth]{figure/unnamed-chunk-137-1} 
+{\centering \includegraphics[width=0.5\linewidth]{figure/unnamed-chunk-134-1} 
 
 }
 
-\caption{Indice Gonado Somatique  selon le sexe.}\label{fig:unnamed-chunk-137}
+\caption{Indice Gonado Somatique  selon le sexe.}\label{fig:unnamed-chunk-134}
 \end{figure}
 
 Comment faire pour inverser l'ordre des catégories sur l'axe des
@@ -8568,11 +8585,11 @@ avez chargé le \texttt{tidyverse}, \texttt{forcats} est déjà disponible
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.5\linewidth]{figure/unnamed-chunk-140-1} 
+{\centering \includegraphics[width=0.5\linewidth]{figure/unnamed-chunk-137-1} 
 
 }
 
-\caption{Indice Gonado Somatique  selon le sexe.}\label{fig:unnamed-chunk-140}
+\caption{Indice Gonado Somatique  selon le sexe.}\label{fig:unnamed-chunk-137}
 \end{figure}
 
 Revenons maintenant au jeu de données \texttt{dauphin}.
