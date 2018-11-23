@@ -129,7 +129,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2018-11-22}
+    \date{2018-11-23}
 
 \usepackage[french]{babel}
 \usepackage{mathspec}  % \usepackage{fontspec}
@@ -2181,7 +2181,7 @@ Pour l'année 2007, le jeu de données contient des informations pour 142
 pays. Examinons les premières lignes de ce jeu de données :
 
 \begin{longtable}[t]{llrrr}
-\caption{\label{tab:unnamed-chunk-35}Les 6 premières lignes du jeu de données `gapminder` pour l'année 2007}\\
+\caption{\label{tab:unnamed-chunk-35}Les 6 premières lignes du jeu de données `gapminder` pour l'année 2007.}\\
 \toprule
 Country & Continent & Life Expectancy & Population & GDP per Capita\\
 \midrule
@@ -2223,7 +2223,7 @@ l'utilisation de la notation scientifique dans la légende).
 
 }
 
-\caption{Espérance de vie en fonction du PIB par habitant en 2007}\label{fig:gapmind}
+\caption{Espérance de vie en fonction du PIB par habitant en 2007.}\label{fig:gapmind}
 \end{figure}
 
 Si on décrypte ce graphique du point de vue de la grammaire des
@@ -2393,7 +2393,7 @@ données utiliser et quelles variables placer sur les axes :
 
 }
 
-\caption{Un graphique sans `geom`}\label{fig:unnamed-chunk-37}
+\caption{Un graphique sans `geom`.}\label{fig:unnamed-chunk-37}
 \end{figure}
 
 Ce graphique est pour le moins vide : c'est normal, nous n'avons pas
@@ -2423,7 +2423,7 @@ Warning: Removed 5 rows containing missing values (geom_point).
 
 }
 
-\caption{Retards à l'arrivée en fonction des retards au décollage pour les vols d'Alaska Airlines au départ de New York City en 2013}\label{fig:points}
+\caption{Retards à l'arrivée en fonction des retards au décollage pour les vols d'Alaska Airlines au départ de New York City en 2013.}\label{fig:points}
 \end{figure}
 
 Plusieurs choses importantes sont à remarquer sur la figure
@@ -2661,7 +2661,7 @@ Il est évidemment possible d'ajouter de la transparence :
 
 }
 
-\caption{Retards à l'arrivée pour les 12 mois de l'année 2013}\label{fig:unnamed-chunk-39}
+\caption{Retards à l'arrivée pour les 12 mois de l'année 2013.}\label{fig:unnamed-chunk-39}
 \end{figure}
 
 \hypertarget{couleur-taille-et-forme}{%
@@ -2692,7 +2692,7 @@ Comparez les deux graphiques suivants (figures \ref{fig:rightcolor} et
 
 }
 
-\caption{Utilisation correcte de `color`}\label{fig:rightcolor}
+\caption{Utilisation correcte de `color`.}\label{fig:rightcolor}
 \end{figure}
 
 \begin{Shaded}
@@ -2708,7 +2708,7 @@ Comparez les deux graphiques suivants (figures \ref{fig:rightcolor} et
 
 }
 
-\caption{Utilisation incorrecte de `color`}\label{fig:wrongcolor}
+\caption{Utilisation incorrecte de `color`.}\label{fig:wrongcolor}
 \end{figure}
 
 Le code qui permet de produire la figure \ref{fig:rightcolor} fait un
@@ -2734,7 +2734,7 @@ nous devons fournir un nom de variable valide :
 
 }
 
-\caption{Association de `color` à une variable catégorielle}\label{fig:varcolor}
+\caption{Association de `color` à une variable catégorielle.}\label{fig:varcolor}
 \end{figure}
 
 Ici, l'utilisation de la couleur est correcte. Elle est associée à une
@@ -2754,7 +2754,7 @@ variable catégorielle, et chaque valeur possible du vecteur
 
 }
 
-\caption{Association de `color` à une variable numérique}\label{fig:varcolor2}
+\caption{Association de `color` à une variable numérique.}\label{fig:varcolor2}
 \end{figure}
 
 De la même façon, la couleur des points est ici associée à une variable
@@ -2778,7 +2778,7 @@ continue ne peut pas être associée à \texttt{shape}
 
 }
 
-\caption{Association de `shape` à un facteur}\label{fig:shapeplot}
+\caption{Association de `shape` à un facteur.}\label{fig:shapeplot}
 \end{figure}
 
 Vous noterez que seuls les 6 premiers niveaux d'un facteur se voient
@@ -2807,7 +2807,7 @@ variable. Il faut alors fournir un code compris entre 0 et 24 :
 
 }
 
-\caption{Utilisation de `shape` en tant que paramètre}\label{fig:shapeplot2}
+\caption{Utilisation de `shape` en tant que paramètre.}\label{fig:shapeplot2}
 \end{figure}
 
 Notez qu'ici, \texttt{ggplot()} ne crée pas de légende : tous les points
@@ -2831,7 +2831,7 @@ contour, avec \texttt{color} et la couleur de fond avec \texttt{fill} :
 
 }
 
-\caption{Utilisation de `shape`, `color` et `fill`}\label{fig:shapecolorplot}
+\caption{Utilisation de `shape`, `color` et `fill`.}\label{fig:shapecolorplot}
 \end{figure}
 
 N'hésitez pas à zoomer pour bien observer les points et comprendre ce
@@ -2858,7 +2858,7 @@ utile :
 
 }
 
-\caption{Association d'une variable continue à la taille des symboles avec l'argument `size`}\label{fig:sizeplot}
+\caption{Association d'une variable continue à la taille des symboles avec l'argument `size`.}\label{fig:sizeplot}
 \end{figure}
 
 Si l'over-plotting est ici très important (c'est pourquoi j'ai utilisé
@@ -2937,7 +2937,7 @@ preuve de modération :
 
 }
 
-\caption{Prix de 5000 diamants en fonction de leur taille en carats et de leur clarté}\label{fig:exodiamonds}
+\caption{Prix de 5000 diamants en fonction de leur taille en carats et de leur clarté.}\label{fig:exodiamonds}
 \end{figure}
 
 \begin{enumerate}
@@ -3000,7 +3000,7 @@ Nous allons nous intéresser à la variable \texttt{temp}, qui contient un
 enregistrement de température pour chaque heure de chaque jour de 2013
 pour les 3 aéroports de New York. Cela représente une grande quantité de
 données, aussi, nous nous limiterons aux températures observées entre le
-1er et le 15 janvier, pour l'aéroport Newark uniquement.
+premier et le 15 janvier, pour l'aéroport Newark uniquement.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3012,10 +3012,10 @@ données, aussi, nous nous limiterons aux températures observées entre le
 \end{Shaded}
 
 La fonction \texttt{filter()} fonctionne sur le même principe que la
-fonction \texttt{subset()} vue lors du premier TP. Ici, nous demandons à
-R de créer un nouveau tableau de données, nommé \texttt{small\_weather},
-qui ne contiendra que les lignes correspondant à
-\texttt{origin\ ==\ "EWR"}, et \texttt{month\ ==\ 1}, et
+fonction \texttt{subset()} découverte dans les tutoriels de DataCamp.
+Ici, nous demandons à R de créer un nouveau tableau de données, nommé
+\texttt{small\_weather}, qui ne contiendra que les lignes correspondant
+à \texttt{origin\ ==\ "EWR"}, \texttt{month\ ==\ 1} et
 \texttt{day\ \textless{}=\ 15}, c'est à dire les données météorologiques
 de l'aéroport de Newark pour les 15 premiers jours de janvier 2013.
 
@@ -3049,7 +3049,7 @@ lieu d'utiliser \texttt{geom\_point()}, on utilisera
 
 }
 
-\caption{Températures horaires à l'aéroport de Newark entre le 1er et le 15 janvier 2013}\label{fig:linegraph}
+\caption{Températures horaires à l'aéroport de Newark entre le 1er et le 15 janvier 2013.}\label{fig:linegraph}
 \end{figure}
 
 Très logiquement, on observe des oscillations plus ou moins régulières
@@ -3057,9 +3057,9 @@ qui correspondent à l'alternance jour/nuit. Notez l'échelle de l'axe des
 ordonnées : les températures sont enregistrées en degrés Farenheit.
 
 Nous connaissons maintenant 2 types d'objets \texttt{geom}étriques : les
-points les les lignes. il est tout à fait possible d'ajouter plusieurs
+points et les lignes. Il est tout à fait possible d'ajouter plusieurs
 couches à un graphique, chacune d'elle correspondant à un objet
-\texttt{geom}étrique différent :
+\texttt{geom}étrique différent (voir figure \ref{fig:lineplotgraph}) :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3075,7 +3075,7 @@ couches à un graphique, chacune d'elle correspondant à un objet
 
 }
 
-\caption{Températures horaires à l'aéroport de Newark entre le 1er et le 15 janvier 2013}\label{fig:lineplotgraph}
+\caption{Températures horaires à l'aéroport de Newark entre le 1er et le 15 janvier 2013.}\label{fig:lineplotgraph}
 \end{figure}
 
 Enfin, comme pour les points, il est possible de spécifier plusieurs
@@ -3102,11 +3102,12 @@ cette fois pour les 3 aéroports de New York :
 Nous pouvons maintenant réaliser un ``linegraph'' sur lequel une courbe
 apparaîtra pour chaque aéroport. Pour cela, nous devons associer la
 variable \texttt{origin} à un attribut esthétique des lignes. Par
-exemple :
+exemple (figure \ref{fig:linecolor}) :
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ small_weather_airports, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ time_hour, }\DataTypeTok{y =}\NormalTok{ temp)) }\OperatorTok{+}
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ small_weather_airports, }
+       \DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ time_hour, }\DataTypeTok{y =}\NormalTok{ temp)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{color =}\NormalTok{ origin))}
 \end{Highlighting}
 \end{Shaded}
@@ -3117,14 +3118,15 @@ exemple :
 
 }
 
-\caption{Températures horaires des 3 aéroports de New York entre le 1er et le 15 janvier 2013}\label{fig:linecolor}
+\caption{Températures horaires des 3 aéroports de New York entre le 1er et le 15 janvier 2013.}\label{fig:linecolor}
 \end{figure}
 
-Ou bien :
+Ou bien (figure \ref{fig:linetype}) :
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ small_weather_airports, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ time_hour, }\DataTypeTok{y =}\NormalTok{ temp)) }\OperatorTok{+}
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ small_weather_airports, }
+       \DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ time_hour, }\DataTypeTok{y =}\NormalTok{ temp)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{linetype =}\NormalTok{ origin))}
 \end{Highlighting}
 \end{Shaded}
@@ -3135,14 +3137,15 @@ Ou bien :
 
 }
 
-\caption{Températures horaires des 3 aéroports de New York entre le 1er et le 15 janvier 2013}\label{fig:linetype}
+\caption{Températures horaires des 3 aéroports de New York entre le 1er et le 15 janvier 2013.}\label{fig:linetype}
 \end{figure}
 
-Ou encore :
+Ou encore (figure \ref{fig:linetypecolor}) :
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ small_weather_airports, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ time_hour, }\DataTypeTok{y =}\NormalTok{ temp)) }\OperatorTok{+}
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ small_weather_airports, }
+       \DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ time_hour, }\DataTypeTok{y =}\NormalTok{ temp)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{color =}\NormalTok{ origin, }\DataTypeTok{linetype =}\NormalTok{ origin))}
 \end{Highlighting}
 \end{Shaded}
@@ -3153,7 +3156,7 @@ Ou encore :
 
 }
 
-\caption{Températures horaires des 3 aéroports de New York entre le 1er et le 15 janvier 2013}\label{fig:linetypecolor}
+\caption{Températures horaires des 3 aéroports de New York entre le 1er et le 15 janvier 2013.}\label{fig:linetypecolor}
 \end{figure}
 
 \hypertarget{a-quel-endroit-placer-aes-et-les-arguments-color-size-etc.}{%
@@ -3196,7 +3199,7 @@ dans la fonction \texttt{ggplot()}) :
 
 }
 
-\caption{Températures horaires à l'aéroport de Newark entre le 1er et le 15 janvier 2013}\label{fig:lineplotgraph2}
+\caption{Températures horaires à l'aéroport de Newark entre le 1er et le 15 janvier 2013.}\label{fig:lineplotgraph2}
 \end{figure}
 
 Voyons ce qui se passe si on associe la variable \texttt{wind\_speed} à
@@ -3218,7 +3221,7 @@ graphiques obtenus :
 
 }
 
-\caption{Températures horaires et vitesse du vent à l'aéroport de Newark entre le 1er et le 15 janvier 2013}\label{fig:wind}
+\caption{Températures horaires et vitesse du vent à l'aéroport de Newark entre le 1er et le 15 janvier 2013. La couleur de la ligne et des points renseigne sur la vitesse du vent.}\label{fig:wind}
 \end{figure}
 
 \begin{Shaded}
@@ -3235,7 +3238,7 @@ graphiques obtenus :
 
 }
 
-\caption{Températures horaires et vitesse du vent à l'aéroport de Newark entre le 1er et le 15 janvier 2013}\label{fig:wind2}
+\caption{Températures horaires et vitesse du vent à l'aéroport de Newark entre le 1er et le 15 janvier 2013. La couleur de la ligne renseigne sur la vitesse du vent.}\label{fig:wind2}
 \end{figure}
 
 \begin{Shaded}
@@ -3252,7 +3255,7 @@ graphiques obtenus :
 
 }
 
-\caption{Températures horaires et vitesse du vent à l'aéroport de Newark entre le 1er et le 15 janvier 2013}\label{fig:wind3}
+\caption{Températures horaires et vitesse du vent à l'aéroport de Newark entre le 1er et le 15 janvier 2013. La couleur des points renseigne sur la vitesse du vent.}\label{fig:wind3}
 \end{figure}
 
 Vous l'aurez compris, lorsque l'on spécifie \texttt{aes()} à l'intérieur
@@ -3280,7 +3283,7 @@ réglage spécifié dans l'objet géométrique qui l'emporte :
 
 }
 
-\caption{Températures horaires et vitesse du vent à l'aéroport de Newark entre le 1er et le 15 janvier 2013}\label{fig:wind4}
+\caption{Températures horaires et vitesse du vent à l'aéroport de Newark entre le 1er et le 15 janvier 2013.}\label{fig:wind4}
 \end{figure}
 
 il est ainsi possible de spécifier des éléments esthétiques qui
@@ -3325,7 +3328,7 @@ s'intéresser à la distribution des températures tout au long de l'année
 
 }
 
-\caption{Histogramme des températures enregistrées en 2013 dans les 3 aéroports de New York}\label{fig:unnamed-chunk-44}
+\caption{Histogramme des températures enregistrées en 2013 dans les 3 aéroports de New York.}\label{fig:unnamed-chunk-44}
 \end{figure}
 
 On observe plusieurs choses :
@@ -3405,7 +3408,7 @@ l'histogramme de l'une des 3 façons suivantes :
 
 }
 
-\caption{Modification du nombre de classes}\label{fig:unnamed-chunk-46}
+\caption{Modification du nombre de classes.}\label{fig:unnamed-chunk-46}
 \end{figure}
 
 Ici, augmenter le nombre de classes à 60 permet de prendre conscience
@@ -3452,7 +3455,7 @@ On peut également modifier la largeur des classes avec \texttt{binwidth}
 
 }
 
-\caption{Modification de la largeur des classes avec `binwidth`}\label{fig:unnamed-chunk-48}
+\caption{Modification de la largeur des classes avec `binwidth`.}\label{fig:unnamed-chunk-48}
 \end{figure}
 
 Ici chaque catégorie recouvre 10 degrés farenheit, ce qui est
@@ -3474,7 +3477,7 @@ manuellement les limites des classes souhaitées avec l'argument
 
 }
 
-\caption{Spécification manuelle des limites de classes de tailles (classes irrégulières)}\label{fig:unnamed-chunk-49}
+\caption{Spécification manuelle des limites de classes de tailles (classes irrégulières).}\label{fig:unnamed-chunk-49}
 \end{figure}
 
 Vous constatez ici que les choix effectués ne sont pas très pertinents :
@@ -3509,7 +3512,7 @@ difficile. Il est donc vivement conseillé, pour spécifier
 
 }
 
-\caption{Un exemple d'utilisation de l'argument `break`}\label{fig:break}
+\caption{Un exemple d'utilisation de l'argument `breaks`.}\label{fig:break}
 \end{figure}
 
 Il est important que toute la gamme des valeurs de \texttt{temp} soit
@@ -3738,7 +3741,7 @@ variable est considérée comme une variable numérique continue :
 
 }
 
-\caption{Boxplot des températures mensuelles}\label{fig:unnamed-chunk-53}
+\caption{Boxplot des températures mensuelles.}\label{fig:unnamed-chunk-53}
 \end{figure}
 
 Les différents éléments d'un boxplot, sont les suivants :
@@ -3847,7 +3850,7 @@ différents : un histogramme, un boxplot, et un nuage de points.
 
 }
 
-\caption{Distribution des températures de Novembre 2013}\label{fig:compboxplot}
+\caption{Distribution des températures de Novembre 2013.}\label{fig:compboxplot}
 \end{figure}
 
 Nous avons donc, à gauche un histogramme pour les températures de
@@ -4256,7 +4259,7 @@ que précédemment, et tentez de répondre aux questions suivantes :
 
 }
 
-\caption{Nombre de vols par compagnie aérienne au départ de New York en 2013}\label{fig:piechart}
+\caption{Nombre de vols par compagnie aérienne au départ de New York en 2013.}\label{fig:piechart}
 \end{figure}
 
 \begin{itemize}
@@ -4484,7 +4487,7 @@ Reprenons par exemple le graphique de la figure \ref{fig:varcolor} :
 
 }
 
-\caption{Association de `color` à une variable catégorielle}\label{fig:varcolorlabel}
+\caption{Association de `color` à une variable catégorielle.}\label{fig:varcolorlabel}
 \end{figure}
 
 Nous pouvons ajouter sur ce graphique les éléments précisés plus haut en
@@ -4615,7 +4618,7 @@ couleurs :
 
 }
 
-\caption{Toutes les palettes de couleur du package `RColorBrewer`}\label{fig:RcolorbrewerPalettes}
+\caption{Toutes les palettes de couleur du package `RColorBrewer`.}\label{fig:RcolorbrewerPalettes}
 \end{figure}
 
 \texttt{ggplot2} permet d'appliquer ces palettes très simplement :

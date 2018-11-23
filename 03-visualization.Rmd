@@ -69,7 +69,7 @@ gapminder_2007 <- gapminder %>%
 
 gapminder_2007 %>% 
   head() %>% 
-  knitr::kable(caption = "Les 6 premières lignes du jeu de données `gapminder` pour l'année 2007", booktabs = TRUE, longtable = TRUE)
+  knitr::kable(caption = "Les 6 premières lignes du jeu de données `gapminder` pour l'année 2007.", booktabs = TRUE, longtable = TRUE)
 ```
 
 Pour chaque ligne, les variables suivantes sont décrites : 
@@ -82,7 +82,7 @@ Pour chaque ligne, les variables suivantes sont décrites :
 
 Examinons maintenant la figure \@ref(fig:gapmind) qui représente ces variables pour chacun des 142 pays de ce jeu de données (notez l'utilisation de la notation scientifique dans la légende).
 
-```{r gapmind, echo=FALSE, fig.cap="Espérance de vie en fonction du PIB par habitant en 2007"}
+```{r gapmind, echo=FALSE, fig.cap="Espérance de vie en fonction du PIB par habitant en 2007."}
 gapminder_2007 %>% 
   ggplot(aes(x = `GDP per Capita`, y = `Life Expectancy`, color = Continent, size = Population)) + 
     geom_point() +
@@ -152,7 +152,7 @@ Il est normal que vous ne compreniez pas encore les commandes ci-dessus : elles 
 
 La fonction `ggplot()` permet d'établir la première base du graphique. C'est grâce à cette fonction que l'on précise quel jeu de données utiliser et quelles variables placer sur les axes :
 
-```{r fig.cap="Un graphique sans `geom`"}
+```{r fig.cap="Un graphique sans `geom`."}
 ggplot(data = alaska_flights, mapping = aes(x = dep_delay, y = arr_delay))
 ```
 
@@ -162,7 +162,7 @@ Ce graphique est pour le moins vide : c'est normal, nous n'avons pas encore spé
 
 Les nuages de points sont créés par la fonction `geom_point()` :
 
-```{r points, fig.cap="Retards à l'arrivée en fonction des retards au décollage pour les vols d'Alaska Airlines au départ de New York City en 2013", tidy=FALSE, fig.pos = "!htpb"}
+```{r points, fig.cap="Retards à l'arrivée en fonction des retards au décollage pour les vols d'Alaska Airlines au départ de New York City en 2013.", tidy=FALSE, fig.pos = "!htpb"}
 ggplot(data = alaska_flights, mapping = aes(x = dep_delay, y = arr_delay)) + 
   geom_point()
 ```
@@ -243,7 +243,7 @@ On y voit déjà plus clair. L'argument `width` permet de spécifier l'intensit�
 
 Il est évidemment possible d'ajouter de la transparence : 
 
-```{r tidy=FALSE, warning=FALSE, fig.cap="Retards à l'arrivée pour les 12 mois de l'année 2013"}
+```{r tidy=FALSE, warning=FALSE, fig.cap="Retards à l'arrivée pour les 12 mois de l'année 2013."}
 ggplot(data = alaska_flights, 
        mapping = aes(x = factor(month), y = arr_delay)) +
   geom_jitter(width = 0.25, alpha = 0.5)
@@ -256,26 +256,26 @@ L'argument `color` (ou `colour`, les deux orthographes fonctionnent) permet de s
 
 Comparez les deux graphiques suivants (figures \@ref(fig:rightcolor) et \@ref(fig:wrongcolor)) :
 
-```{r, rightcolor, tidy=FALSE, warning=FALSE, fig.cap="Utilisation correcte de `color`"}
+```{r, rightcolor, tidy=FALSE, warning=FALSE, fig.cap="Utilisation correcte de `color`."}
 ggplot(data = alaska_flights, mapping = aes(x = dep_delay, y = arr_delay)) +
   geom_point(color = "blue")
 ```
 
-```{r, wrongcolor, tidy=FALSE, warning=FALSE, fig.cap="Utilisation incorrecte de `color`"}
+```{r, wrongcolor, tidy=FALSE, warning=FALSE, fig.cap="Utilisation incorrecte de `color`."}
 ggplot(data = alaska_flights, mapping = aes(x = dep_delay, y = arr_delay)) +
   geom_point(aes(color = "blue"))
 ```
 
 Le code qui permet de produire la figure \@ref(fig:rightcolor) fait un usage correct de l'argument `color`. On demande des points de couleur bleue, les points apparaîssent bleus. La figure \@ref(fig:wrongcolor) en revanche ne produit pas le résultat attendu. Puisque nous avons mis l'argument `color` à l'intérieur de la fonction `aes()`, R s'attend à ce que la couleur soit associée à une variable. Puisqu'aucune variable ne s'appelle "blue", R utilise la couleur par défaut. Pour associer la couleur des points à une variable, nous devons fournir un nom de variable valide :
 
-```{r, varcolor, tidy=FALSE, warning=FALSE, fig.cap="Association de `color` à une variable catégorielle"}
+```{r, varcolor, tidy=FALSE, warning=FALSE, fig.cap="Association de `color` à une variable catégorielle."}
 ggplot(data = alaska_flights, mapping = aes(x = dep_delay, y = arr_delay)) +
   geom_point(aes(color = factor(month)))
 ```
 
 Ici, l'utilisation de la couleur est correcte. Elle est associée à une variable catégorielle, et chaque valeur possible du vecteur `month` se voit donc attribuer une couleur différente.
 
-```{r, varcolor2, tidy=FALSE, warning=FALSE, fig.cap="Association de `color` à une variable numérique"}
+```{r, varcolor2, tidy=FALSE, warning=FALSE, fig.cap="Association de `color` à une variable numérique."}
 ggplot(data = alaska_flights, mapping = aes(x = dep_delay, y = arr_delay)) +
   geom_point(aes(color = arr_time))
 ```
@@ -284,7 +284,7 @@ De la même façon, la couleur des points est ici associée à une variable cont
 
 La même approche peut être utilisée pour spécifier la forme des symboles avec l'argument `shape`. Attention toutefois : une variable continue ne peut pas être associée à `shape`
 
-```{r, shapeplot, tidy=FALSE, warning=FALSE, fig.cap="Association de `shape` à un facteur"}
+```{r, shapeplot, tidy=FALSE, warning=FALSE, fig.cap="Association de `shape` à un facteur."}
 ggplot(data = alaska_flights, mapping = aes(x = dep_delay, y = arr_delay)) +
   geom_point(aes(shape = factor(month)))
 ```
@@ -293,7 +293,7 @@ Vous noterez que seuls les 6 premiers niveaux d'un facteur se voient attribuer u
 
 Comme pour la couleur, il est possible d'utiliser l'argument `shape` en tant que paramètre du graphique sans l'associer à une variable. Il faut alors fournir un code compris entre 0 et 24 :
 
-```{r, shapeplot2, tidy=FALSE, warning=FALSE, fig.cap="Utilisation de `shape` en tant que paramètre"}
+```{r, shapeplot2, tidy=FALSE, warning=FALSE, fig.cap="Utilisation de `shape` en tant que paramètre."}
 ggplot(data = alaska_flights, mapping = aes(x = dep_delay, y = arr_delay)) +
   geom_point(shape = 4)
 ```
@@ -302,7 +302,7 @@ Notez qu'ici, `ggplot()` ne crée pas de légende : tous les points ont le même
 
 Parmi les valeurs possibles pour `shape`, les symboles 21 à 24 sont des symboles dont on peut spécifier séparément la couleur de contour, avec `color` et la couleur de fond avec `fill` :
 
-```{r, shapecolorplot, tidy=FALSE, warning=FALSE, fig.cap="Utilisation de `shape`, `color` et `fill`"}
+```{r, shapecolorplot, tidy=FALSE, warning=FALSE, fig.cap="Utilisation de `shape`, `color` et `fill`."}
 ggplot(data = alaska_flights, mapping = aes(x = dep_delay, y = arr_delay)) +
   geom_point(shape = 21, fill = "steelblue", color = "orange", alpha = 0.5)
 ```
@@ -311,7 +311,7 @@ N'hésitez pas à zoomer pour bien observer les points et comprendre ce qui se p
 
 Enfin, on peut ajuster la taille des symboles avec l'argument `size`. Tout comme il n'est pas possible d'associer une variable continue à `shape`, il n'est pas conseillé d'associer une variable catégorielle nominale (c'est-à-dire un facteur non ordonné) à `size`. Associer une variable continue est en ravanche parfois utile :
 
-```{r, sizeplot, tidy=FALSE, warning=FALSE, fig.cap="Association d'une variable continue à la taille des symboles avec l'argument `size`"}
+```{r, sizeplot, tidy=FALSE, warning=FALSE, fig.cap="Association d'une variable continue à la taille des symboles avec l'argument `size`."}
 ggplot(data = alaska_flights, mapping = aes(x = dep_delay, y = arr_delay)) +
   geom_point(aes(size = arr_time), alpha = 0.1)
 ```
@@ -346,7 +346,7 @@ diams <- diamonds %>%
 
 3. Avec ce nouveau tableau `diams`, tapez le code permettant de créer le graphique \@ref(fig:exodiamonds) (Indice : affichez le tableau `diams` dans la console afin de voir quelles sont les variables disponibles).
 
-```{r, exodiamonds, tidy=FALSE, warning=FALSE, echo = FALSE, fig.cap="Prix de 5000 diamants en fonction de leur taille en carats et de leur clarté"}
+```{r, exodiamonds, tidy=FALSE, warning=FALSE, echo = FALSE, fig.cap="Prix de 5000 diamants en fonction de leur taille en carats et de leur clarté."}
 ggplot(data = diams, mapping = aes(x = carat, y = price)) +
     geom_point(alpha = 0.5, shape = 4, aes(color = clarity))
 ```
@@ -368,7 +368,7 @@ Concentrons nous maintenant sur le tableau `weather` du package `nycflights13`. 
 weather
 ```
 
-Nous allons nous intéresser à la variable `temp`, qui contient un enregistrement de température pour chaque heure de chaque jour de 2013 pour les 3 aéroports de New York. Cela représente une grande quantité de données, aussi, nous nous limiterons aux températures observées entre le 1er et le 15 janvier, pour l'aéroport Newark uniquement.
+Nous allons nous intéresser à la variable `temp`, qui contient un enregistrement de température pour chaque heure de chaque jour de 2013 pour les 3 aéroports de New York. Cela représente une grande quantité de données, aussi, nous nous limiterons aux températures observées entre le premier et le 15 janvier, pour l'aéroport Newark uniquement.
 
 ```{r tidy=FALSE}
 small_weather <- weather %>% 
@@ -377,7 +377,7 @@ small_weather <- weather %>%
          day <= 15)
 ```
 
-La fonction `filter()` fonctionne sur le même principe que la fonction `subset()` vue lors du premier TP. Ici, nous demandons à R de créer un nouveau tableau de données, nommé `small_weather`, qui ne contiendra que les lignes correspondant à `origin == "EWR"`, et `month == 1`, et `day <= 15`, c'est à dire les données météorologiques de l'aéroport de Newark pour les 15 premiers jours de janvier 2013.
+La fonction `filter()` fonctionne sur le même principe que la fonction `subset()` découverte dans les tutoriels de DataCamp. Ici, nous demandons à R de créer un nouveau tableau de données, nommé `small_weather`, qui ne contiendra que les lignes correspondant à `origin == "EWR"`, `month == 1` et `day <= 15`, c'est à dire les données météorologiques de l'aéroport de Newark pour les 15 premiers jours de janvier 2013.
 
 
 ### Exercice
@@ -389,16 +389,16 @@ Avec `View()`, consultez le tableau nouvellement créé. Expliquez pourquoi la v
 
 Les line graphs sont produits de la même façon que les nuages de points. Seul l'objet géométrique permettant de visualiser les données change. Au lieu d'utiliser `geom_point()`, on utilisera `geom_line()` :
 
-```{r linegraph, tidy=FALSE, fig.cap="Températures horaires à l'aéroport de Newark entre le 1er et le 15 janvier 2013"}
+```{r linegraph, tidy=FALSE, fig.cap="Températures horaires à l'aéroport de Newark entre le 1er et le 15 janvier 2013."}
 ggplot(data = small_weather, mapping = aes(x = time_hour, y = temp)) +
   geom_line()
 ```
 
 Très logiquement, on observe des oscillations plus ou moins régulières qui correspondent à l'alternance jour/nuit. Notez l'échelle de l'axe des ordonnées : les températures sont enregistrées en degrés Farenheit.
 
-Nous connaissons maintenant 2 types d'objets `geom`étriques : les points les les lignes. il est tout à fait possible d'ajouter plusieurs couches à un graphique, chacune d'elle correspondant à un objet `geom`étrique différent :
+Nous connaissons maintenant 2 types d'objets `geom`étriques : les points et les lignes. Il est tout à fait possible d'ajouter plusieurs couches à un graphique, chacune d'elle correspondant à un objet `geom`étrique différent (voir figure \@ref(fig:lineplotgraph)) :
 
-```{r lineplotgraph, tidy=FALSE, fig.cap="Températures horaires à l'aéroport de Newark entre le 1er et le 15 janvier 2013"}
+```{r lineplotgraph, tidy=FALSE, fig.cap="Températures horaires à l'aéroport de Newark entre le 1er et le 15 janvier 2013."}
 ggplot(data = small_weather, mapping = aes(x = time_hour, y = temp)) +
   geom_line() +
   geom_point()
@@ -414,24 +414,27 @@ small_weather_airports <- weather %>%
          day <= 15)
 ```
 
-Nous pouvons maintenant réaliser un "linegraph" sur lequel une courbe apparaîtra pour chaque aéroport. Pour cela, nous devons associer la variable `origin` à un attribut esthétique des lignes. Par exemple :
+Nous pouvons maintenant réaliser un "linegraph" sur lequel une courbe apparaîtra pour chaque aéroport. Pour cela, nous devons associer la variable `origin` à un attribut esthétique des lignes. Par exemple (figure \@ref(fig:linecolor)) :
 
-```{r linecolor, tidy=FALSE, fig.cap="Températures horaires des 3 aéroports de New York entre le 1er et le 15 janvier 2013"}
-ggplot(data = small_weather_airports, mapping = aes(x = time_hour, y = temp)) +
+```{r linecolor, tidy=FALSE, fig.cap="Températures horaires des 3 aéroports de New York entre le 1er et le 15 janvier 2013."}
+ggplot(data = small_weather_airports, 
+       mapping = aes(x = time_hour, y = temp)) +
   geom_line(aes(color = origin))
 ```
 
-Ou bien :
+Ou bien (figure \@ref(fig:linetype)) :
 
-```{r linetype, tidy=FALSE, fig.cap="Températures horaires des 3 aéroports de New York entre le 1er et le 15 janvier 2013"}
-ggplot(data = small_weather_airports, mapping = aes(x = time_hour, y = temp)) +
+```{r linetype, tidy=FALSE, fig.cap="Températures horaires des 3 aéroports de New York entre le 1er et le 15 janvier 2013."}
+ggplot(data = small_weather_airports, 
+       mapping = aes(x = time_hour, y = temp)) +
   geom_line(aes(linetype = origin))
 ```
 
-Ou encore :
+Ou encore (figure \@ref(fig:linetypecolor)) :
 
-```{r linetypecolor, tidy=FALSE, fig.cap="Températures horaires des 3 aéroports de New York entre le 1er et le 15 janvier 2013"}
-ggplot(data = small_weather_airports, mapping = aes(x = time_hour, y = temp)) +
+```{r linetypecolor, tidy=FALSE, fig.cap="Températures horaires des 3 aéroports de New York entre le 1er et le 15 janvier 2013."}
+ggplot(data = small_weather_airports, 
+       mapping = aes(x = time_hour, y = temp)) +
   geom_line(aes(color = origin, linetype = origin))
 ```
 
@@ -444,7 +447,7 @@ Jusqu'à maintenant, pour spécifier les associations entre certaines variables 
 
 Comment choisir l'endroit où renseigner `aes()` ? Pour bien comprendre, reprenons l'exemple du graphique \@ref(fig:lineplotgraph) sur lequel nous avions ajouté 2 couches contenant chacune un objet géométrique différent (afin de gagner de la place, j'omets volontairement le nom des arguments `data` et `mapping` dans la fonction `ggplot()`) :
 
-```{r lineplotgraph2, tidy=FALSE, fig.cap="Températures horaires à l'aéroport de Newark entre le 1er et le 15 janvier 2013"}
+```{r lineplotgraph2, tidy=FALSE, fig.cap="Températures horaires à l'aéroport de Newark entre le 1er et le 15 janvier 2013."}
 ggplot(small_weather, aes(x = time_hour, y = temp)) +
   geom_line() +
   geom_point()
@@ -452,19 +455,19 @@ ggplot(small_weather, aes(x = time_hour, y = temp)) +
 
 Voyons ce qui se passe si on associe la variable `wind_speed` à l'esthétique `color`, à plusieurs endroits du code ci-dessus. Comparez les trois syntaxes et observez les différences entre les 3 graphiques obtenus :
 
-```{r wind, tidy=FALSE, fig.cap="Températures horaires et vitesse du vent à l'aéroport de Newark entre le 1er et le 15 janvier 2013"}
+```{r wind, tidy=FALSE, fig.cap="Températures horaires et vitesse du vent à l'aéroport de Newark entre le 1er et le 15 janvier 2013. La couleur de la ligne et des points renseigne sur la vitesse du vent."}
 ggplot(small_weather, aes(x = time_hour, y = temp, color = wind_speed)) +
   geom_line() +
   geom_point()
 ```
 
-```{r wind2, tidy=FALSE, fig.cap="Températures horaires et vitesse du vent à l'aéroport de Newark entre le 1er et le 15 janvier 2013"}
+```{r wind2, tidy=FALSE, fig.cap="Températures horaires et vitesse du vent à l'aéroport de Newark entre le 1er et le 15 janvier 2013. La couleur de la ligne renseigne sur la vitesse du vent."}
 ggplot(small_weather, aes(x = time_hour, y = temp)) +
   geom_line(aes(color = wind_speed)) +
   geom_point()
 ```
 
-```{r wind3, tidy=FALSE, fig.cap="Températures horaires et vitesse du vent à l'aéroport de Newark entre le 1er et le 15 janvier 2013"}
+```{r wind3, tidy=FALSE, fig.cap="Températures horaires et vitesse du vent à l'aéroport de Newark entre le 1er et le 15 janvier 2013. La couleur des points renseigne sur la vitesse du vent."}
 ggplot(small_weather, aes(x = time_hour, y = temp)) +
   geom_line() +
   geom_point(aes(color = wind_speed))
@@ -474,7 +477,7 @@ Vous l'aurez compris, lorsque l'on spécifie `aes()` à l'intérieur de la fonct
 
 En l'occurence, si le même réglage est spécifié dans la fonction `ggplot()` et dans une fonction `geom_XXX()`, c'est le réglage spécifié dans l'objet géométrique qui l'emporte :
 
-```{r wind4, tidy=FALSE, fig.cap="Températures horaires et vitesse du vent à l'aéroport de Newark entre le 1er et le 15 janvier 2013"}
+```{r wind4, tidy=FALSE, fig.cap="Températures horaires et vitesse du vent à l'aéroport de Newark entre le 1er et le 15 janvier 2013."}
 ggplot(small_weather, aes(x = time_hour, y = temp, color = wind_speed)) +
   geom_line(color = "orange") +
   geom_point()
@@ -493,7 +496,7 @@ Un histogramme permet de visualiser la distribution **d'une variable** numériqu
 
 Si on reprend le jeu de données `weather`, on peut par exemple s'intéresser à la distribution des températures tout au long de l'année :
 
-```{r warning=FALSE, tidy=FALSE, fig.cap="Histogramme des températures enregistrées en 2013 dans les 3 aéroports de New York"}
+```{r warning=FALSE, tidy=FALSE, fig.cap="Histogramme des températures enregistrées en 2013 dans les 3 aéroports de New York."}
 ggplot(weather, aes(x = temp)) +
   geom_histogram()
 ```
@@ -522,7 +525,7 @@ Il est possible d'ajuster les caractéristiques des classes de l'histogramme de 
 2. en précisant la largeur des classes avec `binwidth`
 3. en fournissant manuellement les limites des classes avec `breaks`
 
-```{r warning=FALSE, tidy=FALSE, message=FALSE, fig.cap="Modification du nombre de classes"}
+```{r warning=FALSE, tidy=FALSE, message=FALSE, fig.cap="Modification du nombre de classes."}
 ggplot(weather, aes(x = temp)) +
   geom_histogram(bins = 60, color = "white")
 ```
@@ -539,21 +542,21 @@ Notez la transparence importante utilisée pour `geom_rug()`. On constate que la
 
 On peut également modifier la largeur des classes avec `binwidth` :
 
-```{r warning=FALSE, tidy=FALSE, message=FALSE, fig.cap="Modification de la largeur des classes avec `binwidth`"}
+```{r warning=FALSE, tidy=FALSE, message=FALSE, fig.cap="Modification de la largeur des classes avec `binwidth`."}
 ggplot(weather, aes(x = temp)) +
   geom_histogram(binwidth = 10, color = "white")
 ```
 
 Ici chaque catégorie recouvre 10 degrés farenheit, ce qui est probablement trop large puisque la bimodalité de la distribution est devenue presque invisible. Enfin, il est possible de déterminer manuellement les limites des classes souhaitées avec l'argument `breaks` :
 
-```{r warning=FALSE, tidy=FALSE, message=FALSE, fig.cap="Spécification manuelle des limites de classes de tailles (classes irrégulières)"}
+```{r warning=FALSE, tidy=FALSE, message=FALSE, fig.cap="Spécification manuelle des limites de classes de tailles (classes irrégulières)."}
 ggplot(weather, aes(x = temp)) +
   geom_histogram(breaks = c(0, 10, 20, 50, 60, 70, 80, 105), color = "white")
 ```
 
 Vous constatez ici que les choix effectués ne sont pas très pertinents : toutes les classes n'ont pas la même largeur. Cela rend l'interprétation difficile. Il est donc vivement conseillé, pour spécifier `breaks`, de créer des suites régulières, comme avec la fonction `seq()` par exemple (consultez son fichier d'aide et les exemples !) :
 
-```{r break, warning=FALSE, tidy=FALSE, message=FALSE, fig.cap="Un exemple d'utilisation de l'argument `break`"}
+```{r break, warning=FALSE, tidy=FALSE, message=FALSE, fig.cap="Un exemple d'utilisation de l'argument `breaks`."}
 limits <- seq(from = 10, to = 105, by = 5)
 limits
 ggplot(weather, aes(x = temp)) +
@@ -646,7 +649,7 @@ Comme précédemment, R nous avertit qu'une observation n'a pas été intégrée
 
 En effet, les boxplots sont généralement utilisés pour examiner la distribution d'une variable numérique pour chaque niveau d'une variable catégorielle (un facteur). Il nous faut donc, ici encore, transformer `month` en facteur car dans notre tableau de départ, cette variable est considérée comme une variable numérique continue : 
 
-```{r tidy=FALSE, warning = FALSE, fig.cap="Boxplot des températures mensuelles"}
+```{r tidy=FALSE, warning = FALSE, fig.cap="Boxplot des températures mensuelles."}
 ggplot(weather, aes(x = factor(month), y = temp)) +
   geom_boxplot()
 ```
@@ -677,7 +680,7 @@ Nous reviendrons sur cette notion importante plus tard dans le cursus, car ce ty
 
 Dernière chose concernant les boxplots : il s'agit d'une représentation graphique très proche de l'histogramme. Pour vous en convaincre, je représente à la figure \@ref(fig:compboxplot) ci-dessous uniquement les temperatures du mois de novembre, avec 3 types d'objets géométriques différents : un histogramme, un boxplot, et un nuage de points.
 
-```{r compboxplot, tidy=FALSE, warning = FALSE, message = FALSE, echo=FALSE, fig.cap="Distribution des températures de Novembre 2013"}
+```{r compboxplot, tidy=FALSE, warning = FALSE, message = FALSE, echo=FALSE, fig.cap="Distribution des températures de Novembre 2013."}
 library(gridExtra)
 
 pl1 <- weather %>% 
@@ -829,7 +832,7 @@ Vous voyez donc que selon le type de données dont vous disposez (soit un tablea
 
 À titre d'exemple, examinez ce diagramme, qui reprend les même chiffres que précédemment, et tentez de répondre aux questions suivantes :
 
-```{r piechart, echo=FALSE, fig.cap="Nombre de vols par compagnie aérienne au départ de New York en 2013"}
+```{r piechart, echo=FALSE, fig.cap="Nombre de vols par compagnie aérienne au départ de New York en 2013."}
 flights %>% 
   count(carrier) %>% 
   ggplot(aes(x = factor(1), y = n, fill = factor(carrier))) +
@@ -927,7 +930,7 @@ Le point de départ le plus évident est d'ajouter des labels de qualité. La fo
 
 Reprenons par exemple le graphique de la figure \@ref(fig:varcolor) :
 
-```{r, varcolorlabel, tidy=FALSE, warning=FALSE, fig.cap="Association de `color` à une variable catégorielle"}
+```{r, varcolorlabel, tidy=FALSE, warning=FALSE, fig.cap="Association de `color` à une variable catégorielle."}
 ggplot(alaska_flights, aes(x = dep_delay, y = arr_delay, color = factor(month))) +
   geom_point()
 ```
@@ -987,7 +990,7 @@ ggplot(flights, aes(x = fct_infreq(carrier), fill = origin)) +
 
 Le package `RColorBrewer` propose une large gamme de palettes de couleurs :
 
-```{r, RcolorbrewerPalettes, echo = FALSE, out.width='50%', fig.align='center', fig.cap="Toutes les palettes de couleur du package `RColorBrewer`"}
+```{r, RcolorbrewerPalettes, echo = FALSE, out.width='50%', fig.align='center', fig.cap="Toutes les palettes de couleur du package `RColorBrewer`."}
 knitr::include_graphics('images/brewer.png')
 ```
 
@@ -1190,7 +1193,7 @@ Toujours avec ce jeu de données `small-flights`, tapez les commandes permettant
 small_flights %>% 
   ggplot(aes(x = factor(month), fill = origin)) +
     geom_bar() +
-    facet_wrap(~fct_infreq(carrier), nrow=4) +
+    facet_wrap(~fct_infreq(carrier), nrow = 4) +
     scale_fill_brewer(palette = "Accent") +
     labs(x = "Mois de l'année 2013",
          y = "Nombre de vols",

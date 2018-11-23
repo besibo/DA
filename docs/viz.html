@@ -25,7 +25,7 @@
 <meta name="author" content="Benoît Simon-Bouhet">
 
 
-<meta name="date" content="2018-11-22">
+<meta name="date" content="2018-11-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -329,7 +329,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <p>En février 2006, un statisticien du nom de Hans Rosling a donné un TED Talk intitulé “<a href="https://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen">The best stats you’we ever seen</a>”. Au cours de cette conférence, Hans Rosling présente des données sur l’économie mondiale, la santé et le développement des pays du monde. Les données sont disponibles <a href="https://www.gapminder.org/tools/#$chart-type=bubbles">sur ce site</a> et dans <a href="https://cran.r-project.org/web/packages/gapminder/index.html">le package <code>gapminder</code></a>.</p>
 <p>Pour l’année 2007, le jeu de données contient des informations pour 142 pays. Examinons les premières lignes de ce jeu de données :</p>
 <table>
-<caption><span id="tab:unnamed-chunk-35">Table 4.1: </span>Les 6 premières lignes du jeu de données <code>gapminder</code> pour l’année 2007</caption>
+<caption><span id="tab:unnamed-chunk-35">Table 4.1: </span>Les 6 premières lignes du jeu de données <code>gapminder</code> pour l’année 2007.</caption>
 <thead>
 <tr class="header">
 <th align="left">Country</th>
@@ -394,9 +394,9 @@ code span.wa { color: #bf0303; } /* Warning */
 </ul>
 <p>Examinons maintenant la figure <a href="viz.html#fig:gapmind">4.1</a> qui représente ces variables pour chacun des 142 pays de ce jeu de données (notez l’utilisation de la notation scientifique dans la légende).</p>
 <div class="figure" style="text-align: center"><span id="fig:gapmind"></span>
-<img src="figure/gapmind-1.png" alt="Espérance de vie en fonction du PIB par habitant en 2007" width="90%" />
+<img src="figure/gapmind-1.png" alt="Espérance de vie en fonction du PIB par habitant en 2007." width="90%" />
 <p class="caption">
-Figure 4.1: Espérance de vie en fonction du PIB par habitant en 2007
+Figure 4.1: Espérance de vie en fonction du PIB par habitant en 2007.
 </p>
 </div>
 <p>Si on décrypte ce graphique du point de vue de la grammaire des graphiques, on voit que :</p>
@@ -454,9 +454,9 @@ Figure 4.1: Espérance de vie en fonction du PIB par habitant en 2007
 <p>La fonction <code>ggplot()</code> permet d’établir la première base du graphique. C’est grâce à cette fonction que l’on précise quel jeu de données utiliser et quelles variables placer sur les axes :</p>
 <div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> alaska_flights, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay))</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-37"></span>
-<img src="figure/unnamed-chunk-37-1.png" alt="Un graphique sans `geom`" width="90%" />
+<img src="figure/unnamed-chunk-37-1.png" alt="Un graphique sans `geom`." width="90%" />
 <p class="caption">
-Figure 4.2: Un graphique sans <code>geom</code>
+Figure 4.2: Un graphique sans <code>geom</code>.
 </p>
 </div>
 <p>Ce graphique est pour le moins vide : c’est normal, nous n’avons pas encore spécifié la couche contenant l’objet géométrique que nous souhaitons utiliser.</p>
@@ -468,9 +468,9 @@ Figure 4.2: Un graphique sans <code>geom</code>
 <a class="sourceLine" id="cb76-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <pre><code>Warning: Removed 5 rows containing missing values (geom_point).</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:points"></span>
-<img src="figure/points-1.png" alt="Retards à l'arrivée en fonction des retards au décollage pour les vols d'Alaska Airlines au départ de New York City en 2013" width="90%" />
+<img src="figure/points-1.png" alt="Retards à l'arrivée en fonction des retards au décollage pour les vols d'Alaska Airlines au départ de New York City en 2013." width="90%" />
 <p class="caption">
-Figure 4.3: Retards à l’arrivée en fonction des retards au décollage pour les vols d’Alaska Airlines au départ de New York City en 2013
+Figure 4.3: Retards à l’arrivée en fonction des retards au décollage pour les vols d’Alaska Airlines au départ de New York City en 2013.
 </p>
 </div>
 <p>Plusieurs choses importantes sont à remarquer sur la figure <a href="viz.html#fig:points">4.3</a> :</p>
@@ -559,9 +559,9 @@ Figure 4.6: Retards à l’arrivée pour les 12 mois de l’année 2013.
 <a class="sourceLine" id="cb82-2" title="2">       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">factor</span>(month), <span class="dt">y =</span> arr_delay)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb82-3" title="3"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-39"></span>
-<img src="figure/unnamed-chunk-39-1.png" alt="Retards à l'arrivée pour les 12 mois de l'année 2013" width="90%" />
+<img src="figure/unnamed-chunk-39-1.png" alt="Retards à l'arrivée pour les 12 mois de l'année 2013." width="90%" />
 <p class="caption">
-Figure 4.7: Retards à l’arrivée pour les 12 mois de l’année 2013
+Figure 4.7: Retards à l’arrivée pour les 12 mois de l’année 2013.
 </p>
 </div>
 </div>
@@ -572,35 +572,35 @@ Figure 4.7: Retards à l’arrivée pour les 12 mois de l’année 2013
 <div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> alaska_flights, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb83-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:rightcolor"></span>
-<img src="figure/rightcolor-1.png" alt="Utilisation correcte de `color`" width="90%" />
+<img src="figure/rightcolor-1.png" alt="Utilisation correcte de `color`." width="90%" />
 <p class="caption">
-Figure 4.8: Utilisation correcte de <code>color</code>
+Figure 4.8: Utilisation correcte de <code>color</code>.
 </p>
 </div>
 <div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> alaska_flights, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb84-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>))</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:wrongcolor"></span>
-<img src="figure/wrongcolor-1.png" alt="Utilisation incorrecte de `color`" width="90%" />
+<img src="figure/wrongcolor-1.png" alt="Utilisation incorrecte de `color`." width="90%" />
 <p class="caption">
-Figure 4.9: Utilisation incorrecte de <code>color</code>
+Figure 4.9: Utilisation incorrecte de <code>color</code>.
 </p>
 </div>
 <p>Le code qui permet de produire la figure <a href="viz.html#fig:rightcolor">4.8</a> fait un usage correct de l’argument <code>color</code>. On demande des points de couleur bleue, les points apparaîssent bleus. La figure <a href="viz.html#fig:wrongcolor">4.9</a> en revanche ne produit pas le résultat attendu. Puisque nous avons mis l’argument <code>color</code> à l’intérieur de la fonction <code>aes()</code>, R s’attend à ce que la couleur soit associée à une variable. Puisqu’aucune variable ne s’appelle “blue”, R utilise la couleur par défaut. Pour associer la couleur des points à une variable, nous devons fournir un nom de variable valide :</p>
 <div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> alaska_flights, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb85-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> <span class="kw">factor</span>(month)))</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:varcolor"></span>
-<img src="figure/varcolor-1.png" alt="Association de `color` à une variable catégorielle" width="90%" />
+<img src="figure/varcolor-1.png" alt="Association de `color` à une variable catégorielle." width="90%" />
 <p class="caption">
-Figure 4.10: Association de <code>color</code> à une variable catégorielle
+Figure 4.10: Association de <code>color</code> à une variable catégorielle.
 </p>
 </div>
 <p>Ici, l’utilisation de la couleur est correcte. Elle est associée à une variable catégorielle, et chaque valeur possible du vecteur <code>month</code> se voit donc attribuer une couleur différente.</p>
 <div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> alaska_flights, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb86-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> arr_time))</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:varcolor2"></span>
-<img src="figure/varcolor2-1.png" alt="Association de `color` à une variable numérique" width="90%" />
+<img src="figure/varcolor2-1.png" alt="Association de `color` à une variable numérique." width="90%" />
 <p class="caption">
-Figure 4.11: Association de <code>color</code> à une variable numérique
+Figure 4.11: Association de <code>color</code> à une variable numérique.
 </p>
 </div>
 <p>De la même façon, la couleur des points est ici associée à une variable continue (l’heure d’arrivée des vols). Les points se voient donc attribuer une couleur choisie le long d’un gradient.</p>
@@ -608,9 +608,9 @@ Figure 4.11: Association de <code>color</code> à une variable numérique
 <div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> alaska_flights, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb87-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">shape =</span> <span class="kw">factor</span>(month)))</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:shapeplot"></span>
-<img src="figure/shapeplot-1.png" alt="Association de `shape` à un facteur" width="90%" />
+<img src="figure/shapeplot-1.png" alt="Association de `shape` à un facteur." width="90%" />
 <p class="caption">
-Figure 4.12: Association de <code>shape</code> à un facteur
+Figure 4.12: Association de <code>shape</code> à un facteur.
 </p>
 </div>
 <p>Vous noterez que seuls les 6 premiers niveaux d’un facteur se voient attribuer une forme automatiquement. Au delà de 6 symboles différents sur un même graphique, le résultat est souvent illisible. Il est possible d’ajouter plus de 6 symboles, mais cela demande de modifier la légende manuellement et concrètement nous n’en aurons jamais besoin. Lorsque plus de 6 séries doivent être distinguées, d’autres solutions bien plus pertinentes (par exemple les <code>factet</code>s) devraient être utilisées.</p>
@@ -618,9 +618,9 @@ Figure 4.12: Association de <code>shape</code> à un facteur
 <div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> alaska_flights, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb88-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">4</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:shapeplot2"></span>
-<img src="figure/shapeplot2-1.png" alt="Utilisation de `shape` en tant que paramètre" width="90%" />
+<img src="figure/shapeplot2-1.png" alt="Utilisation de `shape` en tant que paramètre." width="90%" />
 <p class="caption">
-Figure 4.13: Utilisation de <code>shape</code> en tant que paramètre
+Figure 4.13: Utilisation de <code>shape</code> en tant que paramètre.
 </p>
 </div>
 <p>Notez qu’ici, <code>ggplot()</code> ne crée pas de légende : tous les points ont le même symbole, ce symbole n’est pas associé à une variable, une légende est donc inutile.</p>
@@ -628,9 +628,9 @@ Figure 4.13: Utilisation de <code>shape</code> en tant que paramètre
 <div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> alaska_flights, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb89-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">fill =</span> <span class="st">&quot;steelblue&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;orange&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:shapecolorplot"></span>
-<img src="figure/shapecolorplot-1.png" alt="Utilisation de `shape`, `color` et `fill`" width="90%" />
+<img src="figure/shapecolorplot-1.png" alt="Utilisation de `shape`, `color` et `fill`." width="90%" />
 <p class="caption">
-Figure 4.14: Utilisation de <code>shape</code>, <code>color</code> et <code>fill</code>
+Figure 4.14: Utilisation de <code>shape</code>, <code>color</code> et <code>fill</code>.
 </p>
 </div>
 <p>N’hésitez pas à zoomer pour bien observer les points et comprendre ce qui se passe. Un conseil, faites des choix raisonnables ! Trop de couleurs n’est pas forcément souhaitable.</p>
@@ -638,9 +638,9 @@ Figure 4.14: Utilisation de <code>shape</code>, <code>color</code> et <code>fill
 <div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> alaska_flights, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb90-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">size =</span> arr_time), <span class="dt">alpha =</span> <span class="fl">0.1</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:sizeplot"></span>
-<img src="figure/sizeplot-1.png" alt="Association d'une variable continue à la taille des symboles avec l'argument `size`" width="90%" />
+<img src="figure/sizeplot-1.png" alt="Association d'une variable continue à la taille des symboles avec l'argument `size`." width="90%" />
 <p class="caption">
-Figure 4.15: Association d’une variable continue à la taille des symboles avec l’argument <code>size</code>
+Figure 4.15: Association d’une variable continue à la taille des symboles avec l’argument <code>size</code>.
 </p>
 </div>
 <p>Si l’over-plotting est ici très important (c’est pourquoi j’ai utilisé <code>alpha</code>), on constate néanmoins que les vols avec les retards les plus importants sont presque tous arrivés très tôt dans la journée (“500” signifie 5h00 du matin). Il s’agit probablement de vols qui devaient arriver dans la nuit, avant minuit, et qui sont finalement arrivés en tout début de journée, entre 00h01 et 5h00 du matin. Comme pour les autres arguments, il est possible d’utiliser <code>size</code> avec une valeur fixe, la même pour tous les symboles, lorsque cet argument n’est pas associé à une variable.</p>
@@ -673,9 +673,9 @@ Figure 4.16: Sometimes, less is more!
 <li>Avec ce nouveau tableau <code>diams</code>, tapez le code permettant de créer le graphique <a href="viz.html#fig:exodiamonds">4.17</a> (Indice : affichez le tableau <code>diams</code> dans la console afin de voir quelles sont les variables disponibles).</li>
 </ol>
 <div class="figure" style="text-align: center"><span id="fig:exodiamonds"></span>
-<img src="figure/exodiamonds-1.png" alt="Prix de 5000 diamants en fonction de leur taille en carats et de leur clarté" width="90%" />
+<img src="figure/exodiamonds-1.png" alt="Prix de 5000 diamants en fonction de leur taille en carats et de leur clarté." width="90%" />
 <p class="caption">
-Figure 4.17: Prix de 5000 diamants en fonction de leur taille en carats et de leur clarté
+Figure 4.17: Prix de 5000 diamants en fonction de leur taille en carats et de leur clarté.
 </p>
 </div>
 <ol start="4" style="list-style-type: decimal">
@@ -707,12 +707,12 @@ Figure 4.17: Prix de 5000 diamants en fonction de leur taille en carats et de le
 # ... with 26,105 more rows, and 6 more variables: wind_speed &lt;dbl&gt;,
 #   wind_gust &lt;dbl&gt;, precip &lt;dbl&gt;, pressure &lt;dbl&gt;, visib &lt;dbl&gt;,
 #   time_hour &lt;dttm&gt;</code></pre>
-<p>Nous allons nous intéresser à la variable <code>temp</code>, qui contient un enregistrement de température pour chaque heure de chaque jour de 2013 pour les 3 aéroports de New York. Cela représente une grande quantité de données, aussi, nous nous limiterons aux températures observées entre le 1er et le 15 janvier, pour l’aéroport Newark uniquement.</p>
+<p>Nous allons nous intéresser à la variable <code>temp</code>, qui contient un enregistrement de température pour chaque heure de chaque jour de 2013 pour les 3 aéroports de New York. Cela représente une grande quantité de données, aussi, nous nous limiterons aux températures observées entre le premier et le 15 janvier, pour l’aéroport Newark uniquement.</p>
 <div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" title="1">small_weather &lt;-<span class="st"> </span>weather <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb95-2" title="2"><span class="st">  </span><span class="kw">filter</span>(origin <span class="op">==</span><span class="st"> &quot;EWR&quot;</span>,</a>
 <a class="sourceLine" id="cb95-3" title="3">         month <span class="op">==</span><span class="st"> </span><span class="dv">1</span>,</a>
 <a class="sourceLine" id="cb95-4" title="4">         day <span class="op">&lt;=</span><span class="st"> </span><span class="dv">15</span>)</a></code></pre></div>
-<p>La fonction <code>filter()</code> fonctionne sur le même principe que la fonction <code>subset()</code> vue lors du premier TP. Ici, nous demandons à R de créer un nouveau tableau de données, nommé <code>small_weather</code>, qui ne contiendra que les lignes correspondant à <code>origin == &quot;EWR&quot;</code>, et <code>month == 1</code>, et <code>day &lt;= 15</code>, c’est à dire les données météorologiques de l’aéroport de Newark pour les 15 premiers jours de janvier 2013.</p>
+<p>La fonction <code>filter()</code> fonctionne sur le même principe que la fonction <code>subset()</code> découverte dans les tutoriels de DataCamp. Ici, nous demandons à R de créer un nouveau tableau de données, nommé <code>small_weather</code>, qui ne contiendra que les lignes correspondant à <code>origin == &quot;EWR&quot;</code>, <code>month == 1</code> et <code>day &lt;= 15</code>, c’est à dire les données météorologiques de l’aéroport de Newark pour les 15 premiers jours de janvier 2013.</p>
 </div>
 <div id="exercice" class="section level3">
 <h3><span class="header-section-number">4.4.2</span> Exercice</h3>
@@ -724,20 +724,20 @@ Figure 4.17: Prix de 5000 diamants en fonction de leur taille en carats et de le
 <div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> small_weather, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> time_hour, <span class="dt">y =</span> temp)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb96-2" title="2"><span class="st">  </span><span class="kw">geom_line</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:linegraph"></span>
-<img src="figure/linegraph-1.png" alt="Températures horaires à l'aéroport de Newark entre le 1er et le 15 janvier 2013" width="90%" />
+<img src="figure/linegraph-1.png" alt="Températures horaires à l'aéroport de Newark entre le 1er et le 15 janvier 2013." width="90%" />
 <p class="caption">
-Figure 4.18: Températures horaires à l’aéroport de Newark entre le 1er et le 15 janvier 2013
+Figure 4.18: Températures horaires à l’aéroport de Newark entre le 1er et le 15 janvier 2013.
 </p>
 </div>
 <p>Très logiquement, on observe des oscillations plus ou moins régulières qui correspondent à l’alternance jour/nuit. Notez l’échelle de l’axe des ordonnées : les températures sont enregistrées en degrés Farenheit.</p>
-<p>Nous connaissons maintenant 2 types d’objets <code>geom</code>étriques : les points les les lignes. il est tout à fait possible d’ajouter plusieurs couches à un graphique, chacune d’elle correspondant à un objet <code>geom</code>étrique différent :</p>
+<p>Nous connaissons maintenant 2 types d’objets <code>geom</code>étriques : les points et les lignes. Il est tout à fait possible d’ajouter plusieurs couches à un graphique, chacune d’elle correspondant à un objet <code>geom</code>étrique différent (voir figure <a href="viz.html#fig:lineplotgraph">4.19</a>) :</p>
 <div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> small_weather, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> time_hour, <span class="dt">y =</span> temp)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb97-2" title="2"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb97-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:lineplotgraph"></span>
-<img src="figure/lineplotgraph-1.png" alt="Températures horaires à l'aéroport de Newark entre le 1er et le 15 janvier 2013" width="90%" />
+<img src="figure/lineplotgraph-1.png" alt="Températures horaires à l'aéroport de Newark entre le 1er et le 15 janvier 2013." width="90%" />
 <p class="caption">
-Figure 4.19: Températures horaires à l’aéroport de Newark entre le 1er et le 15 janvier 2013
+Figure 4.19: Températures horaires à l’aéroport de Newark entre le 1er et le 15 janvier 2013.
 </p>
 </div>
 <p>Enfin, comme pour les points, il est possible de spécifier plusieurs caractéristiques esthétiques des lignes, soit en les associant à des variables, au sein de la fonction <code>aes()</code>, soit en les utilisant en guise de paramètres pour modifier l’aspect général. Les arguments les plus classiques sont une fois de plus <code>color</code> (ou <code>colour</code>) pour modifier la couleur des lignes, <code>linetype</code> pour modifier le type de lignes (continues, pointillées, tirets, etc), et <code>size</code> pour modifier l’épaisseur des lignes.</p>
@@ -745,31 +745,34 @@ Figure 4.19: Températures horaires à l’aéroport de Newark entre le 1er et l
 <div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" title="1">small_weather_airports &lt;-<span class="st"> </span>weather <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb98-2" title="2"><span class="st">  </span><span class="kw">filter</span>(month <span class="op">==</span><span class="st"> </span><span class="dv">1</span>,</a>
 <a class="sourceLine" id="cb98-3" title="3">         day <span class="op">&lt;=</span><span class="st"> </span><span class="dv">15</span>)</a></code></pre></div>
-<p>Nous pouvons maintenant réaliser un “linegraph” sur lequel une courbe apparaîtra pour chaque aéroport. Pour cela, nous devons associer la variable <code>origin</code> à un attribut esthétique des lignes. Par exemple :</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> small_weather_airports, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> time_hour, <span class="dt">y =</span> temp)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb99-2" title="2"><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">color =</span> origin))</a></code></pre></div>
+<p>Nous pouvons maintenant réaliser un “linegraph” sur lequel une courbe apparaîtra pour chaque aéroport. Pour cela, nous devons associer la variable <code>origin</code> à un attribut esthétique des lignes. Par exemple (figure <a href="viz.html#fig:linecolor">4.20</a>) :</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> small_weather_airports, </a>
+<a class="sourceLine" id="cb99-2" title="2">       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> time_hour, <span class="dt">y =</span> temp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb99-3" title="3"><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">color =</span> origin))</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:linecolor"></span>
-<img src="figure/linecolor-1.png" alt="Températures horaires des 3 aéroports de New York entre le 1er et le 15 janvier 2013" width="90%" />
+<img src="figure/linecolor-1.png" alt="Températures horaires des 3 aéroports de New York entre le 1er et le 15 janvier 2013." width="90%" />
 <p class="caption">
-Figure 4.20: Températures horaires des 3 aéroports de New York entre le 1er et le 15 janvier 2013
+Figure 4.20: Températures horaires des 3 aéroports de New York entre le 1er et le 15 janvier 2013.
 </p>
 </div>
-<p>Ou bien :</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> small_weather_airports, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> time_hour, <span class="dt">y =</span> temp)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb100-2" title="2"><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">linetype =</span> origin))</a></code></pre></div>
+<p>Ou bien (figure <a href="viz.html#fig:linetype">4.21</a>) :</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> small_weather_airports, </a>
+<a class="sourceLine" id="cb100-2" title="2">       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> time_hour, <span class="dt">y =</span> temp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb100-3" title="3"><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">linetype =</span> origin))</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:linetype"></span>
-<img src="figure/linetype-1.png" alt="Températures horaires des 3 aéroports de New York entre le 1er et le 15 janvier 2013" width="90%" />
+<img src="figure/linetype-1.png" alt="Températures horaires des 3 aéroports de New York entre le 1er et le 15 janvier 2013." width="90%" />
 <p class="caption">
-Figure 4.21: Températures horaires des 3 aéroports de New York entre le 1er et le 15 janvier 2013
+Figure 4.21: Températures horaires des 3 aéroports de New York entre le 1er et le 15 janvier 2013.
 </p>
 </div>
-<p>Ou encore :</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> small_weather_airports, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> time_hour, <span class="dt">y =</span> temp)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb101-2" title="2"><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">color =</span> origin, <span class="dt">linetype =</span> origin))</a></code></pre></div>
+<p>Ou encore (figure <a href="viz.html#fig:linetypecolor">4.22</a>) :</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> small_weather_airports, </a>
+<a class="sourceLine" id="cb101-2" title="2">       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> time_hour, <span class="dt">y =</span> temp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb101-3" title="3"><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">color =</span> origin, <span class="dt">linetype =</span> origin))</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:linetypecolor"></span>
-<img src="figure/linetypecolor-1.png" alt="Températures horaires des 3 aéroports de New York entre le 1er et le 15 janvier 2013" width="90%" />
+<img src="figure/linetypecolor-1.png" alt="Températures horaires des 3 aéroports de New York entre le 1er et le 15 janvier 2013." width="90%" />
 <p class="caption">
-Figure 4.22: Températures horaires des 3 aéroports de New York entre le 1er et le 15 janvier 2013
+Figure 4.22: Températures horaires des 3 aéroports de New York entre le 1er et le 15 janvier 2013.
 </p>
 </div>
 </div>
@@ -785,9 +788,9 @@ Figure 4.22: Températures horaires des 3 aéroports de New York entre le 1er et
 <a class="sourceLine" id="cb102-2" title="2"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb102-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:lineplotgraph2"></span>
-<img src="figure/lineplotgraph2-1.png" alt="Températures horaires à l'aéroport de Newark entre le 1er et le 15 janvier 2013" width="90%" />
+<img src="figure/lineplotgraph2-1.png" alt="Températures horaires à l'aéroport de Newark entre le 1er et le 15 janvier 2013." width="90%" />
 <p class="caption">
-Figure 4.23: Températures horaires à l’aéroport de Newark entre le 1er et le 15 janvier 2013
+Figure 4.23: Températures horaires à l’aéroport de Newark entre le 1er et le 15 janvier 2013.
 </p>
 </div>
 <p>Voyons ce qui se passe si on associe la variable <code>wind_speed</code> à l’esthétique <code>color</code>, à plusieurs endroits du code ci-dessus. Comparez les trois syntaxes et observez les différences entre les 3 graphiques obtenus :</p>
@@ -795,27 +798,27 @@ Figure 4.23: Températures horaires à l’aéroport de Newark entre le 1er et l
 <a class="sourceLine" id="cb103-2" title="2"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb103-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:wind"></span>
-<img src="figure/wind-1.png" alt="Températures horaires et vitesse du vent à l'aéroport de Newark entre le 1er et le 15 janvier 2013" width="90%" />
+<img src="figure/wind-1.png" alt="Températures horaires et vitesse du vent à l'aéroport de Newark entre le 1er et le 15 janvier 2013. La couleur de la ligne et des points renseigne sur la vitesse du vent." width="90%" />
 <p class="caption">
-Figure 4.24: Températures horaires et vitesse du vent à l’aéroport de Newark entre le 1er et le 15 janvier 2013
+Figure 4.24: Températures horaires et vitesse du vent à l’aéroport de Newark entre le 1er et le 15 janvier 2013. La couleur de la ligne et des points renseigne sur la vitesse du vent.
 </p>
 </div>
 <div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" title="1"><span class="kw">ggplot</span>(small_weather, <span class="kw">aes</span>(<span class="dt">x =</span> time_hour, <span class="dt">y =</span> temp)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb104-2" title="2"><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">color =</span> wind_speed)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb104-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:wind2"></span>
-<img src="figure/wind2-1.png" alt="Températures horaires et vitesse du vent à l'aéroport de Newark entre le 1er et le 15 janvier 2013" width="90%" />
+<img src="figure/wind2-1.png" alt="Températures horaires et vitesse du vent à l'aéroport de Newark entre le 1er et le 15 janvier 2013. La couleur de la ligne renseigne sur la vitesse du vent." width="90%" />
 <p class="caption">
-Figure 4.25: Températures horaires et vitesse du vent à l’aéroport de Newark entre le 1er et le 15 janvier 2013
+Figure 4.25: Températures horaires et vitesse du vent à l’aéroport de Newark entre le 1er et le 15 janvier 2013. La couleur de la ligne renseigne sur la vitesse du vent.
 </p>
 </div>
 <div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" title="1"><span class="kw">ggplot</span>(small_weather, <span class="kw">aes</span>(<span class="dt">x =</span> time_hour, <span class="dt">y =</span> temp)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb105-2" title="2"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb105-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> wind_speed))</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:wind3"></span>
-<img src="figure/wind3-1.png" alt="Températures horaires et vitesse du vent à l'aéroport de Newark entre le 1er et le 15 janvier 2013" width="90%" />
+<img src="figure/wind3-1.png" alt="Températures horaires et vitesse du vent à l'aéroport de Newark entre le 1er et le 15 janvier 2013. La couleur des points renseigne sur la vitesse du vent." width="90%" />
 <p class="caption">
-Figure 4.26: Températures horaires et vitesse du vent à l’aéroport de Newark entre le 1er et le 15 janvier 2013
+Figure 4.26: Températures horaires et vitesse du vent à l’aéroport de Newark entre le 1er et le 15 janvier 2013. La couleur des points renseigne sur la vitesse du vent.
 </p>
 </div>
 <p>Vous l’aurez compris, lorsque l’on spécifie <code>aes()</code> à l’intérieur de la fonction <code>ggplot()</code>, les associations de variables et d’esthétiques sont appliquées à tous les objets géométriques, donc à toutes les autres couches. En revanche, quand <code>aes()</code> est spécifié dans une couche donnée, les réglages ne s’appliquent qu’à cette couche spécifique.</p>
@@ -824,9 +827,9 @@ Figure 4.26: Températures horaires et vitesse du vent à l’aéroport de Newar
 <a class="sourceLine" id="cb106-2" title="2"><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">color =</span> <span class="st">&quot;orange&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb106-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:wind4"></span>
-<img src="figure/wind4-1.png" alt="Températures horaires et vitesse du vent à l'aéroport de Newark entre le 1er et le 15 janvier 2013" width="90%" />
+<img src="figure/wind4-1.png" alt="Températures horaires et vitesse du vent à l'aéroport de Newark entre le 1er et le 15 janvier 2013." width="90%" />
 <p class="caption">
-Figure 4.27: Températures horaires et vitesse du vent à l’aéroport de Newark entre le 1er et le 15 janvier 2013
+Figure 4.27: Températures horaires et vitesse du vent à l’aéroport de Newark entre le 1er et le 15 janvier 2013.
 </p>
 </div>
 <p>il est ainsi possible de spécifier des éléments esthétiques qui s’appliqueront à toutes les couches d’un graphique, et d’autres qui ne s’appliqueront qu’à une couche spécifique, qu’à un objet géométrique particulier.</p>
@@ -843,9 +846,9 @@ Figure 4.27: Températures horaires et vitesse du vent à l’aéroport de Newar
 <a class="sourceLine" id="cb107-2" title="2"><span class="st">  </span><span class="kw">geom_histogram</span>()</a></code></pre></div>
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-44"></span>
-<img src="figure/unnamed-chunk-44-1.png" alt="Histogramme des températures enregistrées en 2013 dans les 3 aéroports de New York" width="90%" />
+<img src="figure/unnamed-chunk-44-1.png" alt="Histogramme des températures enregistrées en 2013 dans les 3 aéroports de New York." width="90%" />
 <p class="caption">
-Figure 4.28: Histogramme des températures enregistrées en 2013 dans les 3 aéroports de New York
+Figure 4.28: Histogramme des températures enregistrées en 2013 dans les 3 aéroports de New York.
 </p>
 </div>
 <p>On observe plusieurs choses :</p>
@@ -877,9 +880,9 @@ Figure 4.29: Utilisation des arguments <code>fill</code> et <code>color</code> p
 <div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" title="1"><span class="kw">ggplot</span>(weather, <span class="kw">aes</span>(<span class="dt">x =</span> temp)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb110-2" title="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">60</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-46"></span>
-<img src="figure/unnamed-chunk-46-1.png" alt="Modification du nombre de classes" width="90%" />
+<img src="figure/unnamed-chunk-46-1.png" alt="Modification du nombre de classes." width="90%" />
 <p class="caption">
-Figure 4.30: Modification du nombre de classes
+Figure 4.30: Modification du nombre de classes.
 </p>
 </div>
 <p>Ici, augmenter le nombre de classes à 60 permet de prendre conscience que la distribution n’est pas aussi lisse qu’elle en avait l’air. L’ajout d’une couche supplémentaire avec la fonction <code>geom_rug()</code> (“a rug” est un tapis en français) permet de prendre conscience que les données de température ne sont pas aussi continues qu’on pouvait le croire :</p>
@@ -897,18 +900,18 @@ Figure 4.31: Ajout des données brutes sous forme de ‘tapis’ (<code>rug</cod
 <div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" title="1"><span class="kw">ggplot</span>(weather, <span class="kw">aes</span>(<span class="dt">x =</span> temp)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb112-2" title="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">10</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-48"></span>
-<img src="figure/unnamed-chunk-48-1.png" alt="Modification de la largeur des classes avec `binwidth`" width="90%" />
+<img src="figure/unnamed-chunk-48-1.png" alt="Modification de la largeur des classes avec `binwidth`." width="90%" />
 <p class="caption">
-Figure 4.32: Modification de la largeur des classes avec <code>binwidth</code>
+Figure 4.32: Modification de la largeur des classes avec <code>binwidth</code>.
 </p>
 </div>
 <p>Ici chaque catégorie recouvre 10 degrés farenheit, ce qui est probablement trop large puisque la bimodalité de la distribution est devenue presque invisible. Enfin, il est possible de déterminer manuellement les limites des classes souhaitées avec l’argument <code>breaks</code> :</p>
 <div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" title="1"><span class="kw">ggplot</span>(weather, <span class="kw">aes</span>(<span class="dt">x =</span> temp)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb113-2" title="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">80</span>, <span class="dv">105</span>), <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-49"></span>
-<img src="figure/unnamed-chunk-49-1.png" alt="Spécification manuelle des limites de classes de tailles (classes irrégulières)" width="90%" />
+<img src="figure/unnamed-chunk-49-1.png" alt="Spécification manuelle des limites de classes de tailles (classes irrégulières)." width="90%" />
 <p class="caption">
-Figure 4.33: Spécification manuelle des limites de classes de tailles (classes irrégulières)
+Figure 4.33: Spécification manuelle des limites de classes de tailles (classes irrégulières).
 </p>
 </div>
 <p>Vous constatez ici que les choix effectués ne sont pas très pertinents : toutes les classes n’ont pas la même largeur. Cela rend l’interprétation difficile. Il est donc vivement conseillé, pour spécifier <code>breaks</code>, de créer des suites régulières, comme avec la fonction <code>seq()</code> par exemple (consultez son fichier d’aide et les exemples !) :</p>
@@ -919,9 +922,9 @@ Figure 4.33: Spécification manuelle des limites de classes de tailles (classes 
 <div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" title="1"><span class="kw">ggplot</span>(weather, <span class="kw">aes</span>(<span class="dt">x =</span> temp)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb116-2" title="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">breaks =</span> limits, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:break"></span>
-<img src="figure/break-1.png" alt="Un exemple d'utilisation de l'argument `break`" width="90%" />
+<img src="figure/break-1.png" alt="Un exemple d'utilisation de l'argument `breaks`." width="90%" />
 <p class="caption">
-Figure 4.34: Un exemple d’utilisation de l’argument <code>break</code>
+Figure 4.34: Un exemple d’utilisation de l’argument <code>breaks</code>.
 </p>
 </div>
 <p>Il est important que toute la gamme des valeurs de <code>temp</code> soit couverte par les limites des classes que nous avons définies, sinon, certaines valeurs sont omises et l’histogramme est donc incomplet/incorrect. Une façon de s’en assurer est d’afficher les résumé des données pour la colonne <code>temp</code> du jeu de données <code>weather</code> :</p>
@@ -1011,9 +1014,9 @@ Figure 4.38: Un boxplot for peu utile…
 <div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" title="1"><span class="kw">ggplot</span>(weather, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">factor</span>(month), <span class="dt">y =</span> temp)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb125-2" title="2"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-53"></span>
-<img src="figure/unnamed-chunk-53-1.png" alt="Boxplot des températures mensuelles" width="90%" />
+<img src="figure/unnamed-chunk-53-1.png" alt="Boxplot des températures mensuelles." width="90%" />
 <p class="caption">
-Figure 4.39: Boxplot des températures mensuelles
+Figure 4.39: Boxplot des températures mensuelles.
 </p>
 </div>
 <p>Les différents éléments d’un boxplot, sont les suivants :</p>
@@ -1044,9 +1047,9 @@ Nous reviendrons sur cette notion importante plus tard dans le cursus, car ce ty
 <h3><span class="header-section-number">4.7.3</span> Une autre façon d’examiner des distributions</h3>
 <p>Dernière chose concernant les boxplots : il s’agit d’une représentation graphique très proche de l’histogramme. Pour vous en convaincre, je représente à la figure <a href="viz.html#fig:compboxplot">4.41</a> ci-dessous uniquement les temperatures du mois de novembre, avec 3 types d’objets géométriques différents : un histogramme, un boxplot, et un nuage de points.</p>
 <div class="figure" style="text-align: center"><span id="fig:compboxplot"></span>
-<img src="figure/compboxplot-1.png" alt="Distribution des températures de Novembre 2013" width="90%" />
+<img src="figure/compboxplot-1.png" alt="Distribution des températures de Novembre 2013." width="90%" />
 <p class="caption">
-Figure 4.41: Distribution des températures de Novembre 2013
+Figure 4.41: Distribution des températures de Novembre 2013.
 </p>
 </div>
 <p>Nous avons donc, à gauche un histogramme pour les températures de novembre (j’ai permuté les axes pour que <code>y</code> porte la température pour les 3 graphiques), au centre, un boxplot pour ces mêmes données, et à droite, les données brutes, sous la forme d’un nuage de point créé avec <code>geom_jitter()</code>. On voit bien que ces 3 représentations graphiques sont similaires. Toutes rendent compte du fait que les températures de Novembre sont majoritairement comprises entre 35 et 52 degrés farenheit. Au-delà de cette fourchette (au-dessus comme en-dessous) les observations sont plus rares.</p>
@@ -1206,9 +1209,9 @@ Figure 4.47: Nombre de vols par compagnie aérienne au départ de New York en 20
 <p>À mon grand désarroi, l’un des graphiques les plus utilisé pour représenter la distribution d’une variable catégorielle est le diagramme circulaire (ou diagramme camembert, ou piechart en anglais). C’est presque toujours la plus mauvaise visualisation possible. Je vous demande de l’éviter à tout prix. Notre cerveau n’est en effet pas correctement équipé pour comparer des angles. Ainsi, par exemple, nous avons naturellement tendance à surestimer les angles supérieurs à 90º, et à sous-estimer les angles inférieurs à 90º. En d’autres termes, il est difficile pour les humains de comparer des grandeurs sur des diagrammes circulaires.</p>
 <p>À titre d’exemple, examinez ce diagramme, qui reprend les même chiffres que précédemment, et tentez de répondre aux questions suivantes :</p>
 <div class="figure" style="text-align: center"><span id="fig:piechart"></span>
-<img src="figure/piechart-1.png" alt="Nombre de vols par compagnie aérienne au départ de New York en 2013" width="90%" />
+<img src="figure/piechart-1.png" alt="Nombre de vols par compagnie aérienne au départ de New York en 2013." width="90%" />
 <p class="caption">
-Figure 4.48: Nombre de vols par compagnie aérienne au départ de New York en 2013
+Figure 4.48: Nombre de vols par compagnie aérienne au départ de New York en 2013.
 </p>
 </div>
 <ul>
@@ -1299,9 +1302,9 @@ Figure 4.52: Nombre de vols par compagnie aérienne au départ des 3 aéroports 
 <div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb145-1" title="1"><span class="kw">ggplot</span>(alaska_flights, <span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay, <span class="dt">color =</span> <span class="kw">factor</span>(month))) <span class="op">+</span></a>
 <a class="sourceLine" id="cb145-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:varcolorlabel"></span>
-<img src="figure/varcolorlabel-1.png" alt="Association de `color` à une variable catégorielle" width="90%" />
+<img src="figure/varcolorlabel-1.png" alt="Association de `color` à une variable catégorielle." width="90%" />
 <p class="caption">
-Figure 4.53: Association de <code>color</code> à une variable catégorielle
+Figure 4.53: Association de <code>color</code> à une variable catégorielle.
 </p>
 </div>
 <p>Nous pouvons ajouter sur ce graphique les éléments précisés plus haut en ajoutant la fonction <code>labs()</code> sur une nouvelle couche du graphique :</p>
@@ -1360,9 +1363,9 @@ Figure 4.56: Nombre de vols par compagnie aérienne au départ des 3 aéroports 
 </div>
 <p>Le package <code>RColorBrewer</code> propose une large gamme de palettes de couleurs :</p>
 <div class="figure" style="text-align: center"><span id="fig:RcolorbrewerPalettes"></span>
-<img src="images/brewer.png" alt="Toutes les palettes de couleur du package `RColorBrewer`" width="50%" />
+<img src="images/brewer.png" alt="Toutes les palettes de couleur du package `RColorBrewer`." width="50%" />
 <p class="caption">
-Figure 4.57: Toutes les palettes de couleur du package <code>RColorBrewer</code>
+Figure 4.57: Toutes les palettes de couleur du package <code>RColorBrewer</code>.
 </p>
 </div>
 <p><code>ggplot2</code> permet d’appliquer ces palettes très simplement :</p>
