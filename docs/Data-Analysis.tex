@@ -3338,17 +3338,17 @@ On observe plusieurs choses :
 \tightlist
 \item
   La distribution semble globalement bimodale avec un pic autour de
-  36-37 degrés farenheit (2 à 3 ºC) et un autre autour de 65-70 degrés
-  farenheit (18-21 ºC).
+  36-37 degrés Farenheit (2 à 3 ºC) et un autre autour de 65-70 degrés
+  Farenheit (18-21 ºC).
 \item
-  Les températures ont varié de 12 degrés farenheit (-11ºC) à 100 degrés
-  farenheit (près de 38ºC).
+  Les températures ont varié de 12 degrés Farenheit (-11ºC) à 100 degrés
+  Farenheit (près de 38ºC).
 \item
   R nous avertit qu'une valeur non finie n'a pas pu être intégrée
 \item
-  R nou indique qu'il a choisi de représenter 30 classes de températures
-  (\texttt{bins\ =\ 30}). C'est la valeur par défaut. R nous conseille
-  de choisir une valeur plus appropriée.
+  R nous indique qu'il a choisi de représenter 30 classes de
+  températures (\texttt{bins\ =\ 30}). C'est la valeur par défaut. R
+  nous conseille de choisir une valeur plus appropriée.
 \end{enumerate}
 
 Comme pour les nuages de points utilisant les symboles 21 à 24, il est
@@ -3377,8 +3377,8 @@ l'argument \texttt{color} :
 
 Par défaut, R choisit arbitrairement de représenter 30 classes. Ce n'est
 que rarement le bon choix, et il est souvent nécessaire de tâtonner pour
-trouver le nombre de classes : celui qui permet d'avoir une idée
-correcte de la distribution des données.
+trouver le nombre de classes approprié : celui qui permet d'avoir une
+idée correcte de la distribution des données.
 
 Il est possible d'ajuster les caractéristiques des classes de
 l'histogramme de l'une des 3 façons suivantes :
@@ -3387,12 +3387,12 @@ l'histogramme de l'une des 3 façons suivantes :
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  en ajustant le nombre de classes avec \texttt{bins}
+  En ajustant le nombre de classes avec \texttt{bins}.
 \item
-  en précisant la largeur des classes avec \texttt{binwidth}
+  En précisant la largeur des classes avec \texttt{binwidth}.
 \item
-  en fournissant manuellement les limites des classes avec
-  \texttt{breaks}
+  En fournissant manuellement les limites des classes avec
+  \texttt{breaks}.
 \end{enumerate}
 
 \begin{Shaded}
@@ -3416,7 +3416,7 @@ que la distribution n'est pas aussi lisse qu'elle en avait l'air.
 L'ajout d'une couche supplémentaire avec la fonction
 \texttt{geom\_rug()} (``a rug'' est un tapis en français) permet de
 prendre conscience que les données de température ne sont pas aussi
-continues qu'on pouvait le croire :
+continues qu'on pouvait le croire (figure \ref{fig:rughist}) :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3428,11 +3428,11 @@ continues qu'on pouvait le croire :
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-47-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/rughist-1} 
 
 }
 
-\caption{Ajout des données brutes sous forme de 'tapis' (`rug`) sous l'histogramme.}\label{fig:unnamed-chunk-47}
+\caption{Ajout des données brutes sous forme de 'tapis' (`rug`) sous l'histogramme.}\label{fig:rughist}
 \end{figure}
 
 Notez la transparence importante utilisée pour \texttt{geom\_rug()}. On
@@ -3451,18 +3451,18 @@ On peut également modifier la largeur des classes avec \texttt{binwidth}
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-48-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-47-1} 
 
 }
 
-\caption{Modification de la largeur des classes avec `binwidth`.}\label{fig:unnamed-chunk-48}
+\caption{Modification de la largeur des classes avec `binwidth`.}\label{fig:unnamed-chunk-47}
 \end{figure}
 
-Ici chaque catégorie recouvre 10 degrés farenheit, ce qui est
+Ici chaque catégorie recouvre 10 degrés Farenheit, ce qui est
 probablement trop large puisque la bimodalité de la distribution est
 devenue presque invisible. Enfin, il est possible de déterminer
 manuellement les limites des classes souhaitées avec l'argument
-\texttt{breaks} :
+\texttt{breaks} (figure \ref{fig:irregclasses}) :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3473,11 +3473,11 @@ manuellement les limites des classes souhaitées avec l'argument
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-49-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/irregclasses-1} 
 
 }
 
-\caption{Spécification manuelle des limites de classes de tailles (classes irrégulières).}\label{fig:unnamed-chunk-49}
+\caption{Spécification manuelle des limites de classes de tailles (classes irrégulières).}\label{fig:irregclasses}
 \end{figure}
 
 Vous constatez ici que les choix effectués ne sont pas très pertinents :
@@ -3533,8 +3533,8 @@ des données pour la colonne \texttt{temp} du jeu de données
   10.94   39.92   55.40   55.26   69.98  100.04       1 
 \end{verbatim}
 
-On voit ici que les températures varien de 10.94 à 100.04 degrés
-farenheit. Les classes que nous avons définies couvrent une plage de
+On voit ici que les températures varient de 10.94 à 100.04 degrés
+Farenheit. Les classes que nous avons définies couvrent une plage de
 température plus large (de 10 à 105). Toutes les données sont donc bien
 intégrées à l'histogramme.
 
@@ -3563,11 +3563,11 @@ chaque mois de l'année 2013, plutôt que de faire ceci :
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-51-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-49-1} 
 
 }
 
-\caption{Distribution des températures avec visualisation des données mensuelles.}\label{fig:unnamed-chunk-51}
+\caption{Distribution des températures avec visualisation des données mensuelles.}\label{fig:unnamed-chunk-49}
 \end{figure}
 
 qui produit un graphique certes assez joli, mais difficile à
@@ -3710,11 +3710,11 @@ Warning: Removed 1 rows containing non-finite values (stat_boxplot).
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-52-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-50-1} 
 
 }
 
-\caption{Un boxplot for peu utile...}\label{fig:unnamed-chunk-52}
+\caption{Un boxplot for peu utile...}\label{fig:unnamed-chunk-50}
 \end{figure}
 
 Comme précédemment, R nous avertit qu'une observation n'a pas été
@@ -3737,11 +3737,11 @@ variable est considérée comme une variable numérique continue :
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-53-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-51-1} 
 
 }
 
-\caption{Boxplot des températures mensuelles.}\label{fig:unnamed-chunk-53}
+\caption{Boxplot des températures mensuelles.}\label{fig:unnamed-chunk-51}
 \end{figure}
 
 Les différents éléments d'un boxplot, sont les suivants :
@@ -3860,7 +3860,7 @@ pour les 3 graphiques), au centre, un boxplot pour ces mêmes données, et
 avec \texttt{geom\_jitter()}. On voit bien que ces 3 représentations
 graphiques sont similaires. Toutes rendent compte du fait que les
 températures de Novembre sont majoritairement comprises entre 35 et 52
-degrés farenheit. Au-delà de cette fourchette (au-dessus comme
+degrés Farenheit. Au-delà de cette fourchette (au-dessus comme
 en-dessous) les observations sont plus rares.
 
 Le nuage de points affiche toutes les données. C'est donc lui le plus
@@ -6896,11 +6896,11 @@ Voilà comment traduire cela avec le pipe :
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-91-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-89-1} 
 
 }
 
-\caption{Notre premier graphique, produit grâce au pipe}\label{fig:unnamed-chunk-91}
+\caption{Notre premier graphique, produit grâce au pipe}\label{fig:unnamed-chunk-89}
 \end{figure}
 
 Notez bien qu'ici, aucun objet intermédiaire n'a été créé. Notez
@@ -8528,11 +8528,11 @@ l'ordre des catégories sera celui spécifié par la fonction
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.5\linewidth]{figure/unnamed-chunk-134-1} 
+{\centering \includegraphics[width=0.5\linewidth]{figure/unnamed-chunk-132-1} 
 
 }
 
-\caption{Indice Gonado Somatique  selon le sexe.}\label{fig:unnamed-chunk-134}
+\caption{Indice Gonado Somatique  selon le sexe.}\label{fig:unnamed-chunk-132}
 \end{figure}
 
 Comment faire pour inverser l'ordre des catégories sur l'axe des
@@ -8588,11 +8588,11 @@ avez chargé le \texttt{tidyverse}, \texttt{forcats} est déjà disponible
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.5\linewidth]{figure/unnamed-chunk-137-1} 
+{\centering \includegraphics[width=0.5\linewidth]{figure/unnamed-chunk-135-1} 
 
 }
 
-\caption{Indice Gonado Somatique  selon le sexe.}\label{fig:unnamed-chunk-137}
+\caption{Indice Gonado Somatique  selon le sexe.}\label{fig:unnamed-chunk-135}
 \end{figure}
 
 Revenons maintenant au jeu de données \texttt{dauphin}.

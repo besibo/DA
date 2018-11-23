@@ -853,10 +853,10 @@ Figure 4.28: Histogramme des températures enregistrées en 2013 dans les 3 aér
 </div>
 <p>On observe plusieurs choses :</p>
 <ol style="list-style-type: decimal">
-<li>La distribution semble globalement bimodale avec un pic autour de 36-37 degrés farenheit (2 à 3 ºC) et un autre autour de 65-70 degrés farenheit (18-21 ºC).</li>
-<li>Les températures ont varié de 12 degrés farenheit (-11ºC) à 100 degrés farenheit (près de 38ºC).</li>
+<li>La distribution semble globalement bimodale avec un pic autour de 36-37 degrés Farenheit (2 à 3 ºC) et un autre autour de 65-70 degrés Farenheit (18-21 ºC).</li>
+<li>Les températures ont varié de 12 degrés Farenheit (-11ºC) à 100 degrés Farenheit (près de 38ºC).</li>
 <li>R nous avertit qu’une valeur non finie n’a pas pu être intégrée</li>
-<li>R nou indique qu’il a choisi de représenter 30 classes de températures (<code>bins = 30</code>). C’est la valeur par défaut. R nous conseille de choisir une valeur plus appropriée.</li>
+<li>R nous indique qu’il a choisi de représenter 30 classes de températures (<code>bins = 30</code>). C’est la valeur par défaut. R nous conseille de choisir une valeur plus appropriée.</li>
 </ol>
 <p>Comme pour les nuages de points utilisant les symboles 21 à 24, il est possible de spécifier la couleur de remplissage des barres avec l’argument <code>fill</code> et la couleur du contour des barres avec l’argument <code>color</code> :</p>
 <div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" title="1"><span class="kw">ggplot</span>(weather, <span class="kw">aes</span>(<span class="dt">x =</span> temp)) <span class="op">+</span></a>
@@ -870,12 +870,12 @@ Figure 4.29: Utilisation des arguments <code>fill</code> et <code>color</code> p
 </div>
 <div id="la-taille-des-classes" class="section level3">
 <h3><span class="header-section-number">4.5.2</span> La taille des classes</h3>
-<p>Par défaut, R choisit arbitrairement de représenter 30 classes. Ce n’est que rarement le bon choix, et il est souvent nécessaire de tâtonner pour trouver le nombre de classes : celui qui permet d’avoir une idée correcte de la distribution des données.</p>
+<p>Par défaut, R choisit arbitrairement de représenter 30 classes. Ce n’est que rarement le bon choix, et il est souvent nécessaire de tâtonner pour trouver le nombre de classes approprié : celui qui permet d’avoir une idée correcte de la distribution des données.</p>
 <p>Il est possible d’ajuster les caractéristiques des classes de l’histogramme de l’une des 3 façons suivantes :</p>
 <ol style="list-style-type: decimal">
-<li>en ajustant le nombre de classes avec <code>bins</code></li>
-<li>en précisant la largeur des classes avec <code>binwidth</code></li>
-<li>en fournissant manuellement les limites des classes avec <code>breaks</code></li>
+<li>En ajustant le nombre de classes avec <code>bins</code>.</li>
+<li>En précisant la largeur des classes avec <code>binwidth</code>.</li>
+<li>En fournissant manuellement les limites des classes avec <code>breaks</code>.</li>
 </ol>
 <div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" title="1"><span class="kw">ggplot</span>(weather, <span class="kw">aes</span>(<span class="dt">x =</span> temp)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb110-2" title="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">60</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>)</a></code></pre></div>
@@ -885,12 +885,12 @@ Figure 4.29: Utilisation des arguments <code>fill</code> et <code>color</code> p
 Figure 4.30: Modification du nombre de classes.
 </p>
 </div>
-<p>Ici, augmenter le nombre de classes à 60 permet de prendre conscience que la distribution n’est pas aussi lisse qu’elle en avait l’air. L’ajout d’une couche supplémentaire avec la fonction <code>geom_rug()</code> (“a rug” est un tapis en français) permet de prendre conscience que les données de température ne sont pas aussi continues qu’on pouvait le croire :</p>
+<p>Ici, augmenter le nombre de classes à 60 permet de prendre conscience que la distribution n’est pas aussi lisse qu’elle en avait l’air. L’ajout d’une couche supplémentaire avec la fonction <code>geom_rug()</code> (“a rug” est un tapis en français) permet de prendre conscience que les données de température ne sont pas aussi continues qu’on pouvait le croire (figure <a href="viz.html#fig:rughist">4.31</a>) :</p>
 <div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" title="1"><span class="kw">ggplot</span>(weather, <span class="kw">aes</span>(<span class="dt">x =</span> temp)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb111-2" title="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">60</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb111-3" title="3"><span class="st">  </span><span class="kw">geom_rug</span>(<span class="dt">alpha =</span> <span class="fl">0.1</span>)</a></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-47"></span>
-<img src="figure/unnamed-chunk-47-1.png" alt="Ajout des données brutes sous forme de 'tapis' (`rug`) sous l'histogramme." width="90%" />
+<div class="figure" style="text-align: center"><span id="fig:rughist"></span>
+<img src="figure/rughist-1.png" alt="Ajout des données brutes sous forme de 'tapis' (`rug`) sous l'histogramme." width="90%" />
 <p class="caption">
 Figure 4.31: Ajout des données brutes sous forme de ‘tapis’ (<code>rug</code>) sous l’histogramme.
 </p>
@@ -899,17 +899,17 @@ Figure 4.31: Ajout des données brutes sous forme de ‘tapis’ (<code>rug</cod
 <p>On peut également modifier la largeur des classes avec <code>binwidth</code> :</p>
 <div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" title="1"><span class="kw">ggplot</span>(weather, <span class="kw">aes</span>(<span class="dt">x =</span> temp)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb112-2" title="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">10</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>)</a></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-48"></span>
-<img src="figure/unnamed-chunk-48-1.png" alt="Modification de la largeur des classes avec `binwidth`." width="90%" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-47"></span>
+<img src="figure/unnamed-chunk-47-1.png" alt="Modification de la largeur des classes avec `binwidth`." width="90%" />
 <p class="caption">
 Figure 4.32: Modification de la largeur des classes avec <code>binwidth</code>.
 </p>
 </div>
-<p>Ici chaque catégorie recouvre 10 degrés farenheit, ce qui est probablement trop large puisque la bimodalité de la distribution est devenue presque invisible. Enfin, il est possible de déterminer manuellement les limites des classes souhaitées avec l’argument <code>breaks</code> :</p>
+<p>Ici chaque catégorie recouvre 10 degrés Farenheit, ce qui est probablement trop large puisque la bimodalité de la distribution est devenue presque invisible. Enfin, il est possible de déterminer manuellement les limites des classes souhaitées avec l’argument <code>breaks</code> (figure <a href="viz.html#fig:irregclasses">4.33</a>) :</p>
 <div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" title="1"><span class="kw">ggplot</span>(weather, <span class="kw">aes</span>(<span class="dt">x =</span> temp)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb113-2" title="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">80</span>, <span class="dv">105</span>), <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>)</a></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-49"></span>
-<img src="figure/unnamed-chunk-49-1.png" alt="Spécification manuelle des limites de classes de tailles (classes irrégulières)." width="90%" />
+<div class="figure" style="text-align: center"><span id="fig:irregclasses"></span>
+<img src="figure/irregclasses-1.png" alt="Spécification manuelle des limites de classes de tailles (classes irrégulières)." width="90%" />
 <p class="caption">
 Figure 4.33: Spécification manuelle des limites de classes de tailles (classes irrégulières).
 </p>
@@ -931,7 +931,7 @@ Figure 4.34: Un exemple d’utilisation de l’argument <code>breaks</code>.
 <div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" title="1"><span class="kw">summary</span>(weather<span class="op">$</span>temp)</a></code></pre></div>
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
   10.94   39.92   55.40   55.26   69.98  100.04       1 </code></pre>
-<p>On voit ici que les températures varien de 10.94 à 100.04 degrés farenheit. Les classes que nous avons définies couvrent une plage de température plus large (de 10 à 105). Toutes les données sont donc bien intégrées à l’histogramme.</p>
+<p>On voit ici que les températures varient de 10.94 à 100.04 degrés Farenheit. Les classes que nous avons définies couvrent une plage de température plus large (de 10 à 105). Toutes les données sont donc bien intégrées à l’histogramme.</p>
 <hr />
 </div>
 </div>
@@ -943,8 +943,8 @@ Figure 4.34: Un exemple d’utilisation de l’argument <code>breaks</code>.
 <p>Ainsi, si l’on souhaite connaître la distribution des températures pour chaque mois de l’année 2013, plutôt que de faire ceci :</p>
 <div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" title="1"><span class="kw">ggplot</span>(weather, <span class="kw">aes</span>(<span class="dt">x =</span> temp, <span class="dt">fill =</span> <span class="kw">factor</span>(month))) <span class="op">+</span></a>
 <a class="sourceLine" id="cb119-2" title="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">20</span>, <span class="dt">color =</span> <span class="st">&quot;grey30&quot;</span>)</a></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-51"></span>
-<img src="figure/unnamed-chunk-51-1.png" alt="Distribution des températures avec visualisation des données mensuelles." width="90%" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-49"></span>
+<img src="figure/unnamed-chunk-49-1.png" alt="Distribution des températures avec visualisation des données mensuelles." width="90%" />
 <p class="caption">
 Figure 4.35: Distribution des températures avec visualisation des données mensuelles.
 </p>
@@ -1003,8 +1003,8 @@ Figure 4.37: Un exemple d’utilisation de <code>facet_grid()</code>.
 <a class="sourceLine" id="cb122-2" title="2"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
 <pre><code>Warning: Continuous x aesthetic -- did you forget aes(group=...)?</code></pre>
 <pre><code>Warning: Removed 1 rows containing non-finite values (stat_boxplot).</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-52"></span>
-<img src="figure/unnamed-chunk-52-1.png" alt="Un boxplot for peu utile..." width="90%" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-50"></span>
+<img src="figure/unnamed-chunk-50-1.png" alt="Un boxplot for peu utile..." width="90%" />
 <p class="caption">
 Figure 4.38: Un boxplot for peu utile…
 </p>
@@ -1013,8 +1013,8 @@ Figure 4.38: Un boxplot for peu utile…
 <p>En effet, les boxplots sont généralement utilisés pour examiner la distribution d’une variable numérique pour chaque niveau d’une variable catégorielle (un facteur). Il nous faut donc, ici encore, transformer <code>month</code> en facteur car dans notre tableau de départ, cette variable est considérée comme une variable numérique continue :</p>
 <div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" title="1"><span class="kw">ggplot</span>(weather, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">factor</span>(month), <span class="dt">y =</span> temp)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb125-2" title="2"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-53"></span>
-<img src="figure/unnamed-chunk-53-1.png" alt="Boxplot des températures mensuelles." width="90%" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-51"></span>
+<img src="figure/unnamed-chunk-51-1.png" alt="Boxplot des températures mensuelles." width="90%" />
 <p class="caption">
 Figure 4.39: Boxplot des températures mensuelles.
 </p>
@@ -1052,7 +1052,7 @@ Nous reviendrons sur cette notion importante plus tard dans le cursus, car ce ty
 Figure 4.41: Distribution des températures de Novembre 2013.
 </p>
 </div>
-<p>Nous avons donc, à gauche un histogramme pour les températures de novembre (j’ai permuté les axes pour que <code>y</code> porte la température pour les 3 graphiques), au centre, un boxplot pour ces mêmes données, et à droite, les données brutes, sous la forme d’un nuage de point créé avec <code>geom_jitter()</code>. On voit bien que ces 3 représentations graphiques sont similaires. Toutes rendent compte du fait que les températures de Novembre sont majoritairement comprises entre 35 et 52 degrés farenheit. Au-delà de cette fourchette (au-dessus comme en-dessous) les observations sont plus rares.</p>
+<p>Nous avons donc, à gauche un histogramme pour les températures de novembre (j’ai permuté les axes pour que <code>y</code> porte la température pour les 3 graphiques), au centre, un boxplot pour ces mêmes données, et à droite, les données brutes, sous la forme d’un nuage de point créé avec <code>geom_jitter()</code>. On voit bien que ces 3 représentations graphiques sont similaires. Toutes rendent compte du fait que les températures de Novembre sont majoritairement comprises entre 35 et 52 degrés Farenheit. Au-delà de cette fourchette (au-dessus comme en-dessous) les observations sont plus rares.</p>
 <p>Le nuage de points affiche toutes les données. C’est donc lui le plus complet mais pas forcément le plus lisible. Les points sont en effet très nombreux et la lecture du graphique peut s’en trouver compliquée. L’histogramme simplifie les données en les regroupant dans des classes. C’est une sorte de résumé des données. On constate cependant toujours la présence de 2 pics qui correspondent aux zones plus denses du nuage de points. Le boxplot enfin synthétise encore plus ces données. Elles sont résumées par 7 valeurs seulement : le minimum, le maximum, les 3 quartiles, et les bornes de l’intervalle de confiance à 95% de la médiane. C’est une représentation très synthétique qui nous permet de comparer beaucoup de catégories côte à côte (voir la figure <a href="viz.html#fig:notchedboxplot">4.40</a> un peu plus haut), mais qui est forcément moins précise qu’un histogramme. Vous noterez toutefois que la boîte du boxplot recouvre en grande partie la zone des 2 pics de l’histogramme. En outre, sur la figure <a href="viz.html#fig:notchedboxplot">4.40</a>, la tendance générale est très visible : il fait plus chaud en été qu’en hiver (étonnant non ?).</p>
 </div>
 <div id="pour-conclure" class="section level3">
