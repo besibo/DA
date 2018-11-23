@@ -503,10 +503,10 @@ ggplot(weather, aes(x = temp)) +
 
 On observe plusieurs choses :
 
-1. La distribution semble globalement bimodale avec un pic autour de 36-37 degrés farenheit (2 à 3 ºC)  et un autre autour de 65-70 degrés farenheit (18-21 ºC).
-2. Les températures ont varié de 12 degrés farenheit (-11ºC) à 100 degrés farenheit (près de 38ºC).
+1. La distribution semble globalement bimodale avec un pic autour de 36-37 degrés Farenheit (2 à 3 ºC)  et un autre autour de 65-70 degrés Farenheit (18-21 ºC).
+2. Les températures ont varié de 12 degrés Farenheit (-11ºC) à 100 degrés Farenheit (près de 38ºC).
 3. R nous avertit qu'une valeur non finie n'a pas pu être intégrée
-4. R nou indique qu'il a choisi de représenter 30 classes de températures (`bins = 30`). C'est la valeur par défaut. R nous conseille de choisir une valeur plus appropriée.
+4. R nous indique qu'il a choisi de représenter 30 classes de températures (`bins = 30`). C'est la valeur par défaut. R nous conseille de choisir une valeur plus appropriée.
 
 Comme pour les nuages de points utilisant les symboles 21 à 24, il est possible de spécifier la couleur de remplissage des barres avec l'argument `fill` et la couleur du contour des barres avec l'argument `color` :
 
@@ -517,22 +517,22 @@ ggplot(weather, aes(x = temp)) +
 
 ### La taille des classes
 
-Par défaut, R choisit arbitrairement de représenter 30 classes. Ce n'est que rarement le bon choix, et il est souvent nécessaire de tâtonner pour trouver le nombre de classes : celui qui permet d'avoir une idée correcte de la distribution des données.
+Par défaut, R choisit arbitrairement de représenter 30 classes. Ce n'est que rarement le bon choix, et il est souvent nécessaire de tâtonner pour trouver le nombre de classes approprié : celui qui permet d'avoir une idée correcte de la distribution des données.
 
 Il est possible d'ajuster les caractéristiques des classes de l'histogramme de l'une des 3 façons suivantes :
 
-1. en ajustant le nombre de classes avec `bins`
-2. en précisant la largeur des classes avec `binwidth`
-3. en fournissant manuellement les limites des classes avec `breaks`
+1. En ajustant le nombre de classes avec `bins`.
+2. En précisant la largeur des classes avec `binwidth`.
+3. En fournissant manuellement les limites des classes avec `breaks`.
 
 ```{r warning=FALSE, tidy=FALSE, message=FALSE, fig.cap="Modification du nombre de classes."}
 ggplot(weather, aes(x = temp)) +
   geom_histogram(bins = 60, color = "white")
 ```
 
-Ici, augmenter le nombre de classes à 60 permet de prendre conscience que la distribution n'est pas aussi lisse qu'elle en avait l'air. L'ajout d'une couche supplémentaire avec la fonction `geom_rug()` ("a rug" est un tapis en français) permet de prendre conscience que les données de température ne sont pas aussi continues qu'on pouvait le croire :
+Ici, augmenter le nombre de classes à 60 permet de prendre conscience que la distribution n'est pas aussi lisse qu'elle en avait l'air. L'ajout d'une couche supplémentaire avec la fonction `geom_rug()` ("a rug" est un tapis en français) permet de prendre conscience que les données de température ne sont pas aussi continues qu'on pouvait le croire (figure \@ref(fig:rughist)) :
 
-```{r warning=FALSE, tidy=FALSE, message=FALSE, fig.cap="Ajout des données brutes sous forme de 'tapis' (`rug`) sous l'histogramme."}
+```{r rughist, warning=FALSE, tidy=FALSE, message=FALSE, fig.cap="Ajout des données brutes sous forme de 'tapis' (`rug`) sous l'histogramme."}
 ggplot(weather, aes(x = temp)) +
   geom_histogram(bins = 60, color = "white") +
   geom_rug(alpha = 0.1)
@@ -547,9 +547,9 @@ ggplot(weather, aes(x = temp)) +
   geom_histogram(binwidth = 10, color = "white")
 ```
 
-Ici chaque catégorie recouvre 10 degrés farenheit, ce qui est probablement trop large puisque la bimodalité de la distribution est devenue presque invisible. Enfin, il est possible de déterminer manuellement les limites des classes souhaitées avec l'argument `breaks` :
+Ici chaque catégorie recouvre 10 degrés Farenheit, ce qui est probablement trop large puisque la bimodalité de la distribution est devenue presque invisible. Enfin, il est possible de déterminer manuellement les limites des classes souhaitées avec l'argument `breaks` (figure \@ref(fig:irregclasses)) :
 
-```{r warning=FALSE, tidy=FALSE, message=FALSE, fig.cap="Spécification manuelle des limites de classes de tailles (classes irrégulières)."}
+```{r irregclasses, warning=FALSE, tidy=FALSE, message=FALSE, fig.cap="Spécification manuelle des limites de classes de tailles (classes irrégulières)."}
 ggplot(weather, aes(x = temp)) +
   geom_histogram(breaks = c(0, 10, 20, 50, 60, 70, 80, 105), color = "white")
 ```
@@ -569,7 +569,7 @@ Il est important que toute la gamme des valeurs de `temp` soit couverte par les 
 summary(weather$temp)
 ```
 
-On voit ici que les températures varien de 10.94 à 100.04 degrés farenheit. Les classes que nous avons définies couvrent une plage de température plus large (de 10 à 105). Toutes les données sont donc bien intégrées à l'histogramme.
+On voit ici que les températures varient de 10.94 à 100.04 degrés Farenheit. Les classes que nous avons définies couvrent une plage de température plus large (de 10 à 105). Toutes les données sont donc bien intégrées à l'histogramme.
 
 
 ----
@@ -702,7 +702,7 @@ pl3 <- weather %>%
 grid.arrange(pl1, pl2, pl3, nrow=1)
 ```
 
-Nous avons donc, à gauche un histogramme pour les températures de novembre (j'ai permuté les axes pour que `y` porte la température pour les 3 graphiques), au centre, un boxplot pour ces mêmes données, et à droite, les données brutes, sous la forme d'un nuage de point créé avec `geom_jitter()`. On voit bien que ces 3 représentations graphiques sont similaires. Toutes rendent compte du fait que les températures de Novembre sont majoritairement comprises entre 35 et 52 degrés farenheit. Au-delà de cette fourchette (au-dessus comme en-dessous) les observations sont plus rares.
+Nous avons donc, à gauche un histogramme pour les températures de novembre (j'ai permuté les axes pour que `y` porte la température pour les 3 graphiques), au centre, un boxplot pour ces mêmes données, et à droite, les données brutes, sous la forme d'un nuage de point créé avec `geom_jitter()`. On voit bien que ces 3 représentations graphiques sont similaires. Toutes rendent compte du fait que les températures de Novembre sont majoritairement comprises entre 35 et 52 degrés Farenheit. Au-delà de cette fourchette (au-dessus comme en-dessous) les observations sont plus rares.
 
 Le nuage de points affiche toutes les données. C'est donc lui le plus complet mais pas forcément le plus lisible. Les points sont en effet très nombreux et la lecture du graphique peut s'en trouver compliquée. L'histogramme simplifie les données en les regroupant dans des classes. C'est une sorte de résumé des données. On constate cependant toujours la présence de 2 pics qui correspondent aux zones plus denses du nuage de points. Le boxplot enfin synthétise encore plus ces données. Elles sont résumées par 7 valeurs seulement : le minimum, le maximum, les 3 quartiles, et les bornes de l'intervalle de confiance à 95% de la médiane. C'est une représentation très synthétique qui nous permet de comparer beaucoup de catégories côte à côte (voir la figure \@ref(fig:notchedboxplot) un peu plus haut), mais qui est forcément moins précise qu'un histogramme. Vous noterez toutefois que la boîte du boxplot recouvre en grande partie la zone des 2 pics de l'histogramme. En outre, sur la figure \@ref(fig:notchedboxplot), la tendance générale est très visible : il fait plus chaud en été qu'en hiver (étonnant non ?).
 
