@@ -25,7 +25,7 @@
 <meta name="author" content="Benoît Simon-Bouhet">
 
 
-<meta name="date" content="2018-11-23">
+<meta name="date" content="2018-11-24">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -854,8 +854,8 @@ Figure 4.28: Histogramme des températures enregistrées en 2013 dans les 3 aér
 <p>On observe plusieurs choses :</p>
 <ol style="list-style-type: decimal">
 <li>La distribution semble globalement bimodale avec un pic autour de 36-37 degrés Farenheit (2 à 3 ºC) et un autre autour de 65-70 degrés Farenheit (18-21 ºC).</li>
-<li>Les températures ont varié de 12 degrés Farenheit (-11ºC) à 100 degrés Farenheit (près de 38ºC).</li>
-<li>R nous avertit qu’une valeur non finie n’a pas pu être intégrée</li>
+<li>Les températures ont varié entre 12 degrés Farenheit (-11ºC) et 100 degrés Farenheit (près de 38ºC).</li>
+<li>R nous avertit qu’une valeur non finie n’a pas pu être intégrée.</li>
 <li>R nous indique qu’il a choisi de représenter 30 classes de températures (<code>bins = 30</code>). C’est la valeur par défaut. R nous conseille de choisir une valeur plus appropriée.</li>
 </ol>
 <p>Comme pour les nuages de points utilisant les symboles 21 à 24, il est possible de spécifier la couleur de remplissage des barres avec l’argument <code>fill</code> et la couleur du contour des barres avec l’argument <code>color</code> :</p>
@@ -905,7 +905,8 @@ Figure 4.31: Ajout des données brutes sous forme de ‘tapis’ (<code>rug</cod
 Figure 4.32: Modification de la largeur des classes avec <code>binwidth</code>.
 </p>
 </div>
-<p>Ici chaque catégorie recouvre 10 degrés Farenheit, ce qui est probablement trop large puisque la bimodalité de la distribution est devenue presque invisible. Enfin, il est possible de déterminer manuellement les limites des classes souhaitées avec l’argument <code>breaks</code> (figure <a href="viz.html#fig:irregclasses">4.33</a>) :</p>
+<p>Ici, chaque catégorie recouvre 10 degrés Farenheit, ce qui est probablement trop large puisque la bimodalité de la distribution est devenue presque invisible.</p>
+<p>Enfin, il est possible de déterminer manuellement les limites des classes souhaitées avec l’argument <code>breaks</code> (figure <a href="viz.html#fig:irregclasses">4.33</a>) :</p>
 <div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" title="1"><span class="kw">ggplot</span>(weather, <span class="kw">aes</span>(<span class="dt">x =</span> temp)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb113-2" title="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">80</span>, <span class="dv">105</span>), <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:irregclasses"></span>
@@ -914,7 +915,7 @@ Figure 4.32: Modification de la largeur des classes avec <code>binwidth</code>.
 Figure 4.33: Spécification manuelle des limites de classes de tailles (classes irrégulières).
 </p>
 </div>
-<p>Vous constatez ici que les choix effectués ne sont pas très pertinents : toutes les classes n’ont pas la même largeur. Cela rend l’interprétation difficile. Il est donc vivement conseillé, pour spécifier <code>breaks</code>, de créer des suites régulières, comme avec la fonction <code>seq()</code> par exemple (consultez son fichier d’aide et les exemples !) :</p>
+<p>Vous constatez ici que les choix effectués ne sont pas très pertinents : toutes les classes n’ont pas la même largeur. Cela rend l’interprétation difficile. Il est donc vivement conseillé, pour spécifier <code>breaks</code>, de créer des suites régulières, comme avec la fonction <code>seq()</code> (consultez son fichier d’aide et les exemples) :</p>
 <div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" title="1">limits &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">10</span>, <span class="dt">to =</span> <span class="dv">105</span>, <span class="dt">by =</span> <span class="dv">5</span>)</a>
 <a class="sourceLine" id="cb114-2" title="2">limits</a></code></pre></div>
 <pre><code> [1]  10  15  20  25  30  35  40  45  50  55  60  65  70  75  80  85
@@ -927,11 +928,11 @@ Figure 4.33: Spécification manuelle des limites de classes de tailles (classes 
 Figure 4.34: Un exemple d’utilisation de l’argument <code>breaks</code>.
 </p>
 </div>
-<p>Il est important que toute la gamme des valeurs de <code>temp</code> soit couverte par les limites des classes que nous avons définies, sinon, certaines valeurs sont omises et l’histogramme est donc incomplet/incorrect. Une façon de s’en assurer est d’afficher les résumé des données pour la colonne <code>temp</code> du jeu de données <code>weather</code> :</p>
+<p>Il est important que toute la gamme des valeurs de <code>temp</code> soit couverte par les limites des classes que nous avons définies, sinon, certaines valeurs sont omises et l’histogramme est donc incomplet/incorrect. Une façon de s’en assurer est d’afficher le résumé des données pour la colonne <code>temp</code> du jeu de données <code>weather</code> :</p>
 <div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" title="1"><span class="kw">summary</span>(weather<span class="op">$</span>temp)</a></code></pre></div>
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
   10.94   39.92   55.40   55.26   69.98  100.04       1 </code></pre>
-<p>On voit ici que les températures varient de 10.94 à 100.04 degrés Farenheit. Les classes que nous avons définies couvrent une plage de température plus large (de 10 à 105). Toutes les données sont donc bien intégrées à l’histogramme.</p>
+<p>On voit ici que les températures varient de 10.94 à 100.04 degrés Farenheit. Les classes que nous avons définies couvrent une plage de températures plus large (de 10 à 105). Toutes les données sont donc bien intégrées à l’histogramme.</p>
 <hr />
 </div>
 </div>

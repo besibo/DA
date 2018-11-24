@@ -129,7 +129,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2018-11-23}
+    \date{2018-11-24}
 
 \usepackage[french]{babel}
 \usepackage{mathspec}  % \usepackage{fontspec}
@@ -3341,10 +3341,10 @@ On observe plusieurs choses :
   36-37 degrés Farenheit (2 à 3 ºC) et un autre autour de 65-70 degrés
   Farenheit (18-21 ºC).
 \item
-  Les températures ont varié de 12 degrés Farenheit (-11ºC) à 100 degrés
-  Farenheit (près de 38ºC).
+  Les températures ont varié entre 12 degrés Farenheit (-11ºC) et 100
+  degrés Farenheit (près de 38ºC).
 \item
-  R nous avertit qu'une valeur non finie n'a pas pu être intégrée
+  R nous avertit qu'une valeur non finie n'a pas pu être intégrée.
 \item
   R nous indique qu'il a choisi de représenter 30 classes de
   températures (\texttt{bins\ =\ 30}). C'est la valeur par défaut. R
@@ -3458,11 +3458,13 @@ On peut également modifier la largeur des classes avec \texttt{binwidth}
 \caption{Modification de la largeur des classes avec `binwidth`.}\label{fig:unnamed-chunk-47}
 \end{figure}
 
-Ici chaque catégorie recouvre 10 degrés Farenheit, ce qui est
+Ici, chaque catégorie recouvre 10 degrés Farenheit, ce qui est
 probablement trop large puisque la bimodalité de la distribution est
-devenue presque invisible. Enfin, il est possible de déterminer
-manuellement les limites des classes souhaitées avec l'argument
-\texttt{breaks} (figure \ref{fig:irregclasses}) :
+devenue presque invisible.
+
+Enfin, il est possible de déterminer manuellement les limites des
+classes souhaitées avec l'argument \texttt{breaks} (figure
+\ref{fig:irregclasses}) :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3484,8 +3486,7 @@ Vous constatez ici que les choix effectués ne sont pas très pertinents :
 toutes les classes n'ont pas la même largeur. Cela rend l'interprétation
 difficile. Il est donc vivement conseillé, pour spécifier
 \texttt{breaks}, de créer des suites régulières, comme avec la fonction
-\texttt{seq()} par exemple (consultez son fichier d'aide et les exemples
-!) :
+\texttt{seq()} (consultez son fichier d'aide et les exemples) :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3518,7 +3519,7 @@ difficile. Il est donc vivement conseillé, pour spécifier
 Il est important que toute la gamme des valeurs de \texttt{temp} soit
 couverte par les limites des classes que nous avons définies, sinon,
 certaines valeurs sont omises et l'histogramme est donc
-incomplet/incorrect. Une façon de s'en assurer est d'afficher les résumé
+incomplet/incorrect. Une façon de s'en assurer est d'afficher le résumé
 des données pour la colonne \texttt{temp} du jeu de données
 \texttt{weather} :
 
@@ -3535,7 +3536,7 @@ des données pour la colonne \texttt{temp} du jeu de données
 
 On voit ici que les températures varient de 10.94 à 100.04 degrés
 Farenheit. Les classes que nous avons définies couvrent une plage de
-température plus large (de 10 à 105). Toutes les données sont donc bien
+températures plus large (de 10 à 105). Toutes les données sont donc bien
 intégrées à l'histogramme.
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
