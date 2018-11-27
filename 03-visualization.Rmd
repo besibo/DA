@@ -752,16 +752,16 @@ ggplot(data = fruits_counted, mapping = aes(x = fruit, y = nombre)) +
 
 Notez que les figures \@ref(fig:barplot) et \@ref(fig:barplotcol) sont absolument identiques (à l'exception du titre de l'axe des ordonnées), mais qu'elles ont été créées à partir de 2 tableaux de données différents. En particulier, notez que :
 
-- le code qui génère la figure \@ref(fig:barplot) utilise le jeu de données `fruits`, et n'associe pas de variable à l'axe des ordonnées : dans la fonction `aes()`, seule la variable associée à `x` est précisée. C'est la fonction `geom_bar()` qui calcule automatiquement les abondances (ou fréquences) pour chaque catégorie de la variable `fruit`. La variable `count` est ainsi générée automatiquement et associée à `y`.
-- le code qui génère la figure \@ref(fig:barplotcol) utilise le jeu de données `fruits_counted`. Ici, la variable `nombre` est associée à l'axe des `y` grâce à la fonction `aes()`. La fonction `geom_col()` a besoin de 2 variables (une variable catégorielle pour l'axe des `x` et une numérique pour l'axe des `y`) pour fonctionner.
+- Le code qui génère la figure \@ref(fig:barplot) utilise le jeu de données `fruits`, et n'associe pas de variable à l'axe des ordonnées : dans la fonction `aes()`, seule la variable associée à `x` est précisée. C'est la fonction `geom_bar()` qui calcule automatiquement les abondances (ou fréquences) pour chaque catégorie de la variable `fruit`. La variable `count` est ainsi générée automatiquement et associée à `y`.
+- Le code qui génère la figure \@ref(fig:barplotcol) utilise le jeu de données `fruits_counted`. Ici, la variable `nombre` est associée à l'axe des `y` grâce à la fonction `aes()`. La fonction `geom_col()` a besoin de 2 variables (une variable catégorielle pour l'axe des `x` et une numérique pour l'axe des `y`) pour fonctionner.
 
-Autrement dit, lorsque vous souhaiterez créer un diagramme bâtons, il faudra donc au préalable vérifier de quel type de données vous disposez pour choisir l'objet géométrique approprié :
+Autrement dit, lorsque vous souhaiterez créer un diagramme bâtons, il faudra au préalable vérifier de quel type de données vous disposez pour choisir l'objet géométrique approprié.
 
 - Si votre variable catégorielle n'est pas pré-comptée dans votre tableau de données, il faut utiliser `geom_bar()`
 - Si votre variable catégorielle est pré-comptée dans votre tableau de données, il faut utiliser `geom_col()` et associer explicitement les comptages à l'aesthétique `y` du graphique.
 
 
-### Un example concret
+### Un exemple concret
 
 Revenons à `nycflights13`. Imaginons que nous souhaitions connaître le nombre de vols affrétés par chaque compagnie aérienne au départ de New York en 2013. Dans le jeu de données `flights`, la variable `carrier` nous indique à quelle compagnie aérienne appartiennent chacun des 336776 vols ayant quitté New York en 2013. Une façon simple de représenter ces données est donc la suivante :
 
@@ -782,17 +782,17 @@ ggplot(data = flights, mapping = aes(x = fct_infreq(carrier))) +
 
 Ordonner les catégories par ordre décroissant est souvent indispensable afin de faciliter la lecture du graphique et les comparaisons entre catégories. 
 
-Si nous souhaitons connaître le nombre de vols précis de chaque compagnie aérienne, il nous faut faire appel à plusieurs fonctions du package `dplyr` que nous détaillerons dans le chapitre \@ref(wrangling). Ci-dessous, nous créons un nouveau tableau `carrier_table` contenant le nombre de vols de chaque compagnie aérienne et les compagnies sont ordonnées par nombre de vols décroissants :
+Si nous souhaitons connaître le nombre de vols précis de chaque compagnie aérienne, il nous faut faire appel à plusieurs fonctions du package `dplyr` que nous détaillerons dans le chapitre \@ref(wrangling). Ci-dessous, nous créons un nouveau tableau `carrier_table` contenant le nombre de vols de chaque compagnie aérienne et les compagnies sont ordonnées par nombres de vols décroissants :
 
 ```{r tidy = FALSE}
-carrier_table <- flights %>%   # Pour créer une nouvelle table, on prend flights, puis...
-  group_by(carrier) %>%        # On groupe les données par compagnie aérienne, puis...
-  summarize(nombre = n()) %>%  # On calcule le nombre de vols par compagnie, puis ...
-  arrange(desc(nombre))        # On trie le tableau par nombre de vols décroissant.
+carrier_table <- flights %>%   # On prend flights, puis...
+  group_by(carrier) %>%        # On groupe les données par compagnie, puis...
+  summarize(nombre = n()) %>%  # On calcule le nb de vols par Cie, puis ...
+  arrange(desc(nombre))        # On trie le tableau par nb de vols décroissant
 carrier_table                  # Enfin, on affiche la nouvelle table
 ```
 
-Ici, la table a été triée par nombre de vols décroissants. Mais attention, **les niveaux** du facteur `carrier` n'ont pas été modifiés :
+Ici, la table a été triée par nombres de vols décroissants. Mais attention, **les niveaux** du facteur `carrier` n'ont pas été modifiés :
 
 ```{r}
 factor(carrier_table$carrier)
@@ -807,31 +807,32 @@ ggplot(carrier_table, aes(x = carrier, y = nombre)) +
 
 Pour parvenir à nos fins, il faut cette fois avoir recours à la fonction `fct_reorder()` pour ordonner correctement les catégories. Cette fonction prends 3 arguments : 
 
-1. la variable catégorielle dont on souhaite réordonner les niveaux (ici, la variable `carrier` du tableau `carrier_table`)
-2. une variable numérique qui permet d'ordonner les catégories (ici, la variable `nombre` du même tableau)
-3. l'argument optionnel `.desc` qui permet de préciser si le tri doit être fait en ordre croissant (c'est le cas par défaut) ou décroissant.
+1. La variable catégorielle dont on souhaite réordonner les niveaux (ici, la variable `carrier` du tableau `carrier_table`).
+2. Une variable numérique qui permet d'ordonner les catégories (ici, la variable `nombre` du même tableau).
+3. L'argument optionnel `.desc` qui permet de préciser si le tri doit être fait en ordre croissant (c'est le cas par défaut) ou décroissant.
 
 ```{r bpcarriersortedcol, tidy=FALSE, warning = FALSE, fig.cap="Nombre de vols par compagnie aérienne au départ de New York en 2013."}
-ggplot(carrier_table, aes(x = fct_reorder(carrier, nombre, .desc = TRUE), y = nombre)) +
+ggplot(carrier_table, aes(x = fct_reorder(carrier, nombre, .desc = TRUE), 
+                          y = nombre)) +
   geom_col()
 ```
 
-Vous voyez donc que selon le type de données dont vous disposez (soit un tableau comme `flights`, avec toutes les observations, soit un tableau beaucou plus compact comme `carrier_table`), la démarche permettant de produire un diagramme bâton, dans lequel les catégories seront triées, sera différente.
+Vous voyez donc que selon le type de données dont vous disposez (soit un tableau comme `flights`, avec toutes les observations, soit un tableau beaucoup plus compact comme `carrier_table`), la démarche permettant de produire un diagramme bâtons, dans lequel les catégories seront triées, sera différente.
 
 
 ### Exercices
 
 1. Quelle est la différence entre un histogramme et un diagramme bâtons ?
 2. Pourquoi les histogrammes sont-ils inadaptés pour visualiser des données catégorielles ?
-3. Quel est le nom de la companie pour laquelle le plus grand nombre de vols ont quitté New York en 2013 (je veux connaître son nom, pas juste son code) ? Où se trouve cette information ?
-4. Quel est le nom de la companie pour laquelle le plus petit nombre de vols ont quitté New York en 2013 (je veux connaître son nom, pas juste son code) ? Où se trouve cette information ?
+3. Quel est le nom de la compagnie pour laquelle le plus grand nombre de vols ont quitté New York en 2013 (je veux connaître son nom, pas juste son code) ? Où se trouve cette information ?
+4. Quel est le nom de la compagnie pour laquelle le plus petit nombre de vols ont quitté New York en 2013 (je veux connaître son nom, pas juste son code) ? Où se trouve cette information ?
 
 
 ### Éviter à tout prix les diagrammes circulaires
 
-À mon grand désarroi, l'un des graphiques les plus utilisé pour représenter la distribution d'une variable catégorielle est le diagramme circulaire (ou diagramme camembert, ou piechart en anglais). C'est presque toujours la plus mauvaise visualisation possible. Je vous demande de l'éviter à tout prix. Notre cerveau n'est en effet pas correctement équipé pour comparer des angles. Ainsi, par exemple, nous avons naturellement tendance à surestimer les angles supérieurs à 90º, et à sous-estimer les angles inférieurs à 90º. En d'autres termes, il est difficile pour les humains de comparer des grandeurs sur des diagrammes circulaires.
+À mon grand désarroi, l'un des graphiques les plus utilisé pour représenter la distribution d'une variable catégorielle est le diagramme circulaire (ou diagramme camembert, piechart en anglais). C'est presque toujours la plus mauvaise visualisation possible. Je vous demande de l'éviter à tout prix. Notre cerveau n'est en effet pas correctement équipé pour comparer des angles. Ainsi, par exemple, nous avons naturellement tendance à surestimer les angles supérieurs à 90º, et à sous-estimer les angles inférieurs à 90º. En d'autres termes, il est difficile pour les humains de comparer des grandeurs sur des diagrammes circulaires.
 
-À titre d'exemple, examinez ce diagramme, qui reprend les même chiffres que précédemment, et tentez de répondre aux questions suivantes :
+À titre d'exemple, examinez ce diagramme, qui reprend les mêmes chiffres que précédemment, et tentez de répondre aux questions suivantes :
 
 ```{r piechart, echo=FALSE, fig.cap="Nombre de vols par compagnie aérienne au départ de New York en 2013."}
 flights %>% 
@@ -848,7 +849,7 @@ flights %>%
 
 - Comparez les compagnies ExpressJet Airlines (`EV`) et US Airways (`US`). De combien de fois la part de `EV` est-elle supérieure à celle d'`US` ? (2 fois, 3 fois, 1.2 fois ?...)
 - Quelle est la troisième compagnie aérienne la plus importante en terme de nombre de vols au départ de New York en 2013 ?
-- Combien de companies aériennes ont moins de vols que United Airlines (`UA`) ?
+- Combien de compagnies aériennes ont moins de vols que United Airlines (`UA`) ?
 
 Il est difficile (voir impossible) de répondre précisément à ces questions avec le diagramme circulaire de la figure \@ref(fig:piechart), alors qu'il est très simple d'obtenir des réponses précises avec un diagramme bâtons tel que présenté à la figure \@ref(fig:bpcarriersortedcol) (vérifiez-le !).
 
@@ -857,11 +858,11 @@ Il est difficile (voir impossible) de répondre précisément à ces questions a
 
 Il y a généralement 3 façons de procéder pour comparer la distribution de 2 variables catégorielles avec un diagramme bâtons :
 
-1. Faire un graphique empilé
-2. Faire un graphique juxtaposé
-3. Utiliser les `facet`s
+1. Faire un graphique empilé.
+2. Faire un graphique juxtaposé.
+3. Utiliser les `facet`s.
 
-Supposons par exemple que nous devions visualiser le nombre de vol de chaque compagnie aérienne, au départ de chacun des 3 aéroports de New York : John F. Kennedy (`JFK`), Newark (`EWR`) et La Guardia (LGA).
+Supposons par exemple que nous devions visualiser le nombre de vols de chaque compagnie aérienne, au départ de chacun des 3 aéroports de New York : John F. Kennedy (`JFK`), Newark (`EWR`) et La Guardia (`LGA`). Voyons comment procéder avec chacune des 3 méthodes énoncées ci-dessus.
 
 #### Graphique empilé
 
@@ -874,7 +875,7 @@ ggplot(flights, aes(x = fct_infreq(carrier), fill = origin)) +
 
 Notez qu'il s'agit du même code que celui utilisé pour la figure \@ref(fig:bpcarriersorted), à une différence près : l'ajout de `fill = origin` dans la fonction `aes()`, qui permet d'associer l'aéroport d'origine à la couleur de remplissage des barres. `fill` est associé à une variable (ici, elle est catégorielle), il est donc indispensable de faire figurer cet argument à l'intérieur de la fonction `aes()`. Quand on associe une variable à une caractéristique esthétique du graphique, on fait toujours figurer le code à l'intérieur de la fonction `aes()` (comme quand on associe une variable aux axes du graphique par exemple).
 
-À mon sens, le graphique peut gagner en lisibilité si on ajoute une couleur pour le contour des barres :
+À mon sens, le graphique gagne en lisibilité si on ajoute une couleur pour le contour des barres :
 
 ```{r stacked2, tidy=FALSE, warning = FALSE, fig.cap="Nombre de vols par compagnie aérienne au départ des 3 aéroports de New York en 2013."}
 ggplot(flights, aes(x = fct_infreq(carrier), fill = origin)) +
@@ -897,7 +898,7 @@ ggplot(flights, aes(x = fct_infreq(carrier), fill = origin)) +
 
 Passer d'un graphique empilé à un graphique juxtaposé est donc très simple : il suffit d'ajouter l'argument `position = "dodge"` à la fonction `geom_bar()`.
 
-Là encore, la lecture de ces graphiques est souvent difficile car la comparaison des catégories qui figurent sur l'axe des `x` n'est pas immédiate. Elle est en outre rendue plus difficile par le fait que toutes les barres n'ont pas la même largeur. Par exemple, sur la figure \@ref(fig:dodge), les 8 premières compagnies aériennes déservent les 3 aéroports de New York, mais les 2 suivantes (`WN` et `VX`) n'en déservent que 2, et les autres compagnie, qu'un seul. Puisque sur un barplot, seule la hauteur des barres compte, il faut prendre garde à ne pas se laisser influencer par la largeur des barres qui pourrait fausser notre perception.
+Là encore, la lecture de ces graphiques est souvent difficile car la comparaison des catégories qui figurent sur l'axe des `x` n'est pas immédiate. Elle est en outre rendue plus difficile par le fait que toutes les barres n'ont pas la même largeur. Par exemple, sur la figure \@ref(fig:dodge), les 8 premières compagnies aériennes déservent les 3 aéroports de New York, mais les 2 suivantes (`WN` et `VX`) n'en déservent que 2, et les autres compagnies, qu'un seul. Puisque sur un barplot, seule la hauteur des barres compte, il faut prendre garde à ne pas se laisser influencer par la largeur des barres qui pourraient fausser notre perception.
 
 
 #### Utilisation des `facet`s
@@ -917,22 +918,24 @@ Ici, chaque graphique permet de comparer les compagnies aériennes au sein de l'
 
 ## De l'exploration à l'exposition
 
-Vous savez maintenant comment produire une grande variété de graphiques, permettant d'explorer vos données, de visualiser le comportement d'une ou plusieurs variables, et de mettre en évidence des tendances, des relations entre variables numérique et/ou catégorielles. Afin de rendre vos graphiques plus présentables dans un rapport, il ne vous reste plus qu'à vous familiariser avec quelques fonctions permettant d'annoter correctement vos graphiques et d'en modifier les légendes si nécessaire.
+Vous savez maintenant comment produire une grande variété de graphiques, permettant d'explorer vos données, de visualiser le comportement d'une ou plusieurs variables, et de mettre en évidence des tendances, des relations entre variables numériques et/ou catégorielles. Outre les objets géométriques décrits jusqu'ici, `ggplot2` contient de nombreuses possibilités supplémentaires pour créer des graphiques parlants et originaux. Je ne peux donc que vous encourager à explorer par vous même les autres possibilités de ce package.
+Lorsque vous produisez un graphique parlant et permettant de véhiculer un message clair, vous devez ensuite rendre vos graphiques plus présentables afin de les intégrer dans un rapport ou une présentation. Cette section vous permettra de vous familiariser avec quelques fonctions permettant d'annoter correctement vos graphiques et d'en modifier les légendes si nécessaire.
 
 ### Les labels
 
 Le point de départ le plus évident est d'ajouter des labels de qualité. La fonction `labs()` du package `ggplot2` permet d'ajouter plusieurs types de labels sur vos graphiques :
 
-- un titre : il doit résumer les résultats les plus importants
-- un sous-titre : il permet de donner quelques détails supplémentaires
-- une légende : souvent utilisée pour présenter la source des données du graphique
-- un titre pour chaque axe : permet de préciser les variables portées par les axes et leurs unités
-- un titre pour les légendes de couleurs, de forme, de taille, etc
+- Un titre : il doit résumer les résultats les plus importants.
+- Un sous-titre : il permet de donner quelques détails supplémentaires.
+- Une légende : souvent utilisée pour présenter la source des données du graphique.
+- Un titre pour chaque axe : permet de préciser les variables portées par les axes et leurs unités.
+- Un titre pour les légendes de couleurs, de forme, de taille, etc.
 
 Reprenons par exemple le graphique de la figure \@ref(fig:varcolor) :
 
 ```{r, varcolorlabel, tidy=FALSE, warning=FALSE, fig.cap="Association de `color` à une variable catégorielle."}
-ggplot(alaska_flights, aes(x = dep_delay, y = arr_delay, color = factor(month))) +
+ggplot(alaska_flights, 
+       aes(x = dep_delay, y = arr_delay, color = factor(month))) +
   geom_point()
 ```
 
@@ -940,10 +943,13 @@ Nous pouvons ajouter sur ce graphique les éléments précisés plus haut en ajo
 
 
 ```{r, varcolorlabel2, tidy=FALSE, warning=FALSE, fig.cap="Exemple d'utilisation de `labs()`."}
-ggplot(alaska_flights, aes(x = dep_delay, y = arr_delay, color = factor(month))) +
+ggplot(alaska_flights, 
+       aes(x = dep_delay, y = arr_delay, color = factor(month))) +
   geom_point() +
-  labs(title = "Relation linéaire positive entre le retard des vols au départ et à l'arrivée",
-       subtitle = "L'essentiel des points est centré sur 0, mais certains retards dépassent 3 heures",
+  labs(title = "Relation linéaire positive entre le retard des vols
+                au départ et à l'arrivée",
+       subtitle = "L'essentiel des points est centré sur 0, 
+                   mais certains retards dépassent 3 heures",
        caption = "Source : nycflights13",
        x = "Retard au départ de New York (minutes)",
        y = "Retard à l'arrivée à destination (minutes)",

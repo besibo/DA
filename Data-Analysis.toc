@@ -64,7 +64,7 @@
 \contentsline {subsubsection}{\numberline {4.7.4}Pour conclure}{66}{subsubsection.4.7.4}
 \contentsline {subsection}{\numberline {4.8}Les diagrammes bâtons}{66}{subsection.4.8}
 \contentsline {subsubsection}{\numberline {4.8.1}Représentation graphique avec \texttt {geom\_bar} et \texttt {geom\_col}}{67}{subsubsection.4.8.1}
-\contentsline {subsubsection}{\numberline {4.8.2}Un example concret}{68}{subsubsection.4.8.2}
+\contentsline {subsubsection}{\numberline {4.8.2}Un exemple concret}{68}{subsubsection.4.8.2}
 \contentsline {subsubsection}{\numberline {4.8.3}Exercices}{72}{subsubsection.4.8.3}
 \contentsline {subsubsection}{\numberline {4.8.4}Éviter à tout prix les diagrammes circulaires}{72}{subsubsection.4.8.4}
 \contentsline {subsubsection}{\numberline {4.8.5}Comparer 2 variables catégorielles avec un diagramme bâton}{74}{subsubsection.4.8.5}
@@ -73,7 +73,7 @@
 \contentsline {paragraph}{\numberline {4.8.5.3}Utilisation des \texttt {facet}s}{76}{paragraph.4.8.5.3}
 \contentsline {subsection}{\numberline {4.9}De l'exploration à l'exposition}{78}{subsection.4.9}
 \contentsline {subsubsection}{\numberline {4.9.1}Les labels}{78}{subsubsection.4.9.1}
-\contentsline {subsubsection}{\numberline {4.9.2}Les échelles}{79}{subsubsection.4.9.2}
+\contentsline {subsubsection}{\numberline {4.9.2}Les échelles}{80}{subsubsection.4.9.2}
 \contentsline {subsubsection}{\numberline {4.9.3}Les thèmes}{98}{subsubsection.4.9.3}
 \contentsline {subsection}{\numberline {4.10}Exercices}{103}{subsection.4.10}
 \contentsline {section}{\numberline {5}(Ar)ranger des données avec \texttt {tidyr}}{104}{section.5}

@@ -129,7 +129,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2018-11-24}
+    \date{2018-11-27}
 
 \usepackage[french]{babel}
 \usepackage{mathspec}  % \usepackage{fontspec}
@@ -4008,7 +4008,7 @@ différents. En particulier, notez que :
 \begin{itemize}
 \tightlist
 \item
-  le code qui génère la figure \ref{fig:barplot} utilise le jeu de
+  Le code qui génère la figure \ref{fig:barplot} utilise le jeu de
   données \texttt{fruits}, et n'associe pas de variable à l'axe des
   ordonnées : dans la fonction \texttt{aes()}, seule la variable
   associée à \texttt{x} est précisée. C'est la fonction
@@ -4017,7 +4017,7 @@ différents. En particulier, notez que :
   variable \texttt{count} est ainsi générée automatiquement et associée
   à \texttt{y}.
 \item
-  le code qui génère la figure \ref{fig:barplotcol} utilise le jeu de
+  Le code qui génère la figure \ref{fig:barplotcol} utilise le jeu de
   données \texttt{fruits\_counted}. Ici, la variable \texttt{nombre} est
   associée à l'axe des \texttt{y} grâce à la fonction \texttt{aes()}. La
   fonction \texttt{geom\_col()} a besoin de 2 variables (une variable
@@ -4026,8 +4026,8 @@ différents. En particulier, notez que :
 \end{itemize}
 
 Autrement dit, lorsque vous souhaiterez créer un diagramme bâtons, il
-faudra donc au préalable vérifier de quel type de données vous disposez
-pour choisir l'objet géométrique approprié :
+faudra au préalable vérifier de quel type de données vous disposez pour
+choisir l'objet géométrique approprié.
 
 \begin{itemize}
 \tightlist
@@ -4040,8 +4040,8 @@ pour choisir l'objet géométrique approprié :
   explicitement les comptages à l'aesthétique \texttt{y} du graphique.
 \end{itemize}
 
-\hypertarget{un-example-concret}{%
-\subsubsection{Un example concret}\label{un-example-concret}}
+\hypertarget{un-exemple-concret}{%
+\subsubsection{Un exemple concret}\label{un-exemple-concret}}
 
 Revenons à \texttt{nycflights13}. Imaginons que nous souhaitions
 connaître le nombre de vols affrétés par chaque compagnie aérienne au
@@ -4102,15 +4102,15 @@ compagnie aérienne, il nous faut faire appel à plusieurs fonctions du
 package \texttt{dplyr} que nous détaillerons dans le chapitre
 \ref{wrangling}. Ci-dessous, nous créons un nouveau tableau
 \texttt{carrier\_table} contenant le nombre de vols de chaque compagnie
-aérienne et les compagnies sont ordonnées par nombre de vols
+aérienne et les compagnies sont ordonnées par nombres de vols
 décroissants :
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{carrier_table <-}\StringTok{ }\NormalTok{flights }\OperatorTok{%>%}\StringTok{   }\CommentTok{# Pour créer une nouvelle table, on prend flights, puis...}
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(carrier) }\OperatorTok{%>%}\StringTok{        }\CommentTok{# On groupe les données par compagnie aérienne, puis...}
-\StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{nombre =} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}\StringTok{  }\CommentTok{# On calcule le nombre de vols par compagnie, puis ...}
-\StringTok{  }\KeywordTok{arrange}\NormalTok{(}\KeywordTok{desc}\NormalTok{(nombre))        }\CommentTok{# On trie le tableau par nombre de vols décroissant.}
+\NormalTok{carrier_table <-}\StringTok{ }\NormalTok{flights }\OperatorTok{%>%}\StringTok{   }\CommentTok{# On prend flights, puis...}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(carrier) }\OperatorTok{%>%}\StringTok{        }\CommentTok{# On groupe les données par compagnie, puis...}
+\StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{nombre =} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}\StringTok{  }\CommentTok{# On calcule le nb de vols par Cie, puis ...}
+\StringTok{  }\KeywordTok{arrange}\NormalTok{(}\KeywordTok{desc}\NormalTok{(nombre))        }\CommentTok{# On trie le tableau par nb de vols décroissant}
 \NormalTok{carrier_table                  }\CommentTok{# Enfin, on affiche la nouvelle table}
 \end{Highlighting}
 \end{Shaded}
@@ -4137,7 +4137,7 @@ décroissants :
 16 OO          32
 \end{verbatim}
 
-Ici, la table a été triée par nombre de vols décroissants. Mais
+Ici, la table a été triée par nombres de vols décroissants. Mais
 attention, \textbf{les niveaux} du facteur \texttt{carrier} n'ont pas
 été modifiés :
 
@@ -4183,20 +4183,21 @@ fonction prends 3 arguments :
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  la variable catégorielle dont on souhaite réordonner les niveaux (ici,
-  la variable \texttt{carrier} du tableau \texttt{carrier\_table})
+  La variable catégorielle dont on souhaite réordonner les niveaux (ici,
+  la variable \texttt{carrier} du tableau \texttt{carrier\_table}).
 \item
-  une variable numérique qui permet d'ordonner les catégories (ici, la
-  variable \texttt{nombre} du même tableau)
+  Une variable numérique qui permet d'ordonner les catégories (ici, la
+  variable \texttt{nombre} du même tableau).
 \item
-  l'argument optionnel \texttt{.desc} qui permet de préciser si le tri
+  L'argument optionnel \texttt{.desc} qui permet de préciser si le tri
   doit être fait en ordre croissant (c'est le cas par défaut) ou
   décroissant.
 \end{enumerate}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(carrier_table, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{fct_reorder}\NormalTok{(carrier, nombre, }\DataTypeTok{.desc =} \OtherTok{TRUE}\NormalTok{), }\DataTypeTok{y =}\NormalTok{ nombre)) }\OperatorTok{+}
+\KeywordTok{ggplot}\NormalTok{(carrier_table, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{fct_reorder}\NormalTok{(carrier, nombre, }\DataTypeTok{.desc =} \OtherTok{TRUE}\NormalTok{), }
+                          \DataTypeTok{y =}\NormalTok{ nombre)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_col}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
@@ -4212,9 +4213,9 @@ fonction prends 3 arguments :
 
 Vous voyez donc que selon le type de données dont vous disposez (soit un
 tableau comme \texttt{flights}, avec toutes les observations, soit un
-tableau beaucou plus compact comme \texttt{carrier\_table}), la démarche
-permettant de produire un diagramme bâton, dans lequel les catégories
-seront triées, sera différente.
+tableau beaucoup plus compact comme \texttt{carrier\_table}), la
+démarche permettant de produire un diagramme bâtons, dans lequel les
+catégories seront triées, sera différente.
 
 \hypertarget{exercices-5}{%
 \subsubsection{Exercices}\label{exercices-5}}
@@ -4228,11 +4229,11 @@ seront triées, sera différente.
   Pourquoi les histogrammes sont-ils inadaptés pour visualiser des
   données catégorielles ?
 \item
-  Quel est le nom de la companie pour laquelle le plus grand nombre de
+  Quel est le nom de la compagnie pour laquelle le plus grand nombre de
   vols ont quitté New York en 2013 (je veux connaître son nom, pas juste
   son code) ? Où se trouve cette information ?
 \item
-  Quel est le nom de la companie pour laquelle le plus petit nombre de
+  Quel est le nom de la compagnie pour laquelle le plus petit nombre de
   vols ont quitté New York en 2013 (je veux connaître son nom, pas juste
   son code) ? Où se trouve cette information ?
 \end{enumerate}
@@ -4243,16 +4244,16 @@ circulaires}\label{eviter-a-tout-prix-les-diagrammes-circulaires}}
 
 À mon grand désarroi, l'un des graphiques les plus utilisé pour
 représenter la distribution d'une variable catégorielle est le diagramme
-circulaire (ou diagramme camembert, ou piechart en anglais). C'est
-presque toujours la plus mauvaise visualisation possible. Je vous
-demande de l'éviter à tout prix. Notre cerveau n'est en effet pas
-correctement équipé pour comparer des angles. Ainsi, par exemple, nous
-avons naturellement tendance à surestimer les angles supérieurs à 90º,
-et à sous-estimer les angles inférieurs à 90º. En d'autres termes, il
-est difficile pour les humains de comparer des grandeurs sur des
-diagrammes circulaires.
+circulaire (ou diagramme camembert, piechart en anglais). C'est presque
+toujours la plus mauvaise visualisation possible. Je vous demande de
+l'éviter à tout prix. Notre cerveau n'est en effet pas correctement
+équipé pour comparer des angles. Ainsi, par exemple, nous avons
+naturellement tendance à surestimer les angles supérieurs à 90º, et à
+sous-estimer les angles inférieurs à 90º. En d'autres termes, il est
+difficile pour les humains de comparer des grandeurs sur des diagrammes
+circulaires.
 
-À titre d'exemple, examinez ce diagramme, qui reprend les même chiffres
+À titre d'exemple, examinez ce diagramme, qui reprend les mêmes chiffres
 que précédemment, et tentez de répondre aux questions suivantes :
 
 \begin{figure}[htpb]
@@ -4275,7 +4276,7 @@ que précédemment, et tentez de répondre aux questions suivantes :
   Quelle est la troisième compagnie aérienne la plus importante en terme
   de nombre de vols au départ de New York en 2013 ?
 \item
-  Combien de companies aériennes ont moins de vols que United Airlines
+  Combien de compagnies aériennes ont moins de vols que United Airlines
   (\texttt{UA}) ?
 \end{itemize}
 
@@ -4296,17 +4297,18 @@ de 2 variables catégorielles avec un diagramme bâtons :
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Faire un graphique empilé
+  Faire un graphique empilé.
 \item
-  Faire un graphique juxtaposé
+  Faire un graphique juxtaposé.
 \item
-  Utiliser les \texttt{facet}s
+  Utiliser les \texttt{facet}s.
 \end{enumerate}
 
-Supposons par exemple que nous devions visualiser le nombre de vol de
+Supposons par exemple que nous devions visualiser le nombre de vols de
 chaque compagnie aérienne, au départ de chacun des 3 aéroports de New
 York : John F. Kennedy (\texttt{JFK}), Newark (\texttt{EWR}) et La
-Guardia (LGA).
+Guardia (\texttt{LGA}). Voyons comment procéder avec chacune des 3
+méthodes énoncées ci-dessus.
 
 \hypertarget{graphique-empile}{%
 \paragraph{Graphique empilé}\label{graphique-empile}}
@@ -4340,8 +4342,8 @@ caractéristique esthétique du graphique, on fait toujours figurer le
 code à l'intérieur de la fonction \texttt{aes()} (comme quand on associe
 une variable aux axes du graphique par exemple).
 
-À mon sens, le graphique peut gagner en lisibilité si on ajoute une
-couleur pour le contour des barres :
+À mon sens, le graphique gagne en lisibilité si on ajoute une couleur
+pour le contour des barres :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4401,9 +4403,9 @@ pas immédiate. Elle est en outre rendue plus difficile par le fait que
 toutes les barres n'ont pas la même largeur. Par exemple, sur la figure
 \ref{fig:dodge}, les 8 premières compagnies aériennes déservent les 3
 aéroports de New York, mais les 2 suivantes (\texttt{WN} et \texttt{VX})
-n'en déservent que 2, et les autres compagnie, qu'un seul. Puisque sur
+n'en déservent que 2, et les autres compagnies, qu'un seul. Puisque sur
 un barplot, seule la hauteur des barres compte, il faut prendre garde à
-ne pas se laisser influencer par la largeur des barres qui pourrait
+ne pas se laisser influencer par la largeur des barres qui pourraient
 fausser notre perception.
 
 \hypertarget{utilisation-des-facets}{%
@@ -4446,10 +4448,17 @@ l'exposition}\label{de-lexploration-a-lexposition}}
 Vous savez maintenant comment produire une grande variété de graphiques,
 permettant d'explorer vos données, de visualiser le comportement d'une
 ou plusieurs variables, et de mettre en évidence des tendances, des
-relations entre variables numérique et/ou catégorielles. Afin de rendre
-vos graphiques plus présentables dans un rapport, il ne vous reste plus
-qu'à vous familiariser avec quelques fonctions permettant d'annoter
-correctement vos graphiques et d'en modifier les légendes si nécessaire.
+relations entre variables numériques et/ou catégorielles. Outre les
+objets géométriques décrits jusqu'ici, \texttt{ggplot2} contient de
+nombreuses possibilités supplémentaires pour créer des graphiques
+parlants et originaux. Je ne peux donc que vous encourager à explorer
+par vous même les autres possibilités de ce package. Lorsque vous
+produisez un graphique parlant et permettant de véhiculer un message
+clair, vous devez ensuite rendre vos graphiques plus présentables afin
+de les intégrer dans un rapport ou une présentation. Cette section vous
+permettra de vous familiariser avec quelques fonctions permettant
+d'annoter correctement vos graphiques et d'en modifier les légendes si
+nécessaire.
 
 \hypertarget{les-labels}{%
 \subsubsection{Les labels}\label{les-labels}}
@@ -4461,24 +4470,25 @@ plusieurs types de labels sur vos graphiques :
 \begin{itemize}
 \tightlist
 \item
-  un titre : il doit résumer les résultats les plus importants
+  Un titre : il doit résumer les résultats les plus importants.
 \item
-  un sous-titre : il permet de donner quelques détails supplémentaires
+  Un sous-titre : il permet de donner quelques détails supplémentaires.
 \item
-  une légende : souvent utilisée pour présenter la source des données du
-  graphique
+  Une légende : souvent utilisée pour présenter la source des données du
+  graphique.
 \item
-  un titre pour chaque axe : permet de préciser les variables portées
-  par les axes et leurs unités
+  Un titre pour chaque axe : permet de préciser les variables portées
+  par les axes et leurs unités.
 \item
-  un titre pour les légendes de couleurs, de forme, de taille, etc
+  Un titre pour les légendes de couleurs, de forme, de taille, etc.
 \end{itemize}
 
 Reprenons par exemple le graphique de la figure \ref{fig:varcolor} :
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(alaska_flights, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ dep_delay, }\DataTypeTok{y =}\NormalTok{ arr_delay, }\DataTypeTok{color =} \KeywordTok{factor}\NormalTok{(month))) }\OperatorTok{+}
+\KeywordTok{ggplot}\NormalTok{(alaska_flights, }
+       \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ dep_delay, }\DataTypeTok{y =}\NormalTok{ arr_delay, }\DataTypeTok{color =} \KeywordTok{factor}\NormalTok{(month))) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
@@ -4498,10 +4508,13 @@ graphique :
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(alaska_flights, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ dep_delay, }\DataTypeTok{y =}\NormalTok{ arr_delay, }\DataTypeTok{color =} \KeywordTok{factor}\NormalTok{(month))) }\OperatorTok{+}
+\KeywordTok{ggplot}\NormalTok{(alaska_flights, }
+       \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ dep_delay, }\DataTypeTok{y =}\NormalTok{ arr_delay, }\DataTypeTok{color =} \KeywordTok{factor}\NormalTok{(month))) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}
-\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Relation linéaire positive entre le retard des vols au départ et à l'arrivée"}\NormalTok{,}
-       \DataTypeTok{subtitle =} \StringTok{"L'essentiel des points est centré sur 0, mais certains retards dépassent 3 heures"}\NormalTok{,}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Relation linéaire positive entre le retard des vols}
+\StringTok{                au départ et à l'arrivée"}\NormalTok{,}
+       \DataTypeTok{subtitle =} \StringTok{"L'essentiel des points est centré sur 0, }
+\StringTok{                   mais certains retards dépassent 3 heures"}\NormalTok{,}
        \DataTypeTok{caption =} \StringTok{"Source : nycflights13"}\NormalTok{,}
        \DataTypeTok{x =} \StringTok{"Retard au départ de New York (minutes)"}\NormalTok{,}
        \DataTypeTok{y =} \StringTok{"Retard à l'arrivée à destination (minutes)"}\NormalTok{,}

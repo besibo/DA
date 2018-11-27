@@ -25,7 +25,7 @@
 <meta name="author" content="Benoît Simon-Bouhet">
 
 
-<meta name="date" content="2018-11-24">
+<meta name="date" content="2018-11-27">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -208,7 +208,7 @@ code span.wa { color: #bf0303; } /* Warning */
 </ul></li>
 <li class="chapter" data-level="4.8" data-path="viz.html"><a href="viz.html#les-diagrammes-batons"><i class="fa fa-check"></i><b>4.8</b> Les diagrammes bâtons</a><ul>
 <li class="chapter" data-level="4.8.1" data-path="viz.html"><a href="viz.html#representation-graphique-avec-geom_bar-et-geom_col"><i class="fa fa-check"></i><b>4.8.1</b> Représentation graphique avec <code>geom_bar</code> et <code>geom_col</code></a></li>
-<li class="chapter" data-level="4.8.2" data-path="viz.html"><a href="viz.html#un-example-concret"><i class="fa fa-check"></i><b>4.8.2</b> Un example concret</a></li>
+<li class="chapter" data-level="4.8.2" data-path="viz.html"><a href="viz.html#un-exemple-concret"><i class="fa fa-check"></i><b>4.8.2</b> Un exemple concret</a></li>
 <li class="chapter" data-level="4.8.3" data-path="viz.html"><a href="viz.html#exercices-5"><i class="fa fa-check"></i><b>4.8.3</b> Exercices</a></li>
 <li class="chapter" data-level="4.8.4" data-path="viz.html"><a href="viz.html#eviter-a-tout-prix-les-diagrammes-circulaires"><i class="fa fa-check"></i><b>4.8.4</b> Éviter à tout prix les diagrammes circulaires</a></li>
 <li class="chapter" data-level="4.8.5" data-path="viz.html"><a href="viz.html#comparer-2-variables-categorielles-avec-un-diagramme-baton"><i class="fa fa-check"></i><b>4.8.5</b> Comparer 2 variables catégorielles avec un diagramme bâton</a></li>
@@ -1109,17 +1109,17 @@ Figure 4.43: Barplot pour des données pré-comptées.
 </div>
 <p>Notez que les figures <a href="viz.html#fig:barplot">4.42</a> et <a href="viz.html#fig:barplotcol">4.43</a> sont absolument identiques (à l’exception du titre de l’axe des ordonnées), mais qu’elles ont été créées à partir de 2 tableaux de données différents. En particulier, notez que :</p>
 <ul>
-<li>le code qui génère la figure <a href="viz.html#fig:barplot">4.42</a> utilise le jeu de données <code>fruits</code>, et n’associe pas de variable à l’axe des ordonnées : dans la fonction <code>aes()</code>, seule la variable associée à <code>x</code> est précisée. C’est la fonction <code>geom_bar()</code> qui calcule automatiquement les abondances (ou fréquences) pour chaque catégorie de la variable <code>fruit</code>. La variable <code>count</code> est ainsi générée automatiquement et associée à <code>y</code>.</li>
-<li>le code qui génère la figure <a href="viz.html#fig:barplotcol">4.43</a> utilise le jeu de données <code>fruits_counted</code>. Ici, la variable <code>nombre</code> est associée à l’axe des <code>y</code> grâce à la fonction <code>aes()</code>. La fonction <code>geom_col()</code> a besoin de 2 variables (une variable catégorielle pour l’axe des <code>x</code> et une numérique pour l’axe des <code>y</code>) pour fonctionner.</li>
+<li>Le code qui génère la figure <a href="viz.html#fig:barplot">4.42</a> utilise le jeu de données <code>fruits</code>, et n’associe pas de variable à l’axe des ordonnées : dans la fonction <code>aes()</code>, seule la variable associée à <code>x</code> est précisée. C’est la fonction <code>geom_bar()</code> qui calcule automatiquement les abondances (ou fréquences) pour chaque catégorie de la variable <code>fruit</code>. La variable <code>count</code> est ainsi générée automatiquement et associée à <code>y</code>.</li>
+<li>Le code qui génère la figure <a href="viz.html#fig:barplotcol">4.43</a> utilise le jeu de données <code>fruits_counted</code>. Ici, la variable <code>nombre</code> est associée à l’axe des <code>y</code> grâce à la fonction <code>aes()</code>. La fonction <code>geom_col()</code> a besoin de 2 variables (une variable catégorielle pour l’axe des <code>x</code> et une numérique pour l’axe des <code>y</code>) pour fonctionner.</li>
 </ul>
-<p>Autrement dit, lorsque vous souhaiterez créer un diagramme bâtons, il faudra donc au préalable vérifier de quel type de données vous disposez pour choisir l’objet géométrique approprié :</p>
+<p>Autrement dit, lorsque vous souhaiterez créer un diagramme bâtons, il faudra au préalable vérifier de quel type de données vous disposez pour choisir l’objet géométrique approprié.</p>
 <ul>
 <li>Si votre variable catégorielle n’est pas pré-comptée dans votre tableau de données, il faut utiliser <code>geom_bar()</code></li>
 <li>Si votre variable catégorielle est pré-comptée dans votre tableau de données, il faut utiliser <code>geom_col()</code> et associer explicitement les comptages à l’aesthétique <code>y</code> du graphique.</li>
 </ul>
 </div>
-<div id="un-example-concret" class="section level3">
-<h3><span class="header-section-number">4.8.2</span> Un example concret</h3>
+<div id="un-exemple-concret" class="section level3">
+<h3><span class="header-section-number">4.8.2</span> Un exemple concret</h3>
 <p>Revenons à <code>nycflights13</code>. Imaginons que nous souhaitions connaître le nombre de vols affrétés par chaque compagnie aérienne au départ de New York en 2013. Dans le jeu de données <code>flights</code>, la variable <code>carrier</code> nous indique à quelle compagnie aérienne appartiennent chacun des 336776 vols ayant quitté New York en 2013. Une façon simple de représenter ces données est donc la suivante :</p>
 <div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> flights, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> carrier)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb133-2" title="2"><span class="st">  </span><span class="kw">geom_bar</span>()</a></code></pre></div>
@@ -1141,11 +1141,11 @@ Figure 4.45: Nombre de vols par compagnie aérienne au départ de New York en 20
 </p>
 </div>
 <p>Ordonner les catégories par ordre décroissant est souvent indispensable afin de faciliter la lecture du graphique et les comparaisons entre catégories.</p>
-<p>Si nous souhaitons connaître le nombre de vols précis de chaque compagnie aérienne, il nous faut faire appel à plusieurs fonctions du package <code>dplyr</code> que nous détaillerons dans le chapitre <a href="wrangling.html#wrangling">6</a>. Ci-dessous, nous créons un nouveau tableau <code>carrier_table</code> contenant le nombre de vols de chaque compagnie aérienne et les compagnies sont ordonnées par nombre de vols décroissants :</p>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" title="1">carrier_table &lt;-<span class="st"> </span>flights <span class="op">%&gt;%</span><span class="st">   </span><span class="co"># Pour créer une nouvelle table, on prend flights, puis...</span></a>
-<a class="sourceLine" id="cb135-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(carrier) <span class="op">%&gt;%</span><span class="st">        </span><span class="co"># On groupe les données par compagnie aérienne, puis...</span></a>
-<a class="sourceLine" id="cb135-3" title="3"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">nombre =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># On calcule le nombre de vols par compagnie, puis ...</span></a>
-<a class="sourceLine" id="cb135-4" title="4"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(nombre))        <span class="co"># On trie le tableau par nombre de vols décroissant.</span></a>
+<p>Si nous souhaitons connaître le nombre de vols précis de chaque compagnie aérienne, il nous faut faire appel à plusieurs fonctions du package <code>dplyr</code> que nous détaillerons dans le chapitre <a href="wrangling.html#wrangling">6</a>. Ci-dessous, nous créons un nouveau tableau <code>carrier_table</code> contenant le nombre de vols de chaque compagnie aérienne et les compagnies sont ordonnées par nombres de vols décroissants :</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" title="1">carrier_table &lt;-<span class="st"> </span>flights <span class="op">%&gt;%</span><span class="st">   </span><span class="co"># On prend flights, puis...</span></a>
+<a class="sourceLine" id="cb135-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(carrier) <span class="op">%&gt;%</span><span class="st">        </span><span class="co"># On groupe les données par compagnie, puis...</span></a>
+<a class="sourceLine" id="cb135-3" title="3"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">nombre =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># On calcule le nb de vols par Cie, puis ...</span></a>
+<a class="sourceLine" id="cb135-4" title="4"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(nombre))        <span class="co"># On trie le tableau par nb de vols décroissant</span></a>
 <a class="sourceLine" id="cb135-5" title="5">carrier_table                  <span class="co"># Enfin, on affiche la nouvelle table</span></a></code></pre></div>
 <pre><code># A tibble: 16 x 2
    carrier nombre
@@ -1166,7 +1166,7 @@ Figure 4.45: Nombre de vols par compagnie aérienne au départ de New York en 20
 14 YV         601
 15 HA         342
 16 OO          32</code></pre>
-<p>Ici, la table a été triée par nombre de vols décroissants. Mais attention, <strong>les niveaux</strong> du facteur <code>carrier</code> n’ont pas été modifiés :</p>
+<p>Ici, la table a été triée par nombres de vols décroissants. Mais attention, <strong>les niveaux</strong> du facteur <code>carrier</code> n’ont pas été modifiés :</p>
 <div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb137-1" title="1"><span class="kw">factor</span>(carrier_table<span class="op">$</span>carrier)</a></code></pre></div>
 <pre><code> [1] UA B6 EV DL AA MQ US 9E WN VX FL AS F9 YV HA OO
 Levels: 9E AA AS B6 DL EV F9 FL HA MQ OO UA US VX WN YV</code></pre>
@@ -1181,33 +1181,34 @@ Figure 4.46: Nombre de vols par compagnie aérienne au départ de New York en 20
 </div>
 <p>Pour parvenir à nos fins, il faut cette fois avoir recours à la fonction <code>fct_reorder()</code> pour ordonner correctement les catégories. Cette fonction prends 3 arguments :</p>
 <ol style="list-style-type: decimal">
-<li>la variable catégorielle dont on souhaite réordonner les niveaux (ici, la variable <code>carrier</code> du tableau <code>carrier_table</code>)</li>
-<li>une variable numérique qui permet d’ordonner les catégories (ici, la variable <code>nombre</code> du même tableau)</li>
-<li>l’argument optionnel <code>.desc</code> qui permet de préciser si le tri doit être fait en ordre croissant (c’est le cas par défaut) ou décroissant.</li>
+<li>La variable catégorielle dont on souhaite réordonner les niveaux (ici, la variable <code>carrier</code> du tableau <code>carrier_table</code>).</li>
+<li>Une variable numérique qui permet d’ordonner les catégories (ici, la variable <code>nombre</code> du même tableau).</li>
+<li>L’argument optionnel <code>.desc</code> qui permet de préciser si le tri doit être fait en ordre croissant (c’est le cas par défaut) ou décroissant.</li>
 </ol>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" title="1"><span class="kw">ggplot</span>(carrier_table, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">fct_reorder</span>(carrier, nombre, <span class="dt">.desc =</span> <span class="ot">TRUE</span>), <span class="dt">y =</span> nombre)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb140-2" title="2"><span class="st">  </span><span class="kw">geom_col</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" title="1"><span class="kw">ggplot</span>(carrier_table, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">fct_reorder</span>(carrier, nombre, <span class="dt">.desc =</span> <span class="ot">TRUE</span>), </a>
+<a class="sourceLine" id="cb140-2" title="2">                          <span class="dt">y =</span> nombre)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb140-3" title="3"><span class="st">  </span><span class="kw">geom_col</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:bpcarriersortedcol"></span>
 <img src="figure/bpcarriersortedcol-1.png" alt="Nombre de vols par compagnie aérienne au départ de New York en 2013." width="90%" />
 <p class="caption">
 Figure 4.47: Nombre de vols par compagnie aérienne au départ de New York en 2013.
 </p>
 </div>
-<p>Vous voyez donc que selon le type de données dont vous disposez (soit un tableau comme <code>flights</code>, avec toutes les observations, soit un tableau beaucou plus compact comme <code>carrier_table</code>), la démarche permettant de produire un diagramme bâton, dans lequel les catégories seront triées, sera différente.</p>
+<p>Vous voyez donc que selon le type de données dont vous disposez (soit un tableau comme <code>flights</code>, avec toutes les observations, soit un tableau beaucoup plus compact comme <code>carrier_table</code>), la démarche permettant de produire un diagramme bâtons, dans lequel les catégories seront triées, sera différente.</p>
 </div>
 <div id="exercices-5" class="section level3">
 <h3><span class="header-section-number">4.8.3</span> Exercices</h3>
 <ol style="list-style-type: decimal">
 <li>Quelle est la différence entre un histogramme et un diagramme bâtons ?</li>
 <li>Pourquoi les histogrammes sont-ils inadaptés pour visualiser des données catégorielles ?</li>
-<li>Quel est le nom de la companie pour laquelle le plus grand nombre de vols ont quitté New York en 2013 (je veux connaître son nom, pas juste son code) ? Où se trouve cette information ?</li>
-<li>Quel est le nom de la companie pour laquelle le plus petit nombre de vols ont quitté New York en 2013 (je veux connaître son nom, pas juste son code) ? Où se trouve cette information ?</li>
+<li>Quel est le nom de la compagnie pour laquelle le plus grand nombre de vols ont quitté New York en 2013 (je veux connaître son nom, pas juste son code) ? Où se trouve cette information ?</li>
+<li>Quel est le nom de la compagnie pour laquelle le plus petit nombre de vols ont quitté New York en 2013 (je veux connaître son nom, pas juste son code) ? Où se trouve cette information ?</li>
 </ol>
 </div>
 <div id="eviter-a-tout-prix-les-diagrammes-circulaires" class="section level3">
 <h3><span class="header-section-number">4.8.4</span> Éviter à tout prix les diagrammes circulaires</h3>
-<p>À mon grand désarroi, l’un des graphiques les plus utilisé pour représenter la distribution d’une variable catégorielle est le diagramme circulaire (ou diagramme camembert, ou piechart en anglais). C’est presque toujours la plus mauvaise visualisation possible. Je vous demande de l’éviter à tout prix. Notre cerveau n’est en effet pas correctement équipé pour comparer des angles. Ainsi, par exemple, nous avons naturellement tendance à surestimer les angles supérieurs à 90º, et à sous-estimer les angles inférieurs à 90º. En d’autres termes, il est difficile pour les humains de comparer des grandeurs sur des diagrammes circulaires.</p>
-<p>À titre d’exemple, examinez ce diagramme, qui reprend les même chiffres que précédemment, et tentez de répondre aux questions suivantes :</p>
+<p>À mon grand désarroi, l’un des graphiques les plus utilisé pour représenter la distribution d’une variable catégorielle est le diagramme circulaire (ou diagramme camembert, piechart en anglais). C’est presque toujours la plus mauvaise visualisation possible. Je vous demande de l’éviter à tout prix. Notre cerveau n’est en effet pas correctement équipé pour comparer des angles. Ainsi, par exemple, nous avons naturellement tendance à surestimer les angles supérieurs à 90º, et à sous-estimer les angles inférieurs à 90º. En d’autres termes, il est difficile pour les humains de comparer des grandeurs sur des diagrammes circulaires.</p>
+<p>À titre d’exemple, examinez ce diagramme, qui reprend les mêmes chiffres que précédemment, et tentez de répondre aux questions suivantes :</p>
 <div class="figure" style="text-align: center"><span id="fig:piechart"></span>
 <img src="figure/piechart-1.png" alt="Nombre de vols par compagnie aérienne au départ de New York en 2013." width="90%" />
 <p class="caption">
@@ -1217,7 +1218,7 @@ Figure 4.48: Nombre de vols par compagnie aérienne au départ de New York en 20
 <ul>
 <li>Comparez les compagnies ExpressJet Airlines (<code>EV</code>) et US Airways (<code>US</code>). De combien de fois la part de <code>EV</code> est-elle supérieure à celle d’<code>US</code> ? (2 fois, 3 fois, 1.2 fois ?…)</li>
 <li>Quelle est la troisième compagnie aérienne la plus importante en terme de nombre de vols au départ de New York en 2013 ?</li>
-<li>Combien de companies aériennes ont moins de vols que United Airlines (<code>UA</code>) ?</li>
+<li>Combien de compagnies aériennes ont moins de vols que United Airlines (<code>UA</code>) ?</li>
 </ul>
 <p>Il est difficile (voir impossible) de répondre précisément à ces questions avec le diagramme circulaire de la figure <a href="viz.html#fig:piechart">4.48</a>, alors qu’il est très simple d’obtenir des réponses précises avec un diagramme bâtons tel que présenté à la figure <a href="viz.html#fig:bpcarriersortedcol">4.47</a> (vérifiez-le !).</p>
 </div>
@@ -1225,11 +1226,11 @@ Figure 4.48: Nombre de vols par compagnie aérienne au départ de New York en 20
 <h3><span class="header-section-number">4.8.5</span> Comparer 2 variables catégorielles avec un diagramme bâton</h3>
 <p>Il y a généralement 3 façons de procéder pour comparer la distribution de 2 variables catégorielles avec un diagramme bâtons :</p>
 <ol style="list-style-type: decimal">
-<li>Faire un graphique empilé</li>
-<li>Faire un graphique juxtaposé</li>
-<li>Utiliser les <code>facet</code>s</li>
+<li>Faire un graphique empilé.</li>
+<li>Faire un graphique juxtaposé.</li>
+<li>Utiliser les <code>facet</code>s.</li>
 </ol>
-<p>Supposons par exemple que nous devions visualiser le nombre de vol de chaque compagnie aérienne, au départ de chacun des 3 aéroports de New York : John F. Kennedy (<code>JFK</code>), Newark (<code>EWR</code>) et La Guardia (LGA).</p>
+<p>Supposons par exemple que nous devions visualiser le nombre de vols de chaque compagnie aérienne, au départ de chacun des 3 aéroports de New York : John F. Kennedy (<code>JFK</code>), Newark (<code>EWR</code>) et La Guardia (<code>LGA</code>). Voyons comment procéder avec chacune des 3 méthodes énoncées ci-dessus.</p>
 <div id="graphique-empile" class="section level4">
 <h4><span class="header-section-number">4.8.5.1</span> Graphique empilé</h4>
 <p>La méthode la plus simple est celle du graphique empilé :</p>
@@ -1242,7 +1243,7 @@ Figure 4.49: Nombre de vols par compagnie aérienne au départ des 3 aéroports 
 </p>
 </div>
 <p>Notez qu’il s’agit du même code que celui utilisé pour la figure <a href="viz.html#fig:bpcarriersorted">4.45</a>, à une différence près : l’ajout de <code>fill = origin</code> dans la fonction <code>aes()</code>, qui permet d’associer l’aéroport d’origine à la couleur de remplissage des barres. <code>fill</code> est associé à une variable (ici, elle est catégorielle), il est donc indispensable de faire figurer cet argument à l’intérieur de la fonction <code>aes()</code>. Quand on associe une variable à une caractéristique esthétique du graphique, on fait toujours figurer le code à l’intérieur de la fonction <code>aes()</code> (comme quand on associe une variable aux axes du graphique par exemple).</p>
-<p>À mon sens, le graphique peut gagner en lisibilité si on ajoute une couleur pour le contour des barres :</p>
+<p>À mon sens, le graphique gagne en lisibilité si on ajoute une couleur pour le contour des barres :</p>
 <div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" title="1"><span class="kw">ggplot</span>(flights, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">fct_infreq</span>(carrier), <span class="dt">fill =</span> origin)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb142-2" title="2"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">color =</span> <span class="st">&quot;black&quot;</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:stacked2"></span>
@@ -1266,7 +1267,7 @@ Figure 4.51: Nombre de vols par compagnie aérienne au départ des 3 aéroports 
 </p>
 </div>
 <p>Passer d’un graphique empilé à un graphique juxtaposé est donc très simple : il suffit d’ajouter l’argument <code>position = &quot;dodge&quot;</code> à la fonction <code>geom_bar()</code>.</p>
-<p>Là encore, la lecture de ces graphiques est souvent difficile car la comparaison des catégories qui figurent sur l’axe des <code>x</code> n’est pas immédiate. Elle est en outre rendue plus difficile par le fait que toutes les barres n’ont pas la même largeur. Par exemple, sur la figure <a href="viz.html#fig:dodge">4.51</a>, les 8 premières compagnies aériennes déservent les 3 aéroports de New York, mais les 2 suivantes (<code>WN</code> et <code>VX</code>) n’en déservent que 2, et les autres compagnie, qu’un seul. Puisque sur un barplot, seule la hauteur des barres compte, il faut prendre garde à ne pas se laisser influencer par la largeur des barres qui pourrait fausser notre perception.</p>
+<p>Là encore, la lecture de ces graphiques est souvent difficile car la comparaison des catégories qui figurent sur l’axe des <code>x</code> n’est pas immédiate. Elle est en outre rendue plus difficile par le fait que toutes les barres n’ont pas la même largeur. Par exemple, sur la figure <a href="viz.html#fig:dodge">4.51</a>, les 8 premières compagnies aériennes déservent les 3 aéroports de New York, mais les 2 suivantes (<code>WN</code> et <code>VX</code>) n’en déservent que 2, et les autres compagnies, qu’un seul. Puisque sur un barplot, seule la hauteur des barres compte, il faut prendre garde à ne pas se laisser influencer par la largeur des barres qui pourraient fausser notre perception.</p>
 </div>
 <div id="utilisation-des-facets" class="section level4">
 <h4><span class="header-section-number">4.8.5.3</span> Utilisation des <code>facet</code>s</h4>
@@ -1287,20 +1288,22 @@ Figure 4.52: Nombre de vols par compagnie aérienne au départ des 3 aéroports 
 </div>
 <div id="de-lexploration-a-lexposition" class="section level2">
 <h2><span class="header-section-number">4.9</span> De l’exploration à l’exposition</h2>
-<p>Vous savez maintenant comment produire une grande variété de graphiques, permettant d’explorer vos données, de visualiser le comportement d’une ou plusieurs variables, et de mettre en évidence des tendances, des relations entre variables numérique et/ou catégorielles. Afin de rendre vos graphiques plus présentables dans un rapport, il ne vous reste plus qu’à vous familiariser avec quelques fonctions permettant d’annoter correctement vos graphiques et d’en modifier les légendes si nécessaire.</p>
+<p>Vous savez maintenant comment produire une grande variété de graphiques, permettant d’explorer vos données, de visualiser le comportement d’une ou plusieurs variables, et de mettre en évidence des tendances, des relations entre variables numériques et/ou catégorielles. Outre les objets géométriques décrits jusqu’ici, <code>ggplot2</code> contient de nombreuses possibilités supplémentaires pour créer des graphiques parlants et originaux. Je ne peux donc que vous encourager à explorer par vous même les autres possibilités de ce package.
+Lorsque vous produisez un graphique parlant et permettant de véhiculer un message clair, vous devez ensuite rendre vos graphiques plus présentables afin de les intégrer dans un rapport ou une présentation. Cette section vous permettra de vous familiariser avec quelques fonctions permettant d’annoter correctement vos graphiques et d’en modifier les légendes si nécessaire.</p>
 <div id="les-labels" class="section level3">
 <h3><span class="header-section-number">4.9.1</span> Les labels</h3>
 <p>Le point de départ le plus évident est d’ajouter des labels de qualité. La fonction <code>labs()</code> du package <code>ggplot2</code> permet d’ajouter plusieurs types de labels sur vos graphiques :</p>
 <ul>
-<li>un titre : il doit résumer les résultats les plus importants</li>
-<li>un sous-titre : il permet de donner quelques détails supplémentaires</li>
-<li>une légende : souvent utilisée pour présenter la source des données du graphique</li>
-<li>un titre pour chaque axe : permet de préciser les variables portées par les axes et leurs unités</li>
-<li>un titre pour les légendes de couleurs, de forme, de taille, etc</li>
+<li>Un titre : il doit résumer les résultats les plus importants.</li>
+<li>Un sous-titre : il permet de donner quelques détails supplémentaires.</li>
+<li>Une légende : souvent utilisée pour présenter la source des données du graphique.</li>
+<li>Un titre pour chaque axe : permet de préciser les variables portées par les axes et leurs unités.</li>
+<li>Un titre pour les légendes de couleurs, de forme, de taille, etc.</li>
 </ul>
 <p>Reprenons par exemple le graphique de la figure <a href="viz.html#fig:varcolor">4.10</a> :</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb145-1" title="1"><span class="kw">ggplot</span>(alaska_flights, <span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay, <span class="dt">color =</span> <span class="kw">factor</span>(month))) <span class="op">+</span></a>
-<a class="sourceLine" id="cb145-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb145-1" title="1"><span class="kw">ggplot</span>(alaska_flights, </a>
+<a class="sourceLine" id="cb145-2" title="2">       <span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay, <span class="dt">color =</span> <span class="kw">factor</span>(month))) <span class="op">+</span></a>
+<a class="sourceLine" id="cb145-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:varcolorlabel"></span>
 <img src="figure/varcolorlabel-1.png" alt="Association de `color` à une variable catégorielle." width="90%" />
 <p class="caption">
@@ -1308,14 +1311,17 @@ Figure 4.53: Association de <code>color</code> à une variable catégorielle.
 </p>
 </div>
 <p>Nous pouvons ajouter sur ce graphique les éléments précisés plus haut en ajoutant la fonction <code>labs()</code> sur une nouvelle couche du graphique :</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb146-1" title="1"><span class="kw">ggplot</span>(alaska_flights, <span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay, <span class="dt">color =</span> <span class="kw">factor</span>(month))) <span class="op">+</span></a>
-<a class="sourceLine" id="cb146-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb146-3" title="3"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Relation linéaire positive entre le retard des vols au départ et à l&#39;arrivée&quot;</span>,</a>
-<a class="sourceLine" id="cb146-4" title="4">       <span class="dt">subtitle =</span> <span class="st">&quot;L&#39;essentiel des points est centré sur 0, mais certains retards dépassent 3 heures&quot;</span>,</a>
-<a class="sourceLine" id="cb146-5" title="5">       <span class="dt">caption =</span> <span class="st">&quot;Source : nycflights13&quot;</span>,</a>
-<a class="sourceLine" id="cb146-6" title="6">       <span class="dt">x =</span> <span class="st">&quot;Retard au départ de New York (minutes)&quot;</span>,</a>
-<a class="sourceLine" id="cb146-7" title="7">       <span class="dt">y =</span> <span class="st">&quot;Retard à l&#39;arrivée à destination (minutes)&quot;</span>,</a>
-<a class="sourceLine" id="cb146-8" title="8">       <span class="dt">color =</span> <span class="st">&quot;Mois&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb146-1" title="1"><span class="kw">ggplot</span>(alaska_flights, </a>
+<a class="sourceLine" id="cb146-2" title="2">       <span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay, <span class="dt">color =</span> <span class="kw">factor</span>(month))) <span class="op">+</span></a>
+<a class="sourceLine" id="cb146-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb146-4" title="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Relation linéaire positive entre le retard des vols</span></a>
+<a class="sourceLine" id="cb146-5" title="5"><span class="st">                au départ et à l&#39;arrivée&quot;</span>,</a>
+<a class="sourceLine" id="cb146-6" title="6">       <span class="dt">subtitle =</span> <span class="st">&quot;L&#39;essentiel des points est centré sur 0, </span></a>
+<a class="sourceLine" id="cb146-7" title="7"><span class="st">                   mais certains retards dépassent 3 heures&quot;</span>,</a>
+<a class="sourceLine" id="cb146-8" title="8">       <span class="dt">caption =</span> <span class="st">&quot;Source : nycflights13&quot;</span>,</a>
+<a class="sourceLine" id="cb146-9" title="9">       <span class="dt">x =</span> <span class="st">&quot;Retard au départ de New York (minutes)&quot;</span>,</a>
+<a class="sourceLine" id="cb146-10" title="10">       <span class="dt">y =</span> <span class="st">&quot;Retard à l&#39;arrivée à destination (minutes)&quot;</span>,</a>
+<a class="sourceLine" id="cb146-11" title="11">       <span class="dt">color =</span> <span class="st">&quot;Mois&quot;</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:varcolorlabel2"></span>
 <img src="figure/varcolorlabel2-1.png" alt="Exemple d'utilisation de `labs()`." width="90%" />
 <p class="caption">
