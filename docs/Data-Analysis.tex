@@ -2119,7 +2119,7 @@ niveaux d'une variable catégorielle.
 \hypertarget{gggraph}{%
 \subsection{La grammaire des graphiques}\label{gggraph}}
 
-Les lettres \texttt{gg} du package \texttt{ggplot2} sont l'abbréviation
+Les lettres \texttt{gg} du package \texttt{ggplot2} sont l'abréviation
 de ``\textbf{g}rammar of \textbf{g}raphics'' : la grammaire des
 graphiques. De la même manière que nous construisons des phrases en
 respectant des règles grammaticales précises (usage des noms, des
@@ -4511,10 +4511,8 @@ graphique :
 \KeywordTok{ggplot}\NormalTok{(alaska_flights, }
        \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ dep_delay, }\DataTypeTok{y =}\NormalTok{ arr_delay, }\DataTypeTok{color =} \KeywordTok{factor}\NormalTok{(month))) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}
-\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Relation linéaire positive entre le retard des vols}
-\StringTok{                au départ et à l'arrivée"}\NormalTok{,}
-       \DataTypeTok{subtitle =} \StringTok{"L'essentiel des points est centré sur 0, }
-\StringTok{                   mais certains retards dépassent 3 heures"}\NormalTok{,}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Relation linéaire positive entre retard des vols au départ et à l'arrivée"}\NormalTok{,}
+       \DataTypeTok{subtitle =} \StringTok{"Certains retards dépassent 3 heures"}\NormalTok{,}
        \DataTypeTok{caption =} \StringTok{"Source : nycflights13"}\NormalTok{,}
        \DataTypeTok{x =} \StringTok{"Retard au départ de New York (minutes)"}\NormalTok{,}
        \DataTypeTok{y =} \StringTok{"Retard à l'arrivée à destination (minutes)"}\NormalTok{,}
@@ -4539,7 +4537,7 @@ mémoires, etc.
 \hypertarget{les-echelles}{%
 \subsubsection{Les échelles}\label{les-echelles}}
 
-Tous les aspects des graphiques que vous produisez peuvent être édités.
+Tous les détails des graphiques que vous produisez peuvent être édités.
 C'est notamment le cas des échelles. Qu'il s'agisse de modifier
 l'étendue des axes, la densité du quadrillage, la position des tirets
 sur les axes, le nom des catégories figurant sur les axes ou dans les
@@ -4579,7 +4577,7 @@ pour nos axes
 \caption{Nombre de vols par compagnie aérienne au départ des 3 aéroports de New York en 2013.}\label{fig:barfacetbis}
 \end{figure}
 
-Notez que le caractère spécial \texttt{\textbackslash{}n} permet de
+Notez que le caractère spécial ``\texttt{\textbackslash{}n}'' permet de
 forcer un retour à la ligne. Ici, les 3 couleurs de remplissage
 (\texttt{fill}) utilisées pour différencier les 3 aéroports de New York
 ont été choisies par défaut par \texttt{ggplot2}. Il est possible de
@@ -4588,9 +4586,9 @@ modifier ces couleurs de plusieurs façons :
 \begin{itemize}
 \tightlist
 \item
-  en utilisant d'autres palettes de couleurs prédéfinies
+  En utilisant d'autres palettes de couleurs prédéfinies.
 \item
-  en utilisant des couleurs choisies manuellement
+  En utilisant des couleurs choisies manuellement.
 \end{itemize}
 
 Toutes les fonctions permettant d'altérer les légendes commencent par
@@ -4625,7 +4623,7 @@ il suffit d'ajouter une couche à notre graphique :
 \end{figure}
 
 Le package \texttt{RColorBrewer} propose une large gamme de palettes de
-couleurs :
+couleurs (figure \ref{fig:brew} :
 
 \begin{figure}[htpb]
 
@@ -4633,7 +4631,7 @@ couleurs :
 
 }
 
-\caption{Toutes les palettes de couleur du package `RColorBrewer`.}\label{fig:RcolorbrewerPalettes}
+\caption{Toutes les palettes de couleur du package `RColorBrewer`.}(\#fig:brew, RcolorbrewerPalettes)
 \end{figure}
 
 \texttt{ggplot2} permet d'appliquer ces palettes très simplement :
@@ -4659,8 +4657,8 @@ couleurs :
 \caption{Nombre de vols par compagnie aérienne au départ des 3 aéroports de New York en 2013.}\label{fig:barfacetbrewer}
 \end{figure}
 
-De même, le package \texttt{viridis} propose une palette de couleur
-intéressante qui maximise le contraste et facilite la disrimination des
+De même, le package \texttt{viridis} propose une palette de couleurs
+intéressante qui maximise le contraste et facilite la discrimination des
 catégories pour les daltoniens. Là encore, \texttt{ggplot2} nous donne
 accès à cette palette :
 
@@ -4685,10 +4683,10 @@ accès à cette palette :
 \caption{Nombre de vols par compagnie aérienne au départ des 3 aéroports de New York en 2013.}\label{fig:barfacetviridis}
 \end{figure}
 
-Enfin, si les palettes de couleur ne convienent pas, il est toujours
+Enfin, si les palettes de couleurs ne convienent pas, il est toujours
 possible de spécifier manuellement les couleurs souhaitées. R propose un
-accès rapide à 657 noms de couleurs. Pour afficher leurs noms, il suffit
-de taper :
+accès rapide à 657 noms de couleurs. Pour les afficher, il suffit de
+taper :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5059,7 +5057,7 @@ Outre ces 657 couleurs qui disposent d'un nom spécifique, il est
 possible de spécifier les couleurs en utilisant des codes hexadécimaux
 et des codes rgb (red, green, blue). De nombreux sites permettent de
 choisir n'importe quelle couleur dans une palette qui en compte des
-millions et d'obtenir de tels code. \href{https://www.color-hex.com}{Ce
+millions et d'obtenir de tels codes. \href{https://www.color-hex.com}{Ce
 site} permet de le faire très simplement :
 
 \begin{Shaded}
@@ -5092,7 +5090,8 @@ mêmes :
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ alaska_flights, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ dep_delay, }\DataTypeTok{y =}\NormalTok{ arr_delay, }\DataTypeTok{color =} \KeywordTok{factor}\NormalTok{(month))) }\OperatorTok{+}
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ alaska_flights, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ dep_delay, }\DataTypeTok{y =}\NormalTok{ arr_delay, }
+                                            \DataTypeTok{color =} \KeywordTok{factor}\NormalTok{(month))) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}
 \StringTok{  }\KeywordTok{scale_color_viridis_d}\NormalTok{()}
 \end{Highlighting}
@@ -5109,7 +5108,8 @@ mêmes :
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ alaska_flights, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ dep_delay, }\DataTypeTok{y =}\NormalTok{ arr_delay, }\DataTypeTok{color =}\NormalTok{ arr_time)) }\OperatorTok{+}
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ alaska_flights, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ dep_delay, }\DataTypeTok{y =}\NormalTok{ arr_delay, }
+                                            \DataTypeTok{color =}\NormalTok{ arr_time)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}
 \StringTok{  }\KeywordTok{scale_color_viridis_c}\NormalTok{()}
 \end{Highlighting}
@@ -5140,14 +5140,14 @@ couleurs doit donc en tenir compte : le \texttt{\_d} à la fin de
 \ref{fig:varcolorviridis2}, c'est une variable numérique continue qui
 est associée à l'esthétique de couleur (\texttt{arr\_time}). La fonction
 utilisée pour modifier les couleurs en est le reflet : le \texttt{\_c} à
-la fin de \texttt{scale\_color\_viridis\_c()} est l'abbréviation de
+la fin de \texttt{scale\_color\_viridis\_c()} est l'abréviation de
 ``continuous'', c'est-à-dire ``continue''.
 
 Si vous ne voulez pas avoir de message d'erreur, attention donc, à
 choisir la fonction \texttt{scale\_XXX\_XXX()} appropriée. Pour cela,
 aidez-vous de l'aide que RStudio vous apporte en tapant les premières
 lettres de la fonction et en parcourant la liste des fonctions proposées
-dans le menu déroullant qui apparait sous votre curseur.
+dans le menu déroullant qui apparaît sous votre curseur.
 
 \hypertarget{les-themes}{%
 \subsubsection{Les thèmes}\label{les-themes}}
@@ -5159,7 +5159,7 @@ caractères sont utilisées, quel sera l'arrière plan du graphique,
 faut-il intégrer un quadrillage sous le graphique, et si oui, quelles
 doivent être ses caractéristiques ?
 
-Il est posible de spécifier chaque élément manuellement. Nous nous
+Il est possible de spécifier chaque élément manuellement. Nous nous
 contenterons ici de passer en revue quelques thèmes prédéfinis qui
 devraient couvrir la plupart de vos besoins.
 
@@ -5174,7 +5174,7 @@ ajoutons un titre :
 \StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Compagnie aérienne"}\NormalTok{,}
        \DataTypeTok{y =} \StringTok{"Nombre de vols"}\NormalTok{,}
        \DataTypeTok{fill =} \StringTok{"Aéroports de}\CharTok{\textbackslash{}n}\StringTok{New York"}\NormalTok{,}
-       \DataTypeTok{title =} \StringTok{"Couverture inégale des aéroports de New York par les compagnies aériennes"}\NormalTok{) }\OperatorTok{+}
+       \DataTypeTok{title =} \StringTok{"Couverture inégale des aéroports de New York"}\NormalTok{) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{scale_fill_brewer}\NormalTok{(}\DataTypeTok{palette =} \StringTok{"Accent"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -5185,7 +5185,7 @@ ajoutons un titre :
 
 }
 
-\caption{(ref:gray}\label{fig:theme1}
+\caption{Utilisation du thème par défaut : \texttt{theme\_gray()}.}\label{fig:theme1}
 \end{figure}
 
 
@@ -5203,7 +5203,7 @@ du nouveau thème :
 \StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Compagnie aérienne"}\NormalTok{,}
        \DataTypeTok{y =} \StringTok{"Nombre de vols"}\NormalTok{,}
        \DataTypeTok{fill =} \StringTok{"Aéroports de}\CharTok{\textbackslash{}n}\StringTok{New York"}\NormalTok{,}
-       \DataTypeTok{title =} \StringTok{"Couverture inégale des aéroports de New York par les compagnies aériennes"}\NormalTok{) }\OperatorTok{+}
+       \DataTypeTok{title =} \StringTok{"Couverture inégale des aéroports de New York"}\NormalTok{) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{scale_fill_brewer}\NormalTok{(}\DataTypeTok{palette =} \StringTok{"Accent"}\NormalTok{) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{theme_bw}\NormalTok{()}
 \end{Highlighting}
@@ -5227,23 +5227,23 @@ Les thèmes complets que vous pouvez utiliser sont les suivants :
 \item
   \texttt{theme\_bw()} : fond blanc et quadrillage.
 \item
-  \texttt{theme\_calssic()} : thème classique, avec des axes mais pas de
-  quadrillage
+  \texttt{theme\_classic()} : thème classique, avec des axes mais pas de
+  quadrillage.
 \item
-  \texttt{theme\_dark()} : fond sombre pour augmenter le contraste
+  \texttt{theme\_dark()} : fond sombre pour augmenter le contraste.
 \item
   \texttt{theme\_gray()} : thème par défaut : fond gris et quadrillage
-  blanc
+  blanc.
 \item
-  \texttt{theme\_light()} : axes et quadrillages discrets
+  \texttt{theme\_light()} : axes et quadrillages discrets.
 \item
-  \texttt{theme\_linedraw()} : uniquement des lignes noires
+  \texttt{theme\_linedraw()} : uniquement des lignes noires.
 \item
   \texttt{theme\_minimal()} : pas d'arrière plan, pas d'axes,
-  quadrillage discret
+  quadrillage discret.
 \item
   \texttt{theme\_void()} : theme vide, seuls les objets géométriques
-  restent visibles
+  restent visibles.
 \end{itemize}
 
 \begin{Shaded}
@@ -5254,7 +5254,7 @@ Les thèmes complets que vous pouvez utiliser sont les suivants :
 \StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Compagnie aérienne"}\NormalTok{,}
        \DataTypeTok{y =} \StringTok{"Nombre de vols"}\NormalTok{,}
        \DataTypeTok{fill =} \StringTok{"Aéroports de}\CharTok{\textbackslash{}n}\StringTok{New York"}\NormalTok{,}
-       \DataTypeTok{title =} \StringTok{"Couverture inégale des aéroports de New York par les compagnies aériennes"}\NormalTok{) }\OperatorTok{+}
+       \DataTypeTok{title =} \StringTok{"Couverture inégale des aéroports de New York"}\NormalTok{) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{scale_fill_brewer}\NormalTok{(}\DataTypeTok{palette =} \StringTok{"Accent"}\NormalTok{) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{theme_minimal}\NormalTok{()}
 \end{Highlighting}
@@ -5270,13 +5270,13 @@ Les thèmes complets que vous pouvez utiliser sont les suivants :
 \end{figure}
 
 L'argument \texttt{base\_family} de chaque thème permet de spécifier une
-police de caractère différente de celle utilisée par défaut. Évidemment,
-vous ne pourrez utiliser que des polices qui sont disponibles sur
-l'ordinateur que vous utilisez. Dans l'exemple de la figure
-\ref{fig:themefont} ci-dessous, j'utilise la police ``Futura LT Book''.
-Si cette police n'est pas disponible sur votre ordinateur, ce code
-produira une erreur. Si c'est le cas, remplacez-la par une police de
-votre ordinateur. Attention, son nom exact doit être utilisé. Cela
+police de caractères différente de celle utilisée par défaut.
+Évidemment, vous ne pourrez utiliser que des polices qui sont
+disponibles sur l'ordinateur que vous utilisez. Dans l'exemple de la
+figure \ref{fig:themefont} ci-dessous, j'utilise la police ``Futura LT
+Book''. Si cette police n'est pas disponible sur votre ordinateur, ce
+code produira une erreur. Si c'est le cas, remplacez-la par une police
+de votre ordinateur. Attention, son nom exact doit être utilisé. Cela
 signifie bien sûr le respect des espaces, majuscules, etc.
 
 \begin{Shaded}
@@ -5287,7 +5287,7 @@ signifie bien sûr le respect des espaces, majuscules, etc.
 \StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Compagnie aérienne"}\NormalTok{,}
        \DataTypeTok{y =} \StringTok{"Nombre de vols"}\NormalTok{,}
        \DataTypeTok{fill =} \StringTok{"Aéroports de}\CharTok{\textbackslash{}n}\StringTok{New York"}\NormalTok{,}
-       \DataTypeTok{title =} \StringTok{"Couverture inégale des aéroports de New York par les compagnies aériennes"}\NormalTok{) }\OperatorTok{+}
+       \DataTypeTok{title =} \StringTok{"Couverture inégale des aéroports de New York"}\NormalTok{) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{scale_fill_brewer}\NormalTok{(}\DataTypeTok{palette =} \StringTok{"Accent"}\NormalTok{) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{theme_minimal}\NormalTok{(}\DataTypeTok{base_family =} \StringTok{"Futura LT Book"}\NormalTok{)}
 \end{Highlighting}
@@ -5356,13 +5356,13 @@ Quelques indices :
 \begin{itemize}
 \tightlist
 \item
-  les couleurs utilisées sont celles de la palette \texttt{Set1} du
-  package \texttt{RColorBrewer}
+  Les couleurs utilisées sont celles de la palette \texttt{Set1} du
+  package \texttt{RColorBrewer}.
 \item
-  les variables utilisées sont \texttt{origin}, \texttt{air\_time} et
-  \texttt{distance}
+  Les variables utilisées sont \texttt{origin}, \texttt{air\_time} et
+  \texttt{distance}.
 \item
-  la transparence des symboles est fixée à \texttt{0.8}
+  La transparence des symboles est fixée à \texttt{0.8}.
 \end{itemize}
 
 Toujours avec ce jeu de données \texttt{small-flights}, tapez les
@@ -5375,11 +5375,11 @@ Quelques indices :
 \begin{itemize}
 \tightlist
 \item
-  les couleurs utilisées sont celles de la palettes \texttt{Accent} du
-  package \texttt{RColorBrewer}
+  Les couleurs utilisées sont celles de la palettes \texttt{Accent} du
+  package \texttt{RColorBrewer}.
 \item
-  les variables utilisées sont \texttt{month}, \texttt{carrier} et
-  \texttt{origin}
+  Les variables utilisées sont \texttt{month}, \texttt{carrier} et
+  \texttt{origin}.
 \end{itemize}
 
 \hypertarget{tidyr}{%

@@ -309,7 +309,7 @@ code span.wa { color: #bf0303; } /* Warning */
 </div>
 <div id="gggraph" class="section level2">
 <h2><span class="header-section-number">4.2</span> La grammaire des graphiques</h2>
-<p>Les lettres <code>gg</code> du package <code>ggplot2</code> sont l’abbréviation de “<strong>g</strong>rammar of <strong>g</strong>raphics” : la grammaire des graphiques. De la même manière que nous construisons des phrases en respectant des règles grammaticales précises (usage des noms, des verbes, des sujets et adjectifs…), la grammaire des graphiques établit un certain nombre de règles permettant de construire des graphiques : elle précise les composants d’un graphique en suivant le cadre théorique défini par <span class="citation">Wilkinson (<a href="#ref-wilkinson2005">2005</a>)</span>.</p>
+<p>Les lettres <code>gg</code> du package <code>ggplot2</code> sont l’abréviation de “<strong>g</strong>rammar of <strong>g</strong>raphics” : la grammaire des graphiques. De la même manière que nous construisons des phrases en respectant des règles grammaticales précises (usage des noms, des verbes, des sujets et adjectifs…), la grammaire des graphiques établit un certain nombre de règles permettant de construire des graphiques : elle précise les composants d’un graphique en suivant le cadre théorique défini par <span class="citation">Wilkinson (<a href="#ref-wilkinson2005">2005</a>)</span>.</p>
 <div id="elements-de-la-grammaire" class="section level3">
 <h3><span class="header-section-number">4.2.1</span> Éléments de la grammaire</h3>
 <p>En bref, la grammaire des graphiques nous dit que :</p>
@@ -1314,14 +1314,12 @@ Figure 4.53: Association de <code>color</code> à une variable catégorielle.
 <div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb146-1" title="1"><span class="kw">ggplot</span>(alaska_flights, </a>
 <a class="sourceLine" id="cb146-2" title="2">       <span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay, <span class="dt">color =</span> <span class="kw">factor</span>(month))) <span class="op">+</span></a>
 <a class="sourceLine" id="cb146-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb146-4" title="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Relation linéaire positive entre le retard des vols</span></a>
-<a class="sourceLine" id="cb146-5" title="5"><span class="st">                au départ et à l&#39;arrivée&quot;</span>,</a>
-<a class="sourceLine" id="cb146-6" title="6">       <span class="dt">subtitle =</span> <span class="st">&quot;L&#39;essentiel des points est centré sur 0, </span></a>
-<a class="sourceLine" id="cb146-7" title="7"><span class="st">                   mais certains retards dépassent 3 heures&quot;</span>,</a>
-<a class="sourceLine" id="cb146-8" title="8">       <span class="dt">caption =</span> <span class="st">&quot;Source : nycflights13&quot;</span>,</a>
-<a class="sourceLine" id="cb146-9" title="9">       <span class="dt">x =</span> <span class="st">&quot;Retard au départ de New York (minutes)&quot;</span>,</a>
-<a class="sourceLine" id="cb146-10" title="10">       <span class="dt">y =</span> <span class="st">&quot;Retard à l&#39;arrivée à destination (minutes)&quot;</span>,</a>
-<a class="sourceLine" id="cb146-11" title="11">       <span class="dt">color =</span> <span class="st">&quot;Mois&quot;</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb146-4" title="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Relation linéaire positive entre retard des vols au départ et à l&#39;arrivée&quot;</span>,</a>
+<a class="sourceLine" id="cb146-5" title="5">       <span class="dt">subtitle =</span> <span class="st">&quot;Certains retards dépassent 3 heures&quot;</span>,</a>
+<a class="sourceLine" id="cb146-6" title="6">       <span class="dt">caption =</span> <span class="st">&quot;Source : nycflights13&quot;</span>,</a>
+<a class="sourceLine" id="cb146-7" title="7">       <span class="dt">x =</span> <span class="st">&quot;Retard au départ de New York (minutes)&quot;</span>,</a>
+<a class="sourceLine" id="cb146-8" title="8">       <span class="dt">y =</span> <span class="st">&quot;Retard à l&#39;arrivée à destination (minutes)&quot;</span>,</a>
+<a class="sourceLine" id="cb146-9" title="9">       <span class="dt">color =</span> <span class="st">&quot;Mois&quot;</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:varcolorlabel2"></span>
 <img src="figure/varcolorlabel2-1.png" alt="Exemple d'utilisation de `labs()`." width="90%" />
 <p class="caption">
@@ -1332,7 +1330,7 @@ Figure 4.54: Exemple d’utilisation de <code>labs()</code>.
 </div>
 <div id="les-echelles" class="section level3">
 <h3><span class="header-section-number">4.9.2</span> Les échelles</h3>
-<p>Tous les aspects des graphiques que vous produisez peuvent être édités. C’est notamment le cas des échelles. Qu’il s’agisse de modifier l’étendue des axes, la densité du quadrillage, la position des tirets sur les axes, le nom des catégories figurant sur les axes ou dans les légendes ou encore les couleurs utilisées pour différentes catégories d’objets géométriques, tout est possible dans <code>ggplot2</code>.</p>
+<p>Tous les détails des graphiques que vous produisez peuvent être édités. C’est notamment le cas des échelles. Qu’il s’agisse de modifier l’étendue des axes, la densité du quadrillage, la position des tirets sur les axes, le nom des catégories figurant sur les axes ou dans les légendes ou encore les couleurs utilisées pour différentes catégories d’objets géométriques, tout est possible dans <code>ggplot2</code>.</p>
 <p>Nous n’avons pas le temps ici d’aborder toutes ces questions en détail. Je vous encourage donc à consulter l’ouvrage en ligne intitulé <a href="http://r4ds.had.co.nz/">R for data science</a>, et en particulier <a href="http://r4ds.had.co.nz/graphics-for-communication.html#scales">son chapitre dédié aux échelles</a>, si vous avez besoin d’apporter des modifications à vos graphiques et que vous ne trouvez pas comment faire dans cet ouvrage.</p>
 <p>Je vais ici uniquement détailler la façon de procéder pour modifier les couleurs choisies par défaut par <code>ggplot2</code>. Reprenons par exemple la figure <a href="viz.html#fig:barfacet">4.52</a>, en ajoutant au passage des titres corrects pour nos axes</p>
 <div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb147-1" title="1"><span class="kw">ggplot</span>(flights, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">fct_infreq</span>(carrier), <span class="dt">fill =</span> origin)) <span class="op">+</span></a>
@@ -1347,10 +1345,10 @@ Figure 4.54: Exemple d’utilisation de <code>labs()</code>.
 Figure 4.55: Nombre de vols par compagnie aérienne au départ des 3 aéroports de New York en 2013.
 </p>
 </div>
-<p>Notez que le caractère spécial <code>\n</code> permet de forcer un retour à la ligne. Ici, les 3 couleurs de remplissage (<code>fill</code>) utilisées pour différencier les 3 aéroports de New York ont été choisies par défaut par <code>ggplot2</code>. Il est possible de modifier ces couleurs de plusieurs façons :</p>
+<p>Notez que le caractère spécial “<code>\n</code>” permet de forcer un retour à la ligne. Ici, les 3 couleurs de remplissage (<code>fill</code>) utilisées pour différencier les 3 aéroports de New York ont été choisies par défaut par <code>ggplot2</code>. Il est possible de modifier ces couleurs de plusieurs façons :</p>
 <ul>
-<li>en utilisant d’autres palettes de couleurs prédéfinies</li>
-<li>en utilisant des couleurs choisies manuellement</li>
+<li>En utilisant d’autres palettes de couleurs prédéfinies.</li>
+<li>En utilisant des couleurs choisies manuellement.</li>
 </ul>
 <p>Toutes les fonctions permettant d’altérer les légendes commencent par <code>scale_</code>. Vient ensuite le nom de l’esthétique que l’on souhaite modifier (ici <code>fill_</code>) et enfin, le nom d’une fonction à appliquer. Les possibilités sont nombreuses et vous pouvez en avoir un aperçu en tapant le début du nom de la fonction et en parcourant la liste proposée par RStudio sous le curseur.</p>
 <p>Par exemple, pour utiliser des niveaux de gris plutôt que les couleurs, il suffit d’ajouter une couche à notre graphique :</p>
@@ -1367,11 +1365,11 @@ Figure 4.55: Nombre de vols par compagnie aérienne au départ des 3 aéroports 
 Figure 4.56: Nombre de vols par compagnie aérienne au départ des 3 aéroports de New York en 2013.
 </p>
 </div>
-<p>Le package <code>RColorBrewer</code> propose une large gamme de palettes de couleurs :</p>
-<div class="figure" style="text-align: center"><span id="fig:RcolorbrewerPalettes"></span>
+<p>Le package <code>RColorBrewer</code> propose une large gamme de palettes de couleurs (figure <a href="#fig:brew"><strong>??</strong></a> :</p>
+<div class="figure" style="text-align: center">
 <img src="images/brewer.png" alt="Toutes les palettes de couleur du package `RColorBrewer`." width="50%" />
 <p class="caption">
-Figure 4.57: Toutes les palettes de couleur du package <code>RColorBrewer</code>.
+(#fig:brew, RcolorbrewerPalettes)Toutes les palettes de couleur du package <code>RColorBrewer</code>.
 </p>
 </div>
 <p><code>ggplot2</code> permet d’appliquer ces palettes très simplement :</p>
@@ -1385,10 +1383,10 @@ Figure 4.57: Toutes les palettes de couleur du package <code>RColorBrewer</code>
 <div class="figure" style="text-align: center"><span id="fig:barfacetbrewer"></span>
 <img src="figure/barfacetbrewer-1.png" alt="Nombre de vols par compagnie aérienne au départ des 3 aéroports de New York en 2013." width="90%" />
 <p class="caption">
-Figure 4.58: Nombre de vols par compagnie aérienne au départ des 3 aéroports de New York en 2013.
+Figure 4.57: Nombre de vols par compagnie aérienne au départ des 3 aéroports de New York en 2013.
 </p>
 </div>
-<p>De même, le package <code>viridis</code> propose une palette de couleur intéressante qui maximise le contraste et facilite la disrimination des catégories pour les daltoniens. Là encore, <code>ggplot2</code> nous donne accès à cette palette :</p>
+<p>De même, le package <code>viridis</code> propose une palette de couleurs intéressante qui maximise le contraste et facilite la discrimination des catégories pour les daltoniens. Là encore, <code>ggplot2</code> nous donne accès à cette palette :</p>
 <div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb150-1" title="1"><span class="kw">ggplot</span>(flights, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">fct_infreq</span>(carrier), <span class="dt">fill =</span> origin)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb150-2" title="2"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb150-3" title="3"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>origin, <span class="dt">ncol =</span> <span class="dv">1</span>) <span class="op">+</span></a>
@@ -1399,10 +1397,10 @@ Figure 4.58: Nombre de vols par compagnie aérienne au départ des 3 aéroports 
 <div class="figure" style="text-align: center"><span id="fig:barfacetviridis"></span>
 <img src="figure/barfacetviridis-1.png" alt="Nombre de vols par compagnie aérienne au départ des 3 aéroports de New York en 2013." width="90%" />
 <p class="caption">
-Figure 4.59: Nombre de vols par compagnie aérienne au départ des 3 aéroports de New York en 2013.
+Figure 4.58: Nombre de vols par compagnie aérienne au départ des 3 aéroports de New York en 2013.
 </p>
 </div>
-<p>Enfin, si les palettes de couleur ne convienent pas, il est toujours possible de spécifier manuellement les couleurs souhaitées. R propose un accès rapide à 657 noms de couleurs. Pour afficher leurs noms, il suffit de taper :</p>
+<p>Enfin, si les palettes de couleurs ne convienent pas, il est toujours possible de spécifier manuellement les couleurs souhaitées. R propose un accès rapide à 657 noms de couleurs. Pour les afficher, il suffit de taper :</p>
 <div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" title="1"><span class="kw">colors</span>()</a></code></pre></div>
 <pre><code>  [1] &quot;white&quot;                &quot;aliceblue&quot;           
   [3] &quot;antiquewhite&quot;         &quot;antiquewhite1&quot;       
@@ -1744,10 +1742,10 @@ Figure 4.59: Nombre de vols par compagnie aérienne au départ des 3 aéroports 
 <div class="figure" style="text-align: center"><span id="fig:barfacetmanual"></span>
 <img src="figure/barfacetmanual-1.png" alt="Nombre de vols par compagnie aérienne au départ des 3 aéroports de New York en 2013." width="90%" />
 <p class="caption">
-Figure 4.60: Nombre de vols par compagnie aérienne au départ des 3 aéroports de New York en 2013.
+Figure 4.59: Nombre de vols par compagnie aérienne au départ des 3 aéroports de New York en 2013.
 </p>
 </div>
-<p>Outre ces 657 couleurs qui disposent d’un nom spécifique, il est possible de spécifier les couleurs en utilisant des codes hexadécimaux et des codes rgb (red, green, blue). De nombreux sites permettent de choisir n’importe quelle couleur dans une palette qui en compte des millions et d’obtenir de tels code. <a href="https://www.color-hex.com">Ce site</a> permet de le faire très simplement :</p>
+<p>Outre ces 657 couleurs qui disposent d’un nom spécifique, il est possible de spécifier les couleurs en utilisant des codes hexadécimaux et des codes rgb (red, green, blue). De nombreux sites permettent de choisir n’importe quelle couleur dans une palette qui en compte des millions et d’obtenir de tels codes. <a href="https://www.color-hex.com">Ce site</a> permet de le faire très simplement :</p>
 <div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" title="1"><span class="kw">ggplot</span>(flights, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">fct_infreq</span>(carrier), <span class="dt">fill =</span> origin)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb154-2" title="2"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb154-3" title="3"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>origin, <span class="dt">ncol =</span> <span class="dv">1</span>) <span class="op">+</span></a>
@@ -1758,49 +1756,51 @@ Figure 4.60: Nombre de vols par compagnie aérienne au départ des 3 aéroports 
 <div class="figure" style="text-align: center"><span id="fig:barfacethex"></span>
 <img src="figure/barfacethex-1.png" alt="Nombre de vols par compagnie aérienne au départ des 3 aéroports de New York en 2013." width="90%" />
 <p class="caption">
-Figure 4.61: Nombre de vols par compagnie aérienne au départ des 3 aéroports de New York en 2013.
+Figure 4.60: Nombre de vols par compagnie aérienne au départ des 3 aéroports de New York en 2013.
 </p>
 </div>
 <p>Dernière chose concernant les couleurs : un choix de fonction <code>scale_XXX_XXX()</code> inaproprié est la cause d’erreur la plus fréquente ! Par exemple, si on reprend le code des figures <a href="viz.html#fig:varcolor">4.10</a> et <a href="viz.html#fig:varcolor2">4.11</a> et que l’on modifie les palettes de couleurs, notez que les fonctions utilisées ne sont pas les mêmes :</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb155-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> alaska_flights, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay, <span class="dt">color =</span> <span class="kw">factor</span>(month))) <span class="op">+</span></a>
-<a class="sourceLine" id="cb155-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb155-3" title="3"><span class="st">  </span><span class="kw">scale_color_viridis_d</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb155-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> alaska_flights, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay, </a>
+<a class="sourceLine" id="cb155-2" title="2">                                            <span class="dt">color =</span> <span class="kw">factor</span>(month))) <span class="op">+</span></a>
+<a class="sourceLine" id="cb155-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb155-4" title="4"><span class="st">  </span><span class="kw">scale_color_viridis_d</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:varcolorviridis"></span>
 <img src="figure/varcolorviridis-1.png" alt="Association de `color` à une variable catégorielle." width="90%" />
 <p class="caption">
-Figure 4.62: Association de <code>color</code> à une variable catégorielle.
+Figure 4.61: Association de <code>color</code> à une variable catégorielle.
 </p>
 </div>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> alaska_flights, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay, <span class="dt">color =</span> arr_time)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb156-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb156-3" title="3"><span class="st">  </span><span class="kw">scale_color_viridis_c</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> alaska_flights, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay, </a>
+<a class="sourceLine" id="cb156-2" title="2">                                            <span class="dt">color =</span> arr_time)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb156-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb156-4" title="4"><span class="st">  </span><span class="kw">scale_color_viridis_c</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:varcolorviridis2"></span>
 <img src="figure/varcolorviridis2-1.png" alt="Association de `color` à une variable numérique." width="90%" />
 <p class="caption">
-Figure 4.63: Association de <code>color</code> à une variable numérique.
+Figure 4.62: Association de <code>color</code> à une variable numérique.
 </p>
 </div>
-<p>Pour les 2 figures <a href="viz.html#fig:varcolorviridis">4.62</a> et <a href="viz.html#fig:varcolorviridis2">4.63</a>, j’utilise la palette de couleur <code>viridis</code>. Pour ces 2 graphiques, c’est la couleur des points qui change. Puisque cette couleur est spécifiée avec l’esthétique <code>color</code> et non plus <code>fill</code>, la fonction utilisée est <code>scale_color_XXX()</code> et non plus <code>scale_fill_XXX()</code>.</p>
-<p>Enfin, pour la figure <a href="viz.html#fig:varcolorviridis">4.62</a>, c’est une variable catégorielle qui est associée à l’esthétique de couleur (<code>factor(month)</code>). La fonction utilisée pour modifier les couleurs doit donc en tenir compte : le <code>_d</code> à la fin de <code>scale_color_viridis_d()</code> signifie “discrete”, c’est-à-dire “discontinue”. À l’inverse, pour le graphique <a href="viz.html#fig:varcolorviridis2">4.63</a>, c’est une variable numérique continue qui est associée à l’esthétique de couleur (<code>arr_time</code>). La fonction utilisée pour modifier les couleurs en est le reflet : le <code>_c</code> à la fin de <code>scale_color_viridis_c()</code> est l’abbréviation de “continuous”, c’est-à-dire “continue”.</p>
-<p>Si vous ne voulez pas avoir de message d’erreur, attention donc, à choisir la fonction <code>scale_XXX_XXX()</code> appropriée. Pour cela, aidez-vous de l’aide que RStudio vous apporte en tapant les premières lettres de la fonction et en parcourant la liste des fonctions proposées dans le menu déroullant qui apparait sous votre curseur.</p>
+<p>Pour les 2 figures <a href="viz.html#fig:varcolorviridis">4.61</a> et <a href="viz.html#fig:varcolorviridis2">4.62</a>, j’utilise la palette de couleur <code>viridis</code>. Pour ces 2 graphiques, c’est la couleur des points qui change. Puisque cette couleur est spécifiée avec l’esthétique <code>color</code> et non plus <code>fill</code>, la fonction utilisée est <code>scale_color_XXX()</code> et non plus <code>scale_fill_XXX()</code>.</p>
+<p>Enfin, pour la figure <a href="viz.html#fig:varcolorviridis">4.61</a>, c’est une variable catégorielle qui est associée à l’esthétique de couleur (<code>factor(month)</code>). La fonction utilisée pour modifier les couleurs doit donc en tenir compte : le <code>_d</code> à la fin de <code>scale_color_viridis_d()</code> signifie “discrete”, c’est-à-dire “discontinue”. À l’inverse, pour le graphique <a href="viz.html#fig:varcolorviridis2">4.62</a>, c’est une variable numérique continue qui est associée à l’esthétique de couleur (<code>arr_time</code>). La fonction utilisée pour modifier les couleurs en est le reflet : le <code>_c</code> à la fin de <code>scale_color_viridis_c()</code> est l’abréviation de “continuous”, c’est-à-dire “continue”.</p>
+<p>Si vous ne voulez pas avoir de message d’erreur, attention donc, à choisir la fonction <code>scale_XXX_XXX()</code> appropriée. Pour cela, aidez-vous de l’aide que RStudio vous apporte en tapant les premières lettres de la fonction et en parcourant la liste des fonctions proposées dans le menu déroullant qui apparaît sous votre curseur.</p>
 </div>
 <div id="les-themes" class="section level3">
 <h3><span class="header-section-number">4.9.3</span> Les thèmes</h3>
 <p>L’apparence de tout ce qui ne concerne pas directement les données d’un graphique est sous le contrôle d’un thème. Les thèmes contrôlent l’apparence générale du graphique : quelles polices et tailles de caractères sont utilisées, quel sera l’arrière plan du graphique, faut-il intégrer un quadrillage sous le graphique, et si oui, quelles doivent être ses caractéristiques ?</p>
-<p>Il est posible de spécifier chaque élément manuellement. Nous nous contenterons ici de passer en revue quelques thèmes prédéfinis qui devraient couvrir la plupart de vos besoins.</p>
-<p>Reprenons par exemple le code de la figure <a href="viz.html#fig:barfacetbrewer">4.58</a> et ajoutons un titre :</p>
+<p>Il est possible de spécifier chaque élément manuellement. Nous nous contenterons ici de passer en revue quelques thèmes prédéfinis qui devraient couvrir la plupart de vos besoins.</p>
+<p>Reprenons par exemple le code de la figure <a href="viz.html#fig:barfacetbrewer">4.57</a> et ajoutons un titre :</p>
 <div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb157-1" title="1"><span class="kw">ggplot</span>(flights, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">fct_infreq</span>(carrier), <span class="dt">fill =</span> origin)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb157-2" title="2"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb157-3" title="3"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>origin, <span class="dt">ncol =</span> <span class="dv">1</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb157-4" title="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Compagnie aérienne&quot;</span>,</a>
 <a class="sourceLine" id="cb157-5" title="5">       <span class="dt">y =</span> <span class="st">&quot;Nombre de vols&quot;</span>,</a>
 <a class="sourceLine" id="cb157-6" title="6">       <span class="dt">fill =</span> <span class="st">&quot;Aéroports de</span><span class="ch">\n</span><span class="st">New York&quot;</span>,</a>
-<a class="sourceLine" id="cb157-7" title="7">       <span class="dt">title =</span> <span class="st">&quot;Couverture inégale des aéroports de New York par les compagnies aériennes&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb157-7" title="7">       <span class="dt">title =</span> <span class="st">&quot;Couverture inégale des aéroports de New York&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb157-8" title="8"><span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Accent&quot;</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:theme1"></span>
-<img src="figure/theme1-1.png" alt="(ref:gray" width="90%" />
+<img src="figure/theme1-1.png" alt="Utilisation du thème par défaut : theme_gray()." width="90%" />
 <p class="caption">
-Figure 4.64: (ref:gray
+Figure 4.63: Utilisation du thème par défaut : <code>theme_gray()</code>.
 </p>
 </div>
 
@@ -1811,26 +1811,26 @@ Figure 4.64: (ref:gray
 <a class="sourceLine" id="cb158-4" title="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Compagnie aérienne&quot;</span>,</a>
 <a class="sourceLine" id="cb158-5" title="5">       <span class="dt">y =</span> <span class="st">&quot;Nombre de vols&quot;</span>,</a>
 <a class="sourceLine" id="cb158-6" title="6">       <span class="dt">fill =</span> <span class="st">&quot;Aéroports de</span><span class="ch">\n</span><span class="st">New York&quot;</span>,</a>
-<a class="sourceLine" id="cb158-7" title="7">       <span class="dt">title =</span> <span class="st">&quot;Couverture inégale des aéroports de New York par les compagnies aériennes&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb158-7" title="7">       <span class="dt">title =</span> <span class="st">&quot;Couverture inégale des aéroports de New York&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb158-8" title="8"><span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Accent&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb158-9" title="9"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:themebw"></span>
 <img src="figure/themebw-1.png" alt="Utilisation du thème theme_bw()." width="90%" />
 <p class="caption">
-Figure 4.65: Utilisation du thème <code>theme_bw()</code>.
+Figure 4.64: Utilisation du thème <code>theme_bw()</code>.
 </p>
 </div>
 
 <p>Les thèmes complets que vous pouvez utiliser sont les suivants :</p>
 <ul>
 <li><code>theme_bw()</code> : fond blanc et quadrillage.</li>
-<li><code>theme_calssic()</code> : thème classique, avec des axes mais pas de quadrillage</li>
-<li><code>theme_dark()</code> : fond sombre pour augmenter le contraste</li>
-<li><code>theme_gray()</code> : thème par défaut : fond gris et quadrillage blanc</li>
-<li><code>theme_light()</code> : axes et quadrillages discrets</li>
-<li><code>theme_linedraw()</code> : uniquement des lignes noires</li>
-<li><code>theme_minimal()</code> : pas d’arrière plan, pas d’axes, quadrillage discret</li>
-<li><code>theme_void()</code> : theme vide, seuls les objets géométriques restent visibles</li>
+<li><code>theme_classic()</code> : thème classique, avec des axes mais pas de quadrillage.</li>
+<li><code>theme_dark()</code> : fond sombre pour augmenter le contraste.</li>
+<li><code>theme_gray()</code> : thème par défaut : fond gris et quadrillage blanc.</li>
+<li><code>theme_light()</code> : axes et quadrillages discrets.</li>
+<li><code>theme_linedraw()</code> : uniquement des lignes noires.</li>
+<li><code>theme_minimal()</code> : pas d’arrière plan, pas d’axes, quadrillage discret.</li>
+<li><code>theme_void()</code> : theme vide, seuls les objets géométriques restent visibles.</li>
 </ul>
 <div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb159-1" title="1"><span class="kw">ggplot</span>(flights, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">fct_infreq</span>(carrier), <span class="dt">fill =</span> origin)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb159-2" title="2"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span></a>
@@ -1838,29 +1838,29 @@ Figure 4.65: Utilisation du thème <code>theme_bw()</code>.
 <a class="sourceLine" id="cb159-4" title="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Compagnie aérienne&quot;</span>,</a>
 <a class="sourceLine" id="cb159-5" title="5">       <span class="dt">y =</span> <span class="st">&quot;Nombre de vols&quot;</span>,</a>
 <a class="sourceLine" id="cb159-6" title="6">       <span class="dt">fill =</span> <span class="st">&quot;Aéroports de</span><span class="ch">\n</span><span class="st">New York&quot;</span>,</a>
-<a class="sourceLine" id="cb159-7" title="7">       <span class="dt">title =</span> <span class="st">&quot;Couverture inégale des aéroports de New York par les compagnies aériennes&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb159-7" title="7">       <span class="dt">title =</span> <span class="st">&quot;Couverture inégale des aéroports de New York&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb159-8" title="8"><span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Accent&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb159-9" title="9"><span class="st">  </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:thememinimal"></span>
 <img src="figure/thememinimal-1.png" alt="Utilisation du thème minimaliste." width="90%" />
 <p class="caption">
-Figure 4.66: Utilisation du thème minimaliste.
+Figure 4.65: Utilisation du thème minimaliste.
 </p>
 </div>
-<p>L’argument <code>base_family</code> de chaque thème permet de spécifier une police de caractère différente de celle utilisée par défaut. Évidemment, vous ne pourrez utiliser que des polices qui sont disponibles sur l’ordinateur que vous utilisez. Dans l’exemple de la figure <a href="viz.html#fig:themefont">4.67</a> ci-dessous, j’utilise la police “Futura LT Book”. Si cette police n’est pas disponible sur votre ordinateur, ce code produira une erreur. Si c’est le cas, remplacez-la par une police de votre ordinateur. Attention, son nom exact doit être utilisé. Cela signifie bien sûr le respect des espaces, majuscules, etc.</p>
+<p>L’argument <code>base_family</code> de chaque thème permet de spécifier une police de caractères différente de celle utilisée par défaut. Évidemment, vous ne pourrez utiliser que des polices qui sont disponibles sur l’ordinateur que vous utilisez. Dans l’exemple de la figure <a href="viz.html#fig:themefont">4.66</a> ci-dessous, j’utilise la police “Futura LT Book”. Si cette police n’est pas disponible sur votre ordinateur, ce code produira une erreur. Si c’est le cas, remplacez-la par une police de votre ordinateur. Attention, son nom exact doit être utilisé. Cela signifie bien sûr le respect des espaces, majuscules, etc.</p>
 <div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb160-1" title="1"><span class="kw">ggplot</span>(flights, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">fct_infreq</span>(carrier), <span class="dt">fill =</span> origin)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb160-2" title="2"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb160-3" title="3"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>origin, <span class="dt">ncol =</span> <span class="dv">1</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb160-4" title="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Compagnie aérienne&quot;</span>,</a>
 <a class="sourceLine" id="cb160-5" title="5">       <span class="dt">y =</span> <span class="st">&quot;Nombre de vols&quot;</span>,</a>
 <a class="sourceLine" id="cb160-6" title="6">       <span class="dt">fill =</span> <span class="st">&quot;Aéroports de</span><span class="ch">\n</span><span class="st">New York&quot;</span>,</a>
-<a class="sourceLine" id="cb160-7" title="7">       <span class="dt">title =</span> <span class="st">&quot;Couverture inégale des aéroports de New York par les compagnies aériennes&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb160-7" title="7">       <span class="dt">title =</span> <span class="st">&quot;Couverture inégale des aéroports de New York&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb160-8" title="8"><span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Accent&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb160-9" title="9"><span class="st">  </span><span class="kw">theme_minimal</span>(<span class="dt">base_family =</span> <span class="st">&quot;Futura LT Book&quot;</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:themefont"></span>
 <img src="figure/themefont-1.png" alt="Modification de la police de caractères." width="90%" />
 <p class="caption">
-Figure 4.67: Modification de la police de caractères.
+Figure 4.66: Modification de la police de caractères.
 </p>
 </div>
 <p>Le choix d’un thème et d’une police adaptés doivent vous permettre de faire des graphiques originaux et clairs. Rappelez-vous toujours que vos choix en matière de graphiques doivent avoir pour objectif principal de rendre les tendances plus faciles à décrypter pour un lecteur non familier de vos données. C’est un outil de communication au même titre que n’importe quel paragraphe d’un rapport ou compte-rendu. Et comme pour un paragraphe, la première version d’un graphique est rarement la bonne.</p>
@@ -1881,16 +1881,16 @@ Figure 4.67: Modification de la police de caractères.
 <p><img src="figure/exercice-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>Quelques indices :</p>
 <ul>
-<li>les couleurs utilisées sont celles de la palette <code>Set1</code> du package <code>RColorBrewer</code></li>
-<li>les variables utilisées sont <code>origin</code>, <code>air_time</code> et <code>distance</code></li>
-<li>la transparence des symboles est fixée à <code>0.8</code></li>
+<li>Les couleurs utilisées sont celles de la palette <code>Set1</code> du package <code>RColorBrewer</code>.</li>
+<li>Les variables utilisées sont <code>origin</code>, <code>air_time</code> et <code>distance</code>.</li>
+<li>La transparence des symboles est fixée à <code>0.8</code>.</li>
 </ul>
 <p>Toujours avec ce jeu de données <code>small-flights</code>, tapez les commandes permettant de produire le graphique ci-dessous :</p>
 <p><img src="figure/exercice2-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>Quelques indices :</p>
 <ul>
-<li>les couleurs utilisées sont celles de la palettes <code>Accent</code> du package <code>RColorBrewer</code></li>
-<li>les variables utilisées sont <code>month</code>, <code>carrier</code> et <code>origin</code></li>
+<li>Les couleurs utilisées sont celles de la palettes <code>Accent</code> du package <code>RColorBrewer</code>.</li>
+<li>Les variables utilisées sont <code>month</code>, <code>carrier</code> et <code>origin</code>.</li>
 </ul>
 
 </div>
