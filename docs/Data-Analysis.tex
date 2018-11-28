@@ -129,7 +129,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2018-11-27}
+    \date{2018-11-28}
 
 \usepackage[french]{babel}
 \usepackage{mathspec}  % \usepackage{fontspec}
@@ -5460,9 +5460,9 @@ Pour l'installer, on procède de la façon suivante :
 \setcounter{enumi}{1}
 \tightlist
 \item
-  Installez le package \texttt{EDAWR} depuis le site
-  \url{https://github.com} grâce à la fonction
-  \texttt{install\_github()} du package \texttt{devtools} :
+  Installez le package \texttt{EDAWR} grâce à la fonction
+  \texttt{install\_github()} du package \texttt{devtools} qui va
+  chercher le package sur le site \url{https://github.com} :
 \end{enumerate}
 
 \begin{Shaded}
@@ -5542,13 +5542,13 @@ standardisé. En particulier :
 \begin{itemize}
 \tightlist
 \item
-  chaque variable est dans une colonne unique
+  Chaque variable est dans une colonne unique.
 \item
-  chaque colonne contient une unique variable
+  Chaque colonne contient une unique variable.
 \item
-  chaque ligne correspond à une observation pour chaque variable
+  Chaque ligne correspond à une observation pour chaque variable.
 \item
-  les cellules du tableau représentent les valeurs de chaque observation
+  Les cellules du tableau représentent les valeurs de chaque observation
   pour chaque variable.
 \end{itemize}
 
@@ -5594,15 +5594,15 @@ Pour ma part, je compte les 3 variables suivantes :
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  country : qui indique les pays dans lesquels les cas de tuberculose
-  ont été dénombrés. Cette variable occupe la première colonne du
-  tableau.
+  \texttt{country} : qui indique les pays dans lesquels les cas de
+  tuberculose ont été dénombrés. Cette variable occupe la première
+  colonne du tableau.
 \item
-  la seconde variable est l'année, qui peut prendre les valeurs 2011,
+  La seconde variable est l'année, qui peut prendre les valeurs 2011,
   2012 ou 2013. Cette variable occupe la ligne des titres des 3 colonnes
   de droite du tableau.
 \item
-  et enfin, la troisième variable est le nombre de cas de tuberculose
+  Et enfin, la troisième variable est le nombre de cas de tuberculose
   observés dans chaque pays et chaque année. Cette troisième variable
   occupe 3 lignes et 3 colonnes du tableau.
 \end{enumerate}
@@ -5650,7 +5650,7 @@ La fonction \texttt{gather()} prend 4 arguments :
   haut. Nous appelerons cette variables \texttt{n\_cases} car elle
   contiendra les nombres de cas de tuberculose (7000, 5800, 15000, etc).
 \item
-  la liste des colonnes du tableau initial qui doivent être rassemblées
+  La liste des colonnes du tableau initial qui doivent être rassemblées
   (``gather'' signifie rassembler en anglais), ici, les colonnes 2, 3 et
   4 (on pourra les noter \texttt{2:4} ou, en utilisant leur nom,
   \texttt{"2011":"2013"}).
@@ -5683,7 +5683,10 @@ tableau, il faut lui donner un nom :
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{cases_tidy <-}\StringTok{ }\KeywordTok{gather}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ cases, }\DataTypeTok{key =}\NormalTok{ year, }\DataTypeTok{value =}\NormalTok{ n_cases, }\StringTok{`}\DataTypeTok{2011}\StringTok{`}\OperatorTok{:}\StringTok{`}\DataTypeTok{2013}\StringTok{`}\NormalTok{)}
+\NormalTok{cases_tidy <-}\StringTok{ }\KeywordTok{gather}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ cases, }
+                     \DataTypeTok{key =}\NormalTok{ year, }
+                     \DataTypeTok{value =}\NormalTok{ n_cases,}
+                     \StringTok{`}\DataTypeTok{2011}\StringTok{`}\OperatorTok{:}\StringTok{`}\DataTypeTok{2013}\StringTok{`}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5748,7 +5751,7 @@ supplémentaires de la fonction \texttt{gather()} :
 \item
   \texttt{convert\ =\ TRUE} : permet de transformer automatiquement la
   variable \texttt{key} en variable numérique ou logique (vrais/faux)
-  selon le type de données qu'elle contient
+  selon le type de données qu'elle contient.
 \item
   \texttt{factor\_key\ =\ TRUE} : permet de transformer automatiquement
   la variable \texttt{key} en facteur. Les niveaux du nouveau facteur
@@ -5776,7 +5779,11 @@ supplémentaires de la fonction \texttt{gather()} :
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# On utilise ensuite gather avec l'argument convert = TRUE}
-\KeywordTok{gather}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ cases, }\DataTypeTok{key =}\NormalTok{ year, }\DataTypeTok{value =}\NormalTok{ n_cases, }\StringTok{`}\DataTypeTok{2011}\StringTok{`}\OperatorTok{:}\StringTok{`}\DataTypeTok{2013}\StringTok{`}\NormalTok{, }\DataTypeTok{convert =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{gather}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ cases, }
+       \DataTypeTok{key =}\NormalTok{ year,}
+       \DataTypeTok{value =}\NormalTok{ n_cases,}
+       \StringTok{`}\DataTypeTok{2011}\StringTok{`}\OperatorTok{:}\StringTok{`}\DataTypeTok{2013}\StringTok{`}\NormalTok{,}
+       \DataTypeTok{convert =} \OtherTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5802,7 +5809,11 @@ non plus une variable de type ``character''.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Et en utilisant factor_key = TRUE...}
-\KeywordTok{gather}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ cases, }\DataTypeTok{key =}\NormalTok{ year, }\DataTypeTok{value =}\NormalTok{ n_cases, }\StringTok{`}\DataTypeTok{2011}\StringTok{`}\OperatorTok{:}\StringTok{`}\DataTypeTok{2013}\StringTok{`}\NormalTok{, }\DataTypeTok{factor_key =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{gather}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ cases, }
+       \DataTypeTok{key =}\NormalTok{ year,}
+       \DataTypeTok{value =}\NormalTok{ n_cases,}
+       \StringTok{`}\DataTypeTok{2011}\StringTok{`}\OperatorTok{:}\StringTok{`}\DataTypeTok{2013}\StringTok{`}\NormalTok{,}
+       \DataTypeTok{factor_key =} \OtherTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5859,13 +5870,13 @@ La fonction \texttt{spread()} prend 3 arguments :
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Le nom du tableau contenant les données (ici, \texttt{cases\_tidy})
+  Le nom du tableau contenant les données (ici, \texttt{cases\_tidy}).
 \item
   \texttt{key} : le nom de la variable contenant les catégories qui
-  devront être transformées en colonnes (ici, \texttt{year})
+  devront être transformées en colonnes (ici, \texttt{year}).
 \item
   \texttt{value} : le nom de la variable contenant les valeurs qui
-  devront remplir les nouvelles colonnes (ici, \texttt{n\_cases})
+  devront remplir les nouvelles colonnes (ici, \texttt{n\_cases}).
 \end{enumerate}
 
 \begin{Shaded}
@@ -6064,10 +6075,10 @@ part. La fonction \texttt{separate()} permet de faire exactement cela :
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Le premier argument est le nom du tableau de données
+  Le premier argument est le nom du tableau de données.
 \item
-  le second argument est la variable que l'on souhaite scinder en
-  plusieurs morceaux
+  Le second argument est la variable que l'on souhaite scinder en
+  plusieurs morceaux.
 \item
   \texttt{into} est un vecteur qui contient le nom des nouvelles
   colonnes à créer
@@ -6089,7 +6100,11 @@ argument lorsque nous utilisons \texttt{separate()} :
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{cases_split <-}\StringTok{ }\KeywordTok{separate}\NormalTok{(cases_tidy, year, }\DataTypeTok{into =} \KeywordTok{c}\NormalTok{(}\StringTok{"century"}\NormalTok{, }\StringTok{"year"}\NormalTok{), }\DataTypeTok{sep =} \DecValTok{2}\NormalTok{, }\DataTypeTok{convert =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{cases_split <-}\StringTok{ }\KeywordTok{separate}\NormalTok{(cases_tidy, }
+\NormalTok{                        year, }
+                        \DataTypeTok{into =} \KeywordTok{c}\NormalTok{(}\StringTok{"century"}\NormalTok{, }\StringTok{"year"}\NormalTok{), }
+                        \DataTypeTok{sep =} \DecValTok{2}\NormalTok{, }
+                        \DataTypeTok{convert =} \OtherTok{TRUE}\NormalTok{)}
 \NormalTok{cases_split}
 \end{Highlighting}
 \end{Shaded}
@@ -6111,7 +6126,7 @@ argument lorsque nous utilisons \texttt{separate()} :
 
 Notre nouvel objet \texttt{cases\_split} contient maintenant 2 nouvelles
 colonnes de nombres entiers, l'une contenant le siècle, l'autre
-contenant l'année
+contenant l'année.
 
 La fonction \texttt{unite()} fait exactement le contraire : elle
 fusionne 2 colonnes existantes en accolant leurs contenus (et en
@@ -6200,7 +6215,7 @@ présentent généralement sous l'un des 2 formats suivants :
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  fichiers au format ``.csv'' : il s'agit d'un format de fichier dit
+  Fichiers au format ``.csv'' : il s'agit d'un format de fichier dit
   ``texte brut'', c'est à dire qu'il peut être ouvert avec n'importe
   quel éditeur de texte, y compris le bloc notes de Windows. L'extension
   ``.csv'' est l'abbréviation de Comma Separated Values, autrement dit,
@@ -6217,7 +6232,7 @@ présentent généralement sous l'un des 2 formats suivants :
   selon les logiciels : format texte brut, format csv, plain text,
   etc\ldots{}).
 \item
-  fichiers au format tableur : \texttt{.xls} ou \texttt{.xlsx} pour
+  Fichiers au format tableur : \texttt{.xls} ou \texttt{.xlsx} pour
   Excel, \texttt{.calc} pour Open Office.
 \end{enumerate}
 
@@ -6241,9 +6256,9 @@ ces fichiers, un certain nombre de règles doivent être respectées :
   ou à une station donnée).
 \item
   Il est généralement conseillé d'utiliser la première ligne du tableau
-  Excel pour stocker le nom des variables et la première colonne pour
-  stocker le nom des observations (identifiant des individus, des
-  échantillons ou des stations par exemple).
+  pour stocker le nom des variables et la première colonne pour stocker
+  le nom des observations (identifiant des individus, des échantillons
+  ou des stations par exemple).
 \item
   Ne jamais utiliser de caractères spéciaux tels que \#, \$, \%, \^{},
   \&, *, (, ), \{, \}, {[}, {]}, des accents, des cédilles des
@@ -6268,7 +6283,7 @@ ces fichiers, un certain nombre de règles doivent être respectées :
   cellule A1 du tableur. Autrement dit, il ne devrait jamais y avoir de
   lignes incomplètes ou de lignes de commentaires au-dessus des données,
   ou de colonne vide à gauche de votre tableau. D'ailleurs, il ne
-  devrait jamais y avoir de commentaires à droite ou en-dessous de vos
+  devrait jamais y avoir de commentaires à droite ou en dessous de vos
   données non plus.
 \end{enumerate}
 
@@ -6278,7 +6293,7 @@ ces fichiers, un certain nombre de règles doivent être respectées :
 
 À titre d'exemple, téléchargez le fichier
 \href{data/dauphin.xls}{dauphin.xls} et placez-le dans votre répertoire
-de travail. Ce jeu de données contient des résultats de dosage de
+de travail. Ce jeu de données contient des résultats de dosages de
 différents métaux lourds (cadmium, cuivre et mercure) dans différents
 organes (foie et rein) de plusieurs dauphins communs \emph{Delphinus
 delphis}. Les informations de taille, d'âge et de statut reproducteur
@@ -6288,15 +6303,15 @@ constaterez que son format ne permet pas de l'importer tel quel dans R :
 \begin{itemize}
 \tightlist
 \item
-  Il contient des lignes vides inutiles au-dessus des données
+  Il contient des lignes vides inutiles au-dessus des données.
 \item
-  Il contient des commentaires inutiles au-dessus des données
+  Il contient des commentaires inutiles au-dessus des données.
 \item
   Les titres de colonnes sont complexes et contiennent des caractères
-  spéciaux
+  spéciaux.
 \item
   Dans le tableau, les données manquantes sont représentées soit par des
-  ``\texttt{*}'', soit par des cellules vides
+  ``\texttt{*}'', soit par des cellules vides.
 \end{itemize}
 
 Importer un tel jeu de données dans R par les méthodes classiques
@@ -6320,7 +6335,8 @@ dans le menu qui s'affiche, choisissez \texttt{Import\ Dataset...} :
 \caption{L'option `Import Dataset...` dans la fenêtre `Files` de RStudio}\label{fig:import}
 \end{figure}
 
-La nouvelle fenêtre qui s'ouvre est un ``assistant d'importation'' :
+La nouvelle fenêtre qui s'ouvre est un ``assistant d'importation''
+(figure \ref{fig:import2}).
 
 \begin{figure}[htpb]
 
@@ -6338,14 +6354,14 @@ Cette fenêtre contient plusieurs zones importantes :
 \tightlist
 \item
   \texttt{File/URL} (en haut) : lien vers le fichier contenant les
-  données, sur votre ordinateur ou en ligne
+  données, sur votre ordinateur ou en ligne.
 \item
   \texttt{Data\ Preview} : zone principale affichant les 50 premières
   lignes du fichier que l'on souhaite importer.
 \item
   \texttt{Import\ Options} (en bas à gauche) : zone dans laquelle des
   options permettant d'importer les données correctement peuvent être
-  spécifiées
+  spécifiées.
 \item
   \texttt{Code\ Preview} (en bas à droite) : les lignes de codes que
   vous pourrez copier-coller dans votre script une fois les réglages
@@ -6356,7 +6372,7 @@ Ici, nous constatons que les données ne sont pas au bon format. La
 première chose que nous pouvons faire est d'indiquer à R que nous
 souhaitons ignorer les 9 premières lignes du fichier. Ensuite, nous
 précisons à RStudio que l'étoile ``\texttt{*}'' a été utilisée pour
-indiquer des données manquantes :
+indiquer des données manquantes (figure \ref{fig:import3}) :
 
 \begin{figure}[htpb]
 
@@ -6375,7 +6391,7 @@ Notez qu'à chaque fois que vous modifiez une valeur dans la zone
 \tightlist
 \item
   La zone \texttt{Data\ Preview} est mise à jour. Cela permet de
-  s'assurer que les changements effectués ont bien les effets escomptés
+  s'assurer que les changements effectués ont bien les effets escomptés.
 \item
   La zone \texttt{Code\ Preview} est mise à jour. Cela permet de
   copier-coller dans un script les commandes permettant d'importer
@@ -6426,7 +6442,8 @@ avons tout intérêt à les modifier à l'aide de la fonction
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{names}\NormalTok{(dauphin) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"ID"}\NormalTok{, }\StringTok{"Sexe"}\NormalTok{, }\StringTok{"Statut"}\NormalTok{, }\StringTok{"Taille"}\NormalTok{, }\StringTok{"Age"}\NormalTok{, }\StringTok{"Cd"}\NormalTok{, }\StringTok{"Cu"}\NormalTok{, }\StringTok{"Hg"}\NormalTok{, }\StringTok{"Organe"}\NormalTok{)}
+\KeywordTok{names}\NormalTok{(dauphin) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"ID"}\NormalTok{, }\StringTok{"Sexe"}\NormalTok{, }\StringTok{"Statut"}\NormalTok{, }\StringTok{"Taille"}\NormalTok{,}
+                    \StringTok{"Age"}\NormalTok{, }\StringTok{"Cd"}\NormalTok{, }\StringTok{"Cu"}\NormalTok{, }\StringTok{"Hg"}\NormalTok{, }\StringTok{"Organe"}\NormalTok{)}
 \NormalTok{dauphin}
 \end{Highlighting}
 \end{Shaded}
@@ -6454,25 +6471,25 @@ Enfin, vous pouvez égalememnt noter que certaines variables devraient
 \begin{itemize}
 \tightlist
 \item
-  les variables \texttt{Sexe}, \texttt{Statut} (qui contient
+  Les variables \texttt{Sexe}, \texttt{Statut} (qui contient
   l'information de statut reproducteur des dauphins) et \texttt{Organe}
   (qui indique dans quel organe les métaux ont été dosés) sont de type
   \texttt{\textless{}chr\textgreater{}}. L'idéal serait de disposer de
   facteurs puisqu'ils s'agit de variables catégorielles.
 \item
-  la variable \texttt{ID} est totalement inutile puisqu'elle est
+  La variable \texttt{ID} est totalement inutile puisqu'elle est
   parfaitement redondante avec le numéro de ligne. Nous pourrions donc
   la supprimer.
 \item
-  certaines catégories (ou niveaux) de la variable \texttt{Statut}
+  Certaines catégories (ou niveaux) de la variable \texttt{Statut}
   devraient être ordonnées puisqu'elles reflètent une progression
   logique : \texttt{imm} (immature), \texttt{mat} (mature), \texttt{pnl}
   (pregnant non lactating), \texttt{pl} (pregnant lactating), \texttt{l}
-  (lactating), \texttt{repos} (repos somatique)
+  (lactating), \texttt{repos} (repos somatique).
 \end{itemize}
 
 Nous verrons dans la partie \ref{wrangling} comment effectuer simplement
-ces différentes opérations
+ces différentes opérations.
 
 \hypertarget{plaintext}{%
 \subsubsection{Fichiers au format texte brut (.csv)}\label{plaintext}}
@@ -6498,23 +6515,26 @@ pouvez d'ailleurs essayer d'ouvrir \texttt{dauphin.csv} depuis RStudio,
 en allant dans la fenêtre \texttt{Files} puis en cliquant sur le nom du
 fichier et en choisissant \texttt{View\ File}. RStudio ouvre un nouvel
 onglet à côté de votre script vous permettant d'inspecter le contenu de
-ce fichier. Par rapport au fichier excel, vous pouvez noter un certain
+ce fichier. Par rapport au fichier Excel, vous pouvez noter un certain
 nombre de différences :
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  les colonnes sont séparées par des tabulations
+  Les colonnes sont séparées par des tabulations.
 \item
-  les nombres décimaux utilisent la virgule (et non le point comme dans
-  les pays anglo-saxons)
+  Les nombres décimaux utilisent la virgule (et non le point comme dans
+  les pays anglo-saxons).
 \item
-  les noms de colonne ont déjà été corrigés/simplifiés par rapport au
-  tableau d'origine
+  Les noms de colonnes ont déjà été corrigés/simplifiés par rapport au
+  tableau d'origine.
 \item
-  les valeurs manquantes sont toutes codées par des \texttt{NA}s
+  Les valeurs manquantes sont toutes codées par des \texttt{NA}s.
 \end{enumerate}
+
+Un travail d'édition du fichier \texttt{.xls} de départ a donc été
+réalisé en amont de l'enregistrement au format \texttt{.csv}.
 
 Attention, à ce stade, vous avez ouvert un fichier au format texte brut
 dans RStudio, mais les données contenues dans ce fichier n'ont pas été
@@ -6535,7 +6555,7 @@ On commence par cliquer sur \texttt{dauphin.csv} dans l'onglet
 \end{figure}
 
 La fenêtre qui s'ouvre est en tous points identique à celle obtenue pour
-l'importation de fichiers tableurs :
+l'importation de fichiers tableurs (figure \ref{fig:importcsv2}).
 
 \begin{figure}[htpb]
 
@@ -6567,7 +6587,7 @@ ordinateur français, la virgule a été utilisée en guise de symbole des
 décimales. Pour l'indiquer à R, cliquez sur
 \texttt{Locale\ \textgreater{}\ Configure...}, changez le \texttt{.} en
 \texttt{,} dans le champ \texttt{Decimal\ Mark} et validez en cliquant
-sur \texttt{Configure} :
+sur \texttt{Configure}.
 
 \begin{figure}[htpb]
 
@@ -6578,7 +6598,7 @@ sur \texttt{Configure} :
 \caption{Changement du symbole utilisé pour les décimales}\label{fig:importcsv3}
 \end{figure}
 
-Les données sont naintenant au bon format, prêtes à être importées dans
+Les données sont maintenant au bon format, prêtes à être importées dans
 RStudio. Afin de ne pas écraser l'objet \texttt{dauphin} que nous avons
 créé à partir du fichier tableur un peu plus tôt, nous stockerons ces
 nouvelles données dans un objet nommé \texttt{dauphin2}. Pour cela,
@@ -6591,7 +6611,7 @@ ajoutez un \texttt{2} au nom \texttt{dauphin} dans le champ
 
 }
 
-\caption{Les données, dans un format correct, permettant l'importation}\label{fig:importcsv4}
+\caption{Les données, dans un format correct permettant l'importation}\label{fig:importcsv4}
 \end{figure}
 
 Nous n'avons plus qu'à copier-coller dans notre script le code généré
@@ -6628,10 +6648,10 @@ Notez que :
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  c'est le package \texttt{readr} et non plus \texttt{readxl} qui est
+  C'est le package \texttt{readr} et non plus \texttt{readxl} qui est
   utilisé.
 \item
-  la fonction \texttt{read\_delim()} a remplacé la fonction
+  La fonction \texttt{read\_delim()} a remplacé la fonction
   \texttt{read\_excel()}. Il existe beaucoup d'autres fonctions selon le
   format de vos données (par exemple \texttt{read\_csv()} et
   \texttt{read\_csv2()}). Il est inutile de toutes les connaître dans la
@@ -6647,7 +6667,7 @@ Toutes les fonctions permettant d'importer des données n'ont pas
 nécessairement le même comportement. Ainsi, si l'on compare les objets
 importés depuis le fichier tableur (\texttt{dauphin}) et depuis le
 fichier texte brut (\texttt{dauphin2}), le type de certaines variables
-est différent :
+peut être différent :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6695,11 +6715,12 @@ est différent :
 # ... with 83 more rows
 \end{verbatim}
 
-En particulier les variables \texttt{Taille} et \texttt{Age} sont
-considérées comme réelles dans \texttt{dauphin} mais comme entières (ce
-qui semble plus logique) dans \texttt{dauphin2}. Afin d'éviter les
-confusions dans la suite du document, nous allons supprimer
-\texttt{dauphin2} en tapant :
+En particulier selon la version des packages que vosu utilisez et les
+réglages spéifiques de vos systèmes d'exploitation, les variables
+\texttt{Taille} et \texttt{Age} sont parfois considérées comme réelles
+dans \texttt{dauphin} mais comme entières dans \texttt{dauphin2} (ce
+n'est pas le cas ici). Afin d'éviter les confusions dans la suite du
+document, nous allons supprimer \texttt{dauphin2} en tapant :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6720,6 +6741,88 @@ erreur :
 Error in eval(expr, envir, enclos): objet 'dauphin2' introuvable
 \end{verbatim}
 
+\hypertarget{importproblem}{%
+\subsubsection{En cas de problème\ldots{}}\label{importproblem}}
+
+Il arrive parfois que l'importation de fichiers textes bruts par la
+méthode décrite ci-dessus échoue en raison d'un bug du package
+\texttt{readr} qui gère mal la présence de caractères spéciaux (accents,
+cédilles, etc) dans le chemin des fichiers que l'on tente d'importer. À
+l'heure où j'écris ces lignes (28 novembre 2018), le bug a été corrigé
+dans la version de développement du package, mais toujours pas dans la
+version stable disponible au téléchargement sur les serveurs du CRAN. Il
+est donc utile de connaître une méthode alternative pour importer de
+tels fichiers dans R. Cette méthode repose sur ``la mère de toutes les
+fonctions d'importation'' : \texttt{read.table()}.
+
+La fonction \texttt{read.table()} est à la abse de la plupart des
+fonctions d'importation décrites dans ce chapitre. Il est donc important
+d'en connaître la syntaxe et les arguments les plus importants. Cette
+fonction requiert en général les arguments suivants :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Le chemin du fichier texte contenant les données à importer. Si le
+  fichier se trouve dans votre répertoire de travail, il suffit de
+  donner son nom. S'il est dans un sous-dossier de votre répertoire de
+  travail, il faut donner le nom complet :
+  \texttt{"sous\_dossier/nom\_du\_fichier.csv"}.
+\item
+  \texttt{sep} : la spécification du symbole utilisé en guise de
+  séparateur de colonnes dans le fichier texte. Cela peut-être la
+  virgule (\texttt{sep\ =\ ","}), le point virgule
+  (\texttt{sep\ =\ ";"}) ou encore la tabulation
+  (\texttt{sep\ =\ "\textbackslash{}t"}) selon les fichiers importés.
+\item
+  \texttt{dec} : la spécification du symbole utilisé en guise de symbole
+  pour les décimales. Il n'est pas nécessaire de spécifier cet argument
+  lorsque le symbole dans le fichier source est le point. Mais si c'est
+  une virgule (comme c'est souvent le cas dans les pays francophones),
+  il faut alors préciser \texttt{dec\ =\ ","}.
+\item
+  \texttt{header} : la première ligne du fichier source contient-elle
+  des noms de variables. Si oui, il faut indiquer
+  \texttt{header\ =\ TRUE}.
+\end{enumerate}
+
+Ainsi, par exemple, pour le fichier \texttt{dauphin.csv}, on peut taper
+ceci :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dauph <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\StringTok{"data/dauphin.csv"}\NormalTok{,}
+                    \DataTypeTok{sep =} \StringTok{"}\CharTok{\textbackslash{}t}\StringTok{"}\NormalTok{,}
+                    \DataTypeTok{dec =} \StringTok{","}\NormalTok{,}
+                    \DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{dauph <-}\StringTok{ }\KeywordTok{as_tibble}\NormalTok{(dauph)}
+\NormalTok{dauph}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 93 x 9
+      Id Sexe  Statut Taille   Age     Cd    Cu    Hg Organe
+   <int> <fct> <fct>   <int> <int>  <dbl> <dbl> <dbl> <fct> 
+ 1     1 f     imm       315     3  29.6   3.24 NA    rein  
+ 2     2 f     imm       357     4  55.1   4.42 NA    rein  
+ 3     3 f     pnl       439    34 129.    5.01  9.02 rein  
+ 4     4 f     imm       316     4  71.2   4.33 NA    rein  
+ 5     5 f     l         435    26 192     5.15 NA    rein  
+ 6     6 f     pnl       388     6  NA     4.12  4.53 rein  
+ 7     7 f     mat       410    NA  76     5.1  33.9  foie  
+ 8     8 m     imm       355    NA  74.4   4.72 13.3  foie  
+ 9     9 m     imm       222    NA   0.09  9.5   2.89 foie  
+10    10 m     imm       412     9  85.6   5.42 NA    rein  
+# ... with 83 more rows
+\end{verbatim}
+
+Puisque la fonction \texttt{read.table()} importe les données sous la
+forme d'un data.frame, il est nécessaire de transformer le tableau
+obtenu en \texttt{tibble} grâce à la fonction \texttt{as\_tibble()} afin
+de bénéficier de tous les avantages de ce format d'objet.
+
 \hypertarget{exercices-8}{%
 \subsubsection{Exercices}\label{exercices-8}}
 
@@ -6736,19 +6839,27 @@ Error in eval(expr, envir, enclos): objet 'dauphin2' introuvable
 \begin{center}\includegraphics[width=0.9\linewidth]{figure/exercicedauphin-1} \end{center}
 
 Indice : les droites de régression avec les intervalles de confiance
-sont ajoutés grâce à la fonction \texttt{geom\_smooth(method\ =\ "lm")}
-3. Importez dans R le jeu de données \href{data/whoTB.csv}{whoTB.csv}.
-Ce jeu de données contient les cas de tuberculose (TB) rapportés par
-l'Organisation Mondiale de la Santé (OMS, ou WHO en anglais : World
-Health Organization). Les cas sont répertoriés par année, pays, âge,
-sexe, type de tuberculose et méthode de diagnostique. Selon vous, ce jeu
-de données est-il ``rangé'' ? Pourquoi ? 4. Si ce jeu de données n'est
-pas rangé, rangez-le en utilisant les fonctions du packages
-\texttt{tidyr} que nous avons découvertes dans ce chapitre :
-\texttt{gather()}, \texttt{spread()}, \texttt{separate()} et
-\texttt{unite()} (vous n'aurez pas nécessairement besoin d'utiliser ces
-4 fonctions, et à l'inverse, certaines devront peut-être être utilisées
-plusieurs fois).
+sont ajoutés grâce à la fonction \texttt{geom\_smooth(method\ =\ "lm")}.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Importez dans R le jeu de données \href{data/whoTB.csv}{whoTB.csv}. Ce
+  jeu de données contient les cas de tuberculose (TB) rapportés par
+  l'Organisation Mondiale de la Santé (OMS, ou WHO en anglais : World
+  Health Organization). Les cas sont répertoriés par année, pays, âge,
+  sexe, type de tuberculose et méthode de diagnostique. Selon vous, ce
+  jeu de données est-il ``rangé'' ? Pourquoi ?
+\item
+  Si ce jeu de données n'est pas rangé, rangez-le en utilisant les
+  fonctions du packages \texttt{tidyr} que nous avons découvertes dans
+  ce chapitre : \texttt{gather()}, \texttt{spread()},
+  \texttt{separate()} et \texttt{unite()} (vous n'aurez pas
+  nécessairement besoin d'utiliser ces 4 fonctions, et à l'inverse,
+  certaines devront peut-être être utilisées plusieurs fois).
+\end{enumerate}
 
 Pour vous aider, l'OMS donne la signification des codes utilisés en
 guise de noms pour la plupart des colonnes. Ainsi :
@@ -6757,28 +6868,28 @@ guise de noms pour la plupart des colonnes. Ainsi :
 \tightlist
 \item
   \texttt{new} indique des nouveaux cas, \texttt{old} des anciens (ici,
-  seuls les nouveaux cas sont rapportés)
+  seuls des nouveaux cas sont rapportés).
 \item
-  le type de cas est précisé ensuite :
+  Le type de cas est précisé ensuite :
 
   \begin{itemize}
   \tightlist
   \item
     \texttt{sp} signifie ``Smear Positive'' (tuberculose pulmonaire à
-    frottis positif)
+    frottis positif).
   \item
     \texttt{sn} signifie ``Smear Negative'' (tuberculose pulmonaire à
-    frottis négatif)
+    frottis négatif).
   \item
-    \texttt{rel} signifie ``relapse'' (rechute)
+    \texttt{rel} signifie ``relapse'' (rechute).
   \item
     \texttt{ep} signifie ``Extra Pulmonary'' (tuberculose
-    extra-pulmonaire)
+    extra-pulmonaire).
   \end{itemize}
 \item
-  le sexe est codé par \texttt{m} (male) ou \texttt{f} (female)
+  Le sexe est codé par \texttt{m} (male) ou \texttt{f} (female).
 \item
-  enfin, les chiffres correspondent à des tranches d'âges : 014 signifie
+  Enfin, les chiffres correspondent à des tranches d'âges : 014 signifie
   ``de 0 à 14 ans'', ``1524'' signifie ``de 15 à 24 ans'', etc.
 \end{itemize}
 
@@ -6911,11 +7022,11 @@ Voilà comment traduire cela avec le pipe :
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-89-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-90-1} 
 
 }
 
-\caption{Notre premier graphique, produit grâce au pipe}\label{fig:unnamed-chunk-89}
+\caption{Notre premier graphique, produit grâce au pipe}\label{fig:unnamed-chunk-90}
 \end{figure}
 
 Notez bien qu'ici, aucun objet intermédiaire n'a été créé. Notez
@@ -8543,11 +8654,11 @@ l'ordre des catégories sera celui spécifié par la fonction
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.5\linewidth]{figure/unnamed-chunk-132-1} 
+{\centering \includegraphics[width=0.5\linewidth]{figure/unnamed-chunk-133-1} 
 
 }
 
-\caption{Indice Gonado Somatique  selon le sexe.}\label{fig:unnamed-chunk-132}
+\caption{Indice Gonado Somatique  selon le sexe.}\label{fig:unnamed-chunk-133}
 \end{figure}
 
 Comment faire pour inverser l'ordre des catégories sur l'axe des
@@ -8603,11 +8714,11 @@ avez chargé le \texttt{tidyverse}, \texttt{forcats} est déjà disponible
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.5\linewidth]{figure/unnamed-chunk-135-1} 
+{\centering \includegraphics[width=0.5\linewidth]{figure/unnamed-chunk-136-1} 
 
 }
 
-\caption{Indice Gonado Somatique  selon le sexe.}\label{fig:unnamed-chunk-135}
+\caption{Indice Gonado Somatique  selon le sexe.}\label{fig:unnamed-chunk-136}
 \end{figure}
 
 Revenons maintenant au jeu de données \texttt{dauphin}.

@@ -82,36 +82,37 @@
 \contentsline {subsubsection}{\numberline {5.2.1}La fonction \texttt {gather()}}{109}{subsubsection.5.2.1}
 \contentsline {subsubsection}{\numberline {5.2.2}La fonction \texttt {spread()}}{112}{subsubsection.5.2.2}
 \contentsline {subsubsection}{\numberline {5.2.3}Les fonctions \texttt {separate()} et \texttt {unite()}}{115}{subsubsection.5.2.3}
-\contentsline {subsubsection}{\numberline {5.2.4}Exercices}{117}{subsubsection.5.2.4}
-\contentsline {subsection}{\numberline {5.3}Importer des données depuis un tableur}{117}{subsection.5.3}
-\contentsline {subsubsection}{\numberline {5.3.1}Les règles de base}{117}{subsubsection.5.3.1}
-\contentsline {subsubsection}{\numberline {5.3.2}Fichiers au format tableur (.xls ou .xlsx)}{118}{subsubsection.5.3.2}
-\contentsline {subsubsection}{\numberline {5.3.3}Fichiers au format texte brut (.csv)}{122}{subsubsection.5.3.3}
-\contentsline {subsubsection}{\numberline {5.3.4}Exercices}{127}{subsubsection.5.3.4}
-\contentsline {section}{\numberline {6}Tripatouiller les données avec \texttt {dplyr}}{129}{section.6}
-\contentsline {subsection}{\numberline {6.1}Pré-requis}{129}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Le pipe \texttt {\%\textgreater {}\%}}{129}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}Les verbes du tripatouillage de données}{131}{subsection.6.3}
-\contentsline {subsection}{\numberline {6.4}Filtrer des lignes avec \texttt {filter()}}{132}{subsection.6.4}
-\contentsline {subsubsection}{\numberline {6.4.1}Principe}{132}{subsubsection.6.4.1}
-\contentsline {subsubsection}{\numberline {6.4.2}Exercice}{133}{subsubsection.6.4.2}
-\contentsline {subsubsection}{\numberline {6.4.3}Les conditions logiques}{133}{subsubsection.6.4.3}
-\contentsline {subsection}{\numberline {6.5}Créer des résumés avec \texttt {summarise()} et \texttt {group\_by()}}{137}{subsection.6.5}
-\contentsline {subsubsection}{\numberline {6.5.1}Principe de la fonction \texttt {summarise()}}{137}{subsubsection.6.5.1}
-\contentsline {subsubsection}{\numberline {6.5.2}Intérêt de la fonction \texttt {group\_by()}}{139}{subsubsection.6.5.2}
-\contentsline {subsubsection}{\numberline {6.5.3}Ajouter des barres d'erreurs sur un graphique}{141}{subsubsection.6.5.3}
-\contentsline {subsubsection}{\numberline {6.5.4}Grouper par plus d'une variable}{143}{subsubsection.6.5.4}
-\contentsline {subsubsection}{\numberline {6.5.5}Un raccourci pratique pour compter des effectifs}{146}{subsubsection.6.5.5}
-\contentsline {subsubsection}{\numberline {6.5.6}Exercices}{148}{subsubsection.6.5.6}
-\contentsline {subsection}{\numberline {6.6}Sélectionner des variables avec \texttt {select()}}{150}{subsection.6.6}
-\contentsline {subsection}{\numberline {6.7}Créer de nouvelles variables avec \texttt {mutate()}}{154}{subsection.6.7}
-\contentsline {subsubsection}{\numberline {6.7.1}Principe}{154}{subsubsection.6.7.1}
-\contentsline {subsubsection}{\numberline {6.7.2}Transformer des variables en facteurs}{156}{subsubsection.6.7.2}
-\contentsline {subsubsection}{\numberline {6.7.3}Exercices}{165}{subsubsection.6.7.3}
+\contentsline {subsubsection}{\numberline {5.2.4}Exercices}{118}{subsubsection.5.2.4}
+\contentsline {subsection}{\numberline {5.3}Importer des données depuis un tableur}{118}{subsection.5.3}
+\contentsline {subsubsection}{\numberline {5.3.1}Les règles de base}{118}{subsubsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.2}Fichiers au format tableur (.xls ou .xlsx)}{119}{subsubsection.5.3.2}
+\contentsline {subsubsection}{\numberline {5.3.3}Fichiers au format texte brut (.csv)}{123}{subsubsection.5.3.3}
+\contentsline {subsubsection}{\numberline {5.3.4}En cas de problème\ldots {}}{127}{subsubsection.5.3.4}
+\contentsline {subsubsection}{\numberline {5.3.5}Exercices}{129}{subsubsection.5.3.5}
+\contentsline {section}{\numberline {6}Tripatouiller les données avec \texttt {dplyr}}{130}{section.6}
+\contentsline {subsection}{\numberline {6.1}Pré-requis}{130}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Le pipe \texttt {\%\textgreater {}\%}}{130}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}Les verbes du tripatouillage de données}{132}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}Filtrer des lignes avec \texttt {filter()}}{133}{subsection.6.4}
+\contentsline {subsubsection}{\numberline {6.4.1}Principe}{133}{subsubsection.6.4.1}
+\contentsline {subsubsection}{\numberline {6.4.2}Exercice}{134}{subsubsection.6.4.2}
+\contentsline {subsubsection}{\numberline {6.4.3}Les conditions logiques}{134}{subsubsection.6.4.3}
+\contentsline {subsection}{\numberline {6.5}Créer des résumés avec \texttt {summarise()} et \texttt {group\_by()}}{138}{subsection.6.5}
+\contentsline {subsubsection}{\numberline {6.5.1}Principe de la fonction \texttt {summarise()}}{138}{subsubsection.6.5.1}
+\contentsline {subsubsection}{\numberline {6.5.2}Intérêt de la fonction \texttt {group\_by()}}{140}{subsubsection.6.5.2}
+\contentsline {subsubsection}{\numberline {6.5.3}Ajouter des barres d'erreurs sur un graphique}{142}{subsubsection.6.5.3}
+\contentsline {subsubsection}{\numberline {6.5.4}Grouper par plus d'une variable}{144}{subsubsection.6.5.4}
+\contentsline {subsubsection}{\numberline {6.5.5}Un raccourci pratique pour compter des effectifs}{147}{subsubsection.6.5.5}
+\contentsline {subsubsection}{\numberline {6.5.6}Exercices}{149}{subsubsection.6.5.6}
+\contentsline {subsection}{\numberline {6.6}Sélectionner des variables avec \texttt {select()}}{151}{subsection.6.6}
+\contentsline {subsection}{\numberline {6.7}Créer de nouvelles variables avec \texttt {mutate()}}{155}{subsection.6.7}
+\contentsline {subsubsection}{\numberline {6.7.1}Principe}{155}{subsubsection.6.7.1}
+\contentsline {subsubsection}{\numberline {6.7.2}Transformer des variables en facteurs}{157}{subsubsection.6.7.2}
+\contentsline {subsubsection}{\numberline {6.7.3}Exercices}{166}{subsubsection.6.7.3}
 \contentsline {subsection}{\numberline {6.8}Trier des lignes avec \texttt {arrange()}}{167}{subsection.6.8}
-\contentsline {subsection}{\numberline {6.9}Associer plusieurs tableaux avec \texttt {left\_join()} et \texttt {inner\_join()}}{169}{subsection.6.9}
-\contentsline {subsubsection}{\numberline {6.9.1}Principe}{169}{subsubsection.6.9.1}
-\contentsline {subsubsection}{\numberline {6.9.2}\texttt {inner\_join()}}{170}{subsubsection.6.9.2}
-\contentsline {subsubsection}{\numberline {6.9.3}\texttt {left\_join()}}{172}{subsubsection.6.9.3}
-\contentsline {subsubsection}{\numberline {6.9.4}Accoller deux tableaux}{174}{subsubsection.6.9.4}
+\contentsline {subsection}{\numberline {6.9}Associer plusieurs tableaux avec \texttt {left\_join()} et \texttt {inner\_join()}}{170}{subsection.6.9}
+\contentsline {subsubsection}{\numberline {6.9.1}Principe}{170}{subsubsection.6.9.1}
+\contentsline {subsubsection}{\numberline {6.9.2}\texttt {inner\_join()}}{171}{subsubsection.6.9.2}
+\contentsline {subsubsection}{\numberline {6.9.3}\texttt {left\_join()}}{173}{subsubsection.6.9.3}
+\contentsline {subsubsection}{\numberline {6.9.4}Accoller deux tableaux}{175}{subsubsection.6.9.4}
 \contentsline {subsection}{\numberline {6.10}Exercices}{178}{subsection.6.10}

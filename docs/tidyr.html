@@ -25,7 +25,7 @@
 <meta name="author" content="Benoît Simon-Bouhet">
 
 
-<meta name="date" content="2018-11-27">
+<meta name="date" content="2018-11-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -232,7 +232,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="chapter" data-level="5.3.1" data-path="tidyr.html"><a href="tidyr.html#les-regles-de-base"><i class="fa fa-check"></i><b>5.3.1</b> Les règles de base</a></li>
 <li class="chapter" data-level="5.3.2" data-path="tidyr.html"><a href="tidyr.html#tableur"><i class="fa fa-check"></i><b>5.3.2</b> Fichiers au format tableur (.xls ou .xlsx)</a></li>
 <li class="chapter" data-level="5.3.3" data-path="tidyr.html"><a href="tidyr.html#plaintext"><i class="fa fa-check"></i><b>5.3.3</b> Fichiers au format texte brut (.csv)</a></li>
-<li class="chapter" data-level="5.3.4" data-path="tidyr.html"><a href="tidyr.html#exercices-8"><i class="fa fa-check"></i><b>5.3.4</b> Exercices</a></li>
+<li class="chapter" data-level="5.3.4" data-path="tidyr.html"><a href="tidyr.html#importproblem"><i class="fa fa-check"></i><b>5.3.4</b> En cas de problème…</a></li>
+<li class="chapter" data-level="5.3.5" data-path="tidyr.html"><a href="tidyr.html#exercices-8"><i class="fa fa-check"></i><b>5.3.5</b> Exercices</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="wrangling.html"><a href="wrangling.html"><i class="fa fa-check"></i><b>6</b> Tripatouiller les données avec <code>dplyr</code></a><ul>
@@ -311,7 +312,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb163-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</a>
 <a class="sourceLine" id="cb163-2" title="2"><span class="kw">library</span>(devtools)</a></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
-<li>Installez le package <code>EDAWR</code> depuis le site <a href="https://github.com" class="uri">https://github.com</a> grâce à la fonction <code>install_github()</code> du package <code>devtools</code> :</li>
+<li>Installez le package <code>EDAWR</code> grâce à la fonction <code>install_github()</code> du package <code>devtools</code> qui va chercher le package sur le site <a href="https://github.com" class="uri">https://github.com</a> :</li>
 </ol>
 <div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb164-1" title="1"><span class="kw">install_github</span>(<span class="st">&quot;rstudio/EDAWR&quot;</span>)</a></code></pre></div>
 <p>Attention, sur les ordinateurs de l’université cette procédure ne fonctionne pas toujours. Si vous rencontrez des difficultés, suivez les instructions décrites à la fin de cette section <a href="tidyr.html#prerek">5.1</a></p>
@@ -336,10 +337,10 @@ code span.wa { color: #bf0303; } /* Warning */
 <h2><span class="header-section-number">5.2</span> C’est quoi des “tidy data” ?</h2>
 <p>Les “tidy data” (nous les appellerons “données rangées” dans la suite de ce livre), sont des données qui respectent un format standardisé. En particulier :</p>
 <ul>
-<li>chaque variable est dans une colonne unique</li>
-<li>chaque colonne contient une unique variable</li>
-<li>chaque ligne correspond à une observation pour chaque variable</li>
-<li>les cellules du tableau représentent les valeurs de chaque observation pour chaque variable.</li>
+<li>Chaque variable est dans une colonne unique.</li>
+<li>Chaque colonne contient une unique variable.</li>
+<li>Chaque ligne correspond à une observation pour chaque variable.</li>
+<li>Les cellules du tableau représentent les valeurs de chaque observation pour chaque variable.</li>
 </ul>
 <div class="figure" style="text-align: center"><span id="fig:tidyschema"></span>
 <img src="images/tidy.png" alt="La définition des 'données rangées', d'après http://r4ds.had.co.nz/tidy-data.html" width="90%" />
@@ -358,9 +359,9 @@ Figure 5.1: La définition des ‘données rangées’, d’après <a href="http
 <p>Essayez d’identifier également où se trouvent ces variables.</p>
 <p>Pour ma part, je compte les 3 variables suivantes :</p>
 <ol style="list-style-type: decimal">
-<li>country : qui indique les pays dans lesquels les cas de tuberculose ont été dénombrés. Cette variable occupe la première colonne du tableau.</li>
-<li>la seconde variable est l’année, qui peut prendre les valeurs 2011, 2012 ou 2013. Cette variable occupe la ligne des titres des 3 colonnes de droite du tableau.</li>
-<li>et enfin, la troisième variable est le nombre de cas de tuberculose observés dans chaque pays et chaque année. Cette troisième variable occupe 3 lignes et 3 colonnes du tableau.</li>
+<li><code>country</code> : qui indique les pays dans lesquels les cas de tuberculose ont été dénombrés. Cette variable occupe la première colonne du tableau.</li>
+<li>La seconde variable est l’année, qui peut prendre les valeurs 2011, 2012 ou 2013. Cette variable occupe la ligne des titres des 3 colonnes de droite du tableau.</li>
+<li>Et enfin, la troisième variable est le nombre de cas de tuberculose observés dans chaque pays et chaque année. Cette troisième variable occupe 3 lignes et 3 colonnes du tableau.</li>
 </ol>
 <p>Autrement dit, les variables peuvent être visualisées de la façon suivante :</p>
 <div class="figure" style="text-align: center"><span id="fig:gather"></span>
@@ -378,7 +379,7 @@ Figure 5.2: Position des variables dans le tableau <code>cases</code> du package
 <li><code>data</code> : le nom du tableau de données que l’on souhaite “ranger”.</li>
 <li><code>key</code> : le nom d’une nouvelle variable qui contiendra les en-têtes des colonnes qui constituent la seconde variable. Ici, nous nommerons cette seconde variable <code>year</code> car elle devra contenir les années 2011, 2012 et 2013.</li>
 <li><code>value</code> : le nom d’une nouvelle variable qui contiendra les informations correspondant à la troisième variable identifiée plus haut. Nous appelerons cette variables <code>n_cases</code> car elle contiendra les nombres de cas de tuberculose (7000, 5800, 15000, etc).</li>
-<li>la liste des colonnes du tableau initial qui doivent être rassemblées (“gather” signifie rassembler en anglais), ici, les colonnes 2, 3 et 4 (on pourra les noter <code>2:4</code> ou, en utilisant leur nom, <code>&quot;2011&quot;:&quot;2013&quot;</code>).</li>
+<li>La liste des colonnes du tableau initial qui doivent être rassemblées (“gather” signifie rassembler en anglais), ici, les colonnes 2, 3 et 4 (on pourra les noter <code>2:4</code> ou, en utilisant leur nom, <code>&quot;2011&quot;:&quot;2013&quot;</code>).</li>
 </ol>
 <div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb169-1" title="1"><span class="kw">gather</span>(<span class="dt">data =</span> cases, <span class="dt">key =</span> year, <span class="dt">value =</span> n_cases, <span class="st">`</span><span class="dt">2011</span><span class="st">`</span><span class="op">:</span><span class="st">`</span><span class="dt">2013</span><span class="st">`</span>)</a></code></pre></div>
 <pre><code>  country year n_cases
@@ -392,7 +393,10 @@ Figure 5.2: Position des variables dans le tableau <code>cases</code> du package
 8      DE 2013    6200
 9      US 2013   13000</code></pre>
 <p>Nous avons bien transformé le tableau de départ en un “tableau rangé” : chacune de nos 3 variables se trouve dans une unique colone, et chaque ligne correspond à une observation pour chacune de ces 3 variables. Comme d’habitude, si nous souhaitons pouvoir utiliser ce nouveau tableau, il faut lui donner un nom :</p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb171-1" title="1">cases_tidy &lt;-<span class="st"> </span><span class="kw">gather</span>(<span class="dt">data =</span> cases, <span class="dt">key =</span> year, <span class="dt">value =</span> n_cases, <span class="st">`</span><span class="dt">2011</span><span class="st">`</span><span class="op">:</span><span class="st">`</span><span class="dt">2013</span><span class="st">`</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb171-1" title="1">cases_tidy &lt;-<span class="st"> </span><span class="kw">gather</span>(<span class="dt">data =</span> cases, </a>
+<a class="sourceLine" id="cb171-2" title="2">                     <span class="dt">key =</span> year, </a>
+<a class="sourceLine" id="cb171-3" title="3">                     <span class="dt">value =</span> n_cases,</a>
+<a class="sourceLine" id="cb171-4" title="4">                     <span class="st">`</span><span class="dt">2011</span><span class="st">`</span><span class="op">:</span><span class="st">`</span><span class="dt">2013</span><span class="st">`</span>)</a></code></pre></div>
 <p>Il nous est maintenant plus facile de manipuler ces données pour en tirer de l’information, grâce à des analyses statistiques ou des représentations graphiques :</p>
 <div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb172-1" title="1"><span class="kw">ggplot</span>(cases_tidy, <span class="kw">aes</span>(<span class="dt">x =</span> country, <span class="dt">y =</span> n_cases, <span class="dt">fill =</span> year)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb172-2" title="2"><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span></a>
@@ -418,7 +422,7 @@ Figure 5.3: Évolution du nombre de cas de tuberculose dans 3 pays, de 2011 à 2
  $ n_cases: num  7000 5800 15000 6900 6000 14000 7000 6200 13000</code></pre>
 <p>C’est le comportement par défaut de la fonction <code>gather()</code> : les anciens titres de colonnes sont convertis en chaînes de caractères. Il y a 2 alternatives possibles, que l’on peut spécifier grâce à 2 arguments supplémentaires de la fonction <code>gather()</code> :</p>
 <ol style="list-style-type: decimal">
-<li><code>convert = TRUE</code> : permet de transformer automatiquement la variable <code>key</code> en variable numérique ou logique (vrais/faux) selon le type de données qu’elle contient</li>
+<li><code>convert = TRUE</code> : permet de transformer automatiquement la variable <code>key</code> en variable numérique ou logique (vrais/faux) selon le type de données qu’elle contient.</li>
 <li><code>factor_key = TRUE</code> : permet de transformer automatiquement la variable <code>key</code> en facteur. Les niveaux du nouveau facteur seront ordonnés dans le même sens que les colonnes du tableau de départ.</li>
 </ol>
 <div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb175-1" title="1"><span class="co"># On commence par transformer `cases` en tibble</span></a>
@@ -431,7 +435,11 @@ Figure 5.3: Évolution du nombre de cas de tuberculose dans 3 pays, de 2011 à 2
 2 DE        5800   6000   6200
 3 US       15000  14000  13000</code></pre>
 <div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb177-1" title="1"><span class="co"># On utilise ensuite gather avec l&#39;argument convert = TRUE</span></a>
-<a class="sourceLine" id="cb177-2" title="2"><span class="kw">gather</span>(<span class="dt">data =</span> cases, <span class="dt">key =</span> year, <span class="dt">value =</span> n_cases, <span class="st">`</span><span class="dt">2011</span><span class="st">`</span><span class="op">:</span><span class="st">`</span><span class="dt">2013</span><span class="st">`</span>, <span class="dt">convert =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb177-2" title="2"><span class="kw">gather</span>(<span class="dt">data =</span> cases, </a>
+<a class="sourceLine" id="cb177-3" title="3">       <span class="dt">key =</span> year,</a>
+<a class="sourceLine" id="cb177-4" title="4">       <span class="dt">value =</span> n_cases,</a>
+<a class="sourceLine" id="cb177-5" title="5">       <span class="st">`</span><span class="dt">2011</span><span class="st">`</span><span class="op">:</span><span class="st">`</span><span class="dt">2013</span><span class="st">`</span>,</a>
+<a class="sourceLine" id="cb177-6" title="6">       <span class="dt">convert =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code># A tibble: 9 x 3
   country  year n_cases
   &lt;chr&gt;   &lt;int&gt;   &lt;dbl&gt;
@@ -446,7 +454,11 @@ Figure 5.3: Évolution du nombre de cas de tuberculose dans 3 pays, de 2011 à 2
 9 US       2013   13000</code></pre>
 <p>On voit ici que la variable <code>year</code> est maintenant une colonne numérique (<code>&lt;int&gt;</code> : nombres entiers), et non plus une variable de type “character”.</p>
 <div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb179-1" title="1"><span class="co"># Et en utilisant factor_key = TRUE...</span></a>
-<a class="sourceLine" id="cb179-2" title="2"><span class="kw">gather</span>(<span class="dt">data =</span> cases, <span class="dt">key =</span> year, <span class="dt">value =</span> n_cases, <span class="st">`</span><span class="dt">2011</span><span class="st">`</span><span class="op">:</span><span class="st">`</span><span class="dt">2013</span><span class="st">`</span>, <span class="dt">factor_key =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb179-2" title="2"><span class="kw">gather</span>(<span class="dt">data =</span> cases, </a>
+<a class="sourceLine" id="cb179-3" title="3">       <span class="dt">key =</span> year,</a>
+<a class="sourceLine" id="cb179-4" title="4">       <span class="dt">value =</span> n_cases,</a>
+<a class="sourceLine" id="cb179-5" title="5">       <span class="st">`</span><span class="dt">2011</span><span class="st">`</span><span class="op">:</span><span class="st">`</span><span class="dt">2013</span><span class="st">`</span>,</a>
+<a class="sourceLine" id="cb179-6" title="6">       <span class="dt">factor_key =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code># A tibble: 9 x 3
   country year  n_cases
   &lt;chr&gt;   &lt;fct&gt;   &lt;dbl&gt;
@@ -478,9 +490,9 @@ Figure 5.3: Évolution du nombre de cas de tuberculose dans 3 pays, de 2011 à 2
 9      US 2013   13000</code></pre>
 <p>La fonction <code>spread()</code> prend 3 arguments :</p>
 <ol style="list-style-type: decimal">
-<li>Le nom du tableau contenant les données (ici, <code>cases_tidy</code>)</li>
-<li><code>key</code> : le nom de la variable contenant les catégories qui devront être transformées en colonnes (ici, <code>year</code>)</li>
-<li><code>value</code> : le nom de la variable contenant les valeurs qui devront remplir les nouvelles colonnes (ici, <code>n_cases</code>)</li>
+<li>Le nom du tableau contenant les données (ici, <code>cases_tidy</code>).</li>
+<li><code>key</code> : le nom de la variable contenant les catégories qui devront être transformées en colonnes (ici, <code>year</code>).</li>
+<li><code>value</code> : le nom de la variable contenant les valeurs qui devront remplir les nouvelles colonnes (ici, <code>n_cases</code>).</li>
 </ol>
 <div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb183-1" title="1"><span class="kw">spread</span>(cases_tidy, <span class="dt">key =</span> year, <span class="dt">value =</span> n_cases)</a></code></pre></div>
 <pre><code>  country  2011  2012  2013
@@ -586,14 +598,18 @@ Figure 5.3: Évolution du nombre de cas de tuberculose dans 3 pays, de 2011 à 2
 8 DE      20      13       6200
 9 US      20      13      13000</code></pre>
 <ol style="list-style-type: decimal">
-<li>Le premier argument est le nom du tableau de données</li>
-<li>le second argument est la variable que l’on souhaite scinder en plusieurs morceaux</li>
+<li>Le premier argument est le nom du tableau de données.</li>
+<li>Le second argument est la variable que l’on souhaite scinder en plusieurs morceaux.</li>
 <li><code>into</code> est un vecteur qui contient le nom des nouvelles colonnes à créer</li>
 <li><code>sep</code> peut prendre plusieurs formes. Lorsqu’on utilise un nombre, ce nombre correspond à la position de la coupure dans la variable d’origine. Ici, la variable d’origine a été coupée après le second caractère. Il est aussi possible d’utiliser un symbole. Par exemple, certaines variables contiennent des tirets <code>-</code> ou des slash <code>\</code>. Utiliser ces caractères en guise de séparateur permet de couper les variables à ce niveau là. Nous en verrons un exemple plus tard.</li>
 </ol>
 <p>Notez ici que les 2 nouvelles variables sont de type <code>&lt;chr&gt;</code>. Si nous souhaitons que ces variables soient considérées comme numériques, nous devons ajouter un argument lorsque nous utilisons <code>separate()</code> :</p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb195-1" title="1">cases_split &lt;-<span class="st"> </span><span class="kw">separate</span>(cases_tidy, year, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;century&quot;</span>, <span class="st">&quot;year&quot;</span>), <span class="dt">sep =</span> <span class="dv">2</span>, <span class="dt">convert =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb195-2" title="2">cases_split</a></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb195-1" title="1">cases_split &lt;-<span class="st"> </span><span class="kw">separate</span>(cases_tidy, </a>
+<a class="sourceLine" id="cb195-2" title="2">                        year, </a>
+<a class="sourceLine" id="cb195-3" title="3">                        <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;century&quot;</span>, <span class="st">&quot;year&quot;</span>), </a>
+<a class="sourceLine" id="cb195-4" title="4">                        <span class="dt">sep =</span> <span class="dv">2</span>, </a>
+<a class="sourceLine" id="cb195-5" title="5">                        <span class="dt">convert =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb195-6" title="6">cases_split</a></code></pre></div>
 <pre><code># A tibble: 9 x 4
   country century  year n_cases
   &lt;chr&gt;     &lt;int&gt; &lt;int&gt;   &lt;dbl&gt;
@@ -606,7 +622,7 @@ Figure 5.3: Évolution du nombre de cas de tuberculose dans 3 pays, de 2011 à 2
 7 FR           20    13    7000
 8 DE           20    13    6200
 9 US           20    13   13000</code></pre>
-<p>Notre nouvel objet <code>cases_split</code> contient maintenant 2 nouvelles colonnes de nombres entiers, l’une contenant le siècle, l’autre contenant l’année</p>
+<p>Notre nouvel objet <code>cases_split</code> contient maintenant 2 nouvelles colonnes de nombres entiers, l’une contenant le siècle, l’autre contenant l’année.</p>
 <p>La fonction <code>unite()</code> fait exactement le contraire : elle fusionne 2 colonnes existantes en accolant leurs contenus (et en ajoutant un séparateur) :</p>
 <div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb197-1" title="1"><span class="kw">unite</span>(cases_split, new, century, year)</a></code></pre></div>
 <pre><code># A tibble: 9 x 3
@@ -653,29 +669,29 @@ Figure 5.3: Évolution du nombre de cas de tuberculose dans 3 pays, de 2011 à 2
 <h3><span class="header-section-number">5.3.1</span> Les règles de base</h3>
 <p>Jusqu’à maintenant, nous avons travaillé exclusivement avec des jeux de données déjà disponibles dans R. La plupart du temps, les données sur lesquelles vous devrez travailler devront au préalable être importées dans R, à partir de fichiers issus de tableurs. De tels fichiers se présentent généralement sous l’un des 2 formats suivants :</p>
 <ol style="list-style-type: decimal">
-<li>fichiers au format “.csv” : il s’agit d’un format de fichier dit “texte brut”, c’est à dire qu’il peut être ouvert avec n’importe quel éditeur de texte, y compris le bloc notes de Windows. L’extension “.csv” est l’abbréviation de Comma Separated Values, autrement dit, dans ce type de fichiers, les colonnes sont séparées par des virgules. Cela peut poser problème en France puisque le symbole des décimales est souvent aussi la virgule (et non le point comme dans les pays anglo-saxons). Le séparateur de colonnes utilisé en France dans les fichiers <code>.csv</code> est alors souvent le point-virgule. Il est possible de créer des fichiers <code>.csv</code> à partir de n’importe quel tableur en choisissant <code>Fichier &gt; Exporter...</code> ou <code>Fichier &gt; Enregistrer sous...</code> puis en sélectionnant le format approprié (les dénomminations sont variables selon les logiciels : format texte brut, format csv, plain text, etc…).</li>
-<li>fichiers au format tableur : <code>.xls</code> ou <code>.xlsx</code> pour Excel, <code>.calc</code> pour Open Office.</li>
+<li>Fichiers au format “.csv” : il s’agit d’un format de fichier dit “texte brut”, c’est à dire qu’il peut être ouvert avec n’importe quel éditeur de texte, y compris le bloc notes de Windows. L’extension “.csv” est l’abbréviation de Comma Separated Values, autrement dit, dans ce type de fichiers, les colonnes sont séparées par des virgules. Cela peut poser problème en France puisque le symbole des décimales est souvent aussi la virgule (et non le point comme dans les pays anglo-saxons). Le séparateur de colonnes utilisé en France dans les fichiers <code>.csv</code> est alors souvent le point-virgule. Il est possible de créer des fichiers <code>.csv</code> à partir de n’importe quel tableur en choisissant <code>Fichier &gt; Exporter...</code> ou <code>Fichier &gt; Enregistrer sous...</code> puis en sélectionnant le format approprié (les dénomminations sont variables selon les logiciels : format texte brut, format csv, plain text, etc…).</li>
+<li>Fichiers au format tableur : <code>.xls</code> ou <code>.xlsx</code> pour Excel, <code>.calc</code> pour Open Office.</li>
 </ol>
 <p>Dans les 2 cas, pour que R puisse importer les données contenues dans ces fichiers, un certain nombre de règles doivent être respectées :</p>
 <ol style="list-style-type: decimal">
 <li>La première chose à laquelle il faut veiller est la présentation des données. Les variables doivent être en colonnes et les observations en lignes. Dans l’idéal, les données doivent donc être “rangées”.</li>
 <li>Les cases vides qui correspondent à des données manquantes doivent contenir les lettres <code>NA</code> en majuscule. Il est important de bien faire la distinction entre les vrais zéros (<em>i.e.</em> les grandeurs mesurées pour lesquelles un zéro a été obtenu), et les valeurs manquantes, c’est à dire pour lesquelles aucune valeur n’a pu être obtenue (<em>e.g.</em> variable non mesurée pour un individu donné ou à une station donnée).</li>
-<li>Il est généralement conseillé d’utiliser la première ligne du tableau Excel pour stocker le nom des variables et la première colonne pour stocker le nom des observations (identifiant des individus, des échantillons ou des stations par exemple).</li>
+<li>Il est généralement conseillé d’utiliser la première ligne du tableau pour stocker le nom des variables et la première colonne pour stocker le nom des observations (identifiant des individus, des échantillons ou des stations par exemple).</li>
 <li>Ne jamais utiliser de caractères spéciaux tels que #, $, %, ^, &amp;, *, (, ), {, }, [, ], des accents, des cédilles des guillemets ou des apostrophes… Cela pourrait causer des erreurs dans R. Si votre fichier en contient, faites une recherche (<em>via</em> le menu <code>Edition &gt; Rechercher et remplacer...</code>) pour remplacer chaque instance par un caractère qui ne posera pas de problème.</li>
 <li>Évitez les espaces dans vos noms de variables, d’observations ou de catégories et remplacez-les par des points ou des <code>_</code>.</li>
 <li>Si des noms de lignes sont présents dans votre tableau, chaque ligne doit avoir un nom unique (il ne faut pas que plusieurs lignes portent le même nom).</li>
 <li>Des noms courts pour les variables sont généralement plus faciles à manipuler par la suite.</li>
-<li>La première valeur de votre tableau derait toujours se trouver dans la cellule A1 du tableur. Autrement dit, il ne devrait jamais y avoir de lignes incomplètes ou de lignes de commentaires au-dessus des données, ou de colonne vide à gauche de votre tableau. D’ailleurs, il ne devrait jamais y avoir de commentaires à droite ou en-dessous de vos données non plus.</li>
+<li>La première valeur de votre tableau derait toujours se trouver dans la cellule A1 du tableur. Autrement dit, il ne devrait jamais y avoir de lignes incomplètes ou de lignes de commentaires au-dessus des données, ou de colonne vide à gauche de votre tableau. D’ailleurs, il ne devrait jamais y avoir de commentaires à droite ou en dessous de vos données non plus.</li>
 </ol>
 </div>
 <div id="tableur" class="section level3">
 <h3><span class="header-section-number">5.3.2</span> Fichiers au format tableur (.xls ou .xlsx)</h3>
-<p>À titre d’exemple, téléchargez le fichier <a href="data/dauphin.xls">dauphin.xls</a> et placez-le dans votre répertoire de travail. Ce jeu de données contient des résultats de dosage de différents métaux lourds (cadmium, cuivre et mercure) dans différents organes (foie et rein) de plusieurs dauphins communs <em>Delphinus delphis</em>. Les informations de taille, d’âge et de statut reproducteur sont également précisées. Ouvrez ce fichier dans un tableur. Vous constaterez que son format ne permet pas de l’importer tel quel dans R :</p>
+<p>À titre d’exemple, téléchargez le fichier <a href="data/dauphin.xls">dauphin.xls</a> et placez-le dans votre répertoire de travail. Ce jeu de données contient des résultats de dosages de différents métaux lourds (cadmium, cuivre et mercure) dans différents organes (foie et rein) de plusieurs dauphins communs <em>Delphinus delphis</em>. Les informations de taille, d’âge et de statut reproducteur sont également précisées. Ouvrez ce fichier dans un tableur. Vous constaterez que son format ne permet pas de l’importer tel quel dans R :</p>
 <ul>
-<li>Il contient des lignes vides inutiles au-dessus des données</li>
-<li>Il contient des commentaires inutiles au-dessus des données</li>
-<li>Les titres de colonnes sont complexes et contiennent des caractères spéciaux</li>
-<li>Dans le tableau, les données manquantes sont représentées soit par des “<code>*</code>”, soit par des cellules vides</li>
+<li>Il contient des lignes vides inutiles au-dessus des données.</li>
+<li>Il contient des commentaires inutiles au-dessus des données.</li>
+<li>Les titres de colonnes sont complexes et contiennent des caractères spéciaux.</li>
+<li>Dans le tableau, les données manquantes sont représentées soit par des “<code>*</code>”, soit par des cellules vides.</li>
 </ul>
 <p>Importer un tel jeu de données dans R par les méthodes classiques (c’est-à-dire sans utiliser RStudio et uniquement grâce aux fonctions de base de R) demanderait donc un gros travail de mise en forme préalable. Heureusement, RStudio et le package <code>readxl</code> facilitent grandement le processus.</p>
 <p>Dans RStudio, localisez l’onglet <code>Files</code> situé dans le panneau en bas à droite de l’interface du logiciel. Dans ce panneau, naviguez jusqu’à votre répertoire de travail, qui doit maintenant contenir le fichier daupin.xls que vous avez téléchargé. Cliquez sur son nom, puis, dans le menu qui s’affiche, choisissez <code>Import Dataset...</code> :</p>
@@ -685,7 +701,7 @@ Figure 5.3: Évolution du nombre de cas de tuberculose dans 3 pays, de 2011 à 2
 Figure 5.4: L’option <code>Import Dataset...</code> dans la fenêtre <code>Files</code> de RStudio
 </p>
 </div>
-<p>La nouvelle fenêtre qui s’ouvre est un “assistant d’importation” :</p>
+<p>La nouvelle fenêtre qui s’ouvre est un “assistant d’importation” (figure <a href="tidyr.html#fig:import2">5.5</a>).</p>
 <div class="figure" style="text-align: center"><span id="fig:import2"></span>
 <img src="images/import2.png" alt="L'assistant d'importation de RStudio" width="100%" />
 <p class="caption">
@@ -694,12 +710,12 @@ Figure 5.5: L’assistant d’importation de RStudio
 </div>
 <p>Cette fenêtre contient plusieurs zones importantes :</p>
 <ol style="list-style-type: decimal">
-<li><code>File/URL</code> (en haut) : lien vers le fichier contenant les données, sur votre ordinateur ou en ligne</li>
+<li><code>File/URL</code> (en haut) : lien vers le fichier contenant les données, sur votre ordinateur ou en ligne.</li>
 <li><code>Data Preview</code> : zone principale affichant les 50 premières lignes du fichier que l’on souhaite importer.</li>
-<li><code>Import Options</code> (en bas à gauche) : zone dans laquelle des options permettant d’importer les données correctement peuvent être spécifiées</li>
+<li><code>Import Options</code> (en bas à gauche) : zone dans laquelle des options permettant d’importer les données correctement peuvent être spécifiées.</li>
 <li><code>Code Preview</code> (en bas à droite) : les lignes de codes que vous pourrez copier-coller dans votre script une fois les réglages corrects effectués.</li>
 </ol>
-<p>Ici, nous constatons que les données ne sont pas au bon format. La première chose que nous pouvons faire est d’indiquer à R que nous souhaitons ignorer les 9 premières lignes du fichier. Ensuite, nous précisons à RStudio que l’étoile “<code>*</code>” a été utilisée pour indiquer des données manquantes :</p>
+<p>Ici, nous constatons que les données ne sont pas au bon format. La première chose que nous pouvons faire est d’indiquer à R que nous souhaitons ignorer les 9 premières lignes du fichier. Ensuite, nous précisons à RStudio que l’étoile “<code>*</code>” a été utilisée pour indiquer des données manquantes (figure <a href="tidyr.html#fig:import3">5.6</a>) :</p>
 <div class="figure" style="text-align: center"><span id="fig:import3"></span>
 <img src="images/import3.png" alt="Les bons réglages pour ce fichier" width="100%" />
 <p class="caption">
@@ -708,7 +724,7 @@ Figure 5.6: Les bons réglages pour ce fichier
 </div>
 <p>Notez qu’à chaque fois que vous modifiez une valeur dans la zone <code>Import Options</code>, 2 choses se produisent simultanément :</p>
 <ol style="list-style-type: decimal">
-<li>La zone <code>Data Preview</code> est mise à jour. Cela permet de s’assurer que les changements effectués ont bien les effets escomptés</li>
+<li>La zone <code>Data Preview</code> est mise à jour. Cela permet de s’assurer que les changements effectués ont bien les effets escomptés.</li>
 <li>La zone <code>Code Preview</code> est mise à jour. Cela permet de copier-coller dans un script les commandes permettant d’importer correctement les données. Ici, voilà le code que nous devons ajouter à notre script :</li>
 </ol>
 <div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb201-1" title="1">dauphin &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;data/dauphin.xls&quot;</span>, <span class="dt">na =</span> <span class="st">&quot;*&quot;</span>, <span class="dt">skip =</span> <span class="dv">9</span>)</a></code></pre></div>
@@ -730,8 +746,9 @@ Figure 5.6: Les bons réglages pour ce fichier
 # ... with 83 more rows, and 4 more variables: `Cd (mg.kg-1)` &lt;dbl&gt;,
 #   `Cu (mg.kg-1)` &lt;dbl&gt;, `Hg (mg.kg-1)` &lt;dbl&gt;, Organe &lt;chr&gt;</code></pre>
 <p>Notez toutefois que les noms de colonnes complexes sont toujours présents. Avec de tels noms, les variables ne seront pas faciles à manipuler et les risques d’erreurs de frappes seront nombreux. Nous avons tout intérêt à les modifier à l’aide de la fonction <code>names()</code> :</p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" title="1"><span class="kw">names</span>(dauphin) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;ID&quot;</span>, <span class="st">&quot;Sexe&quot;</span>, <span class="st">&quot;Statut&quot;</span>, <span class="st">&quot;Taille&quot;</span>, <span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Cd&quot;</span>, <span class="st">&quot;Cu&quot;</span>, <span class="st">&quot;Hg&quot;</span>, <span class="st">&quot;Organe&quot;</span>)</a>
-<a class="sourceLine" id="cb204-2" title="2">dauphin</a></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" title="1"><span class="kw">names</span>(dauphin) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;ID&quot;</span>, <span class="st">&quot;Sexe&quot;</span>, <span class="st">&quot;Statut&quot;</span>, <span class="st">&quot;Taille&quot;</span>,</a>
+<a class="sourceLine" id="cb204-2" title="2">                    <span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Cd&quot;</span>, <span class="st">&quot;Cu&quot;</span>, <span class="st">&quot;Hg&quot;</span>, <span class="st">&quot;Organe&quot;</span>)</a>
+<a class="sourceLine" id="cb204-3" title="3">dauphin</a></code></pre></div>
 <pre><code># A tibble: 93 x 9
    ID        Sexe  Statut Taille   Age     Cd    Cu    Hg Organe
    &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; 
@@ -748,22 +765,23 @@ Figure 5.6: Les bons réglages pour ce fichier
 # ... with 83 more rows</code></pre>
 <p>Enfin, vous pouvez égalememnt noter que certaines variables devraient être modifiées :</p>
 <ul>
-<li>les variables <code>Sexe</code>, <code>Statut</code> (qui contient l’information de statut reproducteur des dauphins) et <code>Organe</code> (qui indique dans quel organe les métaux ont été dosés) sont de type <code>&lt;chr&gt;</code>. L’idéal serait de disposer de facteurs puisqu’ils s’agit de variables catégorielles.</li>
-<li>la variable <code>ID</code> est totalement inutile puisqu’elle est parfaitement redondante avec le numéro de ligne. Nous pourrions donc la supprimer.</li>
-<li>certaines catégories (ou niveaux) de la variable <code>Statut</code> devraient être ordonnées puisqu’elles reflètent une progression logique : <code>imm</code> (immature), <code>mat</code> (mature), <code>pnl</code> (pregnant non lactating), <code>pl</code> (pregnant lactating), <code>l</code> (lactating), <code>repos</code> (repos somatique)</li>
+<li>Les variables <code>Sexe</code>, <code>Statut</code> (qui contient l’information de statut reproducteur des dauphins) et <code>Organe</code> (qui indique dans quel organe les métaux ont été dosés) sont de type <code>&lt;chr&gt;</code>. L’idéal serait de disposer de facteurs puisqu’ils s’agit de variables catégorielles.</li>
+<li>La variable <code>ID</code> est totalement inutile puisqu’elle est parfaitement redondante avec le numéro de ligne. Nous pourrions donc la supprimer.</li>
+<li>Certaines catégories (ou niveaux) de la variable <code>Statut</code> devraient être ordonnées puisqu’elles reflètent une progression logique : <code>imm</code> (immature), <code>mat</code> (mature), <code>pnl</code> (pregnant non lactating), <code>pl</code> (pregnant lactating), <code>l</code> (lactating), <code>repos</code> (repos somatique).</li>
 </ul>
-<p>Nous verrons dans la partie <a href="wrangling.html#wrangling">6</a> comment effectuer simplement ces différentes opérations</p>
+<p>Nous verrons dans la partie <a href="wrangling.html#wrangling">6</a> comment effectuer simplement ces différentes opérations.</p>
 </div>
 <div id="plaintext" class="section level3">
 <h3><span class="header-section-number">5.3.3</span> Fichiers au format texte brut (.csv)</h3>
 <p>Nous allons utiliser les mêmes données que précédemment, mais cette fois-ci, elles sont contenues dans un fichier au format <code>.csv</code>. Téléchargez le fichier <a href="data/dauphin.csv">dauphin.csv</a> (pour cela, faites un clic droit sur le lien et choisissez <code>Enregistrez la cible du lien sous...</code> ou une mention équivalente), placez-le dans votre répertoire de travail, et ouvrez-le avec le bloc notes Windows ou tout autre éditeur de texte brut disponible sur votre ordinateur. <strong>Attention</strong> : Microsoft Word n’est pas un éditeur de texte brut. Un fichier au format <code>.doc</code> ou <code>.docx</code> est illisible dans un éditeur de texte brut car outre le texte, ces formats de documents contiennent toutes les informations concernant la mise en forme du texte (polices de caractères, tailles, couleurs et autres attributs, présence de figures, de tableaux dans le document, etc.).</p>
-<p>À l’inverse, les fichiers au format <code>.txt</code>, <code>.csv</code> et même <code>.R</code> (vos scripts !) sont des fichiers au format texte brut. Vous pouvez d’ailleurs essayer d’ouvrir <code>dauphin.csv</code> depuis RStudio, en allant dans la fenêtre <code>Files</code> puis en cliquant sur le nom du fichier et en choisissant <code>View File</code>. RStudio ouvre un nouvel onglet à côté de votre script vous permettant d’inspecter le contenu de ce fichier. Par rapport au fichier excel, vous pouvez noter un certain nombre de différences :</p>
+<p>À l’inverse, les fichiers au format <code>.txt</code>, <code>.csv</code> et même <code>.R</code> (vos scripts !) sont des fichiers au format texte brut. Vous pouvez d’ailleurs essayer d’ouvrir <code>dauphin.csv</code> depuis RStudio, en allant dans la fenêtre <code>Files</code> puis en cliquant sur le nom du fichier et en choisissant <code>View File</code>. RStudio ouvre un nouvel onglet à côté de votre script vous permettant d’inspecter le contenu de ce fichier. Par rapport au fichier Excel, vous pouvez noter un certain nombre de différences :</p>
 <ol style="list-style-type: decimal">
-<li>les colonnes sont séparées par des tabulations</li>
-<li>les nombres décimaux utilisent la virgule (et non le point comme dans les pays anglo-saxons)</li>
-<li>les noms de colonne ont déjà été corrigés/simplifiés par rapport au tableau d’origine</li>
-<li>les valeurs manquantes sont toutes codées par des <code>NA</code>s</li>
+<li>Les colonnes sont séparées par des tabulations.</li>
+<li>Les nombres décimaux utilisent la virgule (et non le point comme dans les pays anglo-saxons).</li>
+<li>Les noms de colonnes ont déjà été corrigés/simplifiés par rapport au tableau d’origine.</li>
+<li>Les valeurs manquantes sont toutes codées par des <code>NA</code>s.</li>
 </ol>
+<p>Un travail d’édition du fichier <code>.xls</code> de départ a donc été réalisé en amont de l’enregistrement au format <code>.csv</code>.</p>
 <p>Attention, à ce stade, vous avez ouvert un fichier au format texte brut dans RStudio, mais les données contenues dans ce fichier n’ont pas été importées dans R pour autant. Pour les importer, on procède comme pour les fichiers au format tableur (voir section <a href="tidyr.html#tableur">5.3.2</a> ci-dessus).</p>
 <p>On commence par cliquer sur <code>dauphin.csv</code> dans l’onglet <code>Files</code> de RStudio. On sélectionne ensuite <code>Import Dataset...</code> :</p>
 <div class="figure" style="text-align: center"><span id="fig:importcsv1"></span>
@@ -772,7 +790,7 @@ Figure 5.6: Les bons réglages pour ce fichier
 Figure 5.7: Importer un fichier <code>.csv</code> depuis l’onglet <code>Files</code> de RStudio
 </p>
 </div>
-<p>La fenêtre qui s’ouvre est en tous points identique à celle obtenue pour l’importation de fichiers tableurs :</p>
+<p>La fenêtre qui s’ouvre est en tous points identique à celle obtenue pour l’importation de fichiers tableurs (figure <a href="tidyr.html#fig:importcsv2">5.8</a>).</p>
 <div class="figure" style="text-align: center"><span id="fig:importcsv2"></span>
 <img src="images/importcsv2.png" alt="Importer un fichier `.csv` depuis l'onglet `Files` de RStudio" width="100%" />
 <p class="caption">
@@ -780,18 +798,18 @@ Figure 5.8: Importer un fichier <code>.csv</code> depuis l’onglet <code>Files<
 </p>
 </div>
 <p>Nous voyons ici que par défaut, RStudio considère qu’une unique colonne est présente. En effet, les fichiers <code>.csv</code> utilisent généralement la virgule pour séparer les colonnes. Ce n’est pas le cas ici. Il nous faut donc sélectionner, dans le champ <code>Delimiter</code>, l’option <code>Tab</code> (tabulation) et non <code>Comma</code> (virgule).</p>
-<p>À ce stade, chaque variable est maintenant reconnue comme telle, chaque variable occupe donc une colonne distincte. Mais les colonnes <code>Cd</code>, <code>Cu</code> et <code>Hg</code> ne contiennent pas les bonnes valeurs (vous pouvez le vérifier en consultant l’onglet <code>dauphin.csv</code> que vous avez ouvert un peu plus tôt à côté de votre script). La cause est simple : R s’attend à ce que les nombres décimaux utilisent le point en guise de symbole des décimales. Or, notre fichier <code>.csv</code> utilise la virgule. C’est une convention qui dépend du pays dans lequel vous vous trouvez, et de la langue de votre système d’exploitation (en langage technique, on parle de <code>Locale</code>). Le fichier <code>dauphin.csv</code> ayant été créé sur un ordinateur français, la virgule a été utilisée en guise de symbole des décimales. Pour l’indiquer à R, cliquez sur <code>Locale &gt; Configure...</code>, changez le <code>.</code> en <code>,</code> dans le champ <code>Decimal Mark</code> et validez en cliquant sur <code>Configure</code> :</p>
+<p>À ce stade, chaque variable est maintenant reconnue comme telle, chaque variable occupe donc une colonne distincte. Mais les colonnes <code>Cd</code>, <code>Cu</code> et <code>Hg</code> ne contiennent pas les bonnes valeurs (vous pouvez le vérifier en consultant l’onglet <code>dauphin.csv</code> que vous avez ouvert un peu plus tôt à côté de votre script). La cause est simple : R s’attend à ce que les nombres décimaux utilisent le point en guise de symbole des décimales. Or, notre fichier <code>.csv</code> utilise la virgule. C’est une convention qui dépend du pays dans lequel vous vous trouvez, et de la langue de votre système d’exploitation (en langage technique, on parle de <code>Locale</code>). Le fichier <code>dauphin.csv</code> ayant été créé sur un ordinateur français, la virgule a été utilisée en guise de symbole des décimales. Pour l’indiquer à R, cliquez sur <code>Locale &gt; Configure...</code>, changez le <code>.</code> en <code>,</code> dans le champ <code>Decimal Mark</code> et validez en cliquant sur <code>Configure</code>.</p>
 <div class="figure" style="text-align: center"><span id="fig:importcsv3"></span>
 <img src="images/importcsv3.png" alt="Changement du symbole utilisé pour les décimales" width="50%" />
 <p class="caption">
 Figure 5.9: Changement du symbole utilisé pour les décimales
 </p>
 </div>
-<p>Les données sont naintenant au bon format, prêtes à être importées dans RStudio. Afin de ne pas écraser l’objet <code>dauphin</code> que nous avons créé à partir du fichier tableur un peu plus tôt, nous stockerons ces nouvelles données dans un objet nommé <code>dauphin2</code>. Pour cela, ajoutez un <code>2</code> au nom <code>dauphin</code> dans le champ <code>Name</code> en bas à gauche :</p>
+<p>Les données sont maintenant au bon format, prêtes à être importées dans RStudio. Afin de ne pas écraser l’objet <code>dauphin</code> que nous avons créé à partir du fichier tableur un peu plus tôt, nous stockerons ces nouvelles données dans un objet nommé <code>dauphin2</code>. Pour cela, ajoutez un <code>2</code> au nom <code>dauphin</code> dans le champ <code>Name</code> en bas à gauche :</p>
 <div class="figure" style="text-align: center"><span id="fig:importcsv4"></span>
-<img src="images/importcsv4.png" alt="Les données, dans un format correct, permettant l'importation" width="100%" />
+<img src="images/importcsv4.png" alt="Les données, dans un format correct permettant l'importation" width="100%" />
 <p class="caption">
-Figure 5.10: Les données, dans un format correct, permettant l’importation
+Figure 5.10: Les données, dans un format correct permettant l’importation
 </p>
 </div>
 <p>Nous n’avons plus qu’à copier-coller dans notre script le code généré automatiquement en bas à droite de la fenêtre (comme précédemment, la ligne <code>library(readr)</code> est inutile : nous avons déjà chargé ce package en début de chapitre).</p>
@@ -812,11 +830,11 @@ cols(
 )</code></pre>
 <p>Notez que :</p>
 <ol style="list-style-type: decimal">
-<li>c’est le package <code>readr</code> et non plus <code>readxl</code> qui est utilisé.</li>
-<li>la fonction <code>read_delim()</code> a remplacé la fonction <code>read_excel()</code>. Il existe beaucoup d’autres fonctions selon le format de vos données (par exemple <code>read_csv()</code> et <code>read_csv2()</code>). Il est inutile de toutes les connaître dans la mesure où généralement, RStudio vous propose automatiquement la plus appropriée.</li>
+<li>C’est le package <code>readr</code> et non plus <code>readxl</code> qui est utilisé.</li>
+<li>La fonction <code>read_delim()</code> a remplacé la fonction <code>read_excel()</code>. Il existe beaucoup d’autres fonctions selon le format de vos données (par exemple <code>read_csv()</code> et <code>read_csv2()</code>). Il est inutile de toutes les connaître dans la mesure où généralement, RStudio vous propose automatiquement la plus appropriée.</li>
 <li>R indique de quelle façon les colonnes ont été “parsées”, autrement dit, R indique quelles fonctions ont été utilisées pour reconnaître le type des données présentes dans chaque colonne.</li>
 </ol>
-<p>Toutes les fonctions permettant d’importer des données n’ont pas nécessairement le même comportement. Ainsi, si l’on compare les objets importés depuis le fichier tableur (<code>dauphin</code>) et depuis le fichier texte brut (<code>dauphin2</code>), le type de certaines variables est différent :</p>
+<p>Toutes les fonctions permettant d’importer des données n’ont pas nécessairement le même comportement. Ainsi, si l’on compare les objets importés depuis le fichier tableur (<code>dauphin</code>) et depuis le fichier texte brut (<code>dauphin2</code>), le type de certaines variables peut être différent :</p>
 <div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb208-1" title="1">dauphin</a></code></pre></div>
 <pre><code># A tibble: 93 x 9
    ID        Sexe  Statut Taille   Age     Cd    Cu    Hg Organe
@@ -847,34 +865,67 @@ cols(
  9     9 m     imm       222    NA   0.09  9.5   2.89 foie  
 10    10 m     imm       412     9  85.6   5.42 NA    rein  
 # ... with 83 more rows</code></pre>
-<p>En particulier les variables <code>Taille</code> et <code>Age</code> sont considérées comme réelles dans <code>dauphin</code> mais comme entières (ce qui semble plus logique) dans <code>dauphin2</code>. Afin d’éviter les confusions dans la suite du document, nous allons supprimer <code>dauphin2</code> en tapant :</p>
+<p>En particulier selon la version des packages que vosu utilisez et les réglages spéifiques de vos systèmes d’exploitation, les variables <code>Taille</code> et <code>Age</code> sont parfois considérées comme réelles dans <code>dauphin</code> mais comme entières dans <code>dauphin2</code> (ce n’est pas le cas ici). Afin d’éviter les confusions dans la suite du document, nous allons supprimer <code>dauphin2</code> en tapant :</p>
 <div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb212-1" title="1"><span class="kw">rm</span>(dauphin2)</a></code></pre></div>
 <p>Taper <code>dauphin2</code> dans la console devrait maintenant produire une erreur :</p>
 <div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb213-1" title="1">dauphin2</a></code></pre></div>
 <pre><code>Error in eval(expr, envir, enclos): objet &#39;dauphin2&#39; introuvable</code></pre>
 </div>
+<div id="importproblem" class="section level3">
+<h3><span class="header-section-number">5.3.4</span> En cas de problème…</h3>
+<p>Il arrive parfois que l’importation de fichiers textes bruts par la méthode décrite ci-dessus échoue en raison d’un bug du package <code>readr</code> qui gère mal la présence de caractères spéciaux (accents, cédilles, etc) dans le chemin des fichiers que l’on tente d’importer. À l’heure où j’écris ces lignes (28 novembre 2018), le bug a été corrigé dans la version de développement du package, mais toujours pas dans la version stable disponible au téléchargement sur les serveurs du CRAN. Il est donc utile de connaître une méthode alternative pour importer de tels fichiers dans R. Cette méthode repose sur “la mère de toutes les fonctions d’importation” : <code>read.table()</code>.</p>
+<p>La fonction <code>read.table()</code> est à la abse de la plupart des fonctions d’importation décrites dans ce chapitre. Il est donc important d’en connaître la syntaxe et les arguments les plus importants. Cette fonction requiert en général les arguments suivants :</p>
+<ol style="list-style-type: decimal">
+<li>Le chemin du fichier texte contenant les données à importer. Si le fichier se trouve dans votre répertoire de travail, il suffit de donner son nom. S’il est dans un sous-dossier de votre répertoire de travail, il faut donner le nom complet : <code>&quot;sous_dossier/nom_du_fichier.csv&quot;</code>.</li>
+<li><code>sep</code> : la spécification du symbole utilisé en guise de séparateur de colonnes dans le fichier texte. Cela peut-être la virgule (<code>sep = &quot;,&quot;</code>), le point virgule (<code>sep = &quot;;&quot;</code>) ou encore la tabulation (<code>sep = &quot;\t&quot;</code>) selon les fichiers importés.</li>
+<li><code>dec</code> : la spécification du symbole utilisé en guise de symbole pour les décimales. Il n’est pas nécessaire de spécifier cet argument lorsque le symbole dans le fichier source est le point. Mais si c’est une virgule (comme c’est souvent le cas dans les pays francophones), il faut alors préciser <code>dec = &quot;,&quot;</code>.</li>
+<li><code>header</code> : la première ligne du fichier source contient-elle des noms de variables. Si oui, il faut indiquer <code>header = TRUE</code>.</li>
+</ol>
+<p>Ainsi, par exemple, pour le fichier <code>dauphin.csv</code>, on peut taper ceci :</p>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb215-1" title="1">dauph &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/dauphin.csv&quot;</span>,</a>
+<a class="sourceLine" id="cb215-2" title="2">                    <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,</a>
+<a class="sourceLine" id="cb215-3" title="3">                    <span class="dt">dec =</span> <span class="st">&quot;,&quot;</span>,</a>
+<a class="sourceLine" id="cb215-4" title="4">                    <span class="dt">header =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb215-5" title="5">dauph &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(dauph)</a>
+<a class="sourceLine" id="cb215-6" title="6">dauph</a></code></pre></div>
+<pre><code># A tibble: 93 x 9
+      Id Sexe  Statut Taille   Age     Cd    Cu    Hg Organe
+   &lt;int&gt; &lt;fct&gt; &lt;fct&gt;   &lt;int&gt; &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt; 
+ 1     1 f     imm       315     3  29.6   3.24 NA    rein  
+ 2     2 f     imm       357     4  55.1   4.42 NA    rein  
+ 3     3 f     pnl       439    34 129.    5.01  9.02 rein  
+ 4     4 f     imm       316     4  71.2   4.33 NA    rein  
+ 5     5 f     l         435    26 192     5.15 NA    rein  
+ 6     6 f     pnl       388     6  NA     4.12  4.53 rein  
+ 7     7 f     mat       410    NA  76     5.1  33.9  foie  
+ 8     8 m     imm       355    NA  74.4   4.72 13.3  foie  
+ 9     9 m     imm       222    NA   0.09  9.5   2.89 foie  
+10    10 m     imm       412     9  85.6   5.42 NA    rein  
+# ... with 83 more rows</code></pre>
+<p>Puisque la fonction <code>read.table()</code> importe les données sous la forme d’un data.frame, il est nécessaire de transformer le tableau obtenu en <code>tibble</code> grâce à la fonction <code>as_tibble()</code> afin de bénéficier de tous les avantages de ce format d’objet.</p>
+</div>
 <div id="exercices-8" class="section level3">
-<h3><span class="header-section-number">5.3.4</span> Exercices</h3>
+<h3><span class="header-section-number">5.3.5</span> Exercices</h3>
 <ol style="list-style-type: decimal">
 <li>L’objet <code>dauphin</code> est-il “tidy” (autrement dit, s’agit-il de “données rangées”) ? Justifiez.</li>
-<li>Produisez le graphique ci-dessous :
+<li><p>Produisez le graphique ci-dessous :
 <img src="figure/exercicedauphin-1.png" width="90%" style="display: block; margin: auto;" />
-Indice : les droites de régression avec les intervalles de confiance sont ajoutés grâce à la fonction <code>geom_smooth(method = &quot;lm&quot;)</code></li>
+Indice : les droites de régression avec les intervalles de confiance sont ajoutés grâce à la fonction <code>geom_smooth(method = &quot;lm&quot;)</code>.</p></li>
 <li>Importez dans R le jeu de données <a href="data/whoTB.csv">whoTB.csv</a>. Ce jeu de données contient les cas de tuberculose (TB) rapportés par l’Organisation Mondiale de la Santé (OMS, ou WHO en anglais : World Health Organization). Les cas sont répertoriés par année, pays, âge, sexe, type de tuberculose et méthode de diagnostique. Selon vous, ce jeu de données est-il “rangé” ? Pourquoi ?</li>
-<li>Si ce jeu de données n’est pas rangé, rangez-le en utilisant les fonctions du packages <code>tidyr</code> que nous avons découvertes dans ce chapitre : <code>gather()</code>, <code>spread()</code>, <code>separate()</code> et <code>unite()</code> (vous n’aurez pas nécessairement besoin d’utiliser ces 4 fonctions, et à l’inverse, certaines devront peut-être être utilisées plusieurs fois).</li>
+<li><p>Si ce jeu de données n’est pas rangé, rangez-le en utilisant les fonctions du packages <code>tidyr</code> que nous avons découvertes dans ce chapitre : <code>gather()</code>, <code>spread()</code>, <code>separate()</code> et <code>unite()</code> (vous n’aurez pas nécessairement besoin d’utiliser ces 4 fonctions, et à l’inverse, certaines devront peut-être être utilisées plusieurs fois).</p></li>
 </ol>
 <p>Pour vous aider, l’OMS donne la signification des codes utilisés en guise de noms pour la plupart des colonnes. Ainsi :</p>
 <ul>
-<li><code>new</code> indique des nouveaux cas, <code>old</code> des anciens (ici, seuls les nouveaux cas sont rapportés)</li>
-<li>le type de cas est précisé ensuite :
+<li><code>new</code> indique des nouveaux cas, <code>old</code> des anciens (ici, seuls des nouveaux cas sont rapportés).</li>
+<li>Le type de cas est précisé ensuite :
 <ul>
-<li><code>sp</code> signifie “Smear Positive” (tuberculose pulmonaire à frottis positif)</li>
-<li><code>sn</code> signifie “Smear Negative” (tuberculose pulmonaire à frottis négatif)</li>
-<li><code>rel</code> signifie “relapse” (rechute)</li>
-<li><code>ep</code> signifie “Extra Pulmonary” (tuberculose extra-pulmonaire)</li>
+<li><code>sp</code> signifie “Smear Positive” (tuberculose pulmonaire à frottis positif).</li>
+<li><code>sn</code> signifie “Smear Negative” (tuberculose pulmonaire à frottis négatif).</li>
+<li><code>rel</code> signifie “relapse” (rechute).</li>
+<li><code>ep</code> signifie “Extra Pulmonary” (tuberculose extra-pulmonaire).</li>
 </ul></li>
-<li>le sexe est codé par <code>m</code> (male) ou <code>f</code> (female)</li>
-<li>enfin, les chiffres correspondent à des tranches d’âges : 014 signifie “de 0 à 14 ans”, “1524” signifie “de 15 à 24 ans”, etc.</li>
+<li>Le sexe est codé par <code>m</code> (male) ou <code>f</code> (female).</li>
+<li>Enfin, les chiffres correspondent à des tranches d’âges : 014 signifie “de 0 à 14 ans”, “1524” signifie “de 15 à 24 ans”, etc.</li>
 </ul>
 <p>Dans ces colonnes aux noms composés, les nombres de cas de tuberculose sont rapportés.</p>
 
