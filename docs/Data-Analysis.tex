@@ -129,7 +129,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2018-11-28}
+    \date{2018-11-29}
 
 \usepackage[french]{babel}
 \usepackage{mathspec}  % \usepackage{fontspec}
@@ -6941,15 +6941,17 @@ opérateur que nous avons déjà vu apparaître à plusieurs reprises dans
 les chapitres précédents sans expliquer son fonctionnement.
 
 Le pipe, noté \texttt{\%\textgreater{}\%}, peut être obtenu en pressant
-les touches \texttt{ctrl\ +\ shift\ +\ M} de votre clavier. Il permet
-d'enchaîner logiquement des actions les unes à la suite des autres.
-Globalement, le pipe prend l'objet situé à sa gauche, et le transmet à
-la fonction situé à sa droite. En d'autres termes, les 2 expressions
-suivantes sont strictement équivalentes :
+les touches \texttt{ctrl\ +\ shift\ +\ M} de votre clavier (ou
+\texttt{command\ +\ shift\ +\ M} sous macOS). Il permet d'enchaîner
+logiquement des actions les unes à la suite des autres. Globalement, le
+pipe prend l'objet situé à sa gauche, et le transmet à la fonction situé
+à sa droite. En d'autres termes, les 2 expressions suivantes sont
+strictement équivalentes :
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Ici, "f" est une fonction quelconque, "x" et "y" sont 2 objets dont la fonction a besoin.}
+\CommentTok{# Ici, "f" est une fonction quelconque, }
+\CommentTok{# "x" et "y" sont 2 objets dont la fonction a besoin.}
 
 \CommentTok{# Il s'agit d'un exemple fictif : ne tapez pas ceci dans votre script !}
 \KeywordTok{f}\NormalTok{(x, y)}
@@ -7001,12 +7003,12 @@ pipe pour enchaîner les étapes suivantes :
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  On prend le tableau \texttt{flights}, \emph{puis}
+  On prend le tableau \texttt{flights}, \emph{puis}\ldots{}
 \item
   On filtre les données pour ne retenir que la compagnie aérienne
-  \texttt{AS}, \emph{puis}
+  \texttt{AS}, \emph{puis}\ldots{}
 \item
-  On réalise le graphique
+  On réalise le graphique.
 \end{enumerate}
 
 Voilà comment traduire cela avec le pipe :
@@ -7063,7 +7065,7 @@ Les 6 verbes sont :
   \texttt{filter()} : choisir des lignes dans un tableau à partir de
   conditions spécifiques (filtrer).
 \item
-  \texttt{arrange()} : trie les lignes d'un tableau selon un ou
+  \texttt{arrange()} : trier les lignes d'un tableau selon un ou
   plusieurs critères (arranger).
 \item
   \texttt{select()} : sélectionner des colonnes d'un tableau.
@@ -7072,8 +7074,9 @@ Les 6 verbes sont :
   combinant des variables existantes (muter).
 \item
   \texttt{summarise()} : calculer des résumés statistiques des données
-  (résumer). Souvent utilisé en combinaison avec \texttt{group\_by()},
-  qu permet de constituer des groupes au sein des données.
+  (résumer). Souvent utilisé en combinaison avec \texttt{group\_by()}
+  (grouper par), qui permet de constituer des groupes au sein des
+  données.
 \item
   \texttt{join()} : associer, fusionner 2 \texttt{data.frame}s en
   faisant correspondre les éléments d'une colonne commune entre les 2
@@ -7082,7 +7085,7 @@ Les 6 verbes sont :
   \texttt{left\_join()} et \texttt{inner\_join()}.
 \end{enumerate}
 
-Toutes ces fonctions, tous ces verbes, sont utilisés de la mêma façon :
+Toutes ces fonctions, tous ces verbes, sont utilisés de la même façon :
 on prend un \texttt{data.frame}, grâce au pipe, on le transmet à l'une
 de ces fonctions dont on précise les arguments entre parenthèses, la
 fonction nous renvoie un nouveau tableau modifié. Évidemment, on peut
@@ -7146,14 +7149,14 @@ Dans les 2 cas, la première ligne de code nous permet :
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  d'indiquer le nom du nouvel objet dans lequel les données modifiées
-  seront stockées (\texttt{alaska\_flights} et \texttt{small-weather})
+  D'indiquer le nom du nouvel objet dans lequel les données modifiées
+  seront stockées (\texttt{alaska\_flights} et \texttt{small-weather}).
 \item
-  d'indiquer de quel objet les données doivent être extraites
-  (\texttt{flights} et \texttt{weather})
+  D'indiquer de quel objet les données doivent être extraites
+  (\texttt{flights} et \texttt{weather}).
 \item
-  de passer cet objet à la fonction suivante avec un pipe
-  \texttt{\%\textgreater{}\%}
+  De passer cet objet à la fonction suivante avec un pipe
+  \texttt{\%\textgreater{}\%}.
 \end{enumerate}
 
 Le premier argument de la fonction \texttt{filter()} doit être le nom
@@ -7429,10 +7432,10 @@ l'expression contenant \texttt{\textbar{}} par une expression contenant
 
 Ici, toutes les lignes du tableau dont la variable \texttt{dest} est
 égale à un élément du vecteur \texttt{c("ATL",\ "SEA")} sont retenues.
-L'utilisation du \texttt{OU} logique eput être source d'erreur. Je
+L'utilisation du \texttt{OU} logique peut être source d'erreur. Je
 préfère donc utiliser \texttt{\%in\%} qui me semble plus parlant. La
 fonction \texttt{identical()} nous confirme que les deux façons de faire
-produisent exactement le même résultat, libre à vous de rpivilégier la
+produisent exactement le même résultat, libre à vous de privilégier la
 méthode qui vous convient le mieux :
 
 \begin{Shaded}
@@ -7479,8 +7482,8 @@ colonnes d'un tableau, on obtient un tableau qui ne contient plus qu'une
 unique ligne de résumé.
 
 La valeur qui résume les données est choisie par l'utilisateur. Il peut
-s'agir par exemple d'un calcul moyenne ou de variance, il peut s'agir de
-calculer une somme, ou d'extraire la valeur maximale ou minimale, ou
+s'agir par exemple d'un calcul de moyenne ou de variance, il peut s'agir
+de calculer une somme, ou d'extraire la valeur maximale ou minimale, ou
 encore, il peut tout simplement s'agir de déterminer un nombre
 d'observations.
 
@@ -7525,7 +7528,7 @@ sont \texttt{NA} car une valeur de température est manquante :
 \end{verbatim}
 
 Pour obtenir les valeurs souhaitées, il faut indiquer à R d'exclure les
-valeurs manquantes lors des calculs de moyenne et écart-types :
+valeurs manquantes lors des calculs de moyennes et écarts-types :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7611,12 +7614,13 @@ Ici, les étapes sont les suivantes :
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  On prend le tableau \texttt{weather}, \emph{puis}
+  On prend le tableau \texttt{weather}, \emph{puis}\ldots{}
 \item
-  On groupe les données selon la variable \texttt{month}, \emph{puis}
+  On groupe les données selon la variable \texttt{month},
+  \emph{puis}\ldots{}
 \item
   On résume les données groupées sous la forme de moyennes et
-  d'écart-types
+  d'écart-types.
 \end{enumerate}
 
 Nous pouvons aller plus loin. Ajoutons à ce résumé 2 variables
@@ -7630,7 +7634,7 @@ l'échantillon. Cette grandeur est très importante en statistique
 puisqu'elle nous permet de quantifier \textbf{l'imprécision} de la
 moyenne. Elle intervient d'ailleurs dans le calcul de l'intervalle de
 confiance de la moyenne d'un échantillon. Nous allons donc calculer ici
-ces résumés, et nous donnerons un nom au tableau créé pour ouvoir
+ces résumés, et nous donnerons un nom au tableau créé pour pouvoir
 ré-utiliser ces statistiques descriptives :
 
 \begin{Shaded}
@@ -7670,30 +7674,30 @@ chaque mois de l'année. Deux choses sont importantes à retenir ici :
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  on peut obtenir le nombre d'observations dans chaque sous-groupe d'un
+  On peut obtenir le nombre d'observations dans chaque sous-groupe d'un
   tableau groupé en utilisant la fonction \texttt{n()}. Cette fonction
   n'a besoin d'aucun argument : elle détermine automatiquement la taille
   des groupes créés par \texttt{group\_by()}.
 \item
-  on peut créer de nouvelles variables en utilisant le nom de variables
+  On peut créer de nouvelles variables en utilisant le nom de variables
   créées auparavant. Ainsi, nous avons créé la variable
   \texttt{erreur\_std} en utilisant deux variables créées au préalable :
-  \texttt{ecart-type} et \texttt{nb\_obs}
+  \texttt{ecart-type} et \texttt{nb\_obs}.
 \end{enumerate}
 
 \hypertarget{ajouter-des-barres-derreurs-sur-un-graphique}{%
 \subsubsection{Ajouter des barres d'erreurs sur un
 graphique}\label{ajouter-des-barres-derreurs-sur-un-graphique}}
 
-Ce jeu de données contient donc les données nécessaires pour nous
-permettre de visualiser sur un graphique l'évolution des températures
-moyennes enregistrées dans les 3 aéroports de New York en 2013. Outre
-les température moyennes, nous devons faire figurer l'imprécision des
-estimations de moyenne avec des barres d'erreur (à l'aide de la fonction
-\texttt{geom\_inerange()}). Comme expliqué plus haut, l'imprécision des
-moyennes calculées est estimée grâce à l'erreur standard. Toutefois,
-ici, les imprécisions sont tellement faibles que les barres d'erreurs
-resteront invisibles :
+Le tableau \texttt{monthly\_temp} que nous venons de créer contient donc
+les données nécessaires pour nous permettre de visualiser sur un
+graphique l'évolution des températures moyennes enregistrées dans les 3
+aéroports de New York en 2013. Outre les température moyennes, nous
+devons faire figurer l'imprécision des estimations de moyenne avec des
+barres d'erreur (à l'aide de la fonction \texttt{geom\_linerange()}).
+Comme expliqué plus haut, l'imprécision des moyennes calculées est
+estimée grâce à l'erreur standard. Toutefois, ici, les imprécisions sont
+tellement faibles que les barres d'erreurs resteront invisibles :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7722,11 +7726,11 @@ Vous remarquerez que :
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  j'associe \texttt{factor(month)}, et non simplement \texttt{month}, à
+  J'associe \texttt{factor(month)}, et non simplement \texttt{month}, à
   l'axe des \texttt{x} afin d'avoir, sur l'axe des abscisses, des
-  chiffres cohérents allant de 1 à 12, et non des chiffres à virgule
+  chiffres cohérents allant de 1 à 12, et non des chiffres à virgules.
 \item
-  l'argument \texttt{group\ =\ 1} doit être ajouté pour que la ligne
+  L'argument \texttt{group\ =\ 1} doit être ajouté pour que la ligne
   reliant les points apparaisse. En effet, les lignes sont censées
   relier des points qui appartiennent à une même série temporelle. Or
   ici, nous avons transformé \texttt{month} en facteur. Préciser
@@ -7735,7 +7739,7 @@ Vous remarquerez que :
   groupe, que ce facteur peut être considéré comme une variable
   continue, et qu'il est donc correct de relier les points.
 \item
-  la fonction \texttt{geom\_linerange()} contient de nouvelles
+  La fonction \texttt{geom\_linerange()} contient de nouvelles
   caractéristiques esthétiques qu'il nous faut obligatoirement
   renseigner : les extrémités inférieures et supérieures des barres
   d'erreur. Il nous faut donc associer 2 variables à ces
@@ -7746,7 +7750,7 @@ Vous remarquerez que :
   faisant partie du tableau \texttt{monthly\_temp},
   \texttt{geom\_linerange()} les trouve sans difficulté.
 \item
-  les barres d'erreur produites sont minuscules. Je les ai fait
+  Les barres d'erreur produites sont minuscules. Je les ai fait
   apparaître en rouge afin de les rendre visibles, mais même comme cela,
   il faut zoomer fortement pour les distinguer. Afin de rendre
   l'utilisation de \texttt{geom\_linerange()} plus explicite, je produis
@@ -7766,11 +7770,14 @@ Vous remarquerez que :
 \StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{factor}\NormalTok{(month), }\DataTypeTok{y =}\NormalTok{ moyenne, }\DataTypeTok{group =} \DecValTok{1}\NormalTok{)) }\OperatorTok{+}
 \StringTok{    }\KeywordTok{geom_line}\NormalTok{() }\OperatorTok{+}\StringTok{ }
 \StringTok{    }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}
-\StringTok{    }\KeywordTok{geom_linerange}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{ymin =}\NormalTok{ moyenne }\OperatorTok{-}\StringTok{ }\NormalTok{ecart_type, }\DataTypeTok{ymax =}\NormalTok{ moyenne }\OperatorTok{+}\StringTok{ }\NormalTok{ecart_type)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_linerange}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{ymin =}\NormalTok{ moyenne }\OperatorTok{-}\StringTok{ }\NormalTok{ecart_type,}
+                       \DataTypeTok{ymax =}\NormalTok{ moyenne }\OperatorTok{+}\StringTok{ }\NormalTok{ecart_type)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Mois"}\NormalTok{,}
        \DataTypeTok{y =} \StringTok{"Température (ºFarenheit)"}\NormalTok{, }
-       \DataTypeTok{title =} \StringTok{"Évolution des températures dans 3 aéroports de New York en 2013"}\NormalTok{,}
-       \DataTypeTok{subtitle =} \StringTok{"Attention : les barres d'erreurs sont les écarts-types.}\CharTok{\textbackslash{}n}\StringTok{Il faut normalement faire figurer les erreurs standard."}\NormalTok{)}
+       \DataTypeTok{title =} \StringTok{"Évolution des températures}
+\StringTok{                dans 3 aéroports de New York en 2013"}\NormalTok{,}
+       \DataTypeTok{subtitle =} \StringTok{"Attention : les barres d'erreurs sont les écarts-types.}\CharTok{\textbackslash{}n}
+\StringTok{                   Il faut normalement faire figurer les erreurs standard."}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -7830,14 +7837,20 @@ pouvons utiliser ces données pour comparer les 3 aéroports :
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{monthly_orig_temp }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{factor}\NormalTok{(month), }\DataTypeTok{y =}\NormalTok{ moyenne, }\DataTypeTok{group =}\NormalTok{ origin, }\DataTypeTok{color =}\NormalTok{ origin)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{factor}\NormalTok{(month), }
+             \DataTypeTok{y =}\NormalTok{ moyenne,}
+             \DataTypeTok{group =}\NormalTok{ origin,}
+             \DataTypeTok{color =}\NormalTok{ origin)) }\OperatorTok{+}
 \StringTok{    }\KeywordTok{geom_line}\NormalTok{() }\OperatorTok{+}\StringTok{ }
 \StringTok{    }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}
-\StringTok{    }\KeywordTok{geom_linerange}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{ymin =}\NormalTok{ moyenne }\OperatorTok{-}\StringTok{ }\NormalTok{ecart_type, }\DataTypeTok{ymax =}\NormalTok{ moyenne }\OperatorTok{+}\StringTok{ }\NormalTok{ecart_type)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_linerange}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{ymin =}\NormalTok{ moyenne }\OperatorTok{-}\StringTok{ }\NormalTok{ecart_type,}
+                       \DataTypeTok{ymax =}\NormalTok{ moyenne }\OperatorTok{+}\StringTok{ }\NormalTok{ecart_type)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Mois"}\NormalTok{,}
        \DataTypeTok{y =} \StringTok{"Température (ºFarenheit)"}\NormalTok{, }
-       \DataTypeTok{title =} \StringTok{"Évolution des températures dans 3 aéroports de New York en 2013"}\NormalTok{,}
-       \DataTypeTok{subtitle =} \StringTok{"Attention : les barres d'erreurs sont les écarts-types.}\CharTok{\textbackslash{}n}\StringTok{Il faut normalement faire figurer les erreurs standard."}\NormalTok{)}
+       \DataTypeTok{title =} \StringTok{"Évolution des températures}
+\StringTok{                dans 3 aéroports de New York en 2013"}\NormalTok{,}
+       \DataTypeTok{subtitle =} \StringTok{"Attention : les barres d'erreurs sont les écarts-types.}\CharTok{\textbackslash{}n}
+\StringTok{                   Il faut normalement faire figurer les erreurs standard."}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -7859,15 +7872,21 @@ visualisation :
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{monthly_orig_temp }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{factor}\NormalTok{(month), }\DataTypeTok{y =}\NormalTok{ moyenne, }\DataTypeTok{group =}\NormalTok{ origin, }\DataTypeTok{color =}\NormalTok{ origin)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{factor}\NormalTok{(month), }
+             \DataTypeTok{y =}\NormalTok{ moyenne,}
+             \DataTypeTok{group =}\NormalTok{ origin,}
+             \DataTypeTok{color =}\NormalTok{ origin)) }\OperatorTok{+}
 \StringTok{    }\KeywordTok{geom_line}\NormalTok{() }\OperatorTok{+}\StringTok{ }
 \StringTok{    }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}
-\StringTok{    }\KeywordTok{geom_linerange}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{ymin =}\NormalTok{ moyenne }\OperatorTok{-}\StringTok{ }\NormalTok{ecart_type, }\DataTypeTok{ymax =}\NormalTok{ moyenne }\OperatorTok{+}\StringTok{ }\NormalTok{ecart_type)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_linerange}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{ymin =}\NormalTok{ moyenne }\OperatorTok{-}\StringTok{ }\NormalTok{ecart_type,}
+                       \DataTypeTok{ymax =}\NormalTok{ moyenne }\OperatorTok{+}\StringTok{ }\NormalTok{ecart_type)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{facet_wrap}\NormalTok{(}\OperatorTok{~}\NormalTok{origin, }\DataTypeTok{ncol =} \DecValTok{1}\NormalTok{) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Mois"}\NormalTok{,}
        \DataTypeTok{y =} \StringTok{"Température (ºFarenheit)"}\NormalTok{, }
-       \DataTypeTok{title =} \StringTok{"Évolution des températures dans 3 aéroports de New York en 2013"}\NormalTok{,}
-       \DataTypeTok{subtitle =} \StringTok{"Attention : les barres d'erreurs sont les écarts-types.}\CharTok{\textbackslash{}n}\StringTok{Il faut normalement faire figurer les erreurs standard."}\NormalTok{)}
+       \DataTypeTok{title =} \StringTok{"Évolution des températures}
+\StringTok{                dans 3 aéroports de New York en 2013"}\NormalTok{,}
+       \DataTypeTok{subtitle =} \StringTok{"Attention : les barres d'erreurs sont les écarts-types.}\CharTok{\textbackslash{}n}
+\StringTok{                   Il faut normalement faire figurer les erreurs standard."}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -7921,8 +7940,8 @@ facile à inclure dans un rapport.
 effectifs}\label{un-raccourci-pratique-pour-compter-des-effectifs}}
 
 Il est tellement fréquent d'avoir à grouper des données en fonction
-d'une variable puis à compter le nombre d;observations dans chaque
-catégorie avrc \texttt{n()} que \texttt{dplyr} nous fournit un raccourci
+d'une variable puis à compter le nombre d'observations dans chaque
+catégorie avec \texttt{n()} que \texttt{dplyr} nous fournit un raccourci
 : la fonction \texttt{count()}.
 
 Ce code :
@@ -8113,13 +8132,13 @@ Indications :
 \begin{itemize}
 \tightlist
 \item
-  les vitesses de vent aberrantes ont été éliminées grâce à la fonction
-  \texttt{filter()}
+  Les vitesses de vent aberrantes ont été éliminées grâce à la fonction
+  \texttt{filter()}.
 \item
-  la fonction \texttt{geom\_jitter()} a été utilisée avec l'argument
-  \texttt{height\ =\ 0}
+  La fonction \texttt{geom\_jitter()} a été utilisée avec l'argument
+  \texttt{height\ =\ 0}.
 \item
-  la transparence des points est fixée à \texttt{0.2}
+  La transparence des points est fixée à \texttt{0.2}.
 \end{itemize}
 
 Selon vous, pourquoi les points sont-ils organisés en bandes
@@ -8127,7 +8146,7 @@ horizontales ?\\
 Selon vous, pourquoi n'y a t'il jamais de vent entre 0 et environ 3
 miles à l'heure (mph) ?\\
 Sachant qu'en divisant des mph par 1.151 on obtient des vitesses en
-nœuds, que nous apprend cette commande :
+nœuds, que nous apprend cette commande ?
 
 \begin{Shaded}
 \begin{Highlighting}[]

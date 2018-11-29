@@ -23,10 +23,11 @@ library(tidyverse)
 
 Avant d'entrer dans le vif du sujet, je souhaite introduire ici la notion de "pipe" (prononcer à l'anglo-saxonne). Le pipe est un opérateur que nous avons déjà vu apparaître à plusieurs reprises dans les chapitres précédents sans expliquer son fonctionnement.
 
-Le pipe, noté `%>%`, peut être obtenu en pressant les touches `ctrl + shift + M` de votre clavier. Il permet d'enchaîner logiquement des actions les unes à la suite des autres. Globalement, le pipe prend l'objet situé à sa gauche, et le transmet à la fonction situé à sa droite. En d'autres termes, les 2 expressions suivantes sont strictement équivalentes :
+Le pipe, noté `%>%`, peut être obtenu en pressant les touches `ctrl + shift + M` de votre clavier (ou `command + shift + M` sous macOS). Il permet d'enchaîner logiquement des actions les unes à la suite des autres. Globalement, le pipe prend l'objet situé à sa gauche, et le transmet à la fonction situé à sa droite. En d'autres termes, les 2 expressions suivantes sont strictement équivalentes :
 
 ```{r eval = FALSE}
-# Ici, "f" est une fonction quelconque, "x" et "y" sont 2 objets dont la fonction a besoin.
+# Ici, "f" est une fonction quelconque, 
+# "x" et "y" sont 2 objets dont la fonction a besoin.
 
 # Il s'agit d'un exemple fictif : ne tapez pas ceci dans votre script !
 f(x, y)
@@ -54,9 +55,9 @@ ggplot(data = alaska_flights, mapping = aes(x = dep_delay, y = arr_delay)) +
 
 Nous savons maintenant qu'il n'est pas indispensable de faire figurer le nom des arguments `data = ` et `mapping = `. Mais nous pouvons aller plus loin. En fait, il n'était même pas nécessaire de créer l'objet `alaska_flights` : nous aurions pu utiliser le pipe pour enchaîner les étapes suivantes :
 
-1. On prend le tableau `flights`, *puis*
-2. On filtre les données pour ne retenir que la compagnie aérienne `AS`, *puis*
-3. On réalise le graphique
+1. On prend le tableau `flights`, *puis*...
+2. On filtre les données pour ne retenir que la compagnie aérienne `AS`, *puis*...
+3. On réalise le graphique.
 
 Voilà comment traduire cela avec le pipe :
 
@@ -83,13 +84,13 @@ Nous allons ici nous concentrer sur les fonctions les plus couramment utilisées
 Les 6 verbes sont :
 
 1. `filter()` : choisir des lignes dans un tableau à partir de conditions spécifiques (filtrer).
-2. `arrange()` : trie les lignes d'un tableau selon un ou plusieurs critères (arranger).
+2. `arrange()` : trier les lignes d'un tableau selon un ou plusieurs critères (arranger).
 3. `select()` : sélectionner des colonnes d'un tableau.
 4. `mutate()` : créer de nouvelles variables en transformant et combinant des variables existantes (muter).
-5. `summarise()` : calculer des résumés statistiques des données (résumer). Souvent utilisé en combinaison avec `group_by()`, qu permet de constituer des groupes au sein des données.
+5. `summarise()` : calculer des résumés statistiques des données (résumer). Souvent utilisé en combinaison avec `group_by()` (grouper par), qui permet de constituer des groupes au sein des données.
 6. `join()` : associer, fusionner 2 `data.frame`s en faisant correspondre les éléments d'une colonne commune entre les 2 tableaux (joindre). Il y a de nombreuses façons de joindre des tableaux. Nous nous contenterons d'examiner les fonctions `left_join()` et `inner_join()`.
 
-Toutes ces fonctions, tous ces verbes, sont utilisés de la mêma façon : on prend un `data.frame`, grâce au pipe, on le transmet à l'une de ces fonctions dont on précise les arguments entre parenthèses, la fonction nous renvoie un nouveau tableau modifié. Évidemment, on peut enchaîner les actions pour modifier plusieurs fois le même tableau, c'est tout l'intérêt du pipe.
+Toutes ces fonctions, tous ces verbes, sont utilisés de la même façon : on prend un `data.frame`, grâce au pipe, on le transmet à l'une de ces fonctions dont on précise les arguments entre parenthèses, la fonction nous renvoie un nouveau tableau modifié. Évidemment, on peut enchaîner les actions pour modifier plusieurs fois le même tableau, c'est tout l'intérêt du pipe.
 
 Enfin, gardez en tête qu'il existe beaucoup plus de fonctions dans `dplyr` que les 6 que nous allons détailler ici. Nous verrons parfois quelques variantes, mais globalement, maîtriser ces 6 fonctions simples devrait vous permettre de conduire une très large gamme de manipulations de données, et ainsi vous faciliter la vie pour la production de graphiques et l'analyse statistique de vos données.
 
@@ -122,9 +123,9 @@ small_weather <- weather %>%
 
 Dans les 2 cas, la première ligne de code nous permet :
 
-1. d'indiquer le nom du nouvel objet dans lequel les données modifiées seront stockées (`alaska_flights` et `small-weather`)
-2. d'indiquer de quel objet les données doivent être extraites (`flights` et `weather`)
-3. de passer cet objet à la fonction suivante avec un pipe `%>%`
+1. D'indiquer le nom du nouvel objet dans lequel les données modifiées seront stockées (`alaska_flights` et `small-weather`).
+2. D'indiquer de quel objet les données doivent être extraites (`flights` et `weather`).
+3. De passer cet objet à la fonction suivante avec un pipe `%>%`.
 
 Le premier argument de la fonction `filter()` doit être le nom d'un `data.frame` ou d'un `tibble`. Ici, puisque nous utilisons le pipe, il est inutile de spécifier cet argument : c'est ce qui est placé à gauche du pipe qui est utilisé comme premier argument de la fonction `filter()`. Les arguments suivants constituent la ou les conditions qui doivent être respectées par les lignes du tableau de départ afin d'être intégrées au nouveau tableau de données.
 
@@ -223,7 +224,7 @@ atl_sea_fall2 <- flights %>%
 atl_sea_fall2
 ```
 
-Ici, toutes les lignes du tableau dont la variable `dest` est égale à un élément du vecteur `c("ATL", "SEA")` sont retenues. L'utilisation du `OU` logique eput être source d'erreur. Je préfère donc utiliser `%in%` qui me semble plus parlant. La fonction `identical()` nous confirme que les deux façons de faire produisent exactement le même résultat, libre à vous de rpivilégier la méthode qui vous convient le mieux :
+Ici, toutes les lignes du tableau dont la variable `dest` est égale à un élément du vecteur `c("ATL", "SEA")` sont retenues. L'utilisation du `OU` logique peut être source d'erreur. Je préfère donc utiliser `%in%` qui me semble plus parlant. La fonction `identical()` nous confirme que les deux façons de faire produisent exactement le même résultat, libre à vous de privilégier la méthode qui vous convient le mieux :
 
 ```{r}
 identical(atl_sea_fall, atl_sea_fall2)
@@ -248,7 +249,7 @@ knitr::include_graphics('images/summarize.png')
 
 La figure \@ref(fig:summarisefig2) ci-dessus indique comment fonctionne la fonction `summarise()` : elle prend plusieurs valeurs (potentiellement, un très grand nombre) et les réduit à une unique valeur qui les résume. Lorsque l'on applique cette démarche à plusieurs colonnes d'un tableau, on obtient un tableau qui ne contient plus qu'une unique ligne de résumé.
 
-La valeur qui résume les données est choisie par l'utilisateur. Il peut s'agir par exemple d'un calcul moyenne ou de variance, il peut s'agir de calculer une somme, ou d'extraire la valeur maximale ou minimale, ou encore, il peut tout simplement s'agir de déterminer un nombre d'observations.
+La valeur qui résume les données est choisie par l'utilisateur. Il peut s'agir par exemple d'un calcul de moyenne ou de variance, il peut s'agir de calculer une somme, ou d'extraire la valeur maximale ou minimale, ou encore, il peut tout simplement s'agir de déterminer un nombre d'observations.
 
 Ainsi, pour connaître la température moyenne et l'écart-type des températures dans les aéroports de New York, il suffit d'utiliser le tableau `weather` et sa variable `temp` que nous avons déjà utilisés dans les chapitres précédents :
 
@@ -265,7 +266,7 @@ weather %>%
   filter(is.na(temp))
 ```
 
-Pour obtenir les valeurs souhaitées, il faut indiquer à R d'exclure les valeurs manquantes lors des calculs de moyenne et écart-types :
+Pour obtenir les valeurs souhaitées, il faut indiquer à R d'exclure les valeurs manquantes lors des calculs de moyennes et écarts-types :
 
 
 ```{r, tidy = FALSE}
@@ -307,15 +308,15 @@ weather %>%
 
 Ici, les étapes sont les suivantes :
 
-1. On prend le tableau `weather`, *puis*
-2. On groupe les données selon la variable `month`, *puis*
-3. On résume les données groupées sous la forme de moyennes et d'écart-types
+1. On prend le tableau `weather`, *puis*...
+2. On groupe les données selon la variable `month`, *puis*...
+3. On résume les données groupées sous la forme de moyennes et d'écart-types.
 
 Nous pouvons aller plus loin. Ajoutons à ce résumé 2 variables supplémentaires : le nombre de mesures et l'**erreur standard** (notée $se$), qui peut être calculée de la façon suivante : 
 
 $$se \approx \frac{s}{\sqrt{n}}$$
 
-avec $s$, l'écart-type de l'échantillon et $n$, la taille de l'échantillon. Cette grandeur est très importante en statistique puisqu'elle nous permet de quantifier **l'imprécision** de la moyenne. Elle intervient d'ailleurs dans le calcul de l'intervalle de confiance de la moyenne d'un échantillon. Nous allons donc calculer ici ces résumés, et nous donnerons un nom au tableau créé pour ouvoir ré-utiliser ces statistiques descriptives :
+avec $s$, l'écart-type de l'échantillon et $n$, la taille de l'échantillon. Cette grandeur est très importante en statistique puisqu'elle nous permet de quantifier **l'imprécision** de la moyenne. Elle intervient d'ailleurs dans le calcul de l'intervalle de confiance de la moyenne d'un échantillon. Nous allons donc calculer ici ces résumés, et nous donnerons un nom au tableau créé pour pouvoir ré-utiliser ces statistiques descriptives :
 
 ```{r, tidy = FALSE}
 monthly_temp <- weather %>% 
@@ -329,12 +330,12 @@ monthly_temp
 
 Vous constatez ici que nous avons 4 statistiques descriptives pour chaque mois de l'année. Deux choses sont importantes à retenir ici : 
 
-1. on peut obtenir le nombre d'observations dans chaque sous-groupe d'un tableau groupé en utilisant la fonction `n()`. Cette fonction n'a besoin d'aucun argument : elle détermine automatiquement la taille des groupes créés par `group_by()`.
-2. on peut créer de nouvelles variables en utilisant le nom de variables créées auparavant. Ainsi, nous avons créé la variable `erreur_std` en utilisant deux variables créées au préalable : `ecart-type` et `nb_obs`
+1. On peut obtenir le nombre d'observations dans chaque sous-groupe d'un tableau groupé en utilisant la fonction `n()`. Cette fonction n'a besoin d'aucun argument : elle détermine automatiquement la taille des groupes créés par `group_by()`.
+2. On peut créer de nouvelles variables en utilisant le nom de variables créées auparavant. Ainsi, nous avons créé la variable `erreur_std` en utilisant deux variables créées au préalable : `ecart-type` et `nb_obs`.
 
 ### Ajouter des barres d'erreurs sur un graphique
 
-Ce jeu de données contient donc les données nécessaires pour nous permettre de visualiser sur un graphique l'évolution des températures moyennes enregistrées dans les 3 aéroports de New York en 2013. Outre les température moyennes, nous devons faire figurer l'imprécision des estimations de moyenne avec des barres d'erreur (à l'aide de la fonction `geom_inerange()`). Comme expliqué plus haut, l'imprécision des moyennes calculées est estimée grâce à l'erreur standard. Toutefois, ici, les imprécisions sont tellement faibles que les barres d'erreurs resteront invisibles :
+Le tableau `monthly_temp` que nous venons de créer contient donc les données nécessaires pour nous permettre de visualiser sur un graphique l'évolution des températures moyennes enregistrées dans les 3 aéroports de New York en 2013. Outre les température moyennes, nous devons faire figurer l'imprécision des estimations de moyenne avec des barres d'erreur (à l'aide de la fonction `geom_linerange()`). Comme expliqué plus haut, l'imprécision des moyennes calculées est estimée grâce à l'erreur standard. Toutefois, ici, les imprécisions sont tellement faibles que les barres d'erreurs resteront invisibles :
 
 ```{r errorbars, tidy=FALSE, warning = FALSE, fig.cap="Évolution des températures moyenne dans 3 aéroports de New York en 2013"}
 monthly_temp %>% 
@@ -348,17 +349,33 @@ monthly_temp %>%
 
 Vous remarquerez que :
 
-1. j'associe `factor(month)`, et non simplement `month`, à l'axe des `x` afin d'avoir, sur l'axe des abscisses, des chiffres cohérents allant de 1 à 12, et non des chiffres à virgule
-2. l'argument `group = 1` doit être ajouté pour que la ligne reliant les points apparaisse. En effet, les lignes sont censées relier des points qui appartiennent à une même série temporelle. Or ici, nous avons transformé `month` en facteur. Préciser `group = 1` permet d'indiquer à `geom_line()` que toutes les catégories du facteur `month` appartiennent au même groupe, que ce facteur peut être considéré comme une variable continue, et qu'il est donc correct de relier les points.
-3. la fonction `geom_linerange()` contient de nouvelles caractéristiques esthétiques qu'il nous faut obligatoirement renseigner : les extrémités inférieures et supérieures des barres d'erreur. Il nous faut donc associer 2 variables à ces caractéristiques esthétiques. Ici, nous utilisons `moyenne - erreur_std` pour la borne inférieure des barres d'erreur, et `moyenne + erreur_std` pour la borne supérieure. Les variables `moyenne` et `erreur_std` faisant partie du tableau `monthly_temp`, `geom_linerange()` les trouve sans difficulté.
-4. les barres d'erreur produites sont minuscules. Je les ai fait apparaître en rouge afin de les rendre visibles, mais même comme cela, il faut zoomer fortement pour les distinguer. Afin de rendre l'utilisation de `geom_linerange()` plus explicite, je produis ci-dessous un autre graphique en remplaçant les erreurs standard par les écart-types en guise de barres d'erreur. Attention, ce n'est pas correct d'un point de vue statistique ! Les barres d'erreur doivent permettre de visualiser l'imprécision de la moyenne. C'est donc bien les erreurs standard qu'il faut faire figurer en guise de barres d'erreurs et non les écarty-types. Le graphique ci-dessous ne figure donc qu'à titre d'exemple, afin d'illustrer de façon plus parlante le fonctionnement de la fonction `geom_linerange()` :
+1. J'associe `factor(month)`, et non simplement `month`, à l'axe des `x` afin d'avoir, sur l'axe des abscisses, des chiffres cohérents allant de 1 à 12, et non des chiffres à virgules.
+2. L'argument `group = 1` doit être ajouté pour que la ligne reliant les points apparaisse. En effet, les lignes sont censées relier des points qui appartiennent à une même série temporelle. Or ici, nous avons transformé `month` en facteur. Préciser `group = 1` permet d'indiquer à `geom_line()` que toutes les catégories du facteur `month` appartiennent au même groupe, que ce facteur peut être considéré comme une variable continue, et qu'il est donc correct de relier les points.
+3. La fonction `geom_linerange()` contient de nouvelles caractéristiques esthétiques qu'il nous faut obligatoirement renseigner : les extrémités inférieures et supérieures des barres d'erreur. Il nous faut donc associer 2 variables à ces caractéristiques esthétiques. Ici, nous utilisons `moyenne - erreur_std` pour la borne inférieure des barres d'erreur, et `moyenne + erreur_std` pour la borne supérieure. Les variables `moyenne` et `erreur_std` faisant partie du tableau `monthly_temp`, `geom_linerange()` les trouve sans difficulté.
+4. Les barres d'erreur produites sont minuscules. Je les ai fait apparaître en rouge afin de les rendre visibles, mais même comme cela, il faut zoomer fortement pour les distinguer. Afin de rendre l'utilisation de `geom_linerange()` plus explicite, je produis ci-dessous un autre graphique en remplaçant les erreurs standard par les écart-types en guise de barres d'erreur. Attention, ce n'est pas correct d'un point de vue statistique ! Les barres d'erreur doivent permettre de visualiser l'imprécision de la moyenne. C'est donc bien les erreurs standard qu'il faut faire figurer en guise de barres d'erreurs et non les écarty-types. Le graphique ci-dessous ne figure donc qu'à titre d'exemple, afin d'illustrer de façon plus parlante le fonctionnement de la fonction `geom_linerange()` :
 
-```{r errorbars2, tidy=FALSE, warning = FALSE, fig.cap="Évolution des températures moyenne dans 3 aéroports de New York en 2013"}
+```{r echoerrorbars2, eval = FALSE, tidy=FALSE, warning = FALSE, fig.cap="Évolution des températures moyenne dans 3 aéroports de New York en 2013"}
 monthly_temp %>% 
   ggplot(aes(x = factor(month), y = moyenne, group = 1)) +
     geom_line() + 
     geom_point() +
-    geom_linerange(aes(ymin = moyenne - ecart_type, ymax = moyenne + ecart_type)) +
+    geom_linerange(aes(ymin = moyenne - ecart_type,
+                       ymax = moyenne + ecart_type)) +
+  labs(x = "Mois",
+       y = "Température (ºFarenheit)", 
+       title = "Évolution des températures
+                dans 3 aéroports de New York en 2013",
+       subtitle = "Attention : les barres d'erreurs sont les écarts-types.\n
+                   Il faut normalement faire figurer les erreurs standard.")
+```
+
+```{r errorbars2, echo = FALSE, tidy=FALSE, warning = FALSE, fig.cap="Évolution des températures moyenne dans 3 aéroports de New York en 2013"}
+monthly_temp %>% 
+  ggplot(aes(x = factor(month), y = moyenne, group = 1)) +
+    geom_line() + 
+    geom_point() +
+    geom_linerange(aes(ymin = moyenne - ecart_type,
+                       ymax = moyenne + ecart_type)) +
   labs(x = "Mois",
        y = "Température (ºFarenheit)", 
        title = "Évolution des températures dans 3 aéroports de New York en 2013",
@@ -382,8 +399,25 @@ monthly_orig_temp
 
 En plus de la variable `month`, la tableau `monthly_orig_temp` contient une variable `origin`. Les statistiques que nous avons calculées plus tôt sont maintenant disponibles pour chaque mois et chacun des 3 aéroports de New York. Nous pouvons utiliser ces données pour comparer les 3 aéroports :
 
+```{r echoerrorbars3, eval = FALSE, tidy=FALSE, warning = FALSE, fig.cap="Évolution des températures moyenne dans 3 aéroports de New York en 2013"}
+monthly_orig_temp %>% 
+  ggplot(aes(x = factor(month), 
+             y = moyenne,
+             group = origin,
+             color = origin)) +
+    geom_line() + 
+    geom_point() +
+    geom_linerange(aes(ymin = moyenne - ecart_type,
+                       ymax = moyenne + ecart_type)) +
+  labs(x = "Mois",
+       y = "Température (ºFarenheit)", 
+       title = "Évolution des températures
+                dans 3 aéroports de New York en 2013",
+       subtitle = "Attention : les barres d'erreurs sont les écarts-types.\n
+                   Il faut normalement faire figurer les erreurs standard.")
+```
 
-```{r errorbars3, tidy=FALSE, warning = FALSE, fig.cap="Évolution des températures moyenne dans 3 aéroports de New York en 2013"}
+```{r errorbars3, echo = FALSE, tidy=FALSE, warning = FALSE, fig.cap="Évolution des températures moyenne dans 3 aéroports de New York en 2013"}
 monthly_orig_temp %>% 
   ggplot(aes(x = factor(month), y = moyenne, group = origin, color = origin)) +
     geom_line() + 
@@ -397,7 +431,26 @@ monthly_orig_temp %>%
 
 Notez que j'utilise maintenant `group = origin` et non plus `group = 1`. Ici, les températures des 3 aéroports sont tellement similaires que les courbes sont difficiles à distinguer. Nous pouvons donc utiliser `facet_wrap()` pour tenter d'améliorer la visualisation :
 
-```{r errorbars4, tidy=FALSE, fig.asp = 1, warning = FALSE, fig.cap="Évolution des températures moyenne dans 3 aéroports de New York en 2013"}
+```{r echoerrorbars4, eval = FALSE, tidy=FALSE, fig.asp = 1, warning = FALSE, fig.cap="Évolution des températures moyenne dans 3 aéroports de New York en 2013"}
+monthly_orig_temp %>% 
+  ggplot(aes(x = factor(month), 
+             y = moyenne,
+             group = origin,
+             color = origin)) +
+    geom_line() + 
+    geom_point() +
+    geom_linerange(aes(ymin = moyenne - ecart_type,
+                       ymax = moyenne + ecart_type)) +
+  facet_wrap(~origin, ncol = 1) +
+  labs(x = "Mois",
+       y = "Température (ºFarenheit)", 
+       title = "Évolution des températures
+                dans 3 aéroports de New York en 2013",
+       subtitle = "Attention : les barres d'erreurs sont les écarts-types.\n
+                   Il faut normalement faire figurer les erreurs standard.")
+```
+
+```{r errorbars4, echo = FALSE, tidy=FALSE, fig.asp = 1, warning = FALSE, fig.cap="Évolution des températures moyenne dans 3 aéroports de New York en 2013"}
 monthly_orig_temp %>% 
   ggplot(aes(x = factor(month), y = moyenne, group = origin, color = origin)) +
     geom_line() + 
@@ -425,7 +478,7 @@ Sous cette forme, les données ne sont plus "rangées", nous n'avons plus des "t
 
 ### Un raccourci pratique pour compter des effectifs
 
-Il est tellement fréquent d'avoir à grouper des données en fonction d'une variable puis à compter le nombre d;observations dans chaque catégorie avrc `n()` que  `dplyr` nous fournit un raccourci : la fonction `count()`.
+Il est tellement fréquent d'avoir à grouper des données en fonction d'une variable puis à compter le nombre d'observations dans chaque catégorie avec `n()` que  `dplyr` nous fournit un raccourci : la fonction `count()`.
 
 Ce code : 
 
@@ -501,13 +554,13 @@ weather %>%
 
 Indications :
 
-- les vitesses de vent aberrantes ont été éliminées grâce à la fonction `filter()`
-- la fonction `geom_jitter()` a été utilisée avec l'argument `height = 0`
-- la transparence des points est fixée à `0.2`
+- Les vitesses de vent aberrantes ont été éliminées grâce à la fonction `filter()`.
+- La fonction `geom_jitter()` a été utilisée avec l'argument `height = 0`.
+- La transparence des points est fixée à `0.2`.
 
 Selon vous, pourquoi les points sont-ils organisés en bandes horizontales ?  
 Selon vous, pourquoi n'y a t'il jamais de vent entre 0 et environ 3 miles à l'heure (mph) ?  
-Sachant qu'en divisant des mph par 1.151 on obtient des vitesses en nœuds, que nous apprend cette commande :
+Sachant qu'en divisant des mph par 1.151 on obtient des vitesses en nœuds, que nous apprend cette commande ?
 
 ```{r}
 sort(unique(weather$wind_speed)) / 1.151

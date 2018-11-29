@@ -25,7 +25,7 @@
 <meta name="author" content="Benoît Simon-Bouhet">
 
 
-<meta name="date" content="2018-11-28">
+<meta name="date" content="2018-11-29">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -304,12 +304,13 @@ code span.wa { color: #bf0303; } /* Warning */
 <div id="le-pipe" class="section level2">
 <h2><span class="header-section-number">6.2</span> Le pipe <code>%&gt;%</code></h2>
 <p>Avant d’entrer dans le vif du sujet, je souhaite introduire ici la notion de “pipe” (prononcer à l’anglo-saxonne). Le pipe est un opérateur que nous avons déjà vu apparaître à plusieurs reprises dans les chapitres précédents sans expliquer son fonctionnement.</p>
-<p>Le pipe, noté <code>%&gt;%</code>, peut être obtenu en pressant les touches <code>ctrl + shift + M</code> de votre clavier. Il permet d’enchaîner logiquement des actions les unes à la suite des autres. Globalement, le pipe prend l’objet situé à sa gauche, et le transmet à la fonction situé à sa droite. En d’autres termes, les 2 expressions suivantes sont strictement équivalentes :</p>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb218-1" title="1"><span class="co"># Ici, &quot;f&quot; est une fonction quelconque, &quot;x&quot; et &quot;y&quot; sont 2 objets dont la fonction a besoin.</span></a>
-<a class="sourceLine" id="cb218-2" title="2"></a>
-<a class="sourceLine" id="cb218-3" title="3"><span class="co"># Il s&#39;agit d&#39;un exemple fictif : ne tapez pas ceci dans votre script !</span></a>
-<a class="sourceLine" id="cb218-4" title="4"><span class="kw">f</span>(x, y)</a>
-<a class="sourceLine" id="cb218-5" title="5">x <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">f</span>(y)</a></code></pre></div>
+<p>Le pipe, noté <code>%&gt;%</code>, peut être obtenu en pressant les touches <code>ctrl + shift + M</code> de votre clavier (ou <code>command + shift + M</code> sous macOS). Il permet d’enchaîner logiquement des actions les unes à la suite des autres. Globalement, le pipe prend l’objet situé à sa gauche, et le transmet à la fonction situé à sa droite. En d’autres termes, les 2 expressions suivantes sont strictement équivalentes :</p>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb218-1" title="1"><span class="co"># Ici, &quot;f&quot; est une fonction quelconque, </span></a>
+<a class="sourceLine" id="cb218-2" title="2"><span class="co"># &quot;x&quot; et &quot;y&quot; sont 2 objets dont la fonction a besoin.</span></a>
+<a class="sourceLine" id="cb218-3" title="3"></a>
+<a class="sourceLine" id="cb218-4" title="4"><span class="co"># Il s&#39;agit d&#39;un exemple fictif : ne tapez pas ceci dans votre script !</span></a>
+<a class="sourceLine" id="cb218-5" title="5"><span class="kw">f</span>(x, y)</a>
+<a class="sourceLine" id="cb218-6" title="6">x <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">f</span>(y)</a></code></pre></div>
 <p>Travailler avec le pipe est très intéressant car toutes les fonctions de <code>dplyr</code> que nous allons décrire ensuite sont construites autour de la même syntaxe : on leur fournit un <code>data.frame</code> (ou encore mieux, un <code>tibble</code>), elles effectuent une opération et renvoient un nouveau <code>data.frame</code> (ou un nouveau <code>tibble</code>). Il est ainsi possible de créer des groupes de commandes cohérentes qui permettent, grâce à l’enchaînement d’étapes simples, d’aboutir à des résultats complexes.</p>
 <p>De la même façon que le <code>+</code> permet d’ajouter une couche supplémentaire à un graphique <code>ggplot2</code>, le pipe <code>%&gt;%</code> permet d’ajouter une opération supplémentaire dans un groupe de commandes.</p>
 <p>Pour reprendre un exemple de la section <a href="viz.html#clouds">4.3</a> sur les nuages de points, nous avions commencé par créer un objet nommé <code>alaska_flights</code> à partir de l’objet <code>flights</code> :</p>
@@ -320,9 +321,9 @@ code span.wa { color: #bf0303; } /* Warning */
 <a class="sourceLine" id="cb220-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <p>Nous savons maintenant qu’il n’est pas indispensable de faire figurer le nom des arguments <code>data =</code> et <code>mapping =</code>. Mais nous pouvons aller plus loin. En fait, il n’était même pas nécessaire de créer l’objet <code>alaska_flights</code> : nous aurions pu utiliser le pipe pour enchaîner les étapes suivantes :</p>
 <ol style="list-style-type: decimal">
-<li>On prend le tableau <code>flights</code>, <em>puis</em></li>
-<li>On filtre les données pour ne retenir que la compagnie aérienne <code>AS</code>, <em>puis</em></li>
-<li>On réalise le graphique</li>
+<li>On prend le tableau <code>flights</code>, <em>puis</em>…</li>
+<li>On filtre les données pour ne retenir que la compagnie aérienne <code>AS</code>, <em>puis</em>…</li>
+<li>On réalise le graphique.</li>
 </ol>
 <p>Voilà comment traduire cela avec le pipe :</p>
 <div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" title="1">flights <span class="op">%&gt;%</span><span class="st"> </span></a>
@@ -346,13 +347,13 @@ Figure 6.1: Notre premier graphique, produit grâce au pipe
 <p>Les 6 verbes sont :</p>
 <ol style="list-style-type: decimal">
 <li><code>filter()</code> : choisir des lignes dans un tableau à partir de conditions spécifiques (filtrer).</li>
-<li><code>arrange()</code> : trie les lignes d’un tableau selon un ou plusieurs critères (arranger).</li>
+<li><code>arrange()</code> : trier les lignes d’un tableau selon un ou plusieurs critères (arranger).</li>
 <li><code>select()</code> : sélectionner des colonnes d’un tableau.</li>
 <li><code>mutate()</code> : créer de nouvelles variables en transformant et combinant des variables existantes (muter).</li>
-<li><code>summarise()</code> : calculer des résumés statistiques des données (résumer). Souvent utilisé en combinaison avec <code>group_by()</code>, qu permet de constituer des groupes au sein des données.</li>
+<li><code>summarise()</code> : calculer des résumés statistiques des données (résumer). Souvent utilisé en combinaison avec <code>group_by()</code> (grouper par), qui permet de constituer des groupes au sein des données.</li>
 <li><code>join()</code> : associer, fusionner 2 <code>data.frame</code>s en faisant correspondre les éléments d’une colonne commune entre les 2 tableaux (joindre). Il y a de nombreuses façons de joindre des tableaux. Nous nous contenterons d’examiner les fonctions <code>left_join()</code> et <code>inner_join()</code>.</li>
 </ol>
-<p>Toutes ces fonctions, tous ces verbes, sont utilisés de la mêma façon : on prend un <code>data.frame</code>, grâce au pipe, on le transmet à l’une de ces fonctions dont on précise les arguments entre parenthèses, la fonction nous renvoie un nouveau tableau modifié. Évidemment, on peut enchaîner les actions pour modifier plusieurs fois le même tableau, c’est tout l’intérêt du pipe.</p>
+<p>Toutes ces fonctions, tous ces verbes, sont utilisés de la même façon : on prend un <code>data.frame</code>, grâce au pipe, on le transmet à l’une de ces fonctions dont on précise les arguments entre parenthèses, la fonction nous renvoie un nouveau tableau modifié. Évidemment, on peut enchaîner les actions pour modifier plusieurs fois le même tableau, c’est tout l’intérêt du pipe.</p>
 <p>Enfin, gardez en tête qu’il existe beaucoup plus de fonctions dans <code>dplyr</code> que les 6 que nous allons détailler ici. Nous verrons parfois quelques variantes, mais globalement, maîtriser ces 6 fonctions simples devrait vous permettre de conduire une très large gamme de manipulations de données, et ainsi vous faciliter la vie pour la production de graphiques et l’analyse statistique de vos données.</p>
 <hr />
 </div>
@@ -376,9 +377,9 @@ Figure 6.2: Schéma de la fonction <code>filter()</code> tiré de la ‘cheatshe
 <a class="sourceLine" id="cb223-4" title="4">         day <span class="op">&lt;=</span><span class="st"> </span><span class="dv">15</span>)</a></code></pre></div>
 <p>Dans les 2 cas, la première ligne de code nous permet :</p>
 <ol style="list-style-type: decimal">
-<li>d’indiquer le nom du nouvel objet dans lequel les données modifiées seront stockées (<code>alaska_flights</code> et <code>small-weather</code>)</li>
-<li>d’indiquer de quel objet les données doivent être extraites (<code>flights</code> et <code>weather</code>)</li>
-<li>de passer cet objet à la fonction suivante avec un pipe <code>%&gt;%</code></li>
+<li>D’indiquer le nom du nouvel objet dans lequel les données modifiées seront stockées (<code>alaska_flights</code> et <code>small-weather</code>).</li>
+<li>D’indiquer de quel objet les données doivent être extraites (<code>flights</code> et <code>weather</code>).</li>
+<li>De passer cet objet à la fonction suivante avec un pipe <code>%&gt;%</code>.</li>
 </ol>
 <p>Le premier argument de la fonction <code>filter()</code> doit être le nom d’un <code>data.frame</code> ou d’un <code>tibble</code>. Ici, puisque nous utilisons le pipe, il est inutile de spécifier cet argument : c’est ce qui est placé à gauche du pipe qui est utilisé comme premier argument de la fonction <code>filter()</code>. Les arguments suivants constituent la ou les conditions qui doivent être respectées par les lignes du tableau de départ afin d’être intégrées au nouveau tableau de données.</p>
 </div>
@@ -523,7 +524,7 @@ Figure 6.2: Schéma de la fonction <code>filter()</code> tiré de la ‘cheatshe
 #   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
 #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;,
 #   time_hour &lt;dttm&gt;</code></pre>
-<p>Ici, toutes les lignes du tableau dont la variable <code>dest</code> est égale à un élément du vecteur <code>c(&quot;ATL&quot;, &quot;SEA&quot;)</code> sont retenues. L’utilisation du <code>OU</code> logique eput être source d’erreur. Je préfère donc utiliser <code>%in%</code> qui me semble plus parlant. La fonction <code>identical()</code> nous confirme que les deux façons de faire produisent exactement le même résultat, libre à vous de rpivilégier la méthode qui vous convient le mieux :</p>
+<p>Ici, toutes les lignes du tableau dont la variable <code>dest</code> est égale à un élément du vecteur <code>c(&quot;ATL&quot;, &quot;SEA&quot;)</code> sont retenues. L’utilisation du <code>OU</code> logique peut être source d’erreur. Je préfère donc utiliser <code>%in%</code> qui me semble plus parlant. La fonction <code>identical()</code> nous confirme que les deux façons de faire produisent exactement le même résultat, libre à vous de privilégier la méthode qui vous convient le mieux :</p>
 <div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb234-1" title="1"><span class="kw">identical</span>(atl_sea_fall, atl_sea_fall2)</a></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 <hr />
@@ -542,7 +543,7 @@ Figure 6.3: Schéma de la fonction <code>summarise()</code> tiré de la ‘cheat
 </div>
 
 <p>La figure <a href="wrangling.html#fig:summarisefig2">6.3</a> ci-dessus indique comment fonctionne la fonction <code>summarise()</code> : elle prend plusieurs valeurs (potentiellement, un très grand nombre) et les réduit à une unique valeur qui les résume. Lorsque l’on applique cette démarche à plusieurs colonnes d’un tableau, on obtient un tableau qui ne contient plus qu’une unique ligne de résumé.</p>
-<p>La valeur qui résume les données est choisie par l’utilisateur. Il peut s’agir par exemple d’un calcul moyenne ou de variance, il peut s’agir de calculer une somme, ou d’extraire la valeur maximale ou minimale, ou encore, il peut tout simplement s’agir de déterminer un nombre d’observations.</p>
+<p>La valeur qui résume les données est choisie par l’utilisateur. Il peut s’agir par exemple d’un calcul de moyenne ou de variance, il peut s’agir de calculer une somme, ou d’extraire la valeur maximale ou minimale, ou encore, il peut tout simplement s’agir de déterminer un nombre d’observations.</p>
 <p>Ainsi, pour connaître la température moyenne et l’écart-type des températures dans les aéroports de New York, il suffit d’utiliser le tableau <code>weather</code> et sa variable <code>temp</code> que nous avons déjà utilisés dans les chapitres précédents :</p>
 <div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" title="1">weather <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb236-2" title="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">moyenne =</span> <span class="kw">mean</span>(temp),</a>
@@ -560,7 +561,7 @@ Figure 6.3: Schéma de la fonction <code>summarise()</code> tiré de la ‘cheat
 1 EWR     2013     8    22     9    NA    NA    NA      320       12.7
 # ... with 5 more variables: wind_gust &lt;dbl&gt;, precip &lt;dbl&gt;,
 #   pressure &lt;dbl&gt;, visib &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-<p>Pour obtenir les valeurs souhaitées, il faut indiquer à R d’exclure les valeurs manquantes lors des calculs de moyenne et écart-types :</p>
+<p>Pour obtenir les valeurs souhaitées, il faut indiquer à R d’exclure les valeurs manquantes lors des calculs de moyennes et écarts-types :</p>
 <div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" title="1">weather <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb240-2" title="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">moyenne =</span> <span class="kw">mean</span>(temp, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
 <a class="sourceLine" id="cb240-3" title="3">            <span class="dt">ecart_type =</span> <span class="kw">sd</span>(temp, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
@@ -603,13 +604,13 @@ Figure 6.4: Fonctionnement de <code>group_by()</code> travaillant de concert ave
 12    12    38.4       9.98</code></pre>
 <p>Ici, les étapes sont les suivantes :</p>
 <ol style="list-style-type: decimal">
-<li>On prend le tableau <code>weather</code>, <em>puis</em></li>
-<li>On groupe les données selon la variable <code>month</code>, <em>puis</em></li>
-<li>On résume les données groupées sous la forme de moyennes et d’écart-types</li>
+<li>On prend le tableau <code>weather</code>, <em>puis</em>…</li>
+<li>On groupe les données selon la variable <code>month</code>, <em>puis</em>…</li>
+<li>On résume les données groupées sous la forme de moyennes et d’écart-types.</li>
 </ol>
 <p>Nous pouvons aller plus loin. Ajoutons à ce résumé 2 variables supplémentaires : le nombre de mesures et l’<strong>erreur standard</strong> (notée <span class="math inline">\(se\)</span>), qui peut être calculée de la façon suivante :</p>
 <p><span class="math display">\[se \approx \frac{s}{\sqrt{n}}\]</span></p>
-<p>avec <span class="math inline">\(s\)</span>, l’écart-type de l’échantillon et <span class="math inline">\(n\)</span>, la taille de l’échantillon. Cette grandeur est très importante en statistique puisqu’elle nous permet de quantifier <strong>l’imprécision</strong> de la moyenne. Elle intervient d’ailleurs dans le calcul de l’intervalle de confiance de la moyenne d’un échantillon. Nous allons donc calculer ici ces résumés, et nous donnerons un nom au tableau créé pour ouvoir ré-utiliser ces statistiques descriptives :</p>
+<p>avec <span class="math inline">\(s\)</span>, l’écart-type de l’échantillon et <span class="math inline">\(n\)</span>, la taille de l’échantillon. Cette grandeur est très importante en statistique puisqu’elle nous permet de quantifier <strong>l’imprécision</strong> de la moyenne. Elle intervient d’ailleurs dans le calcul de l’intervalle de confiance de la moyenne d’un échantillon. Nous allons donc calculer ici ces résumés, et nous donnerons un nom au tableau créé pour pouvoir ré-utiliser ces statistiques descriptives :</p>
 <div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb244-1" title="1">monthly_temp &lt;-<span class="st"> </span>weather <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb244-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(month) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb244-3" title="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">moyenne =</span> <span class="kw">mean</span>(temp, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
@@ -634,13 +635,13 @@ Figure 6.4: Fonctionnement de <code>group_by()</code> travaillant de concert ave
 12    12    38.4       9.98   2144      0.216</code></pre>
 <p>Vous constatez ici que nous avons 4 statistiques descriptives pour chaque mois de l’année. Deux choses sont importantes à retenir ici :</p>
 <ol style="list-style-type: decimal">
-<li>on peut obtenir le nombre d’observations dans chaque sous-groupe d’un tableau groupé en utilisant la fonction <code>n()</code>. Cette fonction n’a besoin d’aucun argument : elle détermine automatiquement la taille des groupes créés par <code>group_by()</code>.</li>
-<li>on peut créer de nouvelles variables en utilisant le nom de variables créées auparavant. Ainsi, nous avons créé la variable <code>erreur_std</code> en utilisant deux variables créées au préalable : <code>ecart-type</code> et <code>nb_obs</code></li>
+<li>On peut obtenir le nombre d’observations dans chaque sous-groupe d’un tableau groupé en utilisant la fonction <code>n()</code>. Cette fonction n’a besoin d’aucun argument : elle détermine automatiquement la taille des groupes créés par <code>group_by()</code>.</li>
+<li>On peut créer de nouvelles variables en utilisant le nom de variables créées auparavant. Ainsi, nous avons créé la variable <code>erreur_std</code> en utilisant deux variables créées au préalable : <code>ecart-type</code> et <code>nb_obs</code>.</li>
 </ol>
 </div>
 <div id="ajouter-des-barres-derreurs-sur-un-graphique" class="section level3">
 <h3><span class="header-section-number">6.5.3</span> Ajouter des barres d’erreurs sur un graphique</h3>
-<p>Ce jeu de données contient donc les données nécessaires pour nous permettre de visualiser sur un graphique l’évolution des températures moyennes enregistrées dans les 3 aéroports de New York en 2013. Outre les température moyennes, nous devons faire figurer l’imprécision des estimations de moyenne avec des barres d’erreur (à l’aide de la fonction <code>geom_inerange()</code>). Comme expliqué plus haut, l’imprécision des moyennes calculées est estimée grâce à l’erreur standard. Toutefois, ici, les imprécisions sont tellement faibles que les barres d’erreurs resteront invisibles :</p>
+<p>Le tableau <code>monthly_temp</code> que nous venons de créer contient donc les données nécessaires pour nous permettre de visualiser sur un graphique l’évolution des températures moyennes enregistrées dans les 3 aéroports de New York en 2013. Outre les température moyennes, nous devons faire figurer l’imprécision des estimations de moyenne avec des barres d’erreur (à l’aide de la fonction <code>geom_linerange()</code>). Comme expliqué plus haut, l’imprécision des moyennes calculées est estimée grâce à l’erreur standard. Toutefois, ici, les imprécisions sont tellement faibles que les barres d’erreurs resteront invisibles :</p>
 <div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb246-1" title="1">monthly_temp <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb246-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">factor</span>(month), <span class="dt">y =</span> moyenne, <span class="dt">group =</span> <span class="dv">1</span>)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb246-3" title="3"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span></a>
@@ -656,20 +657,23 @@ Figure 6.5: Évolution des températures moyenne dans 3 aéroports de New York e
 </div>
 <p>Vous remarquerez que :</p>
 <ol style="list-style-type: decimal">
-<li>j’associe <code>factor(month)</code>, et non simplement <code>month</code>, à l’axe des <code>x</code> afin d’avoir, sur l’axe des abscisses, des chiffres cohérents allant de 1 à 12, et non des chiffres à virgule</li>
-<li>l’argument <code>group = 1</code> doit être ajouté pour que la ligne reliant les points apparaisse. En effet, les lignes sont censées relier des points qui appartiennent à une même série temporelle. Or ici, nous avons transformé <code>month</code> en facteur. Préciser <code>group = 1</code> permet d’indiquer à <code>geom_line()</code> que toutes les catégories du facteur <code>month</code> appartiennent au même groupe, que ce facteur peut être considéré comme une variable continue, et qu’il est donc correct de relier les points.</li>
-<li>la fonction <code>geom_linerange()</code> contient de nouvelles caractéristiques esthétiques qu’il nous faut obligatoirement renseigner : les extrémités inférieures et supérieures des barres d’erreur. Il nous faut donc associer 2 variables à ces caractéristiques esthétiques. Ici, nous utilisons <code>moyenne - erreur_std</code> pour la borne inférieure des barres d’erreur, et <code>moyenne + erreur_std</code> pour la borne supérieure. Les variables <code>moyenne</code> et <code>erreur_std</code> faisant partie du tableau <code>monthly_temp</code>, <code>geom_linerange()</code> les trouve sans difficulté.</li>
-<li>les barres d’erreur produites sont minuscules. Je les ai fait apparaître en rouge afin de les rendre visibles, mais même comme cela, il faut zoomer fortement pour les distinguer. Afin de rendre l’utilisation de <code>geom_linerange()</code> plus explicite, je produis ci-dessous un autre graphique en remplaçant les erreurs standard par les écart-types en guise de barres d’erreur. Attention, ce n’est pas correct d’un point de vue statistique ! Les barres d’erreur doivent permettre de visualiser l’imprécision de la moyenne. C’est donc bien les erreurs standard qu’il faut faire figurer en guise de barres d’erreurs et non les écarty-types. Le graphique ci-dessous ne figure donc qu’à titre d’exemple, afin d’illustrer de façon plus parlante le fonctionnement de la fonction <code>geom_linerange()</code> :</li>
+<li>J’associe <code>factor(month)</code>, et non simplement <code>month</code>, à l’axe des <code>x</code> afin d’avoir, sur l’axe des abscisses, des chiffres cohérents allant de 1 à 12, et non des chiffres à virgules.</li>
+<li>L’argument <code>group = 1</code> doit être ajouté pour que la ligne reliant les points apparaisse. En effet, les lignes sont censées relier des points qui appartiennent à une même série temporelle. Or ici, nous avons transformé <code>month</code> en facteur. Préciser <code>group = 1</code> permet d’indiquer à <code>geom_line()</code> que toutes les catégories du facteur <code>month</code> appartiennent au même groupe, que ce facteur peut être considéré comme une variable continue, et qu’il est donc correct de relier les points.</li>
+<li>La fonction <code>geom_linerange()</code> contient de nouvelles caractéristiques esthétiques qu’il nous faut obligatoirement renseigner : les extrémités inférieures et supérieures des barres d’erreur. Il nous faut donc associer 2 variables à ces caractéristiques esthétiques. Ici, nous utilisons <code>moyenne - erreur_std</code> pour la borne inférieure des barres d’erreur, et <code>moyenne + erreur_std</code> pour la borne supérieure. Les variables <code>moyenne</code> et <code>erreur_std</code> faisant partie du tableau <code>monthly_temp</code>, <code>geom_linerange()</code> les trouve sans difficulté.</li>
+<li>Les barres d’erreur produites sont minuscules. Je les ai fait apparaître en rouge afin de les rendre visibles, mais même comme cela, il faut zoomer fortement pour les distinguer. Afin de rendre l’utilisation de <code>geom_linerange()</code> plus explicite, je produis ci-dessous un autre graphique en remplaçant les erreurs standard par les écart-types en guise de barres d’erreur. Attention, ce n’est pas correct d’un point de vue statistique ! Les barres d’erreur doivent permettre de visualiser l’imprécision de la moyenne. C’est donc bien les erreurs standard qu’il faut faire figurer en guise de barres d’erreurs et non les écarty-types. Le graphique ci-dessous ne figure donc qu’à titre d’exemple, afin d’illustrer de façon plus parlante le fonctionnement de la fonction <code>geom_linerange()</code> :</li>
 </ol>
 <div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb247-1" title="1">monthly_temp <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb247-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">factor</span>(month), <span class="dt">y =</span> moyenne, <span class="dt">group =</span> <span class="dv">1</span>)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb247-3" title="3"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb247-4" title="4"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb247-5" title="5"><span class="st">    </span><span class="kw">geom_linerange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> moyenne <span class="op">-</span><span class="st"> </span>ecart_type, <span class="dt">ymax =</span> moyenne <span class="op">+</span><span class="st"> </span>ecart_type)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb247-6" title="6"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Mois&quot;</span>,</a>
-<a class="sourceLine" id="cb247-7" title="7">       <span class="dt">y =</span> <span class="st">&quot;Température (ºFarenheit)&quot;</span>, </a>
-<a class="sourceLine" id="cb247-8" title="8">       <span class="dt">title =</span> <span class="st">&quot;Évolution des températures dans 3 aéroports de New York en 2013&quot;</span>,</a>
-<a class="sourceLine" id="cb247-9" title="9">       <span class="dt">subtitle =</span> <span class="st">&quot;Attention : les barres d&#39;erreurs sont les écarts-types.</span><span class="ch">\n</span><span class="st">Il faut normalement faire figurer les erreurs standard.&quot;</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb247-5" title="5"><span class="st">    </span><span class="kw">geom_linerange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> moyenne <span class="op">-</span><span class="st"> </span>ecart_type,</a>
+<a class="sourceLine" id="cb247-6" title="6">                       <span class="dt">ymax =</span> moyenne <span class="op">+</span><span class="st"> </span>ecart_type)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb247-7" title="7"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Mois&quot;</span>,</a>
+<a class="sourceLine" id="cb247-8" title="8">       <span class="dt">y =</span> <span class="st">&quot;Température (ºFarenheit)&quot;</span>, </a>
+<a class="sourceLine" id="cb247-9" title="9">       <span class="dt">title =</span> <span class="st">&quot;Évolution des températures</span></a>
+<a class="sourceLine" id="cb247-10" title="10"><span class="st">                dans 3 aéroports de New York en 2013&quot;</span>,</a>
+<a class="sourceLine" id="cb247-11" title="11">       <span class="dt">subtitle =</span> <span class="st">&quot;Attention : les barres d&#39;erreurs sont les écarts-types.</span><span class="ch">\n</span></a>
+<a class="sourceLine" id="cb247-12" title="12"><span class="st">                   Il faut normalement faire figurer les erreurs standard.&quot;</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:errorbars2"></span>
 <img src="figure/errorbars2-1.png" alt="Évolution des températures moyenne dans 3 aéroports de New York en 2013" width="90%" />
 <p class="caption">
@@ -704,14 +708,20 @@ Figure 6.6: Évolution des températures moyenne dans 3 aéroports de New York e
 # ... with 26 more rows</code></pre>
 <p>En plus de la variable <code>month</code>, la tableau <code>monthly_orig_temp</code> contient une variable <code>origin</code>. Les statistiques que nous avons calculées plus tôt sont maintenant disponibles pour chaque mois et chacun des 3 aéroports de New York. Nous pouvons utiliser ces données pour comparer les 3 aéroports :</p>
 <div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb250-1" title="1">monthly_orig_temp <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb250-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">factor</span>(month), <span class="dt">y =</span> moyenne, <span class="dt">group =</span> origin, <span class="dt">color =</span> origin)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb250-3" title="3"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb250-4" title="4"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb250-5" title="5"><span class="st">    </span><span class="kw">geom_linerange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> moyenne <span class="op">-</span><span class="st"> </span>ecart_type, <span class="dt">ymax =</span> moyenne <span class="op">+</span><span class="st"> </span>ecart_type)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb250-6" title="6"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Mois&quot;</span>,</a>
-<a class="sourceLine" id="cb250-7" title="7">       <span class="dt">y =</span> <span class="st">&quot;Température (ºFarenheit)&quot;</span>, </a>
-<a class="sourceLine" id="cb250-8" title="8">       <span class="dt">title =</span> <span class="st">&quot;Évolution des températures dans 3 aéroports de New York en 2013&quot;</span>,</a>
-<a class="sourceLine" id="cb250-9" title="9">       <span class="dt">subtitle =</span> <span class="st">&quot;Attention : les barres d&#39;erreurs sont les écarts-types.</span><span class="ch">\n</span><span class="st">Il faut normalement faire figurer les erreurs standard.&quot;</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb250-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">factor</span>(month), </a>
+<a class="sourceLine" id="cb250-3" title="3">             <span class="dt">y =</span> moyenne,</a>
+<a class="sourceLine" id="cb250-4" title="4">             <span class="dt">group =</span> origin,</a>
+<a class="sourceLine" id="cb250-5" title="5">             <span class="dt">color =</span> origin)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb250-6" title="6"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb250-7" title="7"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb250-8" title="8"><span class="st">    </span><span class="kw">geom_linerange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> moyenne <span class="op">-</span><span class="st"> </span>ecart_type,</a>
+<a class="sourceLine" id="cb250-9" title="9">                       <span class="dt">ymax =</span> moyenne <span class="op">+</span><span class="st"> </span>ecart_type)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb250-10" title="10"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Mois&quot;</span>,</a>
+<a class="sourceLine" id="cb250-11" title="11">       <span class="dt">y =</span> <span class="st">&quot;Température (ºFarenheit)&quot;</span>, </a>
+<a class="sourceLine" id="cb250-12" title="12">       <span class="dt">title =</span> <span class="st">&quot;Évolution des températures</span></a>
+<a class="sourceLine" id="cb250-13" title="13"><span class="st">                dans 3 aéroports de New York en 2013&quot;</span>,</a>
+<a class="sourceLine" id="cb250-14" title="14">       <span class="dt">subtitle =</span> <span class="st">&quot;Attention : les barres d&#39;erreurs sont les écarts-types.</span><span class="ch">\n</span></a>
+<a class="sourceLine" id="cb250-15" title="15"><span class="st">                   Il faut normalement faire figurer les erreurs standard.&quot;</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:errorbars3"></span>
 <img src="figure/errorbars3-1.png" alt="Évolution des températures moyenne dans 3 aéroports de New York en 2013" width="90%" />
 <p class="caption">
@@ -720,15 +730,21 @@ Figure 6.7: Évolution des températures moyenne dans 3 aéroports de New York e
 </div>
 <p>Notez que j’utilise maintenant <code>group = origin</code> et non plus <code>group = 1</code>. Ici, les températures des 3 aéroports sont tellement similaires que les courbes sont difficiles à distinguer. Nous pouvons donc utiliser <code>facet_wrap()</code> pour tenter d’améliorer la visualisation :</p>
 <div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb251-1" title="1">monthly_orig_temp <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb251-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">factor</span>(month), <span class="dt">y =</span> moyenne, <span class="dt">group =</span> origin, <span class="dt">color =</span> origin)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb251-3" title="3"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb251-4" title="4"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb251-5" title="5"><span class="st">    </span><span class="kw">geom_linerange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> moyenne <span class="op">-</span><span class="st"> </span>ecart_type, <span class="dt">ymax =</span> moyenne <span class="op">+</span><span class="st"> </span>ecart_type)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb251-6" title="6"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>origin, <span class="dt">ncol =</span> <span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb251-7" title="7"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Mois&quot;</span>,</a>
-<a class="sourceLine" id="cb251-8" title="8">       <span class="dt">y =</span> <span class="st">&quot;Température (ºFarenheit)&quot;</span>, </a>
-<a class="sourceLine" id="cb251-9" title="9">       <span class="dt">title =</span> <span class="st">&quot;Évolution des températures dans 3 aéroports de New York en 2013&quot;</span>,</a>
-<a class="sourceLine" id="cb251-10" title="10">       <span class="dt">subtitle =</span> <span class="st">&quot;Attention : les barres d&#39;erreurs sont les écarts-types.</span><span class="ch">\n</span><span class="st">Il faut normalement faire figurer les erreurs standard.&quot;</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb251-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">factor</span>(month), </a>
+<a class="sourceLine" id="cb251-3" title="3">             <span class="dt">y =</span> moyenne,</a>
+<a class="sourceLine" id="cb251-4" title="4">             <span class="dt">group =</span> origin,</a>
+<a class="sourceLine" id="cb251-5" title="5">             <span class="dt">color =</span> origin)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb251-6" title="6"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb251-7" title="7"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb251-8" title="8"><span class="st">    </span><span class="kw">geom_linerange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> moyenne <span class="op">-</span><span class="st"> </span>ecart_type,</a>
+<a class="sourceLine" id="cb251-9" title="9">                       <span class="dt">ymax =</span> moyenne <span class="op">+</span><span class="st"> </span>ecart_type)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb251-10" title="10"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>origin, <span class="dt">ncol =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb251-11" title="11"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Mois&quot;</span>,</a>
+<a class="sourceLine" id="cb251-12" title="12">       <span class="dt">y =</span> <span class="st">&quot;Température (ºFarenheit)&quot;</span>, </a>
+<a class="sourceLine" id="cb251-13" title="13">       <span class="dt">title =</span> <span class="st">&quot;Évolution des températures</span></a>
+<a class="sourceLine" id="cb251-14" title="14"><span class="st">                dans 3 aéroports de New York en 2013&quot;</span>,</a>
+<a class="sourceLine" id="cb251-15" title="15">       <span class="dt">subtitle =</span> <span class="st">&quot;Attention : les barres d&#39;erreurs sont les écarts-types.</span><span class="ch">\n</span></a>
+<a class="sourceLine" id="cb251-16" title="16"><span class="st">                   Il faut normalement faire figurer les erreurs standard.&quot;</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:errorbars4"></span>
 <img src="figure/errorbars4-1.png" alt="Évolution des températures moyenne dans 3 aéroports de New York en 2013" width="90%" />
 <p class="caption">
@@ -759,7 +775,7 @@ Figure 6.8: Évolution des températures moyenne dans 3 aéroports de New York e
 </div>
 <div id="un-raccourci-pratique-pour-compter-des-effectifs" class="section level3">
 <h3><span class="header-section-number">6.5.5</span> Un raccourci pratique pour compter des effectifs</h3>
-<p>Il est tellement fréquent d’avoir à grouper des données en fonction d’une variable puis à compter le nombre d;observations dans chaque catégorie avrc <code>n()</code> que <code>dplyr</code> nous fournit un raccourci : la fonction <code>count()</code>.</p>
+<p>Il est tellement fréquent d’avoir à grouper des données en fonction d’une variable puis à compter le nombre d’observations dans chaque catégorie avec <code>n()</code> que <code>dplyr</code> nous fournit un raccourci : la fonction <code>count()</code>.</p>
 <p>Ce code :</p>
 <div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb254-1" title="1">weather <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb254-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(month) <span class="op">%&gt;%</span><span class="st"> </span></a>
@@ -880,13 +896,13 @@ Figure 6.8: Évolution des températures moyenne dans 3 aéroports de New York e
 <p><img src="figure/windspeed-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>Indications :</p>
 <ul>
-<li>les vitesses de vent aberrantes ont été éliminées grâce à la fonction <code>filter()</code></li>
-<li>la fonction <code>geom_jitter()</code> a été utilisée avec l’argument <code>height = 0</code></li>
-<li>la transparence des points est fixée à <code>0.2</code></li>
+<li>Les vitesses de vent aberrantes ont été éliminées grâce à la fonction <code>filter()</code>.</li>
+<li>La fonction <code>geom_jitter()</code> a été utilisée avec l’argument <code>height = 0</code>.</li>
+<li>La transparence des points est fixée à <code>0.2</code>.</li>
 </ul>
 <p>Selon vous, pourquoi les points sont-ils organisés en bandes horizontales ?<br />
 Selon vous, pourquoi n’y a t’il jamais de vent entre 0 et environ 3 miles à l’heure (mph) ?<br />
-Sachant qu’en divisant des mph par 1.151 on obtient des vitesses en nœuds, que nous apprend cette commande :</p>
+Sachant qu’en divisant des mph par 1.151 on obtient des vitesses en nœuds, que nous apprend cette commande ?</p>
 <div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb263-1" title="1"><span class="kw">sort</span>(<span class="kw">unique</span>(weather<span class="op">$</span>wind_speed)) <span class="op">/</span><span class="st"> </span><span class="fl">1.151</span></a></code></pre></div>
 <pre><code> [1]   0.000000   2.999427   3.999235   4.999044   5.998853   6.998662
  [7]   7.998471   8.998280   9.998089  10.997897  11.997706  12.997515
