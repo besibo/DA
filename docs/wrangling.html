@@ -941,7 +941,7 @@ Figure 6.9: Schéma de la fonction <code>select()</code> tiré de la ‘cheatshe
  9  2013     1     1
 10  2013     1     1
 # ... with 336,766 more rows</code></pre>
-<p>Puisque ces 3 variables sont placées les unes à côté des autres dans le tableau <code>flights</code>, on peut utiliser la notation <code>:</code> pour les sélectionner :</p>
+<p>Puisque ces 3 variables sont placées les unes à côté des autres dans le tableau <code>flights</code>, on peut utiliser la notation “<code>:</code>” pour les sélectionner :</p>
 <div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb267-1" title="1"><span class="co"># Sélection de toutes les variables entre `year` et `day` (inclues)</span></a>
 <a class="sourceLine" id="cb267-2" title="2">flights <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb267-3" title="3"><span class="st">  </span><span class="kw">select</span>(year<span class="op">:</span>day)</a></code></pre></div>
@@ -959,7 +959,7 @@ Figure 6.9: Schéma de la fonction <code>select()</code> tiré de la ‘cheatshe
  9  2013     1     1
 10  2013     1     1
 # ... with 336,766 more rows</code></pre>
-<p>À l’inverse, si on veut supprimer certaines colonnes, on peut utiliser la notation <code>-</code> :</p>
+<p>À l’inverse, si on veut supprimer certaines colonnes, on peut utiliser la notation “<code>-</code>” :</p>
 <div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb269-1" title="1"><span class="co"># Sélection de toutes les variables de `flights` à l&#39;exception</span></a>
 <a class="sourceLine" id="cb269-2" title="2"><span class="co"># de celles comprises entre `year` et `day` (inclues)</span></a>
 <a class="sourceLine" id="cb269-3" title="3">flights <span class="op">%&gt;%</span><span class="st"> </span></a>
@@ -981,14 +981,14 @@ Figure 6.9: Schéma de la fonction <code>select()</code> tiré de la ‘cheatshe
 #   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
 #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;,
 #   time_hour &lt;dttm&gt;</code></pre>
-<p>Il y a beaucoup de fonctions permettant de sélectionner des variables dont le noms respectent certains critères. Par exemple :</p>
+<p>Il y a beaucoup de fonctions permettant de sélectionner des variables dont les noms respectent certains critères. Par exemple :</p>
 <ul>
-<li><code>starts_with(&quot;abc&quot;)</code> : renvoie toutes les variables dont les noms commencent par “abc”</li>
-<li><code>ends_with(&quot;xyz&quot;)</code> : renvoie toutes les variables dont les noms se terminent par “xyz”</li>
-<li><code>contains(&quot;ijk&quot;)</code> : renvoie toutes les variables dont les noms contiennent “ijk”</li>
+<li><code>starts_with(&quot;abc&quot;)</code> : renvoie toutes les variables dont les noms commencent par “abc”.</li>
+<li><code>ends_with(&quot;xyz&quot;)</code> : renvoie toutes les variables dont les noms se terminent par “xyz”.</li>
+<li><code>contains(&quot;ijk&quot;)</code> : renvoie toutes les variables dont les noms contiennent “ijk”.</li>
 </ul>
 <p>Il en existe beaucoup d’autres. Vous pouvez consulter l’aide de <code>?select()</code> pour en savoir plus.</p>
-<p>Ainsi, il est par exemple possible d’extraire toutes les variables contenant le mot “time” ainsi :</p>
+<p>Par exemple, il est possible de sélectionner toutes les variables contenant le mot “time” ainsi :</p>
 <div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb271-1" title="1">flights <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb271-2" title="2"><span class="st">  </span><span class="kw">select</span>(<span class="kw">contains</span>(<span class="st">&quot;time&quot;</span>))</a></code></pre></div>
 <pre><code># A tibble: 336,776 x 6
@@ -1088,7 +1088,7 @@ Figure 6.10: Schéma de la fonction <code>mutate()</code> tiré de la ‘cheatsh
 <ol style="list-style-type: decimal">
 <li><code>gain</code> : afin de savoir si les avions peuvent rattraper une partie de leur retard en vol, nous allons calculer la différence entre le retard au départ et à l’arrivée (donc le gain de temps accumlé lors du vol). En effet, si un avion décolle avec 15 minutes de retard, mais qu
 il atterrit avec seulement 5 minutes de retard, 10 minutes ont été gagnées en vol, et les passagers sont moins mécontents.</li>
-<li><code>speed</code> afin de connaitre la vitesse moyenne des avions en vol, nous allons diviser la distance parcourue par les avions par le temps passé en l’air. Il ne faudra pas oublier de multiplier par 60 car les temps sont exprimés en minutes. Nous en profiterons pour transformer les distances exprimées en miles par des distances exprimées en kilomètres en multipliant les distances en miles par 1.60934. Ainsi, <code>speed</code> sera exprimée en kilomètres par heure.</li>
+<li><code>speed</code> afin de connaitre la vitesse moyenne des avions en vol, nous allons diviser la distance parcourue par les avions par le temps passé en l’air. Il ne faudra pas oublier de multiplier par 60 car les temps sont exprimés en minutes. Nous en profiterons pour transformer les distances exprimées en miles par des distances exprimées en kilomètres en multipliant les distances en miles par 1.60934. Ainsi, la variable <code>speed</code> sera exprimée en kilomètres par heure.</li>
 </ol>
 <div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb280-1" title="1">flights_sml <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb280-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">gain =</span> dep_delay <span class="op">-</span><span class="st"> </span>arr_delay,</a>
@@ -1135,7 +1135,7 @@ il atterrit avec seulement 5 minutes de retard, 10 minutes ont été gagnées en
 </div>
 <div id="transformer-des-variables-en-facteurs" class="section level3">
 <h3><span class="header-section-number">6.7.2</span> Transformer des variables en facteurs</h3>
-<p>Il n’est pas rare que les tableaux de données que nous importons contiennent des colonnes numériques ou de chaînes de caractères qui devraient en réalité être reconnues en tant que facteurs. La fonction mutate nous permet de changer rapidement le type d’une variable afin qu’elle soit reconnue comme un facteur.</p>
+<p>Il n’est pas rare que les tableaux de données que nous importons contiennent des colonnes numériques ou de chaînes de caractères qui devraient en réalité être reconnues en tant que facteurs. La fonction <code>mutate()</code> nous permet de changer rapidement le type d’une variable afin qu’elle soit reconnue comme un facteur.</p>
 <p>À titre d’exemple, nous allons importer le jeu de données contenu dans le fichier <code>squid.txt</code> que vous pourrez <a href="data/squid.txt">télécharger ici</a>. Placez-le dans votre répertoire de travail et utilisez la méthode décrite à la section <a href="tidyr.html#plaintext">5.3.3</a> pour obtenir la commande suivante :</p>
 <div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb285-1" title="1"><span class="kw">library</span>(readr)</a>
 <a class="sourceLine" id="cb285-2" title="2">squid &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;squid.txt&quot;</span>, <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, </a>
@@ -1172,7 +1172,7 @@ il atterrit avec seulement 5 minutes de retard, 10 minutes ont été gagnées en
  9      9     1     1 3            2  7.22
 10     10     1     2 1            2  6.84
 # ... with 2,634 more rows</code></pre>
-<p>De même, la variable <code>Sex</code> est codée sous forme numérique, or il devrait s’agir d’un facteur, les <code>1</code> correspondants aux mâles et les <code>2</code> aux femelles. Nous pouvons là encore faire la modification grâce à la fonction <code>mutate()</code> :</p>
+<p>De même, la variable <code>Sex</code> est codée sous forme numérique, or il devrait s’agir d’un facteur, les “<code>1</code>” correspondants aux mâles et les “<code>2</code>” aux femelles. Nous pouvons là encore faire la modification grâce à la fonction <code>mutate()</code> :</p>
 <div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb289-1" title="1">squid2 &lt;-<span class="st"> </span>squid <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb289-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Location =</span> <span class="kw">factor</span>(Location),</a>
 <a class="sourceLine" id="cb289-3" title="3">         <span class="dt">Sex =</span> <span class="kw">factor</span>(Sex, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>)))</a>
@@ -1192,7 +1192,7 @@ il atterrit avec seulement 5 minutes de retard, 10 minutes ont été gagnées en
  9      9     1     1 3        Female  7.22
 10     10     1     2 1        Female  6.84
 # ... with 2,634 more rows</code></pre>
-<p><code>squid2</code> contient maintenant le tableau de départ avec les variables <code>Location</code> et <code>Sex</code> codées sous forme de facteur. Si nous faisons un graphique avec ces nouveaux facteurs, l’ordre des catégories sera celui spécifié par la fonction <code>factor()</code>. Ainsi, si nous faisons par exemple un boxplot de <code>GSI</code> en fonction du <code>Sex</code>, voilà ce que nous obtenons :</p>
+<p><code>squid2</code> contient maintenant le tableau de départ avec les variables <code>Location</code> et <code>Sex</code> codées sous forme de facteurs. Si nous faisons un graphique avec ces nouveaux facteurs, l’ordre des catégories sera celui spécifié par la fonction <code>factor()</code>. Ainsi, si nous faisons par exemple un boxplot de <code>GSI</code> en fonction du <code>Sex</code>, voilà ce que nous obtenons :</p>
 <div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb291-1" title="1">squid2 <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb291-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Sex, <span class="dt">y =</span> GSI)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb291-3" title="3"><span class="st">    </span><span class="kw">geom_boxplot</span>(<span class="dt">notch =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
@@ -1255,7 +1255,7 @@ Figure 6.12: Indice Gonado Somatique selon le sexe.
  9 m     imm       222    NA   0.09  9.5   2.89 foie  
 10 m     imm       412     9  85.6   5.42 NA    rein  
 # ... with 83 more rows</code></pre>
-<p>Les variables <code>Sexe</code>, <code>Statut</code> et <code>Organe</code> devrait elles aussi être encodées sous forme de facteurs. Plutôt que de taper le code ci dessous (qui fonctionne très bien) :</p>
+<p>Les variables <code>Sexe</code>, <code>Statut</code> et <code>Organe</code> devraient elles aussi être encodées sous forme de facteurs. Plutôt que de taper le code ci dessous (qui fonctionne très bien) :</p>
 <div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" title="1">dauphin <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb301-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Sexe =</span> <span class="kw">factor</span>(Sexe),</a>
 <a class="sourceLine" id="cb301-3" title="3">         <span class="dt">Statut =</span> <span class="kw">factor</span>(Statut),</a>
@@ -1307,13 +1307,14 @@ Figure 6.12: Indice Gonado Somatique selon le sexe.
  9 Male   imm       222    NA   0.09  9.5   2.89 foie  
 10 Male   imm       412     9  85.6   5.42 NA    rein  
 # ... with 83 more rows</code></pre>
-<p>Nous pouvons maintenant modifier l’ordre des niveaux de <code>Satut</code> :</p>
+<p>Nous pouvons maintenant modifier l’ordre des niveaux de <code>Satut</code> avec la fonction <code>fct_relevel()</code> :</p>
 <div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb308-1" title="1">dauphin &lt;-<span class="st"> </span>dauphin <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb308-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Sexe =</span> <span class="kw">fct_recode</span>(Sexe, </a>
 <a class="sourceLine" id="cb308-3" title="3">                           <span class="st">&quot;Female&quot;</span> =<span class="st"> &quot;f&quot;</span>,</a>
 <a class="sourceLine" id="cb308-4" title="4">                           <span class="st">&quot;Male&quot;</span> =<span class="st"> &quot;m&quot;</span>),</a>
-<a class="sourceLine" id="cb308-5" title="5">         <span class="dt">Statut =</span> <span class="kw">fct_relevel</span>(Statut, <span class="st">&quot;imm&quot;</span>, <span class="st">&quot;mat&quot;</span>, <span class="st">&quot;pnl&quot;</span>, <span class="st">&quot;l&quot;</span>, <span class="st">&quot;pl&quot;</span>, <span class="st">&quot;repos&quot;</span>))</a>
-<a class="sourceLine" id="cb308-6" title="6">dauphin</a></code></pre></div>
+<a class="sourceLine" id="cb308-5" title="5">         <span class="dt">Statut =</span> <span class="kw">fct_relevel</span>(Statut,</a>
+<a class="sourceLine" id="cb308-6" title="6">                              <span class="st">&quot;imm&quot;</span>, <span class="st">&quot;mat&quot;</span>, <span class="st">&quot;pnl&quot;</span>, <span class="st">&quot;l&quot;</span>, <span class="st">&quot;pl&quot;</span>, <span class="st">&quot;repos&quot;</span>))</a>
+<a class="sourceLine" id="cb308-7" title="7">dauphin</a></code></pre></div>
 <pre><code># A tibble: 93 x 8
    Sexe   Statut Taille   Age     Cd    Cu    Hg Organe
    &lt;fct&gt;  &lt;fct&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt; 
@@ -1333,22 +1334,25 @@ Figure 6.12: Indice Gonado Somatique selon le sexe.
 <p>Toutes les transformations que nous avons fait subir à ce jeu de données n’ont qu’un seul objectif : “ranger” ce jeu de données. Nous avons importé <code>dauphin</code> depuis un fichier externe, puis nous avons supprimé les variables inutiles et modifié celles qui devaient l’être. Toutes ces étapes peuvent être enchaînées grâce au pipe, de la façon suivante :</p>
 <div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb312-1" title="1"><span class="co"># Importation et mise en forme du jeu de données `dauphin`</span></a>
 <a class="sourceLine" id="cb312-2" title="2"><span class="kw">library</span>(readxl)</a>
-<a class="sourceLine" id="cb312-3" title="3">dauphin &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;data/dauphin.xls&quot;</span>, <span class="dt">na =</span> <span class="st">&quot;*&quot;</span>, <span class="dt">skip =</span> <span class="dv">9</span>) <span class="op">%&gt;%</span><span class="st">   </span><span class="co"># Importation, puis</span></a>
-<a class="sourceLine" id="cb312-4" title="4"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">ID =</span> <span class="st">`</span><span class="dt">N°</span><span class="st">`</span>,                          <span class="co"># On donne des noms courts, puis</span></a>
-<a class="sourceLine" id="cb312-5" title="5">         <span class="dt">Statut =</span> <span class="st">`</span><span class="dt">Statut reproducteur</span><span class="st">`</span>,</a>
-<a class="sourceLine" id="cb312-6" title="6">         <span class="dt">Taille =</span> <span class="st">`</span><span class="dt">Taille en cm</span><span class="st">`</span>,</a>
-<a class="sourceLine" id="cb312-7" title="7">         <span class="dt">Age =</span> <span class="st">`</span><span class="dt">Age en années</span><span class="st">`</span>,</a>
-<a class="sourceLine" id="cb312-8" title="8">         <span class="dt">Cd =</span> <span class="st">`</span><span class="dt">Cd (mg.kg-1)</span><span class="st">`</span>,</a>
-<a class="sourceLine" id="cb312-9" title="9">         <span class="dt">Cu =</span> <span class="st">`</span><span class="dt">Cu (mg.kg-1)</span><span class="st">`</span>,</a>
-<a class="sourceLine" id="cb312-10" title="10">         <span class="dt">Hg =</span> <span class="st">`</span><span class="dt">Hg (mg.kg-1)</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb312-11" title="11"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>ID) <span class="op">%&gt;%</span><span class="st">                           </span><span class="co"># On supprime la colonne `ID`, puis</span></a>
-<a class="sourceLine" id="cb312-12" title="12"><span class="st">  </span><span class="kw">mutate_if</span>(is.character, as.factor) <span class="op">%&gt;%</span><span class="st">    </span><span class="co"># On transforme en facteurs les variables &lt;chr&gt;, puis</span></a>
-<a class="sourceLine" id="cb312-13" title="13"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Sexe =</span> <span class="kw">fct_recode</span>(Sexe,            <span class="co"># On modifie les niveau de `Sexe` et l&#39;ordre des niveaux de Statut</span></a>
-<a class="sourceLine" id="cb312-14" title="14">                           <span class="st">&quot;Female&quot;</span> =<span class="st"> &quot;f&quot;</span>,</a>
-<a class="sourceLine" id="cb312-15" title="15">                           <span class="st">&quot;Male&quot;</span> =<span class="st"> &quot;m&quot;</span>),</a>
-<a class="sourceLine" id="cb312-16" title="16">         <span class="dt">Statut =</span> <span class="kw">fct_relevel</span>(Statut, <span class="st">&quot;imm&quot;</span>, <span class="st">&quot;mat&quot;</span>, <span class="st">&quot;pnl&quot;</span>, <span class="st">&quot;l&quot;</span>, <span class="st">&quot;pl&quot;</span>, <span class="st">&quot;repos&quot;</span>))</a>
-<a class="sourceLine" id="cb312-17" title="17"></a>
-<a class="sourceLine" id="cb312-18" title="18">dauphin</a></code></pre></div>
+<a class="sourceLine" id="cb312-3" title="3">dauphin &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;data/dauphin.xls&quot;</span>, </a>
+<a class="sourceLine" id="cb312-4" title="4">                      <span class="dt">na =</span> <span class="st">&quot;*&quot;</span>, <span class="dt">skip =</span> <span class="dv">9</span>) <span class="op">%&gt;%</span><span class="st">   </span><span class="co"># Importer, puis</span></a>
+<a class="sourceLine" id="cb312-5" title="5"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">ID =</span> <span class="st">`</span><span class="dt">N°</span><span class="st">`</span>,                 <span class="co"># Raccourcir les noms, puis</span></a>
+<a class="sourceLine" id="cb312-6" title="6">         <span class="dt">Statut =</span> <span class="st">`</span><span class="dt">Statut reproducteur</span><span class="st">`</span>,</a>
+<a class="sourceLine" id="cb312-7" title="7">         <span class="dt">Taille =</span> <span class="st">`</span><span class="dt">Taille en cm</span><span class="st">`</span>,</a>
+<a class="sourceLine" id="cb312-8" title="8">         <span class="dt">Age =</span> <span class="st">`</span><span class="dt">Age en années</span><span class="st">`</span>,</a>
+<a class="sourceLine" id="cb312-9" title="9">         <span class="dt">Cd =</span> <span class="st">`</span><span class="dt">Cd (mg.kg-1)</span><span class="st">`</span>,</a>
+<a class="sourceLine" id="cb312-10" title="10">         <span class="dt">Cu =</span> <span class="st">`</span><span class="dt">Cu (mg.kg-1)</span><span class="st">`</span>,</a>
+<a class="sourceLine" id="cb312-11" title="11">         <span class="dt">Hg =</span> <span class="st">`</span><span class="dt">Hg (mg.kg-1)</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb312-12" title="12"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>ID) <span class="op">%&gt;%</span><span class="st">                   </span><span class="co"># Supprimer la variable `ID`, puis</span></a>
+<a class="sourceLine" id="cb312-13" title="13"><span class="st">  </span><span class="kw">mutate_if</span>(is.character,           <span class="co"># &#39;Factoriser&#39; les variables &lt;chr&gt;, puis</span></a>
+<a class="sourceLine" id="cb312-14" title="14">            as.factor) <span class="op">%&gt;%</span><span class="st">          </span></a>
+<a class="sourceLine" id="cb312-15" title="15"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Sexe =</span> <span class="kw">fct_recode</span>(Sexe,    <span class="co"># Modifier l&#39;ordre des niveaux</span></a>
+<a class="sourceLine" id="cb312-16" title="16">                           <span class="st">&quot;Female&quot;</span> =<span class="st"> &quot;f&quot;</span>,</a>
+<a class="sourceLine" id="cb312-17" title="17">                           <span class="st">&quot;Male&quot;</span> =<span class="st"> &quot;m&quot;</span>),</a>
+<a class="sourceLine" id="cb312-18" title="18">         <span class="dt">Statut =</span> <span class="kw">fct_relevel</span>(Statut,</a>
+<a class="sourceLine" id="cb312-19" title="19">                              <span class="st">&quot;imm&quot;</span>, <span class="st">&quot;mat&quot;</span>, <span class="st">&quot;pnl&quot;</span>, <span class="st">&quot;l&quot;</span>, <span class="st">&quot;pl&quot;</span>, <span class="st">&quot;repos&quot;</span>))</a>
+<a class="sourceLine" id="cb312-20" title="20"></a>
+<a class="sourceLine" id="cb312-21" title="21">dauphin</a></code></pre></div>
 <pre><code># A tibble: 93 x 8
    Sexe   Statut Taille   Age     Cd    Cu    Hg Organe
    &lt;fct&gt;  &lt;fct&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt; 
@@ -1363,18 +1367,20 @@ Figure 6.12: Indice Gonado Somatique selon le sexe.
  9 Male   imm       222    NA   0.09  9.5   2.89 foie  
 10 Male   imm       412     9  85.6   5.42 NA    rein  
 # ... with 83 more rows</code></pre>
-<p>Outre les fonction <code>fct_rev()</code>, <code>fct_recode()</code> et <code>fct_relevel()</code> abordées ici, on peut aussi noter :
-* <code>fct_reorder()</code> et <code>fct_reorder2()</code>, pour ordonner automatiquement les niveaux d’un facteur en fonction d’une autre variable numerique (pour avoir par exemple des séries rangées par ordre de moyenne croissante sur un graphique)
-* <code>fct_infreq()</code>, pour ordonner automatiquement les niveaux d’un facteur oar ordre de fréquence croissante, ce qui est notamment utile pour faire des barplots ordonnés
-* <code>fct_collapse()</code>, pour fusionner deux ou plusieurs niveaux d’un facteur</p>
-<p>Nous n’avons pas le temps de développer ici des exemples, mais sachez que ces fonctiosn existent. Vous trouverez des exemples détaillés dans <a href="http://r4ds.had.co.nz/factors.html#modifying-factor-levels">le chapitre consacré aux facteurs</a> de l’ouvrage en ligne <a href="http://r4ds.had.co.nz/">R for Data Science</a>. C’est en anglais, mais les exemples sont très parlants. N’hésitez pas à consulter cet ouvrage et à faire des essais de mise en application avec les jeux de données vus ici (e.g. <code>dauphin</code> ou <code>squid</code>).</p>
+<p>Outre les fonctions <code>fct_rev()</code>, <code>fct_recode()</code> et <code>fct_relevel()</code> abordées ici, on peut aussi noter :</p>
+<ul>
+<li><code>fct_reorder()</code> et <code>fct_reorder2()</code>, pour ordonner automatiquement les niveaux d’un facteur en fonction d’une autre variable numérique (pour avoir par exemple des séries rangées par ordre de moyennes croissantes sur un graphique).</li>
+<li><code>fct_infreq()</code>, pour ordonner automatiquement les niveaux d’un facteur par ordre de fréquence croissante, ce qui est notamment utile pour faire des barplots ordonnés.</li>
+<li><code>fct_collapse()</code>, pour fusionner deux ou plusieurs niveaux d’un facteur.</li>
+</ul>
+<p>Nous n’avons pas le temps de développer ici des exemples pour chacune de ces fonctions, mais sachez que ces fonctions existent. Vous trouverez des exemples détaillés dans <a href="http://r4ds.had.co.nz/factors.html#modifying-factor-levels">le chapitre consacré aux facteurs</a> de l’ouvrage en ligne <a href="http://r4ds.had.co.nz/">R for Data Science</a>. C’est en anglais, mais les exemples sont très parlants. N’hésitez pas à consulter cet ouvrage et à faire des essais de mise en application avec les jeux de données vus ici (e.g. <code>dauphin</code> ou <code>squid</code>).</p>
 </div>
 <div id="exercices-10" class="section level3">
 <h3><span class="header-section-number">6.7.3</span> Exercices</h3>
 <ol style="list-style-type: decimal">
 <li><p>Dans <code>ggplot2</code> le jeu de données <code>mpg</code> contient des informations sur 234 modèles de voitures. Examinez ce jeu de données avec la fonction <code>View()</code> et consultez l’aide de ce jeu de données pour savoir à quoi correspondent les différentes variables. Quelle(s) variable(s) nous renseignent sur la consommation des véhicules ? À quoi correspond la variable <code>disp</code> ?</p></li>
-<li><p>La consommation est donnée en miles par gallon. Créez une nouvelle variable <code>conso</code> qui contiendra la consommation exprimée en nombre de litres pour 100 kilomètres.</p></li>
-<li><p>Faîtes un graphique présentant la relation entre la cylindrée en litres et la consommation sur autoroute exprimée en nombre de litres pour 100 kilomètres. Vous excluerez les véhicules dont la <code>class</code>e est <code>2seater</code> de ce graphique (il s’agit de voitures de sports très compactes qu’il est difficile de mesurer aux autres). Sur votre graphique, la couleur devrait représenter le type de véhicule. Vous ajouterez une droite de régression en utilisant <code>geom_smooth(method = &quot;lm&quot;)</code>. Votre graphique devrait ressembler à ceci :</p></li>
+<li><p>La consommation sur autoroute est donnée en miles par gallon. Créez une nouvelle variable <code>conso</code> qui contiendra la consommation sur autoroute exprimée en nombre de litres pour 100 kilomètres.</p></li>
+<li><p>Faites un graphique présentant la relation entre la cylindrée en litres et la consommation sur autoroute exprimée en nombre de litres pour 100 kilomètres. Vous excluerez de ce graphique les véhicules dont la <code>class</code>e est <code>2seater</code> (il s’agit de voitures de sports très compactes qu’il est difficile de mesurer aux autres). Sur votre graphique, la couleur devrait représenter le type de véhicule. Vous ajouterez une droite de régression en utilisant <code>geom_smooth(method = &quot;lm&quot;)</code>. Votre graphique devrait ressembler à ceci :</p></li>
 </ol>
 <div class="figure" style="text-align: center"><span id="fig:consommation"></span>
 <img src="figure/consommation-1.png" alt="Consommation en fonction de la cylindrée" width="90%" />
@@ -1446,7 +1452,7 @@ Figure 6.15: Schéma de la fonction <code>arrange()</code> tiré de la ‘cheats
 #   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
 #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;,
 #   time_hour &lt;dttm&gt;</code></pre>
-<p>Les lignes des 2 vols ayant 25 minutes d’avance au décollage ont été inversées : le vol du mois de mars apparait maintenant avant le vol du mois d’octobre. La variable <code>month</code> a été utilisée pour ordonner les lignes en cas d’égalité de la variable <code>dep_delay</code>.</p>
+<p>Les lignes des 2 vols ayant 25 minutes d’avance au décollage ont été inversées : le vol du mois de mars apparaît maintenant avant le vol du mois d’octobre. La variable <code>month</code> a été utilisée pour ordonner les lignes en cas d’égalité de la variable <code>dep_delay</code>.</p>
 <p>Comme indiqué plus haut, il est possible de trier les données par ordre décroissant :</p>
 <div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb318-1" title="1">flights <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb318-2" title="2"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(dep_delay))</a></code></pre></div>
@@ -1468,11 +1474,11 @@ Figure 6.15: Schéma de la fonction <code>arrange()</code> tiré de la ‘cheats
 #   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
 #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;,
 #   time_hour &lt;dttm&gt;</code></pre>
-<p>Cela est particulièrement utile après l’obtention de résumés groupés pour connaître la catégorie la plus représentée. Par exemple, si nous souhaitons connaître les destinations la plus fréquentes au départ de New York, on peut procéder ainsi :</p>
+<p>Cela est particulièrement utile après l’obtention de résumés groupés pour connaître la catégorie la plus représentée. Par exemple, si nous souhaitons connaître les destinations les plus fréquentes au départ de New York, on peut procéder ainsi :</p>
 <ol style="list-style-type: decimal">
-<li>prendre le tableau <code>flights</code>, <em>puis,</em></li>
-<li>grouper les données par destination (variable <code>dest</code>) et compter le nombre de vols. Ces deux opérations peuvent être effectuées avec <code>group_by()</code> puis <code>summarise()</code>, ou directement avec <code>count()</code>. <em>Puis,</em></li>
-<li>trier les données par effectif décroissant.</li>
+<li>Prendre le tableau <code>flights</code>, <em>puis</em>…</li>
+<li>Grouper les données par destination (variable <code>dest</code>) et compter le nombre de vols. Ces deux opérations peuvent être effectuées avec <code>group_by()</code> puis <code>summarise()</code>, ou directement avec <code>count()</code>. <em>Puis</em>…</li>
+<li>Trier les données par effectif décroissant.</li>
 </ol>
 <div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb320-1" title="1">flights <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb320-2" title="2"><span class="st">  </span><span class="kw">count</span>(dest) <span class="op">%&gt;%</span><span class="st"> </span></a>
@@ -1503,7 +1509,7 @@ Figure 6.15: Schéma de la fonction <code>arrange()</code> tiré de la ‘cheats
 <p>Chaque tableau contient des données appartenant à une unité d’observation cohérente et unique.</p>
 </blockquote>
 <p>Autrement dit, les informations concernant les vols vont dans un tableau, les informations concernant les aéroports dans un autre tableau, et celles concernant les avions dans un troisième tableau. Cela semble évident, pourtant, on constate souvent qu’un même tableau contient des variables qui concernent des unités d’observations différentes.</p>
-<p>Lorsque nous avons plusieurs tableaux à disposition, il peut alors être nécessaire de récuppérer des informations dans plusieurs d’entre eux afn, notamment de produire des tableaux de synthèse. Par exemple, dans la section <a href="wrangling.html#arrange">6.8</a> ci-dessus, nous avons affiché les destinations les plus fréquentes au départ des aéroports de New York. Donnons un nom à ce tableau pour pouvoir le ré-utiliser :</p>
+<p>Lorsque nous avons plusieurs tableaux à disposition, il peut alors être nécessaire de récuppérer des informations dans plusieurs d’entre eux afin, notamment de produire des tableaux de synthèse. Par exemple, dans la section <a href="wrangling.html#arrange">6.8</a> ci-dessus, nous avons affiché les destinations les plus fréquentes au départ des aéroports de New York. Donnons un nom à ce tableau pour pouvoir le ré-utiliser :</p>
 <div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb322-1" title="1">popular_dest &lt;-<span class="st"> </span>flights <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb322-2" title="2"><span class="st">  </span><span class="kw">count</span>(dest) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb322-3" title="3"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(n))</a>
@@ -1534,7 +1540,7 @@ Figure 6.16: Schéma de la fonction <code>inner_join()</code> tiré de la ‘che
 </p>
 </div>
 
-<p>La fonction <code>inner_join()</code> permet de relier des tableaux en ne conservant que les lignes qui sont présentes à la fois dans l’un et dans l’autre. Il faut identifier dans chacun des tableaux une colonne contenant des données en commun, qui servira de guide pour mettre les lignes correctes les unes en face des autres. Ici, nous partons de notre tableau <code>popular_dest</code>, qui contient les codes des aéroports dans sa colonne <code>dest</code>. Et nous faisons une “jointure interne” avec le tableau <code>airports</code> qui contient lui aussi une colonne contenant les codes des aéroports : la variable <code>faa</code>.</p>
+<p>La fonction <code>inner_join()</code> permet de relier deux tableaux en ne conservant que les lignes qui sont présentes à la fois dans l’un et dans l’autre. Il faut identifier, dans chacun des tableaux, une colonne contenant des données en commun, qui servira de guide pour mettre les lignes correctes les unes en face des autres. Ici, nous partons de notre tableau <code>popular_dest</code>, qui contient les codes des aéroports dans sa colonne <code>dest</code>, et nous faisons une “jointure interne” avec le tableau <code>airports</code> qui contient lui aussi une colonne contenant les codes des aéroports : la variable <code>faa</code>.</p>
 <div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb324-1" title="1">inner_popular &lt;-<span class="st"> </span>popular_dest <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb324-2" title="2"><span class="st">  </span><span class="kw">inner_join</span>(airports, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;dest&quot;</span> =<span class="st"> &quot;faa&quot;</span>))</a>
 <a class="sourceLine" id="cb324-3" title="3">inner_popular</a></code></pre></div>
@@ -1552,7 +1558,7 @@ Figure 6.16: Schéma de la fonction <code>inner_join()</code> tiré de la ‘che
  9 MIA   11728 Miami Intl      25.8  -80.3     8    -5 A     America…
 10 DCA    9705 Ronald Reagan…  38.9  -77.0    15    -5 A     America…
 # ... with 91 more rows</code></pre>
-<p>Le nouvel objet <code>inner_popular</code> contient donc les données du tableau <code>popular_dest</code> auxquelles ont été ajoutées les colonnes correspondantes du tableau airports. Si tout ce qui nous intéresse, c’est de connaitre le nom complet des aéroports les plus populaires, on peut utiliser <code>select()</code> pour ne garder que les variables intéressantes :</p>
+<p>Le nouvel objet <code>inner_popular</code> contient donc les données du tableau <code>popular_dest</code> auxquelles ont été ajoutées les colonnes correspondantes du tableau airports. Si tout ce qui nous intéresse, c’est de connaître le nom complet des aéroports les plus populaires, on peut utiliser <code>select()</code> pour ne garder que les variables intéressantes :</p>
 <div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb326-1" title="1">inner_popular &lt;-<span class="st"> </span>popular_dest <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb326-2" title="2"><span class="st">  </span><span class="kw">inner_join</span>(airports, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;dest&quot;</span> =<span class="st"> &quot;faa&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb326-3" title="3"><span class="st">  </span><span class="kw">select</span>(dest, name, n)</a>
@@ -1631,7 +1637,7 @@ Figure 6.17: Schéma de la fonction <code>left_join()</code> tiré de la ‘chea
 2 BQN   &lt;NA&gt;    896
 3 STT   &lt;NA&gt;    522
 4 PSE   &lt;NA&gt;    365</code></pre>
-<p>Une rapide recherche dans un moteur de recherche vous apprendra que ces aéroports ne sont pas situés sur le sol américain. Trois d’entre eux sont situés à Puerto Rico (<code>SJU</code>, <code>BQN</code> et <code>PSE</code>) et le dernier (<code>STT</code>) est situé aux Îles Vierges.</p>
+<p>Une rapide recherche sur internet vous apprendra que ces aéroports ne sont pas situés sur le sol américain. Trois d’entre eux sont situés à Puerto Rico (<code>SJU</code>, <code>BQN</code> et <code>PSE</code>) et le dernier (<code>STT</code>) est situé aux Îles Vierges.</p>
 <p>Il y aurait bien plus à dire sur les jointures :</p>
 <ul>
 <li>Quelles sont les autres possibilités de jointures (<code>right_join()</code>, <code>outer_join()</code>, <code>full_join()</code>, etc…) ?</li>
@@ -1639,18 +1645,16 @@ Figure 6.17: Schéma de la fonction <code>left_join()</code> tiré de la ‘chea
 <li>Est-il toujours nécessaire d’utiliser l’argument <code>by</code> ?</li>
 <li>Est-il possible de joindre des tableaux en associant plus d’une colonne de chaque tableau d’origine ?</li>
 </ul>
-<p>Pour avoir la réponse à toutes ces questions, je vous conseille de lire <a href="http://r4ds.had.co.nz/relational-data.html">ce chapitre</a> de cet ouvrage très complet sur “la science des données” avec R et le <code>tidyverse</code> : <a href="http://r4ds.had.co.nz">R for Data Science</a>.</p>
-<p>Néanmoins, avec les deux fonctions <code>inner_join()</code> et <code>left_join()</code> décrite ici devraient vous permettre de couvrir l’essentiel de vos besoins.</p>
+<p>Pour avoir la réponse à toutes ces questions, je vous conseille de lire <a href="http://r4ds.had.co.nz/relational-data.html">ce chapitre</a> de cet ouvrage très complet sur “la science des données” avec R et le <code>tidyverse</code> : <a href="http://r4ds.had.co.nz">R for Data Science</a>. Les deux fonctions <code>inner_join()</code> et <code>left_join()</code> décrites ici devraient néanmoins vous permettre de couvrir l’essentiel de vos besoins.</p>
 </div>
 <div id="accoller-deux-tableaux" class="section level3">
 <h3><span class="header-section-number">6.9.4</span> Accoller deux tableaux</h3>
 <p>Outre l’association de tableaux en utilisant des jointures, il est parfois utile d’accoller 2 tableaux :</p>
 <ul>
-<li>soit l’un au-dessous de l’autre, quand ils ont les mêmes nombres de colonnes, et si possible, les mêmes variables aux mêmes endroits. La fonction <code>bind_rows()</code> permet de faire cela.</li>
-<li>soit l’un à côté de l’autre quand ils ont le même nombre de lignes, et si possible les mêmes observations en lignes. La fonction <code>bind_cols()</code> permet de faire cela.</li>
+<li>Soit l’un au-dessous de l’autre, quand ils ont les mêmes nombres de colonnes, et si possible, les mêmes variables aux mêmes endroits. La fonction <code>bind_rows()</code> permet de faire cela.</li>
+<li>Soit l’un à côté de l’autre quand ils ont le même nombre de lignes, et si possible les mêmes observations en lignes. La fonction <code>bind_cols()</code> permet de faire cela.</li>
 </ul>
-<p>Prenons un exemple.</p>
-<p>Imaginons que nous ayons 2 tableaux contenant les mêmes variables. Le premier, nommé <code>colorado</code>, contient les informations des vols ayant décollé de New York en 2013 et ayant atteri à l’aéroport de Yempa Valley au Colorado (aéroport <code>HDN</code>).</p>
+<p>Prenons un exemple. Imaginons que nous ayons 2 tableaux contenant les mêmes variables. Le premier, nommé <code>colorado</code>, contient les informations des vols ayant décollé de New York en 2013 et ayant atteri à l’aéroport de Yempa Valley au Colorado (aéroport <code>HDN</code>).</p>
 <div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb344-1" title="1">colorado &lt;-<span class="st"> </span>flights <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb344-2" title="2"><span class="st">  </span><span class="kw">filter</span>(dest <span class="op">==</span><span class="st"> &quot;HDN&quot;</span>)</a>
 <a class="sourceLine" id="cb344-3" title="3"></a>
@@ -1777,17 +1781,17 @@ Figure 6.17: Schéma de la fonction <code>left_join()</code> tiré de la ‘chea
 <li>Créez un tableau <code>delayed</code> indiquant, pour chaque compagnie aérienne et chaque mois de l’année, le nombre de vols ayant eu un retard supérieur à 30 minutes à l’arrivée à destination. Ce tableau devrait contenir uniquement 3 colonnes :</li>
 </ol>
 <ul>
-<li><code>carrier</code> : la compagnie aérienne</li>
-<li><code>month</code> : le mois de l’année 2013</li>
-<li><code>n_delayed</code> : le nombre de vols ayant plus de 30 minutes de retard</li>
+<li><code>carrier</code> : la compagnie aérienne.</li>
+<li><code>month</code> : le mois de l’année 2013.</li>
+<li><code>n_delayed</code> : le nombre de vols ayant plus de 30 minutes de retard.</li>
 </ul>
 <ol start="2" style="list-style-type: decimal">
 <li>Créez un tableau <code>total</code> indiquant le nombre total de vols affrétés (et non annulés) par chaque compagnie aérienne et chaque mois de l’année. Ce tableau devrait contenir seulement 3 colonnes :</li>
 </ol>
 <ul>
-<li><code>carrier</code> : la compagnie aérienne</li>
-<li><code>month</code> : le mois de l’année 2013</li>
-<li><code>n_total</code> : le nombre total de vols arrivés à destination</li>
+<li><code>carrier</code> : la compagnie aérienne.</li>
+<li><code>month</code> : le mois de l’année 2013.</li>
+<li><code>n_total</code> : le nombre total de vols arrivés à destination.</li>
 </ul>
 <ol start="3" style="list-style-type: decimal">
 <li><p>Fusionnez ces 2 tableaux en réalisant la jointure appropriée. Le tableau final, que vous nommerez <code>carrier_stats</code> devrait contenir 185 lignes. Si certaines colonnes contiennent des données manquantes, remplacez-les par des 0 à l’aide des fonctions <code>mutate()</code> et <code>replace_na()</code>.</p></li>

@@ -8221,8 +8221,8 @@ exemle, pour sélectionner uniquement les colonnes \texttt{year},
 \end{verbatim}
 
 Puisque ces 3 variables sont placées les unes à côté des autres dans le
-tableau \texttt{flights}, on peut utiliser la notation \texttt{:} pour
-les sélectionner :
+tableau \texttt{flights}, on peut utiliser la notation ``\texttt{:}''
+pour les sélectionner :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8250,7 +8250,7 @@ les sélectionner :
 \end{verbatim}
 
 À l'inverse, si on veut supprimer certaines colonnes, on peut utiliser
-la notation \texttt{-} :
+la notation ``\texttt{-}'' :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8282,25 +8282,25 @@ la notation \texttt{-} :
 \end{verbatim}
 
 Il y a beaucoup de fonctions permettant de sélectionner des variables
-dont le noms respectent certains critères. Par exemple :
+dont les noms respectent certains critères. Par exemple :
 
 \begin{itemize}
 \tightlist
 \item
   \texttt{starts\_with("abc")} : renvoie toutes les variables dont les
-  noms commencent par ``abc''
+  noms commencent par ``abc''.
 \item
   \texttt{ends\_with("xyz")} : renvoie toutes les variables dont les
-  noms se terminent par ``xyz''
+  noms se terminent par ``xyz''.
 \item
   \texttt{contains("ijk")} : renvoie toutes les variables dont les noms
-  contiennent ``ijk''
+  contiennent ``ijk''.
 \end{itemize}
 
 Il en existe beaucoup d'autres. Vous pouvez consulter l'aide de
 \texttt{?select()} pour en savoir plus.
 
-Ainsi, il est par exemple possible d'extraire toutes les variables
+Par exemple, il est possible de sélectionner toutes les variables
 contenant le mot ``time'' ainsi :
 
 \begin{Shaded}
@@ -8481,7 +8481,7 @@ variables :
   temps sont exprimés en minutes. Nous en profiterons pour transformer
   les distances exprimées en miles par des distances exprimées en
   kilomètres en multipliant les distances en miles par 1.60934. Ainsi,
-  \texttt{speed} sera exprimée en kilomètres par heure.
+  la variable \texttt{speed} sera exprimée en kilomètres par heure.
 \end{enumerate}
 
 \begin{Shaded}
@@ -8558,8 +8558,8 @@ facteurs}\label{transformer-des-variables-en-facteurs}}
 Il n'est pas rare que les tableaux de données que nous importons
 contiennent des colonnes numériques ou de chaînes de caractères qui
 devraient en réalité être reconnues en tant que facteurs. La fonction
-mutate nous permet de changer rapidement le type d'une variable afin
-qu'elle soit reconnue comme un facteur.
+\texttt{mutate()} nous permet de changer rapidement le type d'une
+variable afin qu'elle soit reconnue comme un facteur.
 
 À titre d'exemple, nous allons importer le jeu de données contenu dans
 le fichier \texttt{squid.txt} que vous pourrez
@@ -8625,8 +8625,8 @@ transformation :
 \end{verbatim}
 
 De même, la variable \texttt{Sex} est codée sous forme numérique, or il
-devrait s'agir d'un facteur, les \texttt{1} correspondants aux mâles et
-les \texttt{2} aux femelles. Nous pouvons là encore faire la
+devrait s'agir d'un facteur, les ``\texttt{1}'' correspondants aux mâles
+et les ``\texttt{2}'' aux femelles. Nous pouvons là encore faire la
 modification grâce à la fonction \texttt{mutate()} :
 
 \begin{Shaded}
@@ -8658,7 +8658,7 @@ modification grâce à la fonction \texttt{mutate()} :
 
 \texttt{squid2} contient maintenant le tableau de départ avec les
 variables \texttt{Location} et \texttt{Sex} codées sous forme de
-facteur. Si nous faisons un graphique avec ces nouveaux facteurs,
+facteurs. Si nous faisons un graphique avec ces nouveaux facteurs,
 l'ordre des catégories sera celui spécifié par la fonction
 \texttt{factor()}. Ainsi, si nous faisons par exemple un boxplot de
 \texttt{GSI} en fonction du \texttt{Sex}, voilà ce que nous obtenons :
@@ -8793,9 +8793,9 @@ redondante avec les numéros de ligne :
 # ... with 83 more rows
 \end{verbatim}
 
-Les variables \texttt{Sexe}, \texttt{Statut} et \texttt{Organe} devrait
-elles aussi être encodées sous forme de facteurs. Plutôt que de taper le
-code ci dessous (qui fonctionne très bien) :
+Les variables \texttt{Sexe}, \texttt{Statut} et \texttt{Organe}
+devraient elles aussi être encodées sous forme de facteurs. Plutôt que
+de taper le code ci dessous (qui fonctionne très bien) :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8898,7 +8898,8 @@ nous pouvons utiliser la fonction \texttt{fct\_recode()} :
 # ... with 83 more rows
 \end{verbatim}
 
-Nous pouvons maintenant modifier l'ordre des niveaux de \texttt{Satut} :
+Nous pouvons maintenant modifier l'ordre des niveaux de \texttt{Satut}
+avec la fonction \texttt{fct\_relevel()} :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8906,7 +8907,8 @@ Nous pouvons maintenant modifier l'ordre des niveaux de \texttt{Satut} :
 \StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Sexe =} \KeywordTok{fct_recode}\NormalTok{(Sexe, }
                            \StringTok{"Female"}\NormalTok{ =}\StringTok{ "f"}\NormalTok{,}
                            \StringTok{"Male"}\NormalTok{ =}\StringTok{ "m"}\NormalTok{),}
-         \DataTypeTok{Statut =} \KeywordTok{fct_relevel}\NormalTok{(Statut, }\StringTok{"imm"}\NormalTok{, }\StringTok{"mat"}\NormalTok{, }\StringTok{"pnl"}\NormalTok{, }\StringTok{"l"}\NormalTok{, }\StringTok{"pl"}\NormalTok{, }\StringTok{"repos"}\NormalTok{))}
+         \DataTypeTok{Statut =} \KeywordTok{fct_relevel}\NormalTok{(Statut,}
+                              \StringTok{"imm"}\NormalTok{, }\StringTok{"mat"}\NormalTok{, }\StringTok{"pnl"}\NormalTok{, }\StringTok{"l"}\NormalTok{, }\StringTok{"pl"}\NormalTok{, }\StringTok{"repos"}\NormalTok{))}
 \NormalTok{dauphin}
 \end{Highlighting}
 \end{Shaded}
@@ -8949,20 +8951,23 @@ suivante :
 \begin{Highlighting}[]
 \CommentTok{# Importation et mise en forme du jeu de données `dauphin`}
 \KeywordTok{library}\NormalTok{(readxl)}
-\NormalTok{dauphin <-}\StringTok{ }\KeywordTok{read_excel}\NormalTok{(}\StringTok{"data/dauphin.xls"}\NormalTok{, }\DataTypeTok{na =} \StringTok{"*"}\NormalTok{, }\DataTypeTok{skip =} \DecValTok{9}\NormalTok{) }\OperatorTok{%>%}\StringTok{   }\CommentTok{# Importation, puis}
-\StringTok{  }\KeywordTok{rename}\NormalTok{(}\DataTypeTok{ID =} \StringTok{`}\DataTypeTok{N°}\StringTok{`}\NormalTok{,                          }\CommentTok{# On donne des noms courts, puis}
+\NormalTok{dauphin <-}\StringTok{ }\KeywordTok{read_excel}\NormalTok{(}\StringTok{"data/dauphin.xls"}\NormalTok{, }
+                      \DataTypeTok{na =} \StringTok{"*"}\NormalTok{, }\DataTypeTok{skip =} \DecValTok{9}\NormalTok{) }\OperatorTok{%>%}\StringTok{   }\CommentTok{# Importer, puis}
+\StringTok{  }\KeywordTok{rename}\NormalTok{(}\DataTypeTok{ID =} \StringTok{`}\DataTypeTok{N°}\StringTok{`}\NormalTok{,                 }\CommentTok{# Raccourcir les noms, puis}
          \DataTypeTok{Statut =} \StringTok{`}\DataTypeTok{Statut reproducteur}\StringTok{`}\NormalTok{,}
          \DataTypeTok{Taille =} \StringTok{`}\DataTypeTok{Taille en cm}\StringTok{`}\NormalTok{,}
          \DataTypeTok{Age =} \StringTok{`}\DataTypeTok{Age en années}\StringTok{`}\NormalTok{,}
          \DataTypeTok{Cd =} \StringTok{`}\DataTypeTok{Cd (mg.kg-1)}\StringTok{`}\NormalTok{,}
          \DataTypeTok{Cu =} \StringTok{`}\DataTypeTok{Cu (mg.kg-1)}\StringTok{`}\NormalTok{,}
          \DataTypeTok{Hg =} \StringTok{`}\DataTypeTok{Hg (mg.kg-1)}\StringTok{`}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{select}\NormalTok{(}\OperatorTok{-}\NormalTok{ID) }\OperatorTok{%>%}\StringTok{                           }\CommentTok{# On supprime la colonne `ID`, puis}
-\StringTok{  }\KeywordTok{mutate_if}\NormalTok{(is.character, as.factor) }\OperatorTok{%>%}\StringTok{    }\CommentTok{# On transforme en facteurs les variables <chr>, puis}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Sexe =} \KeywordTok{fct_recode}\NormalTok{(Sexe,            }\CommentTok{# On modifie les niveau de `Sexe` et l'ordre des niveaux de Statut}
+\StringTok{  }\KeywordTok{select}\NormalTok{(}\OperatorTok{-}\NormalTok{ID) }\OperatorTok{%>%}\StringTok{                   }\CommentTok{# Supprimer la variable `ID`, puis}
+\StringTok{  }\KeywordTok{mutate_if}\NormalTok{(is.character,           }\CommentTok{# 'Factoriser' les variables <chr>, puis}
+\NormalTok{            as.factor) }\OperatorTok{%>%}\StringTok{          }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Sexe =} \KeywordTok{fct_recode}\NormalTok{(Sexe,    }\CommentTok{# Modifier l'ordre des niveaux}
                            \StringTok{"Female"}\NormalTok{ =}\StringTok{ "f"}\NormalTok{,}
                            \StringTok{"Male"}\NormalTok{ =}\StringTok{ "m"}\NormalTok{),}
-         \DataTypeTok{Statut =} \KeywordTok{fct_relevel}\NormalTok{(Statut, }\StringTok{"imm"}\NormalTok{, }\StringTok{"mat"}\NormalTok{, }\StringTok{"pnl"}\NormalTok{, }\StringTok{"l"}\NormalTok{, }\StringTok{"pl"}\NormalTok{, }\StringTok{"repos"}\NormalTok{))}
+         \DataTypeTok{Statut =} \KeywordTok{fct_relevel}\NormalTok{(Statut,}
+                              \StringTok{"imm"}\NormalTok{, }\StringTok{"mat"}\NormalTok{, }\StringTok{"pnl"}\NormalTok{, }\StringTok{"l"}\NormalTok{, }\StringTok{"pl"}\NormalTok{, }\StringTok{"repos"}\NormalTok{))}
 
 \NormalTok{dauphin}
 \end{Highlighting}
@@ -8985,19 +8990,28 @@ suivante :
 # ... with 83 more rows
 \end{verbatim}
 
-Outre les fonction \texttt{fct\_rev()}, \texttt{fct\_recode()} et
-\texttt{fct\_relevel()} abordées ici, on peut aussi noter : *
-\texttt{fct\_reorder()} et \texttt{fct\_reorder2()}, pour ordonner
-automatiquement les niveaux d'un facteur en fonction d'une autre
-variable numerique (pour avoir par exemple des séries rangées par ordre
-de moyenne croissante sur un graphique) * \texttt{fct\_infreq()}, pour
-ordonner automatiquement les niveaux d'un facteur oar ordre de fréquence
-croissante, ce qui est notamment utile pour faire des barplots ordonnés
-* \texttt{fct\_collapse()}, pour fusionner deux ou plusieurs niveaux
-d'un facteur
+Outre les fonctions \texttt{fct\_rev()}, \texttt{fct\_recode()} et
+\texttt{fct\_relevel()} abordées ici, on peut aussi noter :
 
-Nous n'avons pas le temps de développer ici des exemples, mais sachez
-que ces fonctiosn existent. Vous trouverez des exemples détaillés dans
+\begin{itemize}
+\tightlist
+\item
+  \texttt{fct\_reorder()} et \texttt{fct\_reorder2()}, pour ordonner
+  automatiquement les niveaux d'un facteur en fonction d'une autre
+  variable numérique (pour avoir par exemple des séries rangées par
+  ordre de moyennes croissantes sur un graphique).
+\item
+  \texttt{fct\_infreq()}, pour ordonner automatiquement les niveaux d'un
+  facteur par ordre de fréquence croissante, ce qui est notamment utile
+  pour faire des barplots ordonnés.
+\item
+  \texttt{fct\_collapse()}, pour fusionner deux ou plusieurs niveaux
+  d'un facteur.
+\end{itemize}
+
+Nous n'avons pas le temps de développer ici des exemples pour chacune de
+ces fonctions, mais sachez que ces fonctions existent. Vous trouverez
+des exemples détaillés dans
 \href{http://r4ds.had.co.nz/factors.html\#modifying-factor-levels}{le
 chapitre consacré aux facteurs} de l'ouvrage en ligne
 \href{http://r4ds.had.co.nz/}{R for Data Science}. C'est en anglais,
@@ -9018,17 +9032,17 @@ données vus ici (e.g.~\texttt{dauphin} ou \texttt{squid}).
   Quelle(s) variable(s) nous renseignent sur la consommation des
   véhicules ? À quoi correspond la variable \texttt{disp} ?
 \item
-  La consommation est donnée en miles par gallon. Créez une nouvelle
-  variable \texttt{conso} qui contiendra la consommation exprimée en
-  nombre de litres pour 100 kilomètres.
+  La consommation sur autoroute est donnée en miles par gallon. Créez
+  une nouvelle variable \texttt{conso} qui contiendra la consommation
+  sur autoroute exprimée en nombre de litres pour 100 kilomètres.
 \item
-  Faîtes un graphique présentant la relation entre la cylindrée en
+  Faites un graphique présentant la relation entre la cylindrée en
   litres et la consommation sur autoroute exprimée en nombre de litres
-  pour 100 kilomètres. Vous excluerez les véhicules dont la
-  \texttt{class}e est \texttt{2seater} de ce graphique (il s'agit de
-  voitures de sports très compactes qu'il est difficile de mesurer aux
-  autres). Sur votre graphique, la couleur devrait représenter le type
-  de véhicule. Vous ajouterez une droite de régression en utilisant
+  pour 100 kilomètres. Vous excluerez de ce graphique les véhicules dont
+  la \texttt{class}e est \texttt{2seater} (il s'agit de voitures de
+  sports très compactes qu'il est difficile de mesurer aux autres). Sur
+  votre graphique, la couleur devrait représenter le type de véhicule.
+  Vous ajouterez une droite de régression en utilisant
   \texttt{geom\_smooth(method\ =\ "lm")}. Votre graphique devrait
   ressembler à ceci :
 \end{enumerate}
@@ -9158,7 +9172,7 @@ d'avance. Comparez le tableau précédent avec celui-ci :
 \end{verbatim}
 
 Les lignes des 2 vols ayant 25 minutes d'avance au décollage ont été
-inversées : le vol du mois de mars apparait maintenant avant le vol du
+inversées : le vol du mois de mars apparaît maintenant avant le vol du
 mois d'octobre. La variable \texttt{month} a été utilisée pour ordonner
 les lignes en cas d'égalité de la variable \texttt{dep\_delay}.
 
@@ -9195,21 +9209,21 @@ décroissant :
 
 Cela est particulièrement utile après l'obtention de résumés groupés
 pour connaître la catégorie la plus représentée. Par exemple, si nous
-souhaitons connaître les destinations la plus fréquentes au départ de
+souhaitons connaître les destinations les plus fréquentes au départ de
 New York, on peut procéder ainsi :
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  prendre le tableau \texttt{flights}, \emph{puis,}
+  Prendre le tableau \texttt{flights}, \emph{puis}\ldots{}
 \item
-  grouper les données par destination (variable \texttt{dest}) et
+  Grouper les données par destination (variable \texttt{dest}) et
   compter le nombre de vols. Ces deux opérations peuvent être effectuées
   avec \texttt{group\_by()} puis \texttt{summarise()}, ou directement
-  avec \texttt{count()}. \emph{Puis,}
+  avec \texttt{count()}. \emph{Puis}\ldots{}
 \item
-  trier les données par effectif décroissant.
+  Trier les données par effectif décroissant.
 \end{enumerate}
 
 \begin{Shaded}
@@ -9267,7 +9281,7 @@ différentes.
 
 Lorsque nous avons plusieurs tableaux à disposition, il peut alors être
 nécessaire de récuppérer des informations dans plusieurs d'entre eux
-afn, notamment de produire des tableaux de synthèse. Par exemple, dans
+afin, notamment de produire des tableaux de synthèse. Par exemple, dans
 la section \ref{arrange} ci-dessus, nous avons affiché les destinations
 les plus fréquentes au départ des aéroports de New York. Donnons un nom
 à ce tableau pour pouvoir le ré-utiliser :
@@ -9324,13 +9338,13 @@ spécifiés par l'utilisateur.
 
 
 
-La fonction \texttt{inner\_join()} permet de relier des tableaux en ne
+La fonction \texttt{inner\_join()} permet de relier deux tableaux en ne
 conservant que les lignes qui sont présentes à la fois dans l'un et dans
-l'autre. Il faut identifier dans chacun des tableaux une colonne
+l'autre. Il faut identifier, dans chacun des tableaux, une colonne
 contenant des données en commun, qui servira de guide pour mettre les
 lignes correctes les unes en face des autres. Ici, nous partons de notre
 tableau \texttt{popular\_dest}, qui contient les codes des aéroports
-dans sa colonne \texttt{dest}. Et nous faisons une ``jointure interne''
+dans sa colonne \texttt{dest}, et nous faisons une ``jointure interne''
 avec le tableau \texttt{airports} qui contient lui aussi une colonne
 contenant les codes des aéroports : la variable \texttt{faa}.
 
@@ -9362,7 +9376,7 @@ contenant les codes des aéroports : la variable \texttt{faa}.
 Le nouvel objet \texttt{inner\_popular} contient donc les données du
 tableau \texttt{popular\_dest} auxquelles ont été ajoutées les colonnes
 correspondantes du tableau airports. Si tout ce qui nous intéresse,
-c'est de connaitre le nom complet des aéroports les plus populaires, on
+c'est de connaître le nom complet des aéroports les plus populaires, on
 peut utiliser \texttt{select()} pour ne garder que les variables
 intéressantes :
 
@@ -9557,10 +9571,10 @@ dans la colonne \texttt{name} :
 4 PSE   <NA>    365
 \end{verbatim}
 
-Une rapide recherche dans un moteur de recherche vous apprendra que ces
-aéroports ne sont pas situés sur le sol américain. Trois d'entre eux
-sont situés à Puerto Rico (\texttt{SJU}, \texttt{BQN} et \texttt{PSE})
-et le dernier (\texttt{STT}) est situé aux Îles Vierges.
+Une rapide recherche sur internet vous apprendra que ces aéroports ne
+sont pas situés sur le sol américain. Trois d'entre eux sont situés à
+Puerto Rico (\texttt{SJU}, \texttt{BQN} et \texttt{PSE}) et le dernier
+(\texttt{STT}) est situé aux Îles Vierges.
 
 Il y aurait bien plus à dire sur les jointures :
 
@@ -9584,10 +9598,9 @@ Pour avoir la réponse à toutes ces questions, je vous conseille de lire
 \href{http://r4ds.had.co.nz/relational-data.html}{ce chapitre} de cet
 ouvrage très complet sur ``la science des données'' avec R et le
 \texttt{tidyverse} : \href{http://r4ds.had.co.nz}{R for Data Science}.
-
-Néanmoins, avec les deux fonctions \texttt{inner\_join()} et
-\texttt{left\_join()} décrite ici devraient vous permettre de couvrir
-l'essentiel de vos besoins.
+Les deux fonctions \texttt{inner\_join()} et \texttt{left\_join()}
+décrites ici devraient néanmoins vous permettre de couvrir l'essentiel
+de vos besoins.
 
 \hypertarget{accoller-deux-tableaux}{%
 \subsubsection{Accoller deux tableaux}\label{accoller-deux-tableaux}}
@@ -9598,21 +9611,19 @@ parfois utile d'accoller 2 tableaux :
 \begin{itemize}
 \tightlist
 \item
-  soit l'un au-dessous de l'autre, quand ils ont les mêmes nombres de
+  Soit l'un au-dessous de l'autre, quand ils ont les mêmes nombres de
   colonnes, et si possible, les mêmes variables aux mêmes endroits. La
   fonction \texttt{bind\_rows()} permet de faire cela.
 \item
-  soit l'un à côté de l'autre quand ils ont le même nombre de lignes, et
+  Soit l'un à côté de l'autre quand ils ont le même nombre de lignes, et
   si possible les mêmes observations en lignes. La fonction
   \texttt{bind\_cols()} permet de faire cela.
 \end{itemize}
 
-Prenons un exemple.
-
-Imaginons que nous ayons 2 tableaux contenant les mêmes variables. Le
-premier, nommé \texttt{colorado}, contient les informations des vols
-ayant décollé de New York en 2013 et ayant atteri à l'aéroport de Yempa
-Valley au Colorado (aéroport \texttt{HDN}).
+Prenons un exemple. Imaginons que nous ayons 2 tableaux contenant les
+mêmes variables. Le premier, nommé \texttt{colorado}, contient les
+informations des vols ayant décollé de New York en 2013 et ayant atteri
+à l'aéroport de Yempa Valley au Colorado (aéroport \texttt{HDN}).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9818,12 +9829,12 @@ tableaux correspondent aux mêmes observations.
 \begin{itemize}
 \tightlist
 \item
-  \texttt{carrier} : la compagnie aérienne
+  \texttt{carrier} : la compagnie aérienne.
 \item
-  \texttt{month} : le mois de l'année 2013
+  \texttt{month} : le mois de l'année 2013.
 \item
   \texttt{n\_delayed} : le nombre de vols ayant plus de 30 minutes de
-  retard
+  retard.
 \end{itemize}
 
 \begin{enumerate}
@@ -9839,11 +9850,11 @@ tableaux correspondent aux mêmes observations.
 \begin{itemize}
 \tightlist
 \item
-  \texttt{carrier} : la compagnie aérienne
+  \texttt{carrier} : la compagnie aérienne.
 \item
-  \texttt{month} : le mois de l'année 2013
+  \texttt{month} : le mois de l'année 2013.
 \item
-  \texttt{n\_total} : le nombre total de vols arrivés à destination
+  \texttt{n\_total} : le nombre total de vols arrivés à destination.
 \end{itemize}
 
 \begin{enumerate}
