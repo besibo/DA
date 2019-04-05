@@ -25,7 +25,7 @@
 <meta name="author" content="Benoît Simon-Bouhet">
 
 
-<meta name="date" content="2019-02-23">
+<meta name="date" content="2019-04-05">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -689,7 +689,7 @@ Figure 6.6: Évolution des températures moyenne dans 3 aéroports de New York e
             <span class="dt">erreur_std =</span> ecart_type <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(nb_obs))
 monthly_orig_temp</code></pre>
 <pre><code># A tibble: 36 x 6
-# Groups:   origin [?]
+# Groups:   origin [3]
    origin month moyenne ecart_type nb_obs erreur_std
    &lt;chr&gt;  &lt;dbl&gt;   &lt;dbl&gt;      &lt;dbl&gt;  &lt;int&gt;      &lt;dbl&gt;
  1 EWR        1    35.6      10.8     742      0.396
@@ -815,7 +815,7 @@ Figure 6.8: Évolution des températures moyenne dans 3 aéroports de New York e
 <span class="st">  </span><span class="kw">group_by</span>(origin, month) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">nombre =</span> <span class="kw">n</span>())</code></pre>
 <pre><code># A tibble: 36 x 3
-# Groups:   origin [?]
+# Groups:   origin [3]
    origin month nombre
    &lt;chr&gt;  &lt;dbl&gt;  &lt;int&gt;
  1 EWR        1    742
@@ -855,7 +855,7 @@ Figure 6.8: Évolution des températures moyenne dans 3 aéroports de New York e
 <li>Faites un tableau indiquant les vitesses de vents minimales, maximales et moyennes, enregistrées chaque mois dans chaque aéroport de New York. Votre tableau devrait ressembler à ceci :</li>
 </ol>
 <pre><code># A tibble: 36 x 5
-# Groups:   origin [?]
+# Groups:   origin [3]
    origin month max_wind min_wind moy_wind
    &lt;chr&gt;  &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
  1 EWR        1     42.6        0     9.87
@@ -873,7 +873,7 @@ Figure 6.8: Évolution des températures moyenne dans 3 aéroports de New York e
 <li>Sachant que les vitesses du vent sont exprimées en miles par heure, certaines valeurs sont-elles surprenantes ? À l’aide de la fonction <code>filter()</code>, éliminez la ou les valeurs aberrantes. Vous devriez obtenir ce tableau :</li>
 </ol>
 <pre><code># A tibble: 36 x 5
-# Groups:   origin [?]
+# Groups:   origin [3]
    origin month max_wind min_wind moy_wind
    &lt;chr&gt;  &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
  1 EWR        1     42.6        0     9.87

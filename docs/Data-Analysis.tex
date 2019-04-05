@@ -33,8 +33,6 @@
             urlcolor=blue,
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
-\usepackage{natbib}
-\bibliographystyle{apalike}
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -129,11 +127,11 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-02-23}
+    \date{2019-04-05}
 
 \usepackage[french]{babel}
 \usepackage{mathspec}  % \usepackage{fontspec}
-\usepackage{natbib}
+% \usepackage{natbib}
 
 \usepackage{setspace,booktabs,rotating,placeins,hvfloat,textcomp}
 
@@ -1494,7 +1492,7 @@ Comme nous le verrons, les graphiques nous aident également à repérer les ten
 \hypertarget{gggraph}{%
 \subsection{La grammaire des graphiques}\label{gggraph}}
 
-Les lettres \texttt{gg} du package \texttt{ggplot2} sont l'abréviation de ``\textbf{g}rammar of \textbf{g}raphics'' : la grammaire des graphiques. De la même manière que nous construisons des phrases en respectant des règles grammaticales précises (usage des noms, des verbes, des sujets et adjectifs\ldots{}), la grammaire des graphiques établit un certain nombre de règles permettant de construire des graphiques : elle précise les composants d'un graphique en suivant le cadre théorique défini par \citet{wilkinson2005}.
+Les lettres \texttt{gg} du package \texttt{ggplot2} sont l'abréviation de ``\textbf{g}rammar of \textbf{g}raphics'' : la grammaire des graphiques. De la même manière que nous construisons des phrases en respectant des règles grammaticales précises (usage des noms, des verbes, des sujets et adjectifs\ldots{}), la grammaire des graphiques établit un certain nombre de règles permettant de construire des graphiques : elle précise les composants d'un graphique en suivant le cadre théorique défini par Wilkinson (\protect\hyperlink{ref-wilkinson2005}{2005}).
 
 \hypertarget{elements-de-la-grammaire}{%
 \subsubsection{Éléments de la grammaire}\label{elements-de-la-grammaire}}
@@ -1605,7 +1603,7 @@ Outre les éléments indispensables évoqués ici (\texttt{data}, \texttt{mappin
 \hypertarget{le-package-ggplot2}{%
 \subsubsection{\texorpdfstring{Le package \texttt{ggplot2}}{Le package ggplot2}}\label{le-package-ggplot2}}
 
-Comme indiqué plus haut, le package \texttt{ggplot2} \citep{R-ggplot2} permet de réaliser des graphiques dans R en respectant les principes de la grammaire des graphiques. Vous avez probablement remarqué que depuis le début de la section \ref{gggraph}, beaucoup de termes sont écrits dans la police réservée au \texttt{code} informatique. C'est parce que les éléments de la grammaire des graphiques sont tous précisés dans la fonction \texttt{ggplot()} qui demande, au grand minimum, que les éléments suivants soient spécifiés :
+Comme indiqué plus haut, le package \texttt{ggplot2} (Wickham et al., \protect\hyperlink{ref-R-ggplot2}{2018}) permet de réaliser des graphiques dans R en respectant les principes de la grammaire des graphiques. Vous avez probablement remarqué que depuis le début de la section \ref{gggraph}, beaucoup de termes sont écrits dans la police réservée au \texttt{code} informatique. C'est parce que les éléments de la grammaire des graphiques sont tous précisés dans la fonction \texttt{ggplot()} qui demande, au grand minimum, que les éléments suivants soient spécifiés :
 
 \begin{itemize}
 \tightlist
@@ -5804,7 +5802,7 @@ Jusqu'ici, nous avons groupé les données de température par mois. Il est tout
 
 \begin{verbatim}
 # A tibble: 36 x 6
-# Groups:   origin [?]
+# Groups:   origin [3]
    origin month moyenne ecart_type nb_obs erreur_std
    <chr>  <dbl>   <dbl>      <dbl>  <int>      <dbl>
  1 EWR        1    35.6      10.8     742      0.396
@@ -5986,7 +5984,7 @@ Comme avec \texttt{group\_by()}, il est bien sûr possible d'utiliser \texttt{co
 
 \begin{verbatim}
 # A tibble: 36 x 3
-# Groups:   origin [?]
+# Groups:   origin [3]
    origin month nombre
    <chr>  <dbl>  <int>
  1 EWR        1    742
@@ -6041,7 +6039,7 @@ Comme avec \texttt{group\_by()}, il est bien sûr possible d'utiliser \texttt{co
 
 \begin{verbatim}
 # A tibble: 36 x 5
-# Groups:   origin [?]
+# Groups:   origin [3]
    origin month max_wind min_wind moy_wind
    <chr>  <dbl>    <dbl>    <dbl>    <dbl>
  1 EWR        1     42.6        0     9.87
@@ -6067,7 +6065,7 @@ Comme avec \texttt{group\_by()}, il est bien sûr possible d'utiliser \texttt{co
 
 \begin{verbatim}
 # A tibble: 36 x 5
-# Groups:   origin [?]
+# Groups:   origin [3]
    origin month max_wind min_wind moy_wind
    <chr>  <dbl>    <dbl>    <dbl>    <dbl>
  1 EWR        1     42.6        0     9.87
@@ -7573,7 +7571,12 @@ Ici, puisque \texttt{a} et \texttt{b} ont le même nombre de lignes, il est poss
   Faites un tableau synthétique présentant ces résultats de la façon la plus compacte et claire que possible, afin par exemple de les intégrer à un rapport.
 \end{enumerate}
 
-\bibliography{book.bib,packages.bib}
+\hypertarget{refs}{}
+\leavevmode\hypertarget{ref-R-ggplot2}{}%
+\textsc{Wickham H, Chang W, Henry L, Pedersen TL, Takahashi K, Wilke C, \& Woo K}. (2018). \emph{Ggplot2: Create elegant data visualisations using the grammar of graphics}. Retrieved from \url{https://CRAN.R-project.org/package=ggplot2}
+
+\leavevmode\hypertarget{ref-wilkinson2005}{}%
+\textsc{Wilkinson L}. (2005). \emph{The grammar of graphics} (2nd ed.). New-York: Springer-Verlag. Retrieved from \url{https://www.springer.com/us/book/9780387245447}
 
 
 \end{document}

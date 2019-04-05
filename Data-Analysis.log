@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.10.19)  23 FEB 2019 02:31
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.10.19)  5 APR 2019 12:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -747,13 +747,7 @@ File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 34.
 Package hyperref Info: Option `breaklinks' set `true' on input line 34.
-(/usr/local/texlive/2018/texmf-dist/tex/latex/natbib/natbib.sty
-Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip53
-\bibsep=\skip54
-LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count280
-) (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/color.sty
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
 (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
@@ -768,35 +762,35 @@ Package: fancyvrb 2008/02/07
 
 Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
 <2008/02/07> (tvz)
-\FV@CodeLineNo=\count281
+\FV@CodeLineNo=\count280
 \FV@InFile=\read2
 \FV@TabBox=\box44
-\c@FancyVerbLine=\count282
-\FV@StepNumber=\count283
+\c@FancyVerbLine=\count281
+\FV@StepNumber=\count282
 \FV@OutFile=\write3
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/framed/framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
-\OuterFrameSep=\skip55
+\OuterFrameSep=\skip53
 \fb@frw=\dimen159
 \fb@frh=\dimen160
 \FrameRule=\dimen161
 \FrameSep=\dimen162
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
-\LTleft=\skip56
-\LTright=\skip57
-\LTpre=\skip58
-\LTpost=\skip59
-\LTchunksize=\count284
+\LTleft=\skip54
+\LTright=\skip55
+\LTpre=\skip56
+\LTpost=\skip57
+\LTchunksize=\count283
 \LTcapwidth=\dimen163
 \LT@head=\box45
 \LT@firsthead=\box46
 \LT@foot=\box47
 \LT@lastfoot=\box48
-\LT@cols=\count285
-\LT@rows=\count286
-\c@LT@tables=\count287
-\c@LT@chunks=\count288
+\LT@cols=\count284
+\LT@rows=\count285
+\c@LT@tables=\count286
+\c@LT@chunks=\count287
 \LT@p@ftn=\toks24
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2016/04/27 v1.618033 publication quality tables
@@ -810,12 +804,12 @@ Package: booktabs 2016/04/27 v1.618033 publication quality tables
 \cmidrulesep=\dimen171
 \cmidrulekern=\dimen172
 \defaultaddspace=\dimen173
-\@cmidla=\count289
-\@cmidlb=\count290
+\@cmidla=\count288
+\@cmidlb=\count289
 \@aboverulesep=\dimen174
 \@belowrulesep=\dimen175
-\@thisruleclass=\count291
-\@lastruleclass=\count292
+\@thisruleclass=\count290
+\@lastruleclass=\count291
 \@thisrulewidth=\dimen176
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
@@ -840,9 +834,9 @@ Package grffile Info: \Gin@ii of package `graphicx' fixed on input line 494.
 Package: parskip 2001/04/09 non-zero parskip adjustments
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/titling/titling.sty
 Package: titling 2009/09/04 v2.1d maketitle typesetting
-\thanksmarkwidth=\skip60
-\thanksmargin=\skip61
-\droptitle=\skip62
+\thanksmarkwidth=\skip58
+\thanksmargin=\skip59
+\droptitle=\skip60
 ) (/usr/local/texlive/2018/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2018/02/14 3.18 The Babel package
 (/usr/local/texlive/2018/texmf-dist/tex/generic/babel/switch.def
@@ -851,14 +845,14 @@ File: switch.def 2018/02/14 3.18 Babel switching mechanism
 Language: french 2018/03/25 v3.4c French support from the babel system
 (/usr/local/texlive/2018/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2018/02/14 3.18 Babel common definitions
-\babel@savecnt=\count293
+\babel@savecnt=\count292
 \U@D=\dimen179
 (/usr/local/texlive/2018/texmf-dist/tex/generic/babel/xebabel.def (/usr/local/t
 exlive/2018/texmf-dist/tex/generic/babel/txtbabel.def))
-\bbl@dirlevel=\count294
+\bbl@dirlevel=\count293
 )
 \l@acadian = a dialect from \language\l@french 
-\FB@nonchar=\count295
+\FB@nonchar=\count294
 Package french.ldf Info: No need for active punctuation characters
 (french.ldf)             with this version of XeTeX!
 (french.ldf)             reported on input line 327.
@@ -868,22 +862,22 @@ Package french.ldf Info: No need for active punctuation characters
 \FB@guilo=\XeTeXcharclass4
 \FB@guilf=\XeTeXcharclass5
 \FB@guilnul=\XeTeXcharclass6
-\FBguill@level=\count296
+\FBguill@level=\count295
 \FB@everypar=\toks25
 \FB@Mht=\dimen180
 LaTeX Info: Redefining \degres on input line 757.
-\mc@charclass=\count297
-\mc@charfam=\count298
-\mc@charslot=\count299
-\std@mcc=\count300
-\dec@mcc=\count301
-\c@FBcaption@count=\count302
-\listindentFB=\skip63
-\descindentFB=\skip64
-\labelwidthFB=\skip65
-\leftmarginFB=\skip66
+\mc@charclass=\count296
+\mc@charfam=\count297
+\mc@charslot=\count298
+\std@mcc=\count299
+\dec@mcc=\count300
+\c@FBcaption@count=\count301
+\listindentFB=\skip61
+\descindentFB=\skip62
+\labelwidthFB=\skip63
+\leftmarginFB=\skip64
 \parindentFFN=\dimen181
-\FBfnindent=\skip67
+\FBfnindent=\skip65
 )) (/usr/local/texlive/2018/texmf-dist/tex/latex/carlisle/scalefnt.sty) (/usr/l
 ocal/texlive/2018/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
@@ -892,9 +886,9 @@ Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
-\c@r@tfl@t=\count303
-\rotFPtop=\skip68
-\rotFPbot=\skip69
+\c@r@tfl@t=\count302
+\rotFPtop=\skip66
+\rotFPbot=\skip67
 \rot@float@box=\box49
 \rot@mess@toks=\toks26
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/placeins/placeins.sty
@@ -915,7 +909,7 @@ Package caption3 Info: TeX engine: e-TeX on input line 67.
 \caption@parindent=\dimen187
 \caption@hangindent=\dimen188
 )
-\c@ContinuedFloat=\count304
+\c@ContinuedFloat=\count303
 Package caption Info: hyperref package is loaded.
 Package caption Info: longtable package is loaded.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/caption/ltcaption.sty
@@ -923,30 +917,30 @@ Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
 )
 Package caption Info: rotating package is loaded.
 )
-\hvObjectWidth=\skip70
-\hvCapWidth=\skip71
-\hvMaxCapWidth=\skip72
+\hvObjectWidth=\skip68
+\hvCapWidth=\skip69
+\hvMaxCapWidth=\skip70
 \hvObjectBox=\box50
 \hvCaptionBox=\box51
 \hvOBox=\box52
-\hvAboveCaptionSkip=\skip73
-\hvBelowCaptionSkip=\skip74
+\hvAboveCaptionSkip=\skip71
+\hvBelowCaptionSkip=\skip72
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2018/04/01 v1.8r multicolumn formatting (FMi)
-\c@tracingmulticols=\count305
+\c@tracingmulticols=\count304
 \mult@box=\box53
 \multicol@leftmargin=\dimen189
-\c@unbalance=\count306
-\c@collectmore=\count307
-\doublecol@number=\count308
-\multicoltolerance=\count309
-\multicolpretolerance=\count310
+\c@unbalance=\count305
+\c@collectmore=\count306
+\doublecol@number=\count307
+\multicoltolerance=\count308
+\multicolpretolerance=\count309
 \full@width=\dimen190
 \page@free=\dimen191
 \premulticols=\dimen192
 \postmulticols=\dimen193
-\multicolsep=\skip75
-\multicolbaselineskip=\skip76
+\multicolsep=\skip73
+\multicolbaselineskip=\skip74
 \partial@page=\box54
 \last@line=\box55
 \maxbalancingoverflow=\dimen194
@@ -971,22 +965,22 @@ Package: multicol 2018/04/01 v1.8r multicolumn formatting (FMi)
 \@tempa=\box74
 \@tempa=\box75
 \@tempa=\box76
-\c@columnbadness=\count311
-\c@finalcolumnbadness=\count312
+\c@columnbadness=\count310
+\c@finalcolumnbadness=\count311
 \last@try=\dimen195
 \multicolovershoot=\dimen196
 \multicolundershoot=\dimen197
 \mult@nat@firstbox=\box77
 \colbreak@box=\box78
-\mc@col@check@num=\count313
+\mc@col@check@num=\count312
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \enitkv@toks@=\toks27
-\labelindent=\skip77
+\labelindent=\skip75
 \enit@outerparindent=\dimen198
 \enit@toks=\toks28
 \enit@inbox=\box79
-\enitdp@description=\count314
+\enitdp@description=\count313
 )
 .................................................
 . fontspec info: "no-scripts"
@@ -998,7 +992,7 @@ Package: enumitem 2011/09/28 v3.5.2 Customized lists
 . 
 . FuturaLT-Book scale = 0.908856898315883.
 .................................................
-\g__fontspec_family_FuturaLT-Book_int=\count315
+\g__fontspec_family_FuturaLT-Book_int=\count314
 .................................................
 . fontspec info: "set-scale"
 . 
@@ -1040,9 +1034,9 @@ Package: enumitem 2011/09/28 v3.5.2 Customized lists
 . <->s*[0.8303568541334109]"FuturaLT-Book/BI/AAT:mapping=tex-text;"
 . - 'bold italic small caps'  (bx/itsc) with NFSS spec.: 
 .................................................
-LaTeX Info: Redefining \rmfamily on input line 145.
+LaTeX Info: Redefining \rmfamily on input line 143.
 LaTeX Font Info:    Font shape `TU/FuturaLT-Book(0)/m/n' will be
-(Font)              scaled to size 9.0886pt on input line 145.
+(Font)              scaled to size 9.0886pt on input line 143.
 .................................................
 . fontspec info: "no-scripts"
 . 
@@ -1088,27 +1082,27 @@ LaTeX Font Info:    Font shape `TU/FuturaLT-Book(0)/m/n' will be
 . 
 . FuturaLT-Book scale = 0.9088601159640395.
 .................................................
-LaTeX Font Info:    Redeclaring math alphabet \mathrm on input line 145.
+LaTeX Font Info:    Redeclaring math alphabet \mathrm on input line 143.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
 (Font)                  TU/FuturaLT-Book(0)/m/n --> TU/FuturaLT-Book(0)/bx/n on
- input line 145.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 145.
+ input line 143.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 143.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/lmr/m/it --> TU/FuturaLT-Book(0)/m/it on input line
- 145.
+ 143.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/lmr/bx/it --> TU/FuturaLT-Book(0)/m/it on input lin
-e 145.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 145.
+e 143.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 143.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/lmr/bx/n --> TU/FuturaLT-Book(0)/bx/n on input line
- 145.
+ 143.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
 (Font)                  OT1/lmr/bx/n --> TU/FuturaLT-Book(0)/bx/n on input line
- 145.
+ 143.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  TU/FuturaLT-Book(0)/m/it --> TU/FuturaLT-Book(0)/bx/it 
-on input line 145.
+on input line 143.
 \symOperators:m:n=\mathgroup11
 
 LaTeX Warning: Unused global option(s):
@@ -1117,32 +1111,32 @@ LaTeX Warning: Unused global option(s):
 (./Data-Analysis.aux)
 \openout1 = `Data-Analysis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 148.
-LaTeX Font Info:    ... okay on input line 148.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 148.
-LaTeX Font Info:    ... okay on input line 148.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 148.
-LaTeX Font Info:    ... okay on input line 148.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 148.
-LaTeX Font Info:    ... okay on input line 148.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 148.
-LaTeX Font Info:    ... okay on input line 148.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 148.
-LaTeX Font Info:    ... okay on input line 148.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 148.
-LaTeX Font Info:    ... okay on input line 148.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 148.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 148.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 146.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 146.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 148.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 148.
-LaTeX Font Info:    ... okay on input line 148.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 148.
-LaTeX Font Info:    ... okay on input line 148.
-LaTeX Info: Redefining \microtypecontext on input line 148.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Info: Redefining \microtypecontext on input line 146.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: No adjustment of tracking.
@@ -1472,41 +1466,41 @@ Package microtype Warning: Unknown slot number of character
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box80
-Package hyperref Info: Link coloring ON on input line 148.
+Package hyperref Info: Link coloring ON on input line 146.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count316
+\c@section@level=\count315
 )
-LaTeX Info: Redefining \ref on input line 148.
-LaTeX Info: Redefining \pageref on input line 148.
-LaTeX Info: Redefining \nameref on input line 148.
+LaTeX Info: Redefining \ref on input line 146.
+LaTeX Info: Redefining \pageref on input line 146.
+LaTeX Info: Redefining \nameref on input line 146.
 (./Data-Analysis.out) (./Data-Analysis.out)
 \@outlinefile=\write4
 \openout4 = `Data-Analysis.out'.
 
-LaTeX Info: Redefining \dots on input line 148.
+LaTeX Info: Redefining \dots on input line 146.
 Package french.ldf Info: Setting StandardItemizeEnv=true for
 (french.ldf)             compatibility with enumitem package,
-(french.ldf)             reported on input line 148.
+(french.ldf)             reported on input line 146.
 Package french.ldf Info: Setting StandardEnumerateEnv=true for
 (french.ldf)             compatibility with enumitem package,
-(french.ldf)             reported on input line 148.
-LaTeX Info: Redefining \up on input line 148.
+(french.ldf)             reported on input line 146.
+LaTeX Info: Redefining \up on input line 146.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `TU/FuturaLT-Book(0)/m/n' will be
-(Font)              scaled to size 18.84973pt on input line 149.
+(Font)              scaled to size 18.84973pt on input line 147.
 LaTeX Font Info:    Font shape `TU/FuturaLT-Book(0)/m/n' will be
-(Font)              scaled to size 10.90631pt on input line 149.
+(Font)              scaled to size 10.90631pt on input line 147.
 LaTeX Font Info:    Font shape `TU/FuturaLT-Book(0)/m/it' will be
-(Font)              scaled to size 10.90631pt on input line 149.
+(Font)              scaled to size 10.90631pt on input line 147.
 LaTeX Font Info:    Font shape `TU/FuturaLT-Book(0)/m/n' will be
-(Font)              scaled to size 13.08755pt on input line 154.
+(Font)              scaled to size 13.08755pt on input line 152.
 LaTeX Font Info:    Font shape `TU/FuturaLT-Book(0)/bx/n' will be
-(Font)              scaled to size 11.95706pt on input line 154.
+(Font)              scaled to size 11.95706pt on input line 152.
 (./Data-Analysis.toc
 LaTeX Font Info:    Font shape `TU/FuturaLT-Book(0)/bx/n' will be
 (Font)              scaled to size 8.30353pt on input line 2.
@@ -1637,7 +1631,7 @@ Overfull \hbox (2.70837pt too wide) detected at line 118
 \openout5 = `Data-Analysis.toc'.
 
 LaTeX Font Info:    Font shape `TU/FuturaLT-Book(0)/bx/n' will be
-(Font)              scaled to size 9.96423pt on input line 160.
+(Font)              scaled to size 9.96423pt on input line 158.
 [2] [3] [4] [5] [6]
 File: images/Rlogo.png Graphic file (type bmp)
 <images/Rlogo.png>
@@ -1650,18 +1644,18 @@ File: figure/unnamed-chunk-5-1.pdf Graphic file (type pdf)
 <use figure/unnamed-chunk-5-1.pdf>
 [12] [13] [14] [15] [16] [17] [18] [19] [20]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 1160.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 1158.
 [21] [22] [23] [24] [25]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 1459.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 1457.
 [26] [27] [28]
 
 LaTeX Font Warning: Font shape `TU/FuturaLT-Book(0)/m/sc' undefined
-(Font)              using `TU/FuturaLT-Book(0)/m/n' instead on input line 1531.
+(Font)              using `TU/FuturaLT-Book(0)/m/n' instead on input line 1529.
 
 
 LaTeX Font Info:    Font shape `TU/FuturaLT-Book(0)/m/sc' will be
-(Font)              scaled to size 9.0886pt on input line 1531.
+(Font)              scaled to size 9.0886pt on input line 1529.
 File: figure/gapmind-1.pdf Graphic file (type pdf)
 <use figure/gapmind-1.pdf>
 [29] [30] [31]
@@ -1670,7 +1664,7 @@ File: figure/unnamed-chunk-37-1.pdf Graphic file (type pdf)
 File: figure/points-1.pdf Graphic file (type pdf)
 <use figure/points-1.pdf>
 [32] [33]
-Underfull \hbox (badness 1430) in paragraph at lines 1794--1795
+Underfull \hbox (badness 1430) in paragraph at lines 1792--1793
 []\TU/FuturaLT-Book(0)/m/sc/10 Créez un nouveau nuage de points en utilisant d’
 autres variables du jeu de données
  []
@@ -1683,7 +1677,7 @@ File: figure/transpfactor-1.pdf Graphic file (type pdf)
 File: figure/jittering-1.pdf Graphic file (type pdf)
 <use figure/jittering-1.pdf>
 
-Underfull \vbox (badness 1314) detected at line 1876
+Underfull \vbox (badness 1314) detected at line 1874
  []
 
 [35] [36]
@@ -1775,7 +1769,7 @@ File: figure/notchedboxplot-1.pdf Graphic file (type pdf)
 File: figure/compboxplot-1.pdf Graphic file (type pdf)
 <use figure/compboxplot-1.pdf>
 
-Underfull \hbox (badness 1735) in paragraph at lines 2804--2805
+Underfull \hbox (badness 1735) in paragraph at lines 2802--2803
 \TU/lmtt/m/n/10 geom_jitter()\TU/FuturaLT-Book(0)/m/sc/10 , au centre, un histo
 gramme pour les températures de novembre créé avec
  []
@@ -1822,7 +1816,7 @@ File: figure/barfacetbis-1.pdf Graphic file (type pdf)
 File: figure/barfacetgray-1.pdf Graphic file (type pdf)
 <use figure/barfacetgray-1.pdf>
 
-LaTeX Warning: Reference `fig:brew' on page 83 undefined on input line 3349.
+LaTeX Warning: Reference `fig:brew' on page 83 undefined on input line 3347.
 
 File: images/brewer.png Graphic file (type bmp)
 <images/brewer.png>
@@ -1841,7 +1835,7 @@ File: figure/varcolorviridis-1.pdf Graphic file (type pdf)
 File: figure/varcolorviridis2-1.pdf Graphic file (type pdf)
 <use figure/varcolorviridis2-1.pdf>
 [95] [96] [97] [98]
-Overfull \hbox (2.7516pt too wide) in paragraph at lines 3834--3835
+Overfull \hbox (2.7516pt too wide) in paragraph at lines 3832--3833
 []\TU/FuturaLT-Book(0)/m/sc/10 Si vous ne voulez pas avoir de message d’erreur,
  attention donc, à choisir la fonction \TU/lmtt/m/n/10 scale_XXX_XXX()
  []
@@ -1900,7 +1894,7 @@ File: figure/unnamed-chunk-90-1.pdf Graphic file (type pdf)
 File: images/filter.png Graphic file (type bmp)
 <images/filter.png>
 [134]
-Underfull \hbox (badness 1655) in paragraph at lines 5303--5305
+Underfull \hbox (badness 1655) in paragraph at lines 5301--5303
 []\TU/FuturaLT-Book(0)/m/sc/10 D’indiquer le nom du nouvel objet dans lequel le
 s données modifiées seront stockées
  []
@@ -1917,7 +1911,7 @@ File: images/groupby.png Graphic file (type bmp)
 File: figure/errorbars-1.pdf Graphic file (type pdf)
 <use figure/errorbars-1.pdf>
 [143]
-Overfull \vbox (0.6597pt too high) detected at line 5777
+Overfull \vbox (0.6597pt too high) detected at line 5775
  []
 
 [144]
@@ -1927,7 +1921,7 @@ File: figure/errorbars2-1.pdf Graphic file (type pdf)
 File: figure/errorbars3-1.pdf Graphic file (type pdf)
 <use figure/errorbars3-1.pdf>
 
-Overfull \vbox (1.1965pt too high) detected at line 5875
+Overfull \vbox (1.1965pt too high) detected at line 5873
  []
 
 [146]
@@ -1961,13 +1955,24 @@ File: images/innerjoin.png Graphic file (type bmp)
 [173] [174]
 File: images/leftjoin.png Graphic file (type bmp)
 <images/leftjoin.png>
-[175] [176] [177] [178] [179] [180] (./Data-Analysis.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 7579.
+[175] [176] [177] [178] [179] [180]
+Underfull \hbox (badness 1817) in paragraph at lines 7575--7577
+[][]\TU/FuturaLT-Book(0)/m/sc/10 Wickham H, Chang W, Henry L, Pedersen TL, Taka
+hashi K, Wilke C, & Woo K. (2018).
+ []
+
+
+Underfull \hbox (badness 1383) in paragraph at lines 7575--7577
+\TU/FuturaLT-Book(0)/m/it/10 Ggplot2 : Create elegant data visualisations using
+ the grammar of graphics\TU/FuturaLT-Book(0)/m/sc/10 . Retrieved from
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 7582.
 [181]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 7579.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 7582.
 (./Data-Analysis.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 7579.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 7579.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 7582.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 7582.
 
 Package rerunfilecheck Info: File `Data-Analysis.out' has not changed.
 (rerunfilecheck)             Checksum: 1C54446F18F6E1DA0560F130C778D91A.
@@ -1980,15 +1985,15 @@ LaTeX Warning: There were undefined references.
  )
 (\end occurred inside a group at level 1)
 
-### semi simple group (level 1) entered at line 146 (\begingroup)
+### semi simple group (level 1) entered at line 144 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 26459 strings out of 492970
- 489181 string characters out of 6133937
- 651687 words of memory out of 5000000
- 30060 multiletter control sequences out of 15000+600000
+ 26139 strings out of 492970
+ 485355 string characters out of 6133937
+ 645885 words of memory out of 5000000
+ 29747 multiletter control sequences out of 15000+600000
  543087 words of font info for 64 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 60i,9n,118p,10454b,1518s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,9n,118p,10454b,1500s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on Data-Analysis.pdf (181 pages).

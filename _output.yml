@@ -10,7 +10,6 @@ bookdown::pdf_book:
   includes:
     in_header: preamble.tex
   latex_engine: xelatex
-  citation_package: natbib
   keep_tex: yes
   dev: cairo_pdf
   pandoc_args: --highlight-style=my.theme
