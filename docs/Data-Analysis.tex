@@ -111,7 +111,7 @@
 \usepackage{titling}
 
 % Create subtitle command for use in maketitle
-\newcommand{\subtitle}[1]{
+\providecommand{\subtitle}[1]{
   \posttitle{
     \begin{center}\large#1\end{center}
     }
@@ -127,7 +127,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-04-05}
+    \date{2019-07-16}
 
 \usepackage[french]{babel}
 \usepackage{mathspec}  % \usepackage{fontspec}
@@ -221,7 +221,7 @@ Les cours magistraux sont globalement découpés en 2 blocs à peu près indépe
 
 Mon objectif n'est pas de traiter à tout prix l'ensemble du matériel dans ce faible volume horaire. Nous prendrons le temps de traiter correctement l'ensemble du matériel, quitte à ajouter des séances si besoin. Je suis convaincu que tout le monde est capable de comprendre les grands principes des statistiques, et de réaliser des analyses statistiques dans un logiciel tel que R, y compris les plus réfractaires aux mathématiques. Mais il est nécessaire de démystifier cette discipline essentielle, et si certains ont besoin de plus de temps que d'autres, nous prendrons ce temps. Les TP et TEA, décrits plus bas, sont justement organisés pour permettre à chacun d'avancer à son rythme. Mais ne vous y trompez pas, cela vous demandera \textbf{beaucoup} de travail pendant ces 3 semaines.
 
-Tous les aspects vu en cours seront en effet développés lors des séances de TP et de TEA. Vous aurez, pour chaque partie, des exercices à préparer et à déposer sur l'ENT. Ces exercices seront corrigés lors des séances de TP et/ou de TEA. Tout cela doit d'une part vous préparer à l'évaluation qui aura lieu en fin de bloc, mais surtout, cela doit vous permettre d'acquérir des compétences en analyse de données, compétences qui seront attendues de vous lorsque vous sortirez diplômé.e de ce master.
+Tous les aspects vu en cours seront en effet développés lors des séances de TP et de TEA. Vous aurez, pour chaque partie, des exercices à préparer et à déposer sur l'ENT. Ces exercices seront corrigés lors des séances de TP et/ou de TEA. Tout cela doit d'une part vous préparer à l'évaluation qui aura lieu conjointement avec les EC de stratégie d'échantillonnage, de remise à niveau en biologie marine et d'échantillonnage littoral, mais surtout, cela doit vous permettre d'acquérir des compétences en analyse de données, compétences qui seront attendues de vous lorsque vous sortirez diplômé.e de ce master.
 
 \hypertarget{les-travaux-pratiques}{%
 \subsubsection{Les Travaux pratiques}\label{les-travaux-pratiques}}
@@ -247,7 +247,7 @@ Attention toutefois, venir à une séance de permanence en n'ayant pas préparé
 
 \textbf{Comment procéder pour savoir si une séance de permanence a lieu, ou pour poser une question ?}
 
-Tout se passera en ligne, grâce au logiciel \href{https://slack.com/intl/fr-fr/}{Slack}, qui fonctionne un peu comme un ``twitter privé''. Slack facilite la communication des équipes et permet de travailler ensemble. Créez-vous un compte en ligne et installez le logiciel sur votre ordinateur (il existe aussi des versions pour tablettes et smartphones). Lorsque vous aurez installé le logiciel, \href{https://join.slack.com/t/geel-2018/shared_invite/enQtNDU2MDY0NzEwNzQzLWU4OTZiODNlOWI4YmIwZDY1MDZlYTg0YmU2OWU4MzFlNDc3YTdjOWU4NzQ3MjExYzIyNTljZGM4YmRkNjFhOGE}{cliquez sur ce lien} pour vous connecter à notre espace de travail commun.
+Tout se passera en ligne, grâce au logiciel \href{https://slack.com/intl/fr-fr/}{Slack}, qui fonctionne un peu comme un ``twitter privé''. Slack facilite la communication des équipes et permet de travailler ensemble. Créez-vous un compte en ligne et installez le logiciel sur votre ordinateur (il existe aussi des versions pour tablettes et smartphones). Lorsque vous aurez installé le logiciel, \href{https://join.slack.com/t/geel-2019/shared_invite/enQtNjkwNTA1Njk1MDcyLTdhNGM3YmM1ODhkZTMwN2Q4YzkyZDMwMzA3OGNjNzIwY2VlNDc2NjUzM2UxYmJlYjQyMjQwZmI2ZGE4YmMxNDk}{cliquez sur ce lien} pour vous connecter à notre espace de travail commun.
 
 Vous verrez que 3 ``chaînes'' sont disponibles :
 
@@ -261,7 +261,7 @@ Vous verrez que 3 ``chaînes'' sont disponibles :
   \#statistiques : c'est ici que toutes les questions liées aux méthodes statistiques devront être posées. Comme pour la chaîne \#rstudio, vous êtes encouragés à poster des questions mais aussi des réponses. Le fonctionnement de l'ensemble se veut participatif.
 \end{itemize}
 
-Ainsi, quand vous travaillerez à vos TP ou TEA, prenez l'habitude de garder Slack ouvert sur votre ordinateur. Même si vous n'avez pas de question à poser, votre participation active pour répondre à vos collègues est souhaitable et souhaitée.
+Ainsi, quand vous travaillerez à vos TP ou TEA, prenez l'habitude de garder Slack ouvert sur votre ordinateur. Même si vous n'avez pas de question à poser, votre participation active pour répondre à vos collègues est souhaitable et souhaitée. Votre niveau de participation sur Slack pourra faire partie de votre note finale.
 
 Si toutes les questions posées sur Slack ont trouvé une réponse, alors, inutile d'organiser une permanence. Si en revanche, certains n'ont pas compris, si les mêmes questions reviennent fréquemment, ou si des explications ``en direct'' sont plus efficaces qu'un long message sur Slack, alors une permanence aura lieu.
 
@@ -278,7 +278,7 @@ Généralement, l'organisation de votre journée sera la suivante :
 \item
   En début de matinée, 1h30 ou 3h de cours magistraux
 \item
-  En milieu de journée du temps libre ou du TEA pour avancer sur les TP, les exercices, la prise en main de R, etc.
+  En milieu de journée du temps libre ou du TEA pour avancer sur ce document, les exercices, la prise en main de R, etc.
 \item
   En fin de journée une séance de TP/permanence non obligatoire de 90 minutes pour ceux qui en ont besoin et se manifestent.
 \end{enumerate}
@@ -286,19 +286,33 @@ Généralement, l'organisation de votre journée sera la suivante :
 \hypertarget{levaluation}{%
 \subsubsection{L'évaluation}\label{levaluation}}
 
-L'évaluation se fera sous la forme d'un devoir à la maison qui contiendra une série d'exercices couvrant tous les aspects du cours, de l'importation de données dans RStudio à leur analyse statistique en passant par leur mise en forme, et leur utilisation pour produire des graphiques et des tableaux synthétiques.
+Vous aurez 2 types d'évaluations cette année :
 
-Dans le cadre de l'approche compétences, j'essaierai, dans la mesure du possible, d'indiquer quelles compétences sont acquises à l'issue de cet enseignement. Les compétences visées sont les suivantes :
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  des évaluations formatives qui ne rentreront pas dans la note finale de l'EC. Ces évaluations ont pour objectif principal de vous permettre de vous situer dans vos apprentissages. Elles devraient aussi vous permettre de vous approprier quels sont les enjeux de l'analyse de données et les attentes de vos enseignants. Pour ces évaluations formatives, nous expérimenterons l'évaluation par les pairs. Autrement dit, vous évaluerez vous même, et de façon anonyme, plusieurs devoirs de vos camarades, et plusieurs de vos camarades corrigeront chacun de vos travaux. Cette approche a de nombreux avantages. Elle vous permet notamment de mieux vous approprier les grilles de notations (par exemple, qu'est-ce qu'un bon script sous R ? À l'inverse, qu'est-ce qu'un script médiocre ? Comment être sûr que la méthode statistique choisie est la bonne pour répondre à une question donnée ? Suis-je capable de décrire correctement un tableau de données de grande taille ? Suis-je capable de produire des graphiques informatifs ?) et rends possible un retour personnalisé sur vos travaux beaucoup plus rapidement que si votre enseignant était le seul à corriger l'ensemble de vos travaux. Pas d'inquiétude, vous serez guidés à chaque étape.
+\item
+  une unique évaluation sommative (ou certificative) qui vous permettra de valider ou non cet enseignement. Notez bien que cette évaluation prendra la forme d'un rapport qui sera réalisé en commun avec d'autres EC : stratégie d'échantillonnage (responsable : Benoît Lebreton), et mise à niveau en biologie marine (responsable : Gilles Radenac) ou échantillonnage littoral (responsable : Denis Fichet). Ces 4 modules sont complémentaires et seront donc évalués en commun par un rapport individuel. En stratégie d'échantillonnage, vous réfléchirez à la meilleure méthode à mettre en œuvre pour collecter des données sur le terrain en vue de répondre à une question scientifique précise. Il vous faudra notamment tenir compte des nombreuses sources de variabilité afin de mettre en œuvre une stratégie adaptée. Vous irez sur le terrain (et au laboratoire) effectuer vous même la collecte de données, puis, dans les EC de Gilles Radenac ou Denis Fichet (selon vos choix et votre cursus de licence), vous irez plus loin en replaçant stratégie d'échantillonnage et analyse de données dans un contexte écologique plus large. La note d'analyse de données portera donc essentiellement sur les parties ``matériels et méthodes'' et ``résultats'' du rapport commun à ces différents EC que vous aurez à produire.
+\end{enumerate}
+
+Dans le cadre de l'approche compétences, j'essaierai, dans la mesure du possible, d'indiquer quelles sont les compétences et résultats d'apprentissage dont vous devrez faire l'acquisition pour chaque évaluation. À l'issue de cet enseignement, vous devriez être capables de :
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Mettre en forme des données acquises afin d'en permettre l'analyse
+  Mettre en forme des données acquises afin d'en permettre l'importation dans R ou RStudio
 \item
-  Analyser des données uni-, bi- ou multi-variées issues d'observations et de mesures sur le terrain et au laboratoire ou issues d'enquêtes, pour répondre à une problématique scientifique précise
+  Produire des statistiques descriptives informatives permettant de comprendre la structure et les tendances principales d'un jeu de données
 \item
-  Maîtriser le logiciel R pour realiser des analyses statistiques, des représentations graphiques ou des simulations numériques
+  Créer dans R ou RStudio des graphiques lisibles et informatifs permettant de mettre en évidence les tendances principales d'un jeu de données
+\item
+  Produire des scripts clairs sous R ou RStudio, permettant la reproductibilité de ses analyses et la communication avec ses pairs
+\item
+  Analyser des données uni-, bi- ou multi-variées issues d'observations et de mesures sur le terrain et au laboratoire en choisissant les méthodes appropriées pour répondre à une problématique scientifique précise
+\item
+  Maîtriser les logiciels R ou RStudio pour realiser des analyses statistiques, des représentations graphiques ou des simulations numériques
 \end{enumerate}
 
 \hypertarget{bases}{%
@@ -1603,7 +1617,7 @@ Outre les éléments indispensables évoqués ici (\texttt{data}, \texttt{mappin
 \hypertarget{le-package-ggplot2}{%
 \subsubsection{\texorpdfstring{Le package \texttt{ggplot2}}{Le package ggplot2}}\label{le-package-ggplot2}}
 
-Comme indiqué plus haut, le package \texttt{ggplot2} (Wickham et al., \protect\hyperlink{ref-R-ggplot2}{2018}) permet de réaliser des graphiques dans R en respectant les principes de la grammaire des graphiques. Vous avez probablement remarqué que depuis le début de la section \ref{gggraph}, beaucoup de termes sont écrits dans la police réservée au \texttt{code} informatique. C'est parce que les éléments de la grammaire des graphiques sont tous précisés dans la fonction \texttt{ggplot()} qui demande, au grand minimum, que les éléments suivants soient spécifiés :
+Comme indiqué plus haut, le package \texttt{ggplot2} (Wickham et al., \protect\hyperlink{ref-R-ggplot2}{2019}) permet de réaliser des graphiques dans R en respectant les principes de la grammaire des graphiques. Vous avez probablement remarqué que depuis le début de la section \ref{gggraph}, beaucoup de termes sont écrits dans la police réservée au \texttt{code} informatique. C'est parce que les éléments de la grammaire des graphiques sont tous précisés dans la fonction \texttt{ggplot()} qui demande, au grand minimum, que les éléments suivants soient spécifiés :
 
 \begin{itemize}
 \tightlist
@@ -7488,11 +7502,11 @@ Le fonctionnement de \texttt{bind\_cols()} est le même :
 
 \begin{verbatim}
 # A tibble: 3 x 2
-      r      s
-  <int>  <dbl>
-1    10 -1.22 
-2     9  0.710
-3     8 -0.109
+      r       s
+  <int>   <dbl>
+1    10  0.0652
+2     9  0.784 
+3     8 -1.59  
 \end{verbatim}
 
 \begin{Shaded}
@@ -7503,11 +7517,11 @@ Le fonctionnement de \texttt{bind\_cols()} est le même :
 
 \begin{verbatim}
 # A tibble: 3 x 5
-      x     y z         r      s
-  <int> <dbl> <lgl> <int>  <dbl>
-1     1     2 TRUE     10 -1.22 
-2     2     4 FALSE     9  0.710
-3     3     6 FALSE     8 -0.109
+      x     y z         r       s
+  <int> <dbl> <lgl> <int>   <dbl>
+1     1     2 TRUE     10  0.0652
+2     2     4 FALSE     9  0.784 
+3     3     6 FALSE     8 -1.59  
 \end{verbatim}
 
 Ici, puisque \texttt{a} et \texttt{b} ont le même nombre de lignes, il est possible de les accoler. Cela n'a de sens que si les lignes des 2 tableaux correspondent aux mêmes observations.
@@ -7573,7 +7587,7 @@ Ici, puisque \texttt{a} et \texttt{b} ont le même nombre de lignes, il est poss
 
 \hypertarget{refs}{}
 \leavevmode\hypertarget{ref-R-ggplot2}{}%
-\textsc{Wickham H, Chang W, Henry L, Pedersen TL, Takahashi K, Wilke C, \& Woo K}. (2018). \emph{Ggplot2: Create elegant data visualisations using the grammar of graphics}. Retrieved from \url{https://CRAN.R-project.org/package=ggplot2}
+\textsc{Wickham H, Chang W, Henry L, Pedersen TL, Takahashi K, Wilke C, \ldots{} Yutani H}. (2019). \emph{Ggplot2: Create elegant data visualisations using the grammar of graphics}. Retrieved from \url{https://CRAN.R-project.org/package=ggplot2}
 
 \leavevmode\hypertarget{ref-wilkinson2005}{}%
 \textsc{Wilkinson L}. (2005). \emph{The grammar of graphics} (2nd ed.). New-York: Springer-Verlag. Retrieved from \url{https://www.springer.com/us/book/9780387245447}

@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Analyse de Données</title>
-  <meta name="description" content="Ce livre est un document permettant de prendre en main les logiciels R et RStudio afin de réaliser des représentations graphiques et des statistiques descriptives simples dans le cadre des travaux pratiques d’Analyse de Données.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="Ce livre est un document permettant de prendre en main les logiciels R et RStudio afin de réaliser des représentations graphiques et des statistiques descriptives simples dans le cadre des travaux pratiques d’Analyse de Données." />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Analyse de Données" />
   <meta property="og:type" content="book" />
@@ -22,14 +21,14 @@
   <meta name="twitter:description" content="Ce livre est un document permettant de prendre en main les logiciels R et RStudio afin de réaliser des représentations graphiques et des statistiques descriptives simples dans le cadre des travaux pratiques d’Analyse de Données." />
   
 
-<meta name="author" content="Benoît Simon-Bouhet">
+<meta name="author" content="Benoît Simon-Bouhet" />
 
 
-<meta name="date" content="2019-04-05">
+<meta name="date" content="2019-07-16" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 
@@ -293,7 +292,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <div id="header">
 <h1 class="title">Analyse de Données</h1>
 <p class="author"><em>Benoît Simon-Bouhet</em></p>
-<p class="date"><em>2019-04-05</em></p>
+<p class="date"><em>2019-07-16</em></p>
 </div>
 <div id="introduction" class="section level1">
 <h1><span class="header-section-number">1</span> Introduction</h1>
@@ -332,7 +331,7 @@ Les données que vous serez amenés à traiter lors de vos stages, ou plus tard,
 <li><p>un bloc de 5 heures consacrées aux statistiques multivariées telles que l’Analyse en Composantes Principales (ACP) et l’Analyse Factorielle des Correspondances (AFC).</p></li>
 </ol>
 <p>Mon objectif n’est pas de traiter à tout prix l’ensemble du matériel dans ce faible volume horaire. Nous prendrons le temps de traiter correctement l’ensemble du matériel, quitte à ajouter des séances si besoin. Je suis convaincu que tout le monde est capable de comprendre les grands principes des statistiques, et de réaliser des analyses statistiques dans un logiciel tel que R, y compris les plus réfractaires aux mathématiques. Mais il est nécessaire de démystifier cette discipline essentielle, et si certains ont besoin de plus de temps que d’autres, nous prendrons ce temps. Les TP et TEA, décrits plus bas, sont justement organisés pour permettre à chacun d’avancer à son rythme. Mais ne vous y trompez pas, cela vous demandera <strong>beaucoup</strong> de travail pendant ces 3 semaines.</p>
-<p>Tous les aspects vu en cours seront en effet développés lors des séances de TP et de TEA. Vous aurez, pour chaque partie, des exercices à préparer et à déposer sur l’ENT. Ces exercices seront corrigés lors des séances de TP et/ou de TEA. Tout cela doit d’une part vous préparer à l’évaluation qui aura lieu en fin de bloc, mais surtout, cela doit vous permettre d’acquérir des compétences en analyse de données, compétences qui seront attendues de vous lorsque vous sortirez diplômé.e de ce master.</p>
+<p>Tous les aspects vu en cours seront en effet développés lors des séances de TP et de TEA. Vous aurez, pour chaque partie, des exercices à préparer et à déposer sur l’ENT. Ces exercices seront corrigés lors des séances de TP et/ou de TEA. Tout cela doit d’une part vous préparer à l’évaluation qui aura lieu conjointement avec les EC de stratégie d’échantillonnage, de remise à niveau en biologie marine et d’échantillonnage littoral, mais surtout, cela doit vous permettre d’acquérir des compétences en analyse de données, compétences qui seront attendues de vous lorsque vous sortirez diplômé.e de ce master.</p>
 </div>
 <div id="les-travaux-pratiques" class="section level3">
 <h3><span class="header-section-number">1.2.2</span> Les Travaux pratiques</h3>
@@ -346,14 +345,14 @@ Les données que vous serez amenés à traiter lors de vos stages, ou plus tard,
 <p>Les séances de travaux pratiques ne sont <em>pas toutes obligatoires</em> : seules quelques séances (les dates vous seront présentées ulterieurement) le seront, probablement pas plus d’une par semaine. Pour toutes les autres séances, le fonctionnement sera celui d’une permanence non obligatoire : seuls celles et ceux qui en éprouvent le besoin sont tenus de se déplacer. Ces séances de permanence n’auront lieu que si certains parmi vous m’ont fait part de difficultés ou ont formulé des questions en amont des séances. Si aucune question ne m’a été posée en amont, les permanences n’auront pas lieu. Si une permanence a lieu, elle est ouverte à tous, quel que soit votre groupe de TP. Vous n’êtes d’ailleurs pas tenus de rester pendant 90 minutes : vous venez avec votre question, on y répond ensemble, et vous êtes libres de repartir quand bon vous semble. Les années précédentes, je voyais certains de vos collègues à chaque séance de permanence alors que d’autres ne sont jamais venus. Si vous n’en avez pas besoin, libre à vous de ne pas venir. Tant que le travail est fait et que les exercices ne vous posent pas de problème, vous êtes libres de vous organiser comme vous l’entendez.</p>
 <p>Attention toutefois, venir à une séance de permanence en n’ayant pas préparé de question au préalable ne vous sera d’aucune aide. C’est parce que vous avez travaillé en amont de ces séances et que vous arrivez avec des questions que ces permanences sont utiles et efficaces. Donc si vous venez, c’est que vous avez bossé en amont !</p>
 <p><strong>Comment procéder pour savoir si une séance de permanence a lieu, ou pour poser une question ?</strong></p>
-<p>Tout se passera en ligne, grâce au logiciel <a href="https://slack.com/intl/fr-fr/">Slack</a>, qui fonctionne un peu comme un “twitter privé”. Slack facilite la communication des équipes et permet de travailler ensemble. Créez-vous un compte en ligne et installez le logiciel sur votre ordinateur (il existe aussi des versions pour tablettes et smartphones). Lorsque vous aurez installé le logiciel, <a href="https://join.slack.com/t/geel-2018/shared_invite/enQtNDU2MDY0NzEwNzQzLWU4OTZiODNlOWI4YmIwZDY1MDZlYTg0YmU2OWU4MzFlNDc3YTdjOWU4NzQ3MjExYzIyNTljZGM4YmRkNjFhOGE">cliquez sur ce lien</a> pour vous connecter à notre espace de travail commun.</p>
+<p>Tout se passera en ligne, grâce au logiciel <a href="https://slack.com/intl/fr-fr/">Slack</a>, qui fonctionne un peu comme un “twitter privé”. Slack facilite la communication des équipes et permet de travailler ensemble. Créez-vous un compte en ligne et installez le logiciel sur votre ordinateur (il existe aussi des versions pour tablettes et smartphones). Lorsque vous aurez installé le logiciel, <a href="https://join.slack.com/t/geel-2019/shared_invite/enQtNjkwNTA1Njk1MDcyLTdhNGM3YmM1ODhkZTMwN2Q4YzkyZDMwMzA3OGNjNzIwY2VlNDc2NjUzM2UxYmJlYjQyMjQwZmI2ZGE4YmMxNDk">cliquez sur ce lien</a> pour vous connecter à notre espace de travail commun.</p>
 <p>Vous verrez que 3 “chaînes” sont disponibles :</p>
 <ul>
 <li>#organisation : c’est là que les questions liées à l’organisation du cours, des TP et TEA doivent être posées. Si vous ne savez pas si une séance de permanence a lieu, posez la question ici.</li>
 <li>#rstudio : c’est ici que toutes les questions pratiques liées à l’utilisation de R et RStudio devront êtres posées. Problèmes de syntaxe, problèmes liés à l’interface, à l’installation des packages ou à l’utilisation des fonctions… Tout ce qui concerne R ou RStudio mais pas directement les statistiques sera traité ici. Vous êtes libres de poser des questions, de poster des captures d’écran, des morceaux de code, des messages d’erreur. Et vous êtes bien entendus vivement encouragés à vous entraider et à répondre aux questions de vos collègues. Je n’interviendrai ici que pour répondre aux questions laissées sans réponse ou si les réponses apportées sont inexactes. Le fonctionnement est celui d’un forum de discussion instantanné.</li>
 <li>#statistiques : c’est ici que toutes les questions liées aux méthodes statistiques devront être posées. Comme pour la chaîne #rstudio, vous êtes encouragés à poster des questions mais aussi des réponses. Le fonctionnement de l’ensemble se veut participatif.</li>
 </ul>
-<p>Ainsi, quand vous travaillerez à vos TP ou TEA, prenez l’habitude de garder Slack ouvert sur votre ordinateur. Même si vous n’avez pas de question à poser, votre participation active pour répondre à vos collègues est souhaitable et souhaitée.</p>
+<p>Ainsi, quand vous travaillerez à vos TP ou TEA, prenez l’habitude de garder Slack ouvert sur votre ordinateur. Même si vous n’avez pas de question à poser, votre participation active pour répondre à vos collègues est souhaitable et souhaitée. Votre niveau de participation sur Slack pourra faire partie de votre note finale.</p>
 <p>Si toutes les questions posées sur Slack ont trouvé une réponse, alors, inutile d’organiser une permanence. Si en revanche, certains n’ont pas compris, si les mêmes questions reviennent fréquemment, ou si des explications “en direct” sont plus efficaces qu’un long message sur Slack, alors une permanence aura lieu.</p>
 </div>
 <div id="le-tea" class="section level3">
@@ -362,18 +361,25 @@ Les données que vous serez amenés à traiter lors de vos stages, ou plus tard,
 <p>Généralement, l’organisation de votre journée sera la suivante :</p>
 <ol style="list-style-type: decimal">
 <li>En début de matinée, 1h30 ou 3h de cours magistraux</li>
-<li>En milieu de journée du temps libre ou du TEA pour avancer sur les TP, les exercices, la prise en main de R, etc.</li>
+<li>En milieu de journée du temps libre ou du TEA pour avancer sur ce document, les exercices, la prise en main de R, etc.</li>
 <li>En fin de journée une séance de TP/permanence non obligatoire de 90 minutes pour ceux qui en ont besoin et se manifestent.</li>
 </ol>
 </div>
 <div id="levaluation" class="section level3">
 <h3><span class="header-section-number">1.2.4</span> L’évaluation</h3>
-<p>L’évaluation se fera sous la forme d’un devoir à la maison qui contiendra une série d’exercices couvrant tous les aspects du cours, de l’importation de données dans RStudio à leur analyse statistique en passant par leur mise en forme, et leur utilisation pour produire des graphiques et des tableaux synthétiques.</p>
-<p>Dans le cadre de l’approche compétences, j’essaierai, dans la mesure du possible, d’indiquer quelles compétences sont acquises à l’issue de cet enseignement. Les compétences visées sont les suivantes :</p>
+<p>Vous aurez 2 types d’évaluations cette année :</p>
 <ol style="list-style-type: decimal">
-<li>Mettre en forme des données acquises afin d’en permettre l’analyse</li>
-<li>Analyser des données uni-, bi- ou multi-variées issues d’observations et de mesures sur le terrain et au laboratoire ou issues d’enquêtes, pour répondre à une problématique scientifique précise</li>
-<li>Maîtriser le logiciel R pour realiser des analyses statistiques, des représentations graphiques ou des simulations numériques</li>
+<li><p>des évaluations formatives qui ne rentreront pas dans la note finale de l’EC. Ces évaluations ont pour objectif principal de vous permettre de vous situer dans vos apprentissages. Elles devraient aussi vous permettre de vous approprier quels sont les enjeux de l’analyse de données et les attentes de vos enseignants. Pour ces évaluations formatives, nous expérimenterons l’évaluation par les pairs. Autrement dit, vous évaluerez vous même, et de façon anonyme, plusieurs devoirs de vos camarades, et plusieurs de vos camarades corrigeront chacun de vos travaux. Cette approche a de nombreux avantages. Elle vous permet notamment de mieux vous approprier les grilles de notations (par exemple, qu’est-ce qu’un bon script sous R ? À l’inverse, qu’est-ce qu’un script médiocre ? Comment être sûr que la méthode statistique choisie est la bonne pour répondre à une question donnée ? Suis-je capable de décrire correctement un tableau de données de grande taille ? Suis-je capable de produire des graphiques informatifs ?) et rends possible un retour personnalisé sur vos travaux beaucoup plus rapidement que si votre enseignant était le seul à corriger l’ensemble de vos travaux. Pas d’inquiétude, vous serez guidés à chaque étape.</p></li>
+<li><p>une unique évaluation sommative (ou certificative) qui vous permettra de valider ou non cet enseignement. Notez bien que cette évaluation prendra la forme d’un rapport qui sera réalisé en commun avec d’autres EC : stratégie d’échantillonnage (responsable : Benoît Lebreton), et mise à niveau en biologie marine (responsable : Gilles Radenac) ou échantillonnage littoral (responsable : Denis Fichet). Ces 4 modules sont complémentaires et seront donc évalués en commun par un rapport individuel. En stratégie d’échantillonnage, vous réfléchirez à la meilleure méthode à mettre en œuvre pour collecter des données sur le terrain en vue de répondre à une question scientifique précise. Il vous faudra notamment tenir compte des nombreuses sources de variabilité afin de mettre en œuvre une stratégie adaptée. Vous irez sur le terrain (et au laboratoire) effectuer vous même la collecte de données, puis, dans les EC de Gilles Radenac ou Denis Fichet (selon vos choix et votre cursus de licence), vous irez plus loin en replaçant stratégie d’échantillonnage et analyse de données dans un contexte écologique plus large. La note d’analyse de données portera donc essentiellement sur les parties “matériels et méthodes” et “résultats” du rapport commun à ces différents EC que vous aurez à produire.</p></li>
+</ol>
+<p>Dans le cadre de l’approche compétences, j’essaierai, dans la mesure du possible, d’indiquer quelles sont les compétences et résultats d’apprentissage dont vous devrez faire l’acquisition pour chaque évaluation. À l’issue de cet enseignement, vous devriez être capables de :</p>
+<ol style="list-style-type: decimal">
+<li>Mettre en forme des données acquises afin d’en permettre l’importation dans R ou RStudio</li>
+<li>Produire des statistiques descriptives informatives permettant de comprendre la structure et les tendances principales d’un jeu de données</li>
+<li>Créer dans R ou RStudio des graphiques lisibles et informatifs permettant de mettre en évidence les tendances principales d’un jeu de données</li>
+<li>Produire des scripts clairs sous R ou RStudio, permettant la reproductibilité de ses analyses et la communication avec ses pairs</li>
+<li>Analyser des données uni-, bi- ou multi-variées issues d’observations et de mesures sur le terrain et au laboratoire en choisissant les méthodes appropriées pour répondre à une problématique scientifique précise</li>
+<li>Maîtriser les logiciels R ou RStudio pour realiser des analyses statistiques, des représentations graphiques ou des simulations numériques</li>
 </ol>
 <!-- Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab). -->
 <!-- You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015]. -->

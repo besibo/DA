@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6 Tripatouiller les données avec dplyr | Analyse de Données</title>
-  <meta name="description" content="Ce livre est un document permettant de prendre en main les logiciels R et RStudio afin de réaliser des représentations graphiques et des statistiques descriptives simples dans le cadre des travaux pratiques d’Analyse de Données.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="Ce livre est un document permettant de prendre en main les logiciels R et RStudio afin de réaliser des représentations graphiques et des statistiques descriptives simples dans le cadre des travaux pratiques d’Analyse de Données." />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6 Tripatouiller les données avec dplyr | Analyse de Données" />
   <meta property="og:type" content="book" />
@@ -22,14 +21,14 @@
   <meta name="twitter:description" content="Ce livre est un document permettant de prendre en main les logiciels R et RStudio afin de réaliser des représentations graphiques et des statistiques descriptives simples dans le cadre des travaux pratiques d’Analyse de Données." />
   
 
-<meta name="author" content="Benoît Simon-Bouhet">
+<meta name="author" content="Benoît Simon-Bouhet" />
 
 
-<meta name="date" content="2019-04-05">
+<meta name="date" content="2019-07-16" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="tidyr.html">
@@ -1755,18 +1754,18 @@ a</code></pre>
 3     3     6 FALSE</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">b</code></pre>
 <pre><code># A tibble: 3 x 2
-      r      s
-  &lt;int&gt;  &lt;dbl&gt;
-1    10 -1.22 
-2     9  0.710
-3     8 -0.109</code></pre>
+      r       s
+  &lt;int&gt;   &lt;dbl&gt;
+1    10  0.0652
+2     9  0.784 
+3     8 -1.59  </code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">bind_cols</span>(a,b)</code></pre>
 <pre><code># A tibble: 3 x 5
-      x     y z         r      s
-  &lt;int&gt; &lt;dbl&gt; &lt;lgl&gt; &lt;int&gt;  &lt;dbl&gt;
-1     1     2 TRUE     10 -1.22 
-2     2     4 FALSE     9  0.710
-3     3     6 FALSE     8 -0.109</code></pre>
+      x     y z         r       s
+  &lt;int&gt; &lt;dbl&gt; &lt;lgl&gt; &lt;int&gt;   &lt;dbl&gt;
+1     1     2 TRUE     10  0.0652
+2     2     4 FALSE     9  0.784 
+3     3     6 FALSE     8 -1.59  </code></pre>
 <p>Ici, puisque <code>a</code> et <code>b</code> ont le même nombre de lignes, il est possible de les accoler. Cela n’a de sens que si les lignes des 2 tableaux correspondent aux mêmes observations.</p>
 <hr />
 </div>
