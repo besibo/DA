@@ -127,11 +127,14 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-07-16}
+    \date{2019-08-24}
 
 \usepackage[french]{babel}
 \usepackage{mathspec}  % \usepackage{fontspec}
 % \usepackage{natbib}
+\setallmainfonts[Ligatures = TeX,
+                 ItalicFont={ArcherPro-MediumItalic}]{ArcherPro-Medium}
+\setmonofont[Scale=0.85]{FiraCode-Regular}
 
 \usepackage{setspace,booktabs,rotating,placeins,hvfloat,textcomp}
 
@@ -219,7 +222,7 @@ Les cours magistraux sont globalement découpés en 2 blocs à peu près indépe
   un bloc de 5 heures consacrées aux statistiques multivariées telles que l'Analyse en Composantes Principales (ACP) et l'Analyse Factorielle des Correspondances (AFC).
 \end{enumerate}
 
-Mon objectif n'est pas de traiter à tout prix l'ensemble du matériel dans ce faible volume horaire. Nous prendrons le temps de traiter correctement l'ensemble du matériel, quitte à ajouter des séances si besoin. Je suis convaincu que tout le monde est capable de comprendre les grands principes des statistiques, et de réaliser des analyses statistiques dans un logiciel tel que R, y compris les plus réfractaires aux mathématiques. Mais il est nécessaire de démystifier cette discipline essentielle, et si certains ont besoin de plus de temps que d'autres, nous prendrons ce temps. Les TP et TEA, décrits plus bas, sont justement organisés pour permettre à chacun d'avancer à son rythme. Mais ne vous y trompez pas, cela vous demandera \textbf{beaucoup} de travail pendant ces 3 semaines.
+Mon objectif n'est pas de survoler l'ensemble du matériel dans ce faible volume horaire : s'il n'est pas suffisant, nous ajouterons quelques séances afin de traiter correctement l'ensemble du matériel. Je suis convaincu que tout le monde est capable de comprendre les grands principes des statistiques, et de réaliser des analyses dans un logiciel tel que R, y compris les plus réfractaires aux mathématiques et à l'informatique. Mais il est nécessaire de démystifier cette discipline essentielle, et si certains ont besoin de plus de temps que d'autres, nous prendrons ce temps. Les TP et TEA, décrits plus bas, sont justement organisés pour permettre à chacun d'avancer à son rythme. Mais ne vous y trompez pas, cela vous demandera \textbf{beaucoup} de travail pendant ces 3 semaines.
 
 Tous les aspects vu en cours seront en effet développés lors des séances de TP et de TEA. Vous aurez, pour chaque partie, des exercices à préparer et à déposer sur l'ENT. Ces exercices seront corrigés lors des séances de TP et/ou de TEA. Tout cela doit d'une part vous préparer à l'évaluation qui aura lieu conjointement avec les EC de stratégie d'échantillonnage, de remise à niveau en biologie marine et d'échantillonnage littoral, mais surtout, cela doit vous permettre d'acquérir des compétences en analyse de données, compétences qui seront attendues de vous lorsque vous sortirez diplômé.e de ce master.
 
@@ -293,26 +296,26 @@ Vous aurez 2 types d'évaluations cette année :
 \item
   des évaluations formatives qui ne rentreront pas dans la note finale de l'EC. Ces évaluations ont pour objectif principal de vous permettre de vous situer dans vos apprentissages. Elles devraient aussi vous permettre de vous approprier quels sont les enjeux de l'analyse de données et les attentes de vos enseignants. Pour ces évaluations formatives, nous expérimenterons l'évaluation par les pairs. Autrement dit, vous évaluerez vous même, et de façon anonyme, plusieurs devoirs de vos camarades, et plusieurs de vos camarades corrigeront chacun de vos travaux. Cette approche a de nombreux avantages. Elle vous permet notamment de mieux vous approprier les grilles de notations (par exemple, qu'est-ce qu'un bon script sous R ? À l'inverse, qu'est-ce qu'un script médiocre ? Comment être sûr que la méthode statistique choisie est la bonne pour répondre à une question donnée ? Suis-je capable de décrire correctement un tableau de données de grande taille ? Suis-je capable de produire des graphiques informatifs ?) et rends possible un retour personnalisé sur vos travaux beaucoup plus rapidement que si votre enseignant était le seul à corriger l'ensemble de vos travaux. Pas d'inquiétude, vous serez guidés à chaque étape.
 \item
-  une unique évaluation sommative (ou certificative) qui vous permettra de valider ou non cet enseignement. Notez bien que cette évaluation prendra la forme d'un rapport qui sera réalisé en commun avec d'autres EC : stratégie d'échantillonnage (responsable : Benoît Lebreton), et mise à niveau en biologie marine (responsable : Gilles Radenac) ou échantillonnage littoral (responsable : Denis Fichet). Ces 4 modules sont complémentaires et seront donc évalués en commun par un rapport individuel. En stratégie d'échantillonnage, vous réfléchirez à la meilleure méthode à mettre en œuvre pour collecter des données sur le terrain en vue de répondre à une question scientifique précise. Il vous faudra notamment tenir compte des nombreuses sources de variabilité afin de mettre en œuvre une stratégie adaptée. Vous irez sur le terrain (et au laboratoire) effectuer vous même la collecte de données, puis, dans les EC de Gilles Radenac ou Denis Fichet (selon vos choix et votre cursus de licence), vous irez plus loin en replaçant stratégie d'échantillonnage et analyse de données dans un contexte écologique plus large. La note d'analyse de données portera donc essentiellement sur les parties ``matériels et méthodes'' et ``résultats'' du rapport commun à ces différents EC que vous aurez à produire.
+  une unique évaluation sommative (ou certificative) qui vous permettra de valider ou non cet enseignement. Notez bien que cette évaluation prendra la forme d'un rapport qui sera réalisé en commun avec d'autres EC : stratégie d'échantillonnage (responsable : Benoît Lebreton), et mise à niveau en biologie marine (responsable : Gilles Radenac) ou échantillonnage littoral (responsable : Denis Fichet). Ces 4 modules sont complémentaires et seront donc évalués en commun par un rapport individuel. En stratégie d'échantillonnage, vous réfléchirez à la meilleure méthode à mettre en œuvre pour collecter des données sur le terrain en vue de répondre à une question scientifique précise. Il vous faudra notamment tenir compte des nombreuses sources de variabilité afin de mettre en œuvre une stratégie adaptée. Vous irez sur le terrain (et au laboratoire) effectuer vous même la collecte de données, puis, dans les EC de Gilles Radenac ou Denis Fichet (selon vos choix et votre cursus de licence), vous irez plus loin en replaçant stratégie d'échantillonnage et analyse de données dans un contexte écologique plus large. La note d'analyse de données portera donc essentiellement sur les parties ``matériels et méthodes'' et ``résultats'' du rapport commun à ces différents EC que vous aurez à produire. Il est en effet important de comprendre dès maintenant que l'analyse de données n'est pas une fin en soi : on ne fait pas des statistiques pour le plaisir, ou sans but précis. Ça n'est qu'un outil de votre panoplie d'écologue au service d'une question scientifique. L'analyse de données et les statistiques vous permettront de répondre à des questions scientifiques de façon objective, mais leur utilisation appropriée suppose que vous ayez les idées claires en amont sur la question scientifique à laquelle vous tentez de répondre. C'est cette démarche qui devrait vous guider tout au long de votre cursus de master et au-delà, dans votre vie professionnelle.
 \end{enumerate}
 
-Dans le cadre de l'approche compétences, j'essaierai, dans la mesure du possible, d'indiquer quelles sont les compétences et résultats d'apprentissage dont vous devrez faire l'acquisition pour chaque évaluation. À l'issue de cet enseignement, vous devriez être capables de :
+Dans le cadre de l'approche compétences, j'essaierai d'indiquer, dans la mesure du possible, quelles sont les compétences et résultats d'apprentissages dont vous devrez faire l'acquisition pour chaque évaluation. À l'issue de cet enseignement, vous devriez être capables de :
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Mettre en forme des données acquises afin d'en permettre l'importation dans R ou RStudio
+  Mettre en forme des données acquises sur le terrain ou au laboratoire afin d'en permettre l'importation dans R ou RStudio.
 \item
-  Produire des statistiques descriptives informatives permettant de comprendre la structure et les tendances principales d'un jeu de données
+  Produire des statistiques descriptives informatives permettant de comprendre la structure et les tendances principales d'un jeu de données.
 \item
-  Créer dans R ou RStudio des graphiques lisibles et informatifs permettant de mettre en évidence les tendances principales d'un jeu de données
+  Créer dans R ou RStudio des graphiques lisibles et informatifs permettant de mettre en évidence les tendances principales d'un jeu de données.
 \item
-  Produire des scripts clairs sous R ou RStudio, permettant la reproductibilité de ses analyses et la communication avec ses pairs
+  Produire des scripts clairs sous R ou RStudio, permettant la reproductibilité des traitements de données et des analyses statistiques ainsi que la communication avec vos pairs.
 \item
-  Analyser des données uni-, bi- ou multi-variées issues d'observations et de mesures sur le terrain et au laboratoire en choisissant les méthodes appropriées pour répondre à une problématique scientifique précise
+  Analyser des données uni-, bi- ou multi-variées issues d'observations et de mesures sur le terrain et au laboratoire en choisissant les méthodes appropriées pour répondre à une problématique scientifique précise.
 \item
-  Maîtriser les logiciels R ou RStudio pour realiser des analyses statistiques, des représentations graphiques ou des simulations numériques
+  Maîtriser les logiciels R ou RStudio pour réaliser des analyses statistiques, des représentations graphiques ou des simulations numériques.
 \end{enumerate}
 
 \hypertarget{bases}{%
@@ -343,7 +346,7 @@ Ce chapitre est en grande partie basé sur les 3 ressources suivantes que je vou
 \item
   L'ouvrage intitulé \href{https://ismayc.github.io/rbasics-book/}{Getting used to R, RStudio, and R Markdown} de Chester Ismay, comprend des podcasts (en anglais toujours) que vous pouvez suivre en apprenant.
 \item
-  Les tutoriels en ligne de DataCamp. DataCamp est une plateforme de e-learning accessible depuis n'importe quel navigateur internet et dont la priorité est l'enseignement des ``data sciences''. Leurs tutoriels vous aideront à apprendre certains des concepts développés dans ce livre. Avant d'aller plus loin, rendez-vous sur \href{https://www.datacamp.com/}{le site de DataCamp} et créez vous un compte gratuit.
+  Les tutoriels en ligne de DataCamp. DataCamp est une plateforme de e-learning accessible depuis n'importe quel navigateur internet et dont la priorité est l'enseignement des ``data sciences''. Leurs tutoriels vous aideront à apprendre certains des concepts développés dans ce livre. Avant d'aller plus loin, rendez-vous sur \href{https://www.datacamp.com/}{le site de DataCamp} et créez-vous un compte gratuit.
 \end{enumerate}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
@@ -363,7 +366,7 @@ Pour l'ensemble de ces TP, j'attends de vous que vous utilisiez R \emph{via} RSt
 
 Si vous n'avez pas de moteur, vous n'irez nulle part. En revanche, un moteur sans tableau de bord est difficile à manœuvrer. Il est en effet beaucoup plus simple de faire avancer une voiture depuis l'habitacle, plutôt qu'en actionnant à la main les cables et leviers du moteur.
 
-En l'occurence, R est un langage de programmation capable de produire des graphiques et de réaliser des analyses statistiques, des plus simples aux plus complexes. RStudio est un ``emballage'' qui rend l'utilisation de R plus aisée. RStudio est ce qu'on appelle un IDE : Itegrated Development Environment. On peut utiliser R sans RStudio, mais c'est nettement plus compliqué, nettement moins pratique.
+En l'occurence, R est un langage de programmation capable de produire des graphiques et de réaliser des analyses statistiques, des plus simples aux plus complexes. RStudio est un ``emballage'' qui rend l'utilisation de R plus aisée. RStudio est ce qu'on appelle un IDE : Integrated Development Environment. On peut utiliser R sans RStudio, mais c'est nettement plus compliqué, nettement moins pratique.
 
 \hypertarget{installation-de-r-et-rstudio}{%
 \subsubsection{Installation de R et RStudio}\label{installation-de-r-et-rstudio}}
@@ -422,7 +425,7 @@ Puisqu'il est beaucoup plus facile d'utiliser Rstudio pour interagir avec R, nou
 
 \includegraphics{images/rstudio.png}
 
-Regardez \href{https://campus.datacamp.com/courses/working-with-the-rstudio-ide-part-1/orientation?ex=5}{cette vidéo DataCamp} pour découvrir les différents panneaux de l'application, en particulier la Console dans laquelle nous exécuterons très bientôt du code R.
+Prenez le temps d'explorer cette interface, cliquez sur les différents onglets, ouvrez les menus, allez faire un tour dans les préférences du logiciel pour découvrir les différents panneaux de l'application, en particulier la Console dans laquelle nous exécuterons très bientôt du code R.
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
@@ -431,7 +434,7 @@ Regardez \href{https://campus.datacamp.com/courses/working-with-the-rstudio-ide-
 
 Maintenant que vous avez installé R et RStudio, vous vous demandez probablement comment on s'en sert\ldots{} La première chose à noter est que, contrairement à d'autres logiciels comme Excel, STATA ou SAS qui fournissent des interfaces où tout se fait en cliquant avec sa souris, R est un langage interprété, ce qui signifie que vous devez taper des commandes R, écrites en code R. C'est-à-dire que vous devez \textbf{programmer} en R (j'utilise les termes ``coder'' et ``programmer'' de manière interchangeable dans ce livre).
 
-Il n'est pas nécessaire d'être un programmeur pour utiliser R, néamnoins, il est nécessaire de programmer ! Il existe en effet un ensemble de concepts de programmation de base que les utilisateurs de R doivent comprendre et maîtriser. Par conséquent, bien que ce livre ne soit pas un livre sur la programmation, vous en apprendrez juste assez en programmation pour explorer et analyser efficacement des données.
+Il n'est pas nécessaire d'être un programmeur pour utiliser R, néanmoins, il est nécessaire de programmer ! Il existe en effet un ensemble de concepts de programmation de base que les utilisateurs de R doivent comprendre et maîtriser. Par conséquent, bien que ce livre ne soit pas un livre sur la programmation, vous en apprendrez juste assez en programmation pour explorer et analyser efficacement des données.
 
 \hypertarget{la-console}{%
 \subsubsection{La console}\label{la-console}}
@@ -525,9 +528,9 @@ Les avantages de travailler dans un script sont nombreux :
 \item
   Vous pouvez aisément partager votre script pour collaborer avec vos collègues de promo et enseignants.
 \item
-  Vous pouvez documenter votre démarche et les différentes étapes de vos analyses. Vous devez ajouter autant de commentaires que possible. Cela permettra à vos collaborateurs de comprendre ce que vous avez fait. Et cela vous permettra de comprendre ce que vous avez fait il y a 6 mois quand vous vous re-plongerez dans vos analyses dans quelques temps. Si votre démarche vous paraît cohérente maintenant, il n'est en effet pas garanti que vous vous souviendrez de chaque détail dans 6 mois ou 6 ans.
+  Vous pouvez documenter votre démarche et les différentes étapes de vos analyses. Vous devez ajouter autant de commentaires que possible. Cela permettra à vos collaborateurs de comprendre ce que vous avez fait. Et dans 6 mois, cela vous permettra de comprendre ce que vous avez fait. Si votre démarche vous paraît cohérente aujourd'hui, il n'est en effet pas garanti que vous vous souviendrez de chaque détail quand vous vous re-plongerez dans vos analyses dans quelques temps. Donc aidez-vous vous même en commentant vos scripts dès maintenant.
 \item
-  Un script bien structuré et clair permet de rendre vos analyses répétables. Si vous passez 15 heures à analyser un tableau de données précis, il vous suffira de quelques secondes pour analyser un nouveau jeu de données similaire : vous n'aurez que quelques lignes à modifier dans votre script original pour l'appliquer à de nouvelles données.
+  Un script bien structuré, bien indenté (avec les bons retours à la ligne, des sauts de lignes, des espaces, bref, de l'air) et clair permet de rendre vos analyses répétables. Si vous passez 15 heures à analyser un tableau de données précis, il vous suffira de quelques secondes pour analyser un nouveau jeu de données similaire : vous n'aurez que quelques lignes à modifier dans votre script original pour l'appliquer à de nouvelles données.
 \end{enumerate}
 
 Vous pouvez créer un script en cliquant dans le menu ``File \textgreater{} New File \textgreater{} R Script''. Un nouveau panneau s'ouvre dans l'application. Pensez à sauvegarder immédiatement votre nouveau script. Il faut pour cela lui donner un nom. Vous noterez que par défaut, RStudio propose d'enregistrer votre script dans votre répertoire de travail.
@@ -829,7 +832,7 @@ Dans un cas comme celui là, R va \emph{recycler} l'objet le plus court, ici \te
 
 Ce type de recyclage est très risqué car il est difficile de savoir ce qui a été comparé avec quoi. En travaillant avec des tableaux plutôt qu'avec des vecteurs, le problème est généralement évité puisque toutes les colonnes d'un \texttt{data.frame} contiennent le même nombre d'éléments.
 
-Dernière chose concernant les opérateurs de comparaison : la question des données manquantes. Dans R les données manquantes sont symbolisées par cette notation : \texttt{NA}, abréviation de ``Not Available''. Le symbole \texttt{NaN} (comme ``Not a Number'') est parfois aussi observé lorsque des opérations ont conduit à des indéterminations. Mais c'est plus rare et la plupart du temps, les \texttt{NaN}s peuvent être traités comme les \texttt{NA}s. L'un des problèmes des données manquantes, est qu'il est nécessaire de prendre des précautions pour réaliser des comparaison les impliquants :
+Dernière chose concernant les opérateurs de comparaison : la question des données manquantes. Dans R les données manquantes sont symbolisées par cette notation : \texttt{NA}, abréviation de ``Not Available''. Le symbole \texttt{NaN} (comme ``Not a Number'') est parfois aussi observé lorsque des opérations ont conduit à des indéterminations. Mais c'est plus rare et la plupart du temps, les \texttt{NaN}s peuvent être traités comme les \texttt{NA}s. L'un des problèmes des données manquantes est qu'il est nécessaire de prendre des précautions pour réaliser des comparaisons les impliquants :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1051,14 +1054,14 @@ car cela revient à calculer le logarithme de 10 en base 100. On peut en revanch
 \hypertarget{packages}{%
 \subsection{Les packages additionels}\label{packages}}
 
-Une source de confusion importante pour les nouveaux utilisateurs de R est la notion de package. Les packages étendent les fonctionnalités de R en fournissant des fonctions, des données et de la documentation supplémentaires et peuvent être téléchargés gratuitement sur Internet. Ils sont écrits par une communauté mondiale d'utilisateurs de R. Par exemple, parmi plus de 13000 packages disponibles à l'heure actuelle, nous utiliseront fréquemment :
+Une source de confusion importante pour les nouveaux utilisateurs de R est la notion de package. Les packages étendent les fonctionnalités de R en fournissant des fonctions, des données et de la documentation supplémentaires et peuvent être téléchargés gratuitement sur Internet. Ils sont écrits par une communauté mondiale d'utilisateurs de R. Par exemple, parmi près de 15000 packages disponibles à l'heure actuelle, nous utiliseront fréquemment :
 
 \begin{itemize}
 \tightlist
 \item
   Le package \texttt{ggplot2} pour la visualisation des données dans le chapitre \ref{viz}
 \item
-  Le package \texttt{dplyr} pour les manipuler des tableaux de données dans le chapitre \ref{wrangling}
+  Le package \texttt{dplyr} pour manipuler des tableaux de données dans le chapitre \ref{wrangling}
 \end{itemize}
 
 Une bonne analogie pour les packages R : ils sont comme les apps que vous téléchargez sur un téléphone portable. R est comme un nouveau téléphone mobile. Il est capable de faire certaines choses lorsque vous l'utilisez pour la première fois, mais il ne sait pas tout faire. Les packages sont comme les apps que vous pouvez télécharger dans l'App Store et Google Play. Pour utiliser un package, comme pour utiliser Instagram, vous devez :
@@ -1171,9 +1174,9 @@ Commençons par charger les packages nécessaires pour ce chapitre (cela suppose
 \hypertarget{le-package-nycflights13}{%
 \subsection{\texorpdfstring{Le package \texttt{nycflights13}}{Le package nycflights13}}\label{le-package-nycflights13}}
 
-Nous avons probablement déjà presque tous pris l'avion. Les grands aéroports contiennent de nombreuses portes d'embarquement, et pour chacune d'elles, des informations sur les vols en partance sont affichées. Par exemple, le numéro du vol, les heures de décollage et d'aterrissage prévues, les retards etc. Dans la mesure du possible, on aime arriver à destination à l'heure. Dans la suite de ce document, on examinera les jeux de données du package \texttt{nycflights13}, notamment afin d'en apprendre plus sur les causes de retard les plus fréquentes.
+Nous avons probablement déjà presque tous pris l'avion. Les grands aéroports contiennent de nombreuses portes d'embarquement, et pour chacune d'elles, des informations sur les vols en partance sont affichées. Par exemple, le numéro du vol, les heures de décollage et d'atterrissage prévues, les retards etc. Dans la mesure du possible, on aime arriver à destination à l'heure. Dans la suite de ce document, on examinera les jeux de données du package \texttt{nycflights13}, notamment afin d'en apprendre plus sur les causes de retard les plus fréquentes.
 
-Ce package contient 5 ``tableaux'' contenant des informations sur chaque vol intérieur ayant quitté New York en 2013, soit depuis l'aéroport de Newark Liberty International (EWR), soit depuis l'aéroport Jonh F. Kennedy Intenational (JFK), soit depuis l'aéroport LaGuardia (LGA) :
+Ce package contient 5 ``tableaux'' contenant des informations sur chaque vol intérieur ayant quitté New York en 2013, soit depuis l'aéroport de Newark Liberty International (EWR), soit depuis l'aéroport John F. Kennedy Intenational (JFK), soit depuis l'aéroport LaGuardia (LGA) :
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1187,7 +1190,7 @@ Ce package contient 5 ``tableaux'' contenant des informations sur chaque vol int
 \item
   \texttt{weather} : données météorologiques heure par heure (environ 8705 observations) pour chacun des 3 aéroports de New York
 \item
-  \texttt{airports} : noms et localisation géographiques des aéroports desservis (1458 aéroports)
+  \texttt{airports} : noms et localisations géographiques des aéroports desservis (1458 aéroports)
 \end{enumerate}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
@@ -1289,6 +1292,8 @@ Parmi les nombreuses façons d'avoir une idée des données contenues dans un \t
   la fonction \texttt{glimpse()} chargée avec le package \texttt{dplyr}. Elle est très similaire à la fonction \texttt{str()} découverte dans les tutoriels de DataCamp.
 \item
   l'opérateur \texttt{\$} permet d'accéder à une unique variable d'un \texttt{data.frame}.
+\item
+  la fonction \texttt{skim()} du package \texttt{skimr} permet d'obtenir un résumé complet mais très synthétique et visuel des variables d'un \texttt{data.frame}.
 \end{itemize}
 
 \hypertarget{View}{%
@@ -1417,6 +1422,90 @@ Cela nous permet de récupérer les données sous la forme d'un vecteur. Attenti
 
 Le résultat est pour le moins indigeste ! Lorsqu'un tableau contient de nombreuses lignes, c'est rarement une bonne idée de transformer l'une de ses colonnes en vecteur. Dans la mesure du possible, les données d'un tableau doivent rester dans le tableau.
 
+\hypertarget{skim}{%
+\subsubsection{\texorpdfstring{\texttt{skim()}}{skim()}}\label{skim}}
+
+Pour utiliser la fonction \texttt{skim()}, vous devez au préalable installer le package \texttt{skimr} :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"skimr"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Ce package est un peu ``expérimental'' et il se peut que l'installation pose problème. Si un message d'erreur apparaît lors de l'installation, procédez comme suit :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Quittez RStudio (sans oublier de sauvegarder votre travail au préalable)
+\item
+  Relancez RStudio et dans la console, tapez ceci :
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"rlang"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Tentez d'installer \texttt{skimr} à nouveau.
+\item
+  Exécutez à nouveau votre script afin de retrouver votre travail dans l'état où il était avant de quitter RStudio.
+\end{enumerate}
+
+Si l'installation de \texttt{skimr} s'est bien passée, vous pouvez maintenant taper ceci :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(skimr)}
+\KeywordTok{skim}\NormalTok{(flights)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Skim summary statistics
+ n obs: 336776 
+ n variables: 19 
+
+-- Variable type:character ------------------------------------------------------------------------------------------
+ variable missing complete      n min max empty n_unique
+  carrier       0   336776 336776   2   2     0       16
+     dest       0   336776 336776   3   3     0      105
+   origin       0   336776 336776   3   3     0        3
+  tailnum    2512   334264 336776   5   6     0     4043
+
+-- Variable type:integer --------------------------------------------------------------------------------------------
+       variable missing complete      n    mean      sd   p0  p25  p50  p75 p100     hist
+       arr_time    8713   328063 336776 1502.05  533.26    1 1104 1535 1940 2400 ▁▁▃▇▆▆▇▆
+            day       0   336776 336776   15.71    8.77    1    8   16   23   31 ▇▇▇▇▆▇▇▇
+       dep_time    8255   328521 336776 1349.11  488.28    1  907 1401 1744 2400 ▁▁▇▆▆▇▆▂
+         flight       0   336776 336776 1971.92 1632.47    1  553 1496 3465 8500 ▇▅▂▃▂▁▁▁
+          month       0   336776 336776    6.55    3.41    1    4    7   10   12 ▇▅▇▃▅▇▅▇
+ sched_arr_time       0   336776 336776 1536.38  497.46    1 1124 1556 1945 2359 ▁▁▂▇▆▇▇▆
+ sched_dep_time       0   336776 336776 1344.25  467.34  106  906 1359 1729 2359 ▁▃▇▆▆▇▇▂
+           year       0   336776 336776 2013       0    2013 2013 2013 2013 2013 ▁▁▁▇▁▁▁▁
+
+-- Variable type:numeric --------------------------------------------------------------------------------------------
+  variable missing complete      n    mean     sd  p0 p25 p50  p75 p100     hist
+  air_time    9430   327346 336776  150.69  93.69  20  82 129  192  695 ▇▇▂▃▁▁▁▁
+ arr_delay    9430   327346 336776    6.9   44.63 -86 -17  -5   14 1272 ▇▁▁▁▁▁▁▁
+ dep_delay    8255   328521 336776   12.64  40.21 -43  -5  -2   11 1301 ▇▁▁▁▁▁▁▁
+  distance       0   336776 336776 1039.91 733.23  17 502 872 1389 4983 ▆▇▂▂▁▁▁▁
+      hour       0   336776 336776   13.18   4.66   1   9  13   17   23 ▁▃▇▆▅▇▇▂
+    minute       0   336776 336776   26.23  19.3    0   8  29   44   59 ▇▂▃▃▅▂▃▅
+
+-- Variable type:POSIXct --------------------------------------------------------------------------------------------
+  variable missing complete      n        min        max     median n_unique
+ time_hour       0   336776 336776 2013-01-01 2013-12-31 2013-07-03     6936
+\end{verbatim}
+
 \hypertarget{les-fichiers-daide}{%
 \subsubsection{Les fichiers d'aide}\label{les-fichiers-daide}}
 
@@ -1540,7 +1629,7 @@ En février 2006, un statisticien du nom de Hans Rosling a donné un TED Talk in
 Pour l'année 2007, le jeu de données contient des informations pour 142 pays. Examinons les premières lignes de ce jeu de données :
 
 \begin{longtable}{llrrr}
-\caption{\label{tab:unnamed-chunk-35}Les 6 premières lignes du jeu de données `gapminder` pour l'année 2007.}\\
+\caption{\label{tab:unnamed-chunk-38}Les 6 premières lignes du jeu de données `gapminder` pour l'année 2007.}\\
 \toprule
 Country & Continent & Life Expectancy & Population & GDP per Capita\\
 \midrule
@@ -1688,11 +1777,11 @@ La fonction \texttt{ggplot()} permet d'établir la première base du graphique. 
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-37-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-40-1} 
 
 }
 
-\caption{Un graphique sans `geom`.}\label{fig:unnamed-chunk-37}
+\caption{Un graphique sans `geom`.}\label{fig:unnamed-chunk-40}
 \end{figure}
 
 Ce graphique est pour le moins vide : c'est normal, nous n'avons pas encore spécifié la couche contenant l'objet géométrique que nous souhaitons utiliser.
@@ -1837,7 +1926,7 @@ Sur cette figure, notez que :
   l'argument \texttt{alpha\ =} n'est pas intégré à l'intérieur d'une fonction \texttt{aes()} car ici, il n'est pas associé à une variable : c'est un simple paramètre.
 \end{itemize}
 
-L'over-plotting est souvent rencontré lorsque l'on représente plusieurs nuages de points pour les différentes valeurs d'une variable catégorielle. Par exemple, si on transforme la variable \texttt{month} en facteur (\texttt{factor(month)}), ont peut regarder s'il existe une relation entre les retards à l'atterrissage et le mois de l'année :
+L'over-plotting est souvent rencontré lorsque l'on représente plusieurs nuages de points pour les différentes valeurs d'une variable catégorielle. Par exemple, si on transforme la variable \texttt{month} en facteur (\texttt{factor(month)}), on peut regarder s'il existe une relation entre les retards à l'atterrissage et le mois de l'année :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1889,11 +1978,11 @@ Il est évidemment possible d'ajouter de la transparence :
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-39-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-42-1} 
 
 }
 
-\caption{Retards à l'arrivée pour les 12 mois de l'année 2013.}\label{fig:unnamed-chunk-39}
+\caption{Retards à l'arrivée pour les 12 mois de l'année 2013.}\label{fig:unnamed-chunk-42}
 \end{figure}
 
 \hypertarget{couleur-taille-et-forme}{%
@@ -2394,7 +2483,7 @@ En l'occurence, si le même réglage est spécifié dans la fonction \texttt{ggp
 \caption{Températures horaires et vitesse du vent à l'aéroport de Newark entre le 1er et le 15 janvier 2013.}\label{fig:wind4}
 \end{figure}
 
-il est ainsi possible de spécifier des éléments esthétiques qui s'appliqueront à toutes les couches d'un graphique, et d'autres qui ne s'appliqueront qu'à une couche spécifique, qu'à un objet géométrique particulier.
+Il est ainsi possible de spécifier des éléments esthétiques qui s'appliqueront à toutes les couches d'un graphique, et d'autres qui ne s'appliqueront qu'à une couche spécifique, qu'à un objet géométrique particulier.
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
@@ -2421,11 +2510,11 @@ Si on reprend le jeu de données \texttt{weather}, on peut par exemple s'intére
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-44-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-47-1} 
 
 }
 
-\caption{Histogramme des températures enregistrées en 2013 dans les 3 aéroports de New York.}\label{fig:unnamed-chunk-44}
+\caption{Histogramme des températures enregistrées en 2013 dans les 3 aéroports de New York.}\label{fig:unnamed-chunk-47}
 \end{figure}
 
 On observe plusieurs choses :
@@ -2454,11 +2543,11 @@ Comme pour les nuages de points utilisant les symboles 21 à 24, il est possible
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-45-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-48-1} 
 
 }
 
-\caption{Utilisation des arguments `fill` et `color` pour modifier l'aspect de l'histogramme.}\label{fig:unnamed-chunk-45}
+\caption{Utilisation des arguments `fill` et `color` pour modifier l'aspect de l'histogramme.}\label{fig:unnamed-chunk-48}
 \end{figure}
 
 \hypertarget{la-taille-des-classes}{%
@@ -2488,11 +2577,11 @@ Il est possible d'ajuster les caractéristiques des classes de l'histogramme de 
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-46-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-49-1} 
 
 }
 
-\caption{Modification du nombre de classes.}\label{fig:unnamed-chunk-46}
+\caption{Modification du nombre de classes.}\label{fig:unnamed-chunk-49}
 \end{figure}
 
 Ici, augmenter le nombre de classes à 60 permet de prendre conscience que la distribution n'est pas aussi lisse qu'elle en avait l'air. L'ajout d'une couche supplémentaire avec la fonction \texttt{geom\_rug()} (``a rug'' est un tapis en français) permet de prendre conscience que les données de température ne sont pas aussi continues qu'on pouvait le croire (figure \ref{fig:rughist}) :
@@ -2527,11 +2616,11 @@ On peut également modifier la largeur des classes avec \texttt{binwidth} :
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-47-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-50-1} 
 
 }
 
-\caption{Modification de la largeur des classes avec `binwidth`.}\label{fig:unnamed-chunk-47}
+\caption{Modification de la largeur des classes avec `binwidth`.}\label{fig:unnamed-chunk-50}
 \end{figure}
 
 Ici, chaque catégorie recouvre 10 degrés Farenheit, ce qui est probablement trop large puisque la bimodalité de la distribution est devenue presque invisible.
@@ -2599,6 +2688,66 @@ Il est important que toute la gamme des valeurs de \texttt{temp} soit couverte p
 
 On voit ici que les températures varient de 10.94 à 100.04 degrés Farenheit. Les classes que nous avons définies couvrent une plage de températures plus large (de 10 à 105). Toutes les données sont donc bien intégrées à l'histogramme.
 
+\hypertarget{les-densites}{%
+\subsubsection{Les densités}\label{les-densites}}
+
+Une façon de s'affranchir (presque) complètement de cette question de largeur des classes de tailles et de représenter les distributions sous forme de courbes de densités :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(weather, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ temp)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_density}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics[width=0.9\linewidth]{figure/density-1} 
+
+}
+
+\caption{Un exemple de courbe de densité.}\label{fig:density}
+\end{figure}
+
+Ici, la courbe reflète non pas la fréquence des données dans des classes de tailles, mais leur densité, c'est à dire que la surface totale sous la courbe vaut 1 (d'où l'échelle étrange sur l'axe des ordonnées). C'est une extention continue de l'histogramme par nature discontinu. On repère bien ici les 2 pics identifiés précédemments qui correspondent à des densités de données plus fortes pour les températures de 30 et 70 degrés Farenheit environ.
+La courbe possède un paramètre de lissage (\texttt{bw} pour ``bandwidth'') qui équivaut un peu à la largeur des classes de taille d'un histogramme :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(weather, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ temp)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_density}\NormalTok{(}\DataTypeTok{bw =} \FloatTok{0.5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics[width=0.9\linewidth]{figure/densitynarrow-1} 
+
+}
+
+\caption{Un exemple de courbe de densité trop peu lissée.}\label{fig:densitynarrow}
+\end{figure}
+
+Ici, les données sont trop peu lissées et la courbe est donc très ``bruitée''.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(weather, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ temp)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_density}\NormalTok{(}\DataTypeTok{bw =} \DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics[width=0.9\linewidth]{figure/densitywide-1} 
+
+}
+
+\caption{Un exemple de courbe de densité trop lissée.}\label{fig:densitywide}
+\end{figure}
+
+Ici, la courbe est trop lissée donc toute la structure des données disparaît. En règle générale, la valeur choisie par défaut par \texttt{geom\_density()} pour le paramètre \texttt{bw} est tout à fait satisfaisante. Il est donc rare que l'utilisateur ait à modifier manuellement cette valeur.
+
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
 \hypertarget{facets}{%
@@ -2620,11 +2769,11 @@ Ainsi, si l'on souhaite connaître la distribution des températures pour chaque
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-49-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-52-1} 
 
 }
 
-\caption{Distribution des températures avec visualisation des données mensuelles.}\label{fig:unnamed-chunk-49}
+\caption{Distribution des températures avec visualisation des données mensuelles.}\label{fig:unnamed-chunk-52}
 \end{figure}
 
 qui produit un graphique certes assez joli, mais difficile à interpréter, mieux vaut faire ceci :
@@ -2731,11 +2880,11 @@ Warning: Removed 1 rows containing non-finite values (stat_boxplot).
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-50-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-53-1} 
 
 }
 
-\caption{Un boxplot for peu utile...}\label{fig:unnamed-chunk-50}
+\caption{Un boxplot fort peu utile...}\label{fig:unnamed-chunk-53}
 \end{figure}
 
 Comme précédemment, R nous avertit qu'une observation n'a pas été intégrée (en raison d'une donnée manquante). Mais il nous dit aussi que \texttt{x} (pour nous, la variable \texttt{month}) est continue, et que nous avons probablement oublié de spécifier des groupes.
@@ -2751,11 +2900,11 @@ En effet, les boxplots sont généralement utilisés pour examiner la distributi
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-51-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-54-1} 
 
 }
 
-\caption{Boxplot des températures mensuelles.}\label{fig:unnamed-chunk-51}
+\caption{Boxplot des températures mensuelles.}\label{fig:unnamed-chunk-54}
 \end{figure}
 
 Les différents éléments d'un boxplot, sont les suivants :
@@ -2797,12 +2946,12 @@ On peut également aujouter une encoche autour de la valeur de médiane en ajout
 
 
 
-Comme l'indique la légende de la figure \ref{fig:notchedboxplot}, cette encoche correspond à l'étendue de l'intervalle de confiance à 95\% de la médiane. Pour chaque échantillon, nous espérons que la médiane calculée soit le reflet fidèle de la vraie valeur de médiane de la population. Mais il sera toujours impossible d'en avoir la certitude absolue. Le mieux que l'on puisse faire, c'est quantifier l'incertitude. L'intervalle de confiance nous indique qu'il ya de bonnes chances que la vraie valeur de médiane de la population générale (qui restera à jamais inconnue) se trouve dans cet intervalle. Ici, les encoches sont très étroites car les données sont abondantes. Il y a donc peu d'incertitude, ce qui est une bonne chose. Cette notion d'intervalle de confiance est importante et ce type de graphiques nous permettra d'anticiper sur les résultats des tests de comparaison de moyennes.
+Comme l'indique la légende de la figure \ref{fig:notchedboxplot}, cette encoche correspond à l'étendue de l'intervalle de confiance à 95\% de la médiane. Pour chaque échantillon, nous espérons que la médiane calculée soit le reflet fidèle de la vraie valeur de médiane de la population. Mais il sera toujours impossible d'en avoir la certitude absolue. Le mieux que l'on puisse faire, c'est quantifier l'incertitude. L'intervalle de confiance nous indique qu'il y a de bonnes chances que la vraie valeur de médiane de la population générale (qui restera à jamais inconnue) se trouve dans cet intervalle. Ici, les encoches sont très étroites car les données sont abondantes. Il y a donc peu d'incertitude, ce qui est une bonne chose. Cette notion d'intervalle de confiance est importante et ce type de graphique nous permettra d'anticiper sur les résultats des tests de comparaisons de moyennes.
 
 \hypertarget{une-autre-facon-dexaminer-des-distributions}{%
 \subsubsection{Une autre façon d'examiner des distributions}\label{une-autre-facon-dexaminer-des-distributions}}
 
-Dernière chose concernant les boxplots : il s'agit d'une représentation graphique très proche de l'histogramme. Pour vous en convaincre, je représente à la figure \ref{fig:compboxplot} ci-dessous uniquement les temperatures du mois de novembre, avec 3 types d'objets géométriques différents : un histogramme, un boxplot, et un nuage de points.
+Dernière chose concernant les boxplots : il s'agit d'une représentation graphique très proche de l'histogramme. Pour vous en convaincre, je représente à la figure \ref{fig:compboxplot} ci-dessous uniquement les températures du mois de novembre, avec 3 types d'objets géométriques différents : un histogramme, un boxplot, et un nuage de points.
 
 \begin{figure}[htpb]
 
@@ -2813,7 +2962,7 @@ Dernière chose concernant les boxplots : il s'agit d'une représentation graphi
 \caption{Distribution des températures de Novembre 2013.}\label{fig:compboxplot}
 \end{figure}
 
-Nous avons donc, à gauche les données brutes, sous la forme d'un nuage de point créé avec \texttt{geom\_jitter()}, au centre, un histogramme pour les températures de novembre créé avec \texttt{geom\_histogram()} (j'ai permuté les axes pour que \texttt{y} porte la température pour les 3 graphiques) et à droite, un boxplot pour ces mêmes données créé avec \texttt{geom\_boxplot()}. On voit bien que ces 3 représentations graphiques sont similaires. Toutes rendent compte du fait que les températures de Novembre sont majoritairement comprises entre 35 et 52 degrés Farenheit. Au-delà de cette fourchette (au-dessus comme en dessous) les observations sont plus rares.
+Nous avons donc, à gauche les données brutes, sous la forme d'un nuage de points créé avec \texttt{geom\_jitter()}, au centre, un histogramme pour les températures de novembre, créé avec \texttt{geom\_histogram()} (j'ai permuté les axes pour que \texttt{y} porte la température pour les 3 graphiques) et à droite, un boxplot pour ces mêmes données, créé avec \texttt{geom\_boxplot()}. On voit bien que ces 3 représentations graphiques sont similaires. Toutes rendent compte du fait que les températures de Novembre sont majoritairement comprises entre 35 et 52 degrés Farenheit. Au-delà de cette fourchette (au-dessus comme en dessous) les observations sont plus rares.
 
 Le nuage de points affiche toutes les données. C'est donc lui le plus complet mais pas forcément le plus lisible. Les points sont en effet très nombreux et la lecture du graphique peut s'en trouver compliquée. L'histogramme simplifie les données en les regroupant dans des classes. C'est une sorte de résumé des données. On constate cependant toujours la présence de 2 pics qui correspondent aux zones plus denses du nuage de points. Le boxplot enfin synthétise encore plus ces données. Elles sont résumées par 7 valeurs seulement : le minimum, le maximum, les 3 quartiles, et les bornes de l'intervalle de confiance à 95\% de la médiane. C'est une représentation très synthétique qui nous permet de comparer beaucoup de catégories côte à côte (voir la figure \ref{fig:notchedboxplot} un peu plus haut), mais qui est forcément moins précise qu'un histogramme. Vous noterez toutefois que la boîte du boxplot recouvre en grande partie la zone des 2 pics de l'histogramme. En outre, sur la figure \ref{fig:notchedboxplot}, la tendance générale est très visible : il fait plus chaud en été qu'en hiver (étonnant non ?).
 
@@ -2975,7 +3124,7 @@ Si nous souhaitons connaître le nombre de vols précis de chaque compagnie aér
 \NormalTok{carrier_table <-}\StringTok{ }\NormalTok{flights }\OperatorTok{%>%}\StringTok{   }\CommentTok{# On prend flights, puis...}
 \StringTok{  }\KeywordTok{group_by}\NormalTok{(carrier) }\OperatorTok{%>%}\StringTok{        }\CommentTok{# On groupe les données par compagnie, puis...}
 \StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{nombre =} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}\StringTok{  }\CommentTok{# On calcule le nb de vols par Cie, puis ...}
-\StringTok{  }\KeywordTok{arrange}\NormalTok{(}\KeywordTok{desc}\NormalTok{(nombre))        }\CommentTok{# On trie le tableau par nb de vols décroissant}
+\StringTok{  }\KeywordTok{arrange}\NormalTok{(}\KeywordTok{desc}\NormalTok{(nombre))        }\CommentTok{# On trie par nb de vols décroissants ...}
 \NormalTok{carrier_table                  }\CommentTok{# Enfin, on affiche la nouvelle table}
 \end{Highlighting}
 \end{Shaded}
@@ -5226,11 +5375,11 @@ Voilà comment traduire cela avec le pipe :
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-90-1} 
+{\centering \includegraphics[width=0.9\linewidth]{figure/unnamed-chunk-93-1} 
 
 }
 
-\caption{Notre premier graphique, produit grâce au pipe}\label{fig:unnamed-chunk-90}
+\caption{Notre premier graphique, produit grâce au pipe}\label{fig:unnamed-chunk-93}
 \end{figure}
 
 Notez bien qu'ici, aucun objet intermédiaire n'a été créé. Notez également que le premier argument de la fonction \texttt{ggplot()} a disparu : le pipe a fourni automatiquement à \texttt{ggplot()} les données générées au préalable (les données \texttt{flights} filtrées grâce à la fonction \texttt{filter()}).
@@ -6574,11 +6723,11 @@ De même, la variable \texttt{Sex} est codée sous forme numérique, or il devra
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.5\linewidth]{figure/unnamed-chunk-133-1} 
+{\centering \includegraphics[width=0.5\linewidth]{figure/unnamed-chunk-136-1} 
 
 }
 
-\caption{Indice Gonado Somatique  selon le sexe.}\label{fig:unnamed-chunk-133}
+\caption{Indice Gonado Somatique  selon le sexe.}\label{fig:unnamed-chunk-136}
 \end{figure}
 
 Comment faire pour inverser l'ordre des catégories sur l'axe des abscisses ? Il faut inverser l'ordre des catégories dans le facteur \texttt{Sex}. L'ordre dans lequel les catégories apparaissent sur un graphique est en effet déterminé par l'ordre dans lequel les niveaux du facteur sont organisés. D'habitude, les niveaux sont automatiquement triés par ordre alphabétique quand les catégories sont des chaînes de caractères, et en ordre croissant quand la variable est numérique. Ici les niveaux sont les suivants :
@@ -6619,11 +6768,11 @@ Comment faire pour inverser l'ordre des catégories sur l'axe des abscisses ? Il
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.5\linewidth]{figure/unnamed-chunk-136-1} 
+{\centering \includegraphics[width=0.5\linewidth]{figure/unnamed-chunk-139-1} 
 
 }
 
-\caption{Indice Gonado Somatique  selon le sexe.}\label{fig:unnamed-chunk-136}
+\caption{Indice Gonado Somatique  selon le sexe.}\label{fig:unnamed-chunk-139}
 \end{figure}
 
 Revenons maintenant au jeu de données \texttt{dauphin}.

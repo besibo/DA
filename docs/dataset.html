@@ -24,7 +24,7 @@
 <meta name="author" content="Benoît Simon-Bouhet" />
 
 
-<meta name="date" content="2019-07-16" />
+<meta name="date" content="2019-08-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -165,7 +165,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="chapter" data-level="3.3.1" data-path="dataset.html"><a href="dataset.html#View"><i class="fa fa-check"></i><b>3.3.1</b> <code>View()</code></a></li>
 <li class="chapter" data-level="3.3.2" data-path="dataset.html"><a href="dataset.html#glimpse"><i class="fa fa-check"></i><b>3.3.2</b> <code>glimpse()</code></a></li>
 <li class="chapter" data-level="3.3.3" data-path="dataset.html"><a href="dataset.html#loperateur"><i class="fa fa-check"></i><b>3.3.3</b> L’opérateur <code>$</code></a></li>
-<li class="chapter" data-level="3.3.4" data-path="dataset.html"><a href="dataset.html#les-fichiers-daide"><i class="fa fa-check"></i><b>3.3.4</b> Les fichiers d’aide</a></li>
+<li class="chapter" data-level="3.3.4" data-path="dataset.html"><a href="dataset.html#skim"><i class="fa fa-check"></i><b>3.3.4</b> <code>skim()</code></a></li>
+<li class="chapter" data-level="3.3.5" data-path="dataset.html"><a href="dataset.html#les-fichiers-daide"><i class="fa fa-check"></i><b>3.3.5</b> Les fichiers d’aide</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="dataset.html"><a href="dataset.html#exercices-1"><i class="fa fa-check"></i><b>3.4</b> Exercices</a></li>
 </ul></li>
@@ -194,6 +195,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="chapter" data-level="4.5" data-path="viz.html"><a href="viz.html#histogram"><i class="fa fa-check"></i><b>4.5</b> Les histogrammes</a><ul>
 <li class="chapter" data-level="4.5.1" data-path="viz.html"><a href="viz.html#lobjet-geom_histogram"><i class="fa fa-check"></i><b>4.5.1</b> L’objet <code>geom_histogram()</code></a></li>
 <li class="chapter" data-level="4.5.2" data-path="viz.html"><a href="viz.html#la-taille-des-classes"><i class="fa fa-check"></i><b>4.5.2</b> La taille des classes</a></li>
+<li class="chapter" data-level="4.5.3" data-path="viz.html"><a href="viz.html#les-densites"><i class="fa fa-check"></i><b>4.5.3</b> Les densités</a></li>
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="viz.html"><a href="viz.html#facets"><i class="fa fa-check"></i><b>4.6</b> Les <code>facet</code>s</a><ul>
 <li class="chapter" data-level="4.6.1" data-path="viz.html"><a href="viz.html#facet_wrap"><i class="fa fa-check"></i><b>4.6.1</b> <code>facet_wrap()</code></a></li>
@@ -299,14 +301,14 @@ code span.wa { color: #bf0303; } /* Warning */
 <hr />
 <div id="le-package-nycflights13" class="section level2">
 <h2><span class="header-section-number">3.1</span> Le package <code>nycflights13</code></h2>
-<p>Nous avons probablement déjà presque tous pris l’avion. Les grands aéroports contiennent de nombreuses portes d’embarquement, et pour chacune d’elles, des informations sur les vols en partance sont affichées. Par exemple, le numéro du vol, les heures de décollage et d’aterrissage prévues, les retards etc. Dans la mesure du possible, on aime arriver à destination à l’heure. Dans la suite de ce document, on examinera les jeux de données du package <code>nycflights13</code>, notamment afin d’en apprendre plus sur les causes de retard les plus fréquentes.</p>
-<p>Ce package contient 5 “tableaux” contenant des informations sur chaque vol intérieur ayant quitté New York en 2013, soit depuis l’aéroport de Newark Liberty International (EWR), soit depuis l’aéroport Jonh F. Kennedy Intenational (JFK), soit depuis l’aéroport LaGuardia (LGA) :</p>
+<p>Nous avons probablement déjà presque tous pris l’avion. Les grands aéroports contiennent de nombreuses portes d’embarquement, et pour chacune d’elles, des informations sur les vols en partance sont affichées. Par exemple, le numéro du vol, les heures de décollage et d’atterrissage prévues, les retards etc. Dans la mesure du possible, on aime arriver à destination à l’heure. Dans la suite de ce document, on examinera les jeux de données du package <code>nycflights13</code>, notamment afin d’en apprendre plus sur les causes de retard les plus fréquentes.</p>
+<p>Ce package contient 5 “tableaux” contenant des informations sur chaque vol intérieur ayant quitté New York en 2013, soit depuis l’aéroport de Newark Liberty International (EWR), soit depuis l’aéroport John F. Kennedy Intenational (JFK), soit depuis l’aéroport LaGuardia (LGA) :</p>
 <ol style="list-style-type: decimal">
 <li><code>flights</code> : informations sur chacun des 336776 vols</li>
 <li><code>airlines</code> : traduction entre les codes IATA à 2 lettres des compagnies aériennes et leur nom complet (il y en a 16 au total)</li>
 <li><code>planes</code> : informations constructeurs pour chacun des 3322 avions utilisés en 2013</li>
 <li><code>weather</code> : données météorologiques heure par heure (environ 8705 observations) pour chacun des 3 aéroports de New York</li>
-<li><code>airports</code> : noms et localisation géographiques des aéroports desservis (1458 aéroports)</li>
+<li><code>airports</code> : noms et localisations géographiques des aéroports desservis (1458 aéroports)</li>
 </ol>
 <hr />
 </div>
@@ -366,6 +368,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <li>la fonction <code>View()</code> intégrée à RStudio. C’est celle que vous utiliserez le plus souvent. Attention, elle s’écrit avec un “V” majuscule.</li>
 <li>la fonction <code>glimpse()</code> chargée avec le package <code>dplyr</code>. Elle est très similaire à la fonction <code>str()</code> découverte dans les tutoriels de DataCamp.</li>
 <li>l’opérateur <code>$</code> permet d’accéder à une unique variable d’un <code>data.frame</code>.</li>
+<li>la fonction <code>skim()</code> du package <code>skimr</code> permet d’obtenir un résumé complet mais très synthétique et visuel des variables d’un <code>data.frame</code>.</li>
 </ul>
 <div id="View" class="section level3">
 <h3><span class="header-section-number">3.3.1</span> <code>View()</code></h3>
@@ -446,8 +449,60 @@ $ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 2013-01-01 05:00:00, 2…</co
 <pre class="sourceCode r"><code class="sourceCode r">flights<span class="op">$</span>carrier</code></pre>
 <p>Le résultat est pour le moins indigeste ! Lorsqu’un tableau contient de nombreuses lignes, c’est rarement une bonne idée de transformer l’une de ses colonnes en vecteur. Dans la mesure du possible, les données d’un tableau doivent rester dans le tableau.</p>
 </div>
+<div id="skim" class="section level3">
+<h3><span class="header-section-number">3.3.4</span> <code>skim()</code></h3>
+<p>Pour utiliser la fonction <code>skim()</code>, vous devez au préalable installer le package <code>skimr</code> :</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;skimr&quot;</span>)</code></pre>
+<p>Ce package est un peu “expérimental” et il se peut que l’installation pose problème. Si un message d’erreur apparaît lors de l’installation, procédez comme suit :</p>
+<ol style="list-style-type: decimal">
+<li>Quittez RStudio (sans oublier de sauvegarder votre travail au préalable)</li>
+<li>Relancez RStudio et dans la console, tapez ceci :</li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;rlang&quot;</span>)</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Tentez d’installer <code>skimr</code> à nouveau.</li>
+<li>Exécutez à nouveau votre script afin de retrouver votre travail dans l’état où il était avant de quitter RStudio.</li>
+</ol>
+<p>Si l’installation de <code>skimr</code> s’est bien passée, vous pouvez maintenant taper ceci :</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(skimr)
+<span class="kw">skim</span>(flights)</code></pre>
+<pre><code>Skim summary statistics
+ n obs: 336776 
+ n variables: 19 
+
+── Variable type:character ──────────────────────────────────────────────────────────────────────────────────────────
+ variable missing complete      n min max empty n_unique
+  carrier       0   336776 336776   2   2     0       16
+     dest       0   336776 336776   3   3     0      105
+   origin       0   336776 336776   3   3     0        3
+  tailnum    2512   334264 336776   5   6     0     4043
+
+── Variable type:integer ────────────────────────────────────────────────────────────────────────────────────────────
+       variable missing complete      n    mean      sd   p0  p25  p50  p75 p100     hist
+       arr_time    8713   328063 336776 1502.05  533.26    1 1104 1535 1940 2400 ▁▁▃▇▆▆▇▆
+            day       0   336776 336776   15.71    8.77    1    8   16   23   31 ▇▇▇▇▆▇▇▇
+       dep_time    8255   328521 336776 1349.11  488.28    1  907 1401 1744 2400 ▁▁▇▆▆▇▆▂
+         flight       0   336776 336776 1971.92 1632.47    1  553 1496 3465 8500 ▇▅▂▃▂▁▁▁
+          month       0   336776 336776    6.55    3.41    1    4    7   10   12 ▇▅▇▃▅▇▅▇
+ sched_arr_time       0   336776 336776 1536.38  497.46    1 1124 1556 1945 2359 ▁▁▂▇▆▇▇▆
+ sched_dep_time       0   336776 336776 1344.25  467.34  106  906 1359 1729 2359 ▁▃▇▆▆▇▇▂
+           year       0   336776 336776 2013       0    2013 2013 2013 2013 2013 ▁▁▁▇▁▁▁▁
+
+── Variable type:numeric ────────────────────────────────────────────────────────────────────────────────────────────
+  variable missing complete      n    mean     sd  p0 p25 p50  p75 p100     hist
+  air_time    9430   327346 336776  150.69  93.69  20  82 129  192  695 ▇▇▂▃▁▁▁▁
+ arr_delay    9430   327346 336776    6.9   44.63 -86 -17  -5   14 1272 ▇▁▁▁▁▁▁▁
+ dep_delay    8255   328521 336776   12.64  40.21 -43  -5  -2   11 1301 ▇▁▁▁▁▁▁▁
+  distance       0   336776 336776 1039.91 733.23  17 502 872 1389 4983 ▆▇▂▂▁▁▁▁
+      hour       0   336776 336776   13.18   4.66   1   9  13   17   23 ▁▃▇▆▅▇▇▂
+    minute       0   336776 336776   26.23  19.3    0   8  29   44   59 ▇▂▃▃▅▂▃▅
+
+── Variable type:POSIXct ────────────────────────────────────────────────────────────────────────────────────────────
+  variable missing complete      n        min        max     median n_unique
+ time_hour       0   336776 336776 2013-01-01 2013-12-31 2013-07-03     6936</code></pre>
+</div>
 <div id="les-fichiers-daide" class="section level3">
-<h3><span class="header-section-number">3.3.4</span> Les fichiers d’aide</h3>
+<h3><span class="header-section-number">3.3.5</span> Les fichiers d’aide</h3>
 <p>Une fonctionalité particulièrement utile de R est son système d’aide. On peut obtenir de l’aide au sujet de n’importe quelle fonction et de n’importe quel jeu de données en tapant un “<code>?</code>” immédiatement suivi du nom de la fonction ou de l’objet.</p>
 <p>Par exemple, examinez l’aide du jeu de données <code>flights</code> :</p>
 <pre class="sourceCode r"><code class="sourceCode r">?flights</code></pre>

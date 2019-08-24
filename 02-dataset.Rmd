@@ -15,15 +15,15 @@ library(nycflights13)
 
 ## Le package `nycflights13`
 
-Nous avons probablement déjà presque tous pris l'avion. Les grands aéroports contiennent de nombreuses portes d'embarquement, et pour chacune d'elles, des informations sur les vols en partance sont affichées. Par exemple, le numéro du vol, les heures de décollage et d'aterrissage prévues, les retards etc. Dans la mesure du possible, on aime arriver à destination à l'heure. Dans la suite de ce document, on examinera les jeux de données du package `nycflights13`, notamment afin d'en apprendre plus sur les causes de retard les plus fréquentes.
+Nous avons probablement déjà presque tous pris l'avion. Les grands aéroports contiennent de nombreuses portes d'embarquement, et pour chacune d'elles, des informations sur les vols en partance sont affichées. Par exemple, le numéro du vol, les heures de décollage et d'atterrissage prévues, les retards etc. Dans la mesure du possible, on aime arriver à destination à l'heure. Dans la suite de ce document, on examinera les jeux de données du package `nycflights13`, notamment afin d'en apprendre plus sur les causes de retard les plus fréquentes.
 
-Ce package contient 5 "tableaux" contenant des informations sur chaque vol intérieur ayant quitté New York en 2013, soit depuis l'aéroport de Newark Liberty International (EWR), soit depuis l'aéroport Jonh F. Kennedy Intenational (JFK), soit depuis l'aéroport LaGuardia (LGA) :
+Ce package contient 5 "tableaux" contenant des informations sur chaque vol intérieur ayant quitté New York en 2013, soit depuis l'aéroport de Newark Liberty International (EWR), soit depuis l'aéroport John F. Kennedy Intenational (JFK), soit depuis l'aéroport LaGuardia (LGA) :
 
 1. `flights` : informations sur chacun des 336776 vols
 2. `airlines` : traduction entre les codes IATA à 2 lettres des compagnies aériennes et leur nom complet (il y en a 16 au total)
 3. `planes` : informations constructeurs pour chacun des 3322 avions utilisés en 2013
 4. `weather` : données météorologiques heure par heure (environ 8705 observations) pour chacun des 3 aéroports de New York
-5. `airports` : noms et localisation géographiques des aéroports desservis (1458 aéroports)
+5. `airports` : noms et localisations géographiques des aéroports desservis (1458 aéroports)
 
 
 ----
@@ -70,6 +70,7 @@ Parmi les nombreuses façons d'avoir une idée des données contenues dans un `d
 - la fonction `View()` intégrée à RStudio. C'est celle que vous utiliserez le plus souvent. Attention, elle s'écrit avec un "V" majuscule.
 - la fonction `glimpse()` chargée avec le package `dplyr`. Elle est très similaire à la fonction `str()` découverte dans les tutoriels de DataCamp.
 - l'opérateur `$` permet d'accéder à une unique variable d'un `data.frame`.
+- la fonction `skim()` du package `skimr` permet d'obtenir un résumé complet mais très synthétique et visuel des variables d'un `data.frame`.
 
 ### `View()` {#View}
 
@@ -123,6 +124,37 @@ flights$carrier
 ```
 
 Le résultat est pour le moins indigeste ! Lorsqu'un tableau contient de nombreuses lignes, c'est rarement une bonne idée de transformer l'une de ses colonnes en vecteur. Dans la mesure du possible, les données d'un tableau doivent rester dans le tableau.
+
+
+### `skim()`
+
+Pour utiliser la fonction `skim()`, vous devez au préalable installer le package `skimr` :
+
+```{r eval=FALSE}
+install.packages("skimr")
+```
+
+Ce package est un peu "expérimental" et il se peut que l'installation pose problème. Si un message d'erreur apparaît lors de l'installation, procédez comme suit :
+
+1. Quittez RStudio (sans oublier de sauvegarder votre travail au préalable)
+2. Relancez RStudio et dans la console, tapez ceci :
+
+```{r eval=FALSE}
+install.packages("rlang")
+```
+
+3. Tentez d'installer `skimr` à nouveau.
+4. Exécutez à nouveau votre script afin de retrouver votre travail dans l'état où il était avant de quitter RStudio.
+
+Si l'installation de `skimr` s'est bien passée, vous pouvez maintenant taper ceci :
+
+```{r size='tiny', echo = 2:3}
+options(width = 120)
+library(skimr)
+skim(flights)
+options(width = 70)
+```
+
 
 
 ### Les fichiers d'aide

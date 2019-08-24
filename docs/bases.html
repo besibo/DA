@@ -24,7 +24,7 @@
 <meta name="author" content="Benoît Simon-Bouhet" />
 
 
-<meta name="date" content="2019-07-16" />
+<meta name="date" content="2019-08-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -165,7 +165,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="chapter" data-level="3.3.1" data-path="dataset.html"><a href="dataset.html#View"><i class="fa fa-check"></i><b>3.3.1</b> <code>View()</code></a></li>
 <li class="chapter" data-level="3.3.2" data-path="dataset.html"><a href="dataset.html#glimpse"><i class="fa fa-check"></i><b>3.3.2</b> <code>glimpse()</code></a></li>
 <li class="chapter" data-level="3.3.3" data-path="dataset.html"><a href="dataset.html#loperateur"><i class="fa fa-check"></i><b>3.3.3</b> L’opérateur <code>$</code></a></li>
-<li class="chapter" data-level="3.3.4" data-path="dataset.html"><a href="dataset.html#les-fichiers-daide"><i class="fa fa-check"></i><b>3.3.4</b> Les fichiers d’aide</a></li>
+<li class="chapter" data-level="3.3.4" data-path="dataset.html"><a href="dataset.html#skim"><i class="fa fa-check"></i><b>3.3.4</b> <code>skim()</code></a></li>
+<li class="chapter" data-level="3.3.5" data-path="dataset.html"><a href="dataset.html#les-fichiers-daide"><i class="fa fa-check"></i><b>3.3.5</b> Les fichiers d’aide</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="dataset.html"><a href="dataset.html#exercices-1"><i class="fa fa-check"></i><b>3.4</b> Exercices</a></li>
 </ul></li>
@@ -194,6 +195,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="chapter" data-level="4.5" data-path="viz.html"><a href="viz.html#histogram"><i class="fa fa-check"></i><b>4.5</b> Les histogrammes</a><ul>
 <li class="chapter" data-level="4.5.1" data-path="viz.html"><a href="viz.html#lobjet-geom_histogram"><i class="fa fa-check"></i><b>4.5.1</b> L’objet <code>geom_histogram()</code></a></li>
 <li class="chapter" data-level="4.5.2" data-path="viz.html"><a href="viz.html#la-taille-des-classes"><i class="fa fa-check"></i><b>4.5.2</b> La taille des classes</a></li>
+<li class="chapter" data-level="4.5.3" data-path="viz.html"><a href="viz.html#les-densites"><i class="fa fa-check"></i><b>4.5.3</b> Les densités</a></li>
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="viz.html"><a href="viz.html#facets"><i class="fa fa-check"></i><b>4.6</b> Les <code>facet</code>s</a><ul>
 <li class="chapter" data-level="4.6.1" data-path="viz.html"><a href="viz.html#facet_wrap"><i class="fa fa-check"></i><b>4.6.1</b> <code>facet_wrap()</code></a></li>
@@ -302,7 +304,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <ol style="list-style-type: decimal">
 <li>L’ouvrage intitulé <a href="https://moderndive.com/index.html">ModernDive</a>, de Chester Ismay et Albert Y. Kim. Une bonne partie de ce livre est très largement inspirée de cet ouvrage. C’est en anglais, mais c’est un très bon texte d’introduction aux statistiques sous R et RStudio.</li>
 <li>L’ouvrage intitulé <a href="https://ismayc.github.io/rbasics-book/">Getting used to R, RStudio, and R Markdown</a> de Chester Ismay, comprend des podcasts (en anglais toujours) que vous pouvez suivre en apprenant.</li>
-<li>Les tutoriels en ligne de DataCamp. DataCamp est une plateforme de e-learning accessible depuis n’importe quel navigateur internet et dont la priorité est l’enseignement des “data sciences”. Leurs tutoriels vous aideront à apprendre certains des concepts développés dans ce livre. Avant d’aller plus loin, rendez-vous sur <a href="https://www.datacamp.com/">le site de DataCamp</a> et créez vous un compte gratuit.</li>
+<li>Les tutoriels en ligne de DataCamp. DataCamp est une plateforme de e-learning accessible depuis n’importe quel navigateur internet et dont la priorité est l’enseignement des “data sciences”. Leurs tutoriels vous aideront à apprendre certains des concepts développés dans ce livre. Avant d’aller plus loin, rendez-vous sur <a href="https://www.datacamp.com/">le site de DataCamp</a> et créez-vous un compte gratuit.</li>
 </ol>
 <hr />
 <div id="que-sont-r-et-rstudio" class="section level2">
@@ -313,7 +315,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <li>RStudio est l’habitacle, le tableau de bord, les pédales</li>
 </ul>
 <p>Si vous n’avez pas de moteur, vous n’irez nulle part. En revanche, un moteur sans tableau de bord est difficile à manœuvrer. Il est en effet beaucoup plus simple de faire avancer une voiture depuis l’habitacle, plutôt qu’en actionnant à la main les cables et leviers du moteur.</p>
-<p>En l’occurence, R est un langage de programmation capable de produire des graphiques et de réaliser des analyses statistiques, des plus simples aux plus complexes. RStudio est un “emballage” qui rend l’utilisation de R plus aisée. RStudio est ce qu’on appelle un IDE : Itegrated Development Environment. On peut utiliser R sans RStudio, mais c’est nettement plus compliqué, nettement moins pratique.</p>
+<p>En l’occurence, R est un langage de programmation capable de produire des graphiques et de réaliser des analyses statistiques, des plus simples aux plus complexes. RStudio est un “emballage” qui rend l’utilisation de R plus aisée. RStudio est ce qu’on appelle un IDE : Integrated Development Environment. On peut utiliser R sans RStudio, mais c’est nettement plus compliqué, nettement moins pratique.</p>
 <div id="installation-de-r-et-rstudio" class="section level3">
 <h3><span class="header-section-number">2.1.1</span> Installation de R et RStudio</h3>
 <p><em>Si vous travaillez exclusivement sur les ordinateurs de l’Université, vous pouvez passer cette section. Si vous souhaitez utiliser R et RStudio sur votre ordinateur personnel, alors suivez le guide !</em></p>
@@ -343,14 +345,14 @@ code span.wa { color: #bf0303; } /* Warning */
 </ul>
 <p>À l’université, vous trouverez RStudio dans le menu Windows. Quand vous ouvrez RStudio pour la première fois, vous devriez obtenir une fenêtre qui ressemble à ceci :</p>
 <p><img src="images/rstudio.png" /></p>
-<p>Regardez <a href="https://campus.datacamp.com/courses/working-with-the-rstudio-ide-part-1/orientation?ex=5">cette vidéo DataCamp</a> pour découvrir les différents panneaux de l’application, en particulier la Console dans laquelle nous exécuterons très bientôt du code R.</p>
+<p>Prenez le temps d’explorer cette interface, cliquez sur les différents onglets, ouvrez les menus, allez faire un tour dans les préférences du logiciel pour découvrir les différents panneaux de l’application, en particulier la Console dans laquelle nous exécuterons très bientôt du code R.</p>
 <hr />
 </div>
 </div>
 <div id="code" class="section level2">
 <h2><span class="header-section-number">2.2</span> Comment exécuter du code R ?</h2>
 <p>Maintenant que vous avez installé R et RStudio, vous vous demandez probablement comment on s’en sert… La première chose à noter est que, contrairement à d’autres logiciels comme Excel, STATA ou SAS qui fournissent des interfaces où tout se fait en cliquant avec sa souris, R est un langage interprété, ce qui signifie que vous devez taper des commandes R, écrites en code R. C’est-à-dire que vous devez <strong>programmer</strong> en R (j’utilise les termes “coder” et “programmer” de manière interchangeable dans ce livre).</p>
-<p>Il n’est pas nécessaire d’être un programmeur pour utiliser R, néamnoins, il est nécessaire de programmer ! Il existe en effet un ensemble de concepts de programmation de base que les utilisateurs de R doivent comprendre et maîtriser. Par conséquent, bien que ce livre ne soit pas un livre sur la programmation, vous en apprendrez juste assez en programmation pour explorer et analyser efficacement des données.</p>
+<p>Il n’est pas nécessaire d’être un programmeur pour utiliser R, néanmoins, il est nécessaire de programmer ! Il existe en effet un ensemble de concepts de programmation de base que les utilisateurs de R doivent comprendre et maîtriser. Par conséquent, bien que ce livre ne soit pas un livre sur la programmation, vous en apprendrez juste assez en programmation pour explorer et analyser efficacement des données.</p>
 <div id="la-console" class="section level3">
 <h3><span class="header-section-number">2.2.1</span> La console</h3>
 <p>La façon la plus simle d’interagir avec RStudio (mais pas du tout la meilleure !) consiste à taper directement des commandes que R pourra comprendre dans la Console.</p>
@@ -392,8 +394,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <ol style="list-style-type: decimal">
 <li>Vous pouvez sauvegarder votre script à tout moment (vous devriez prendre l’habitude de le sauvegarder très régulièrement). Vous gardez ainsi la trace de toutes les commandes que vous avez tapées.</li>
 <li>Vous pouvez aisément partager votre script pour collaborer avec vos collègues de promo et enseignants.</li>
-<li>Vous pouvez documenter votre démarche et les différentes étapes de vos analyses. Vous devez ajouter autant de commentaires que possible. Cela permettra à vos collaborateurs de comprendre ce que vous avez fait. Et cela vous permettra de comprendre ce que vous avez fait il y a 6 mois quand vous vous re-plongerez dans vos analyses dans quelques temps. Si votre démarche vous paraît cohérente maintenant, il n’est en effet pas garanti que vous vous souviendrez de chaque détail dans 6 mois ou 6 ans.</li>
-<li>Un script bien structuré et clair permet de rendre vos analyses répétables. Si vous passez 15 heures à analyser un tableau de données précis, il vous suffira de quelques secondes pour analyser un nouveau jeu de données similaire : vous n’aurez que quelques lignes à modifier dans votre script original pour l’appliquer à de nouvelles données.</li>
+<li>Vous pouvez documenter votre démarche et les différentes étapes de vos analyses. Vous devez ajouter autant de commentaires que possible. Cela permettra à vos collaborateurs de comprendre ce que vous avez fait. Et dans 6 mois, cela vous permettra de comprendre ce que vous avez fait. Si votre démarche vous paraît cohérente aujourd’hui, il n’est en effet pas garanti que vous vous souviendrez de chaque détail quand vous vous re-plongerez dans vos analyses dans quelques temps. Donc aidez-vous vous même en commentant vos scripts dès maintenant.</li>
+<li>Un script bien structuré, bien indenté (avec les bons retours à la ligne, des sauts de lignes, des espaces, bref, de l’air) et clair permet de rendre vos analyses répétables. Si vous passez 15 heures à analyser un tableau de données précis, il vous suffira de quelques secondes pour analyser un nouveau jeu de données similaire : vous n’aurez que quelques lignes à modifier dans votre script original pour l’appliquer à de nouvelles données.</li>
 </ol>
 <p>Vous pouvez créer un script en cliquant dans le menu “File &gt; New File &gt; R Script”. Un nouveau panneau s’ouvre dans l’application. Pensez à sauvegarder immédiatement votre nouveau script. Il faut pour cela lui donner un nom. Vous noterez que par défaut, RStudio propose d’enregistrer votre script dans votre répertoire de travail.</p>
 <p>À partir de maintenant, vous ne devriez plus taper de commande directement dans la console. Tapez systématiquement vos commandes dans un script et sauvegardez-le régulièrement.</p>
@@ -529,7 +531,7 @@ n&#39;est pas multiple de la taille d&#39;un objet plus court</code></pre>
 <pre><code>[1] FALSE  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE</code></pre>
 <p>Dans un cas comme celui là, R va <em>recycler</em> l’objet le plus court, ici <code>tailles_pop3</code> pour qu’une comparaison puisse être faite avec chaque élément de l’objet le plus long (ici, <code>tailles_pop1</code>). Ainsi, 43 est comparé à 112, 56 est comparé à 28 et 92 est comparé à 86. Puisque <code>tailles_pop3</code> ne contient plus d’éléments, ils sont recyclés, dans le même ordre : 43 est comparé à 14, 56 est comparé à 154, et ainsi de suite jusqu’à ce que tous les éléments de <code>tailles_pop1</code> aient été passés en revue.</p>
 <p>Ce type de recyclage est très risqué car il est difficile de savoir ce qui a été comparé avec quoi. En travaillant avec des tableaux plutôt qu’avec des vecteurs, le problème est généralement évité puisque toutes les colonnes d’un <code>data.frame</code> contiennent le même nombre d’éléments.</p>
-<p>Dernière chose concernant les opérateurs de comparaison : la question des données manquantes. Dans R les données manquantes sont symbolisées par cette notation : <code>NA</code>, abréviation de “Not Available”. Le symbole <code>NaN</code> (comme “Not a Number”) est parfois aussi observé lorsque des opérations ont conduit à des indéterminations. Mais c’est plus rare et la plupart du temps, les <code>NaN</code>s peuvent être traités comme les <code>NA</code>s. L’un des problèmes des données manquantes, est qu’il est nécessaire de prendre des précautions pour réaliser des comparaison les impliquants :</p>
+<p>Dernière chose concernant les opérateurs de comparaison : la question des données manquantes. Dans R les données manquantes sont symbolisées par cette notation : <code>NA</code>, abréviation de “Not Available”. Le symbole <code>NaN</code> (comme “Not a Number”) est parfois aussi observé lorsque des opérations ont conduit à des indéterminations. Mais c’est plus rare et la plupart du temps, les <code>NaN</code>s peuvent être traités comme les <code>NA</code>s. L’un des problèmes des données manquantes est qu’il est nécessaire de prendre des précautions pour réaliser des comparaisons les impliquants :</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="dv">3</span> <span class="op">==</span><span class="st"> </span><span class="ot">NA</span></code></pre>
 <pre><code>[1] NA</code></pre>
 <p>On s’attend logiquement à ce que 3 ne soit pas considéré comme égal à <code>NA</code>, et donc, on s’attend à obtenir <code>FALSE</code>. Pourtant, le résultat est <code>NA</code>. La comparaison d’un élément quelconque à une donnée manquante fournit toujours une donnée manquante : la comparaison ne peut pas se faire, R n’a donc rien à retourner. C’est également le cas aussi lorsque l’on compare deux valeurs manquantes :</p>
@@ -652,10 +654,10 @@ age_Pierre <span class="op">==</span><span class="st"> </span>age_Marie</code></
 </div>
 <div id="packages" class="section level2">
 <h2><span class="header-section-number">2.3</span> Les packages additionels</h2>
-<p>Une source de confusion importante pour les nouveaux utilisateurs de R est la notion de package. Les packages étendent les fonctionnalités de R en fournissant des fonctions, des données et de la documentation supplémentaires et peuvent être téléchargés gratuitement sur Internet. Ils sont écrits par une communauté mondiale d’utilisateurs de R. Par exemple, parmi plus de 13000 packages disponibles à l’heure actuelle, nous utiliseront fréquemment :</p>
+<p>Une source de confusion importante pour les nouveaux utilisateurs de R est la notion de package. Les packages étendent les fonctionnalités de R en fournissant des fonctions, des données et de la documentation supplémentaires et peuvent être téléchargés gratuitement sur Internet. Ils sont écrits par une communauté mondiale d’utilisateurs de R. Par exemple, parmi près de 15000 packages disponibles à l’heure actuelle, nous utiliseront fréquemment :</p>
 <ul>
 <li>Le package <code>ggplot2</code> pour la visualisation des données dans le chapitre <a href="viz.html#viz">4</a></li>
-<li>Le package <code>dplyr</code> pour les manipuler des tableaux de données dans le chapitre <a href="wrangling.html#wrangling">6</a></li>
+<li>Le package <code>dplyr</code> pour manipuler des tableaux de données dans le chapitre <a href="wrangling.html#wrangling">6</a></li>
 </ul>
 <p>Une bonne analogie pour les packages R : ils sont comme les apps que vous téléchargez sur un téléphone portable. R est comme un nouveau téléphone mobile. Il est capable de faire certaines choses lorsque vous l’utilisez pour la première fois, mais il ne sait pas tout faire. Les packages sont comme les apps que vous pouvez télécharger dans l’App Store et Google Play. Pour utiliser un package, comme pour utiliser Instagram, vous devez :</p>
 <ol style="list-style-type: decimal">

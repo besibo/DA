@@ -24,7 +24,7 @@
 <meta name="author" content="Benoît Simon-Bouhet" />
 
 
-<meta name="date" content="2019-07-16" />
+<meta name="date" content="2019-08-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -165,7 +165,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="chapter" data-level="3.3.1" data-path="dataset.html"><a href="dataset.html#View"><i class="fa fa-check"></i><b>3.3.1</b> <code>View()</code></a></li>
 <li class="chapter" data-level="3.3.2" data-path="dataset.html"><a href="dataset.html#glimpse"><i class="fa fa-check"></i><b>3.3.2</b> <code>glimpse()</code></a></li>
 <li class="chapter" data-level="3.3.3" data-path="dataset.html"><a href="dataset.html#loperateur"><i class="fa fa-check"></i><b>3.3.3</b> L’opérateur <code>$</code></a></li>
-<li class="chapter" data-level="3.3.4" data-path="dataset.html"><a href="dataset.html#les-fichiers-daide"><i class="fa fa-check"></i><b>3.3.4</b> Les fichiers d’aide</a></li>
+<li class="chapter" data-level="3.3.4" data-path="dataset.html"><a href="dataset.html#skim"><i class="fa fa-check"></i><b>3.3.4</b> <code>skim()</code></a></li>
+<li class="chapter" data-level="3.3.5" data-path="dataset.html"><a href="dataset.html#les-fichiers-daide"><i class="fa fa-check"></i><b>3.3.5</b> Les fichiers d’aide</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="dataset.html"><a href="dataset.html#exercices-1"><i class="fa fa-check"></i><b>3.4</b> Exercices</a></li>
 </ul></li>
@@ -194,6 +195,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="chapter" data-level="4.5" data-path="viz.html"><a href="viz.html#histogram"><i class="fa fa-check"></i><b>4.5</b> Les histogrammes</a><ul>
 <li class="chapter" data-level="4.5.1" data-path="viz.html"><a href="viz.html#lobjet-geom_histogram"><i class="fa fa-check"></i><b>4.5.1</b> L’objet <code>geom_histogram()</code></a></li>
 <li class="chapter" data-level="4.5.2" data-path="viz.html"><a href="viz.html#la-taille-des-classes"><i class="fa fa-check"></i><b>4.5.2</b> La taille des classes</a></li>
+<li class="chapter" data-level="4.5.3" data-path="viz.html"><a href="viz.html#les-densites"><i class="fa fa-check"></i><b>4.5.3</b> Les densités</a></li>
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="viz.html"><a href="viz.html#facets"><i class="fa fa-check"></i><b>4.6</b> Les <code>facet</code>s</a><ul>
 <li class="chapter" data-level="4.6.1" data-path="viz.html"><a href="viz.html#facet_wrap"><i class="fa fa-check"></i><b>4.6.1</b> <code>facet_wrap()</code></a></li>
@@ -292,7 +294,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <div id="header">
 <h1 class="title">Analyse de Données</h1>
 <p class="author"><em>Benoît Simon-Bouhet</em></p>
-<p class="date"><em>2019-07-16</em></p>
+<p class="date"><em>2019-08-24</em></p>
 </div>
 <div id="introduction" class="section level1">
 <h1><span class="header-section-number">1</span> Introduction</h1>
@@ -330,7 +332,7 @@ Les données que vous serez amenés à traiter lors de vos stages, ou plus tard,
 <li><p>un bloc de 10 heures consacrées aux notions statistiques élémentaires, aux statistiques descriptives et aux statistiques inférentielles. Nous couvrirons notamment les notions d’incertitude et d’inférence, les tests d’hypothèses, la comparaison de proportions, l’ajustement de données observées à des distributions théoriques, l’analyse de tables de contingences, les comparaisons de moyennes, les régressions linéaires, les ANOVA et ANCOVA…</p></li>
 <li><p>un bloc de 5 heures consacrées aux statistiques multivariées telles que l’Analyse en Composantes Principales (ACP) et l’Analyse Factorielle des Correspondances (AFC).</p></li>
 </ol>
-<p>Mon objectif n’est pas de traiter à tout prix l’ensemble du matériel dans ce faible volume horaire. Nous prendrons le temps de traiter correctement l’ensemble du matériel, quitte à ajouter des séances si besoin. Je suis convaincu que tout le monde est capable de comprendre les grands principes des statistiques, et de réaliser des analyses statistiques dans un logiciel tel que R, y compris les plus réfractaires aux mathématiques. Mais il est nécessaire de démystifier cette discipline essentielle, et si certains ont besoin de plus de temps que d’autres, nous prendrons ce temps. Les TP et TEA, décrits plus bas, sont justement organisés pour permettre à chacun d’avancer à son rythme. Mais ne vous y trompez pas, cela vous demandera <strong>beaucoup</strong> de travail pendant ces 3 semaines.</p>
+<p>Mon objectif n’est pas de survoler l’ensemble du matériel dans ce faible volume horaire : s’il n’est pas suffisant, nous ajouterons quelques séances afin de traiter correctement l’ensemble du matériel. Je suis convaincu que tout le monde est capable de comprendre les grands principes des statistiques, et de réaliser des analyses dans un logiciel tel que R, y compris les plus réfractaires aux mathématiques et à l’informatique. Mais il est nécessaire de démystifier cette discipline essentielle, et si certains ont besoin de plus de temps que d’autres, nous prendrons ce temps. Les TP et TEA, décrits plus bas, sont justement organisés pour permettre à chacun d’avancer à son rythme. Mais ne vous y trompez pas, cela vous demandera <strong>beaucoup</strong> de travail pendant ces 3 semaines.</p>
 <p>Tous les aspects vu en cours seront en effet développés lors des séances de TP et de TEA. Vous aurez, pour chaque partie, des exercices à préparer et à déposer sur l’ENT. Ces exercices seront corrigés lors des séances de TP et/ou de TEA. Tout cela doit d’une part vous préparer à l’évaluation qui aura lieu conjointement avec les EC de stratégie d’échantillonnage, de remise à niveau en biologie marine et d’échantillonnage littoral, mais surtout, cela doit vous permettre d’acquérir des compétences en analyse de données, compétences qui seront attendues de vous lorsque vous sortirez diplômé.e de ce master.</p>
 </div>
 <div id="les-travaux-pratiques" class="section level3">
@@ -370,16 +372,16 @@ Les données que vous serez amenés à traiter lors de vos stages, ou plus tard,
 <p>Vous aurez 2 types d’évaluations cette année :</p>
 <ol style="list-style-type: decimal">
 <li><p>des évaluations formatives qui ne rentreront pas dans la note finale de l’EC. Ces évaluations ont pour objectif principal de vous permettre de vous situer dans vos apprentissages. Elles devraient aussi vous permettre de vous approprier quels sont les enjeux de l’analyse de données et les attentes de vos enseignants. Pour ces évaluations formatives, nous expérimenterons l’évaluation par les pairs. Autrement dit, vous évaluerez vous même, et de façon anonyme, plusieurs devoirs de vos camarades, et plusieurs de vos camarades corrigeront chacun de vos travaux. Cette approche a de nombreux avantages. Elle vous permet notamment de mieux vous approprier les grilles de notations (par exemple, qu’est-ce qu’un bon script sous R ? À l’inverse, qu’est-ce qu’un script médiocre ? Comment être sûr que la méthode statistique choisie est la bonne pour répondre à une question donnée ? Suis-je capable de décrire correctement un tableau de données de grande taille ? Suis-je capable de produire des graphiques informatifs ?) et rends possible un retour personnalisé sur vos travaux beaucoup plus rapidement que si votre enseignant était le seul à corriger l’ensemble de vos travaux. Pas d’inquiétude, vous serez guidés à chaque étape.</p></li>
-<li><p>une unique évaluation sommative (ou certificative) qui vous permettra de valider ou non cet enseignement. Notez bien que cette évaluation prendra la forme d’un rapport qui sera réalisé en commun avec d’autres EC : stratégie d’échantillonnage (responsable : Benoît Lebreton), et mise à niveau en biologie marine (responsable : Gilles Radenac) ou échantillonnage littoral (responsable : Denis Fichet). Ces 4 modules sont complémentaires et seront donc évalués en commun par un rapport individuel. En stratégie d’échantillonnage, vous réfléchirez à la meilleure méthode à mettre en œuvre pour collecter des données sur le terrain en vue de répondre à une question scientifique précise. Il vous faudra notamment tenir compte des nombreuses sources de variabilité afin de mettre en œuvre une stratégie adaptée. Vous irez sur le terrain (et au laboratoire) effectuer vous même la collecte de données, puis, dans les EC de Gilles Radenac ou Denis Fichet (selon vos choix et votre cursus de licence), vous irez plus loin en replaçant stratégie d’échantillonnage et analyse de données dans un contexte écologique plus large. La note d’analyse de données portera donc essentiellement sur les parties “matériels et méthodes” et “résultats” du rapport commun à ces différents EC que vous aurez à produire.</p></li>
+<li><p>une unique évaluation sommative (ou certificative) qui vous permettra de valider ou non cet enseignement. Notez bien que cette évaluation prendra la forme d’un rapport qui sera réalisé en commun avec d’autres EC : stratégie d’échantillonnage (responsable : Benoît Lebreton), et mise à niveau en biologie marine (responsable : Gilles Radenac) ou échantillonnage littoral (responsable : Denis Fichet). Ces 4 modules sont complémentaires et seront donc évalués en commun par un rapport individuel. En stratégie d’échantillonnage, vous réfléchirez à la meilleure méthode à mettre en œuvre pour collecter des données sur le terrain en vue de répondre à une question scientifique précise. Il vous faudra notamment tenir compte des nombreuses sources de variabilité afin de mettre en œuvre une stratégie adaptée. Vous irez sur le terrain (et au laboratoire) effectuer vous même la collecte de données, puis, dans les EC de Gilles Radenac ou Denis Fichet (selon vos choix et votre cursus de licence), vous irez plus loin en replaçant stratégie d’échantillonnage et analyse de données dans un contexte écologique plus large. La note d’analyse de données portera donc essentiellement sur les parties “matériels et méthodes” et “résultats” du rapport commun à ces différents EC que vous aurez à produire. Il est en effet important de comprendre dès maintenant que l’analyse de données n’est pas une fin en soi : on ne fait pas des statistiques pour le plaisir, ou sans but précis. Ça n’est qu’un outil de votre panoplie d’écologue au service d’une question scientifique. L’analyse de données et les statistiques vous permettront de répondre à des questions scientifiques de façon objective, mais leur utilisation appropriée suppose que vous ayez les idées claires en amont sur la question scientifique à laquelle vous tentez de répondre. C’est cette démarche qui devrait vous guider tout au long de votre cursus de master et au-delà, dans votre vie professionnelle.</p></li>
 </ol>
-<p>Dans le cadre de l’approche compétences, j’essaierai, dans la mesure du possible, d’indiquer quelles sont les compétences et résultats d’apprentissage dont vous devrez faire l’acquisition pour chaque évaluation. À l’issue de cet enseignement, vous devriez être capables de :</p>
+<p>Dans le cadre de l’approche compétences, j’essaierai d’indiquer, dans la mesure du possible, quelles sont les compétences et résultats d’apprentissages dont vous devrez faire l’acquisition pour chaque évaluation. À l’issue de cet enseignement, vous devriez être capables de :</p>
 <ol style="list-style-type: decimal">
-<li>Mettre en forme des données acquises afin d’en permettre l’importation dans R ou RStudio</li>
-<li>Produire des statistiques descriptives informatives permettant de comprendre la structure et les tendances principales d’un jeu de données</li>
-<li>Créer dans R ou RStudio des graphiques lisibles et informatifs permettant de mettre en évidence les tendances principales d’un jeu de données</li>
-<li>Produire des scripts clairs sous R ou RStudio, permettant la reproductibilité de ses analyses et la communication avec ses pairs</li>
-<li>Analyser des données uni-, bi- ou multi-variées issues d’observations et de mesures sur le terrain et au laboratoire en choisissant les méthodes appropriées pour répondre à une problématique scientifique précise</li>
-<li>Maîtriser les logiciels R ou RStudio pour realiser des analyses statistiques, des représentations graphiques ou des simulations numériques</li>
+<li>Mettre en forme des données acquises sur le terrain ou au laboratoire afin d’en permettre l’importation dans R ou RStudio.</li>
+<li>Produire des statistiques descriptives informatives permettant de comprendre la structure et les tendances principales d’un jeu de données.</li>
+<li>Créer dans R ou RStudio des graphiques lisibles et informatifs permettant de mettre en évidence les tendances principales d’un jeu de données.</li>
+<li>Produire des scripts clairs sous R ou RStudio, permettant la reproductibilité des traitements de données et des analyses statistiques ainsi que la communication avec vos pairs.</li>
+<li>Analyser des données uni-, bi- ou multi-variées issues d’observations et de mesures sur le terrain et au laboratoire en choisissant les méthodes appropriées pour répondre à une problématique scientifique précise.</li>
+<li>Maîtriser les logiciels R ou RStudio pour réaliser des analyses statistiques, des représentations graphiques ou des simulations numériques.</li>
 </ol>
 <!-- Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab). -->
 <!-- You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015]. -->

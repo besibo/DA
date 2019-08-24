@@ -24,7 +24,7 @@
 <meta name="author" content="Benoît Simon-Bouhet" />
 
 
-<meta name="date" content="2019-07-16" />
+<meta name="date" content="2019-08-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -165,7 +165,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="chapter" data-level="3.3.1" data-path="dataset.html"><a href="dataset.html#View"><i class="fa fa-check"></i><b>3.3.1</b> <code>View()</code></a></li>
 <li class="chapter" data-level="3.3.2" data-path="dataset.html"><a href="dataset.html#glimpse"><i class="fa fa-check"></i><b>3.3.2</b> <code>glimpse()</code></a></li>
 <li class="chapter" data-level="3.3.3" data-path="dataset.html"><a href="dataset.html#loperateur"><i class="fa fa-check"></i><b>3.3.3</b> L’opérateur <code>$</code></a></li>
-<li class="chapter" data-level="3.3.4" data-path="dataset.html"><a href="dataset.html#les-fichiers-daide"><i class="fa fa-check"></i><b>3.3.4</b> Les fichiers d’aide</a></li>
+<li class="chapter" data-level="3.3.4" data-path="dataset.html"><a href="dataset.html#skim"><i class="fa fa-check"></i><b>3.3.4</b> <code>skim()</code></a></li>
+<li class="chapter" data-level="3.3.5" data-path="dataset.html"><a href="dataset.html#les-fichiers-daide"><i class="fa fa-check"></i><b>3.3.5</b> Les fichiers d’aide</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="dataset.html"><a href="dataset.html#exercices-1"><i class="fa fa-check"></i><b>3.4</b> Exercices</a></li>
 </ul></li>
@@ -194,6 +195,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="chapter" data-level="4.5" data-path="viz.html"><a href="viz.html#histogram"><i class="fa fa-check"></i><b>4.5</b> Les histogrammes</a><ul>
 <li class="chapter" data-level="4.5.1" data-path="viz.html"><a href="viz.html#lobjet-geom_histogram"><i class="fa fa-check"></i><b>4.5.1</b> L’objet <code>geom_histogram()</code></a></li>
 <li class="chapter" data-level="4.5.2" data-path="viz.html"><a href="viz.html#la-taille-des-classes"><i class="fa fa-check"></i><b>4.5.2</b> La taille des classes</a></li>
+<li class="chapter" data-level="4.5.3" data-path="viz.html"><a href="viz.html#les-densites"><i class="fa fa-check"></i><b>4.5.3</b> Les densités</a></li>
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="viz.html"><a href="viz.html#facets"><i class="fa fa-check"></i><b>4.6</b> Les <code>facet</code>s</a><ul>
 <li class="chapter" data-level="4.6.1" data-path="viz.html"><a href="viz.html#facet_wrap"><i class="fa fa-check"></i><b>4.6.1</b> <code>facet_wrap()</code></a></li>
@@ -330,8 +332,8 @@ x <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">f</spa
 <span class="st">  </span><span class="kw">filter</span>(carrier <span class="op">==</span><span class="st"> &quot;AS&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay)) <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">geom_point</span>()</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-90"></span>
-<img src="figure/unnamed-chunk-90-1.png" alt="Notre premier graphique, produit grâce au pipe" width="90%" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-93"></span>
+<img src="figure/unnamed-chunk-93-1.png" alt="Notre premier graphique, produit grâce au pipe" width="90%" />
 <p class="caption">
 Figure 6.1: Notre premier graphique, produit grâce au pipe
 </p>
@@ -1191,8 +1193,8 @@ squid2</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">squid2 <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Sex, <span class="dt">y =</span> GSI)) <span class="op">+</span>
 <span class="st">    </span><span class="kw">geom_boxplot</span>(<span class="dt">notch =</span> <span class="ot">TRUE</span>)</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-133"></span>
-<img src="figure/unnamed-chunk-133-1.png" alt="Indice Gonado Somatique  selon le sexe." width="50%" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-136"></span>
+<img src="figure/unnamed-chunk-136-1.png" alt="Indice Gonado Somatique  selon le sexe." width="50%" />
 <p class="caption">
 Figure 6.11: Indice Gonado Somatique selon le sexe.
 </p>
@@ -1210,8 +1212,8 @@ squid3 &lt;-<span class="st"> </span>squid2 <span class="op">%&gt;%</span><span 
 <pre class="sourceCode r"><code class="sourceCode r">squid3 <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Sex, <span class="dt">y =</span> GSI)) <span class="op">+</span>
 <span class="st">    </span><span class="kw">geom_boxplot</span>(<span class="dt">notch =</span> <span class="ot">TRUE</span>)</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-136"></span>
-<img src="figure/unnamed-chunk-136-1.png" alt="Indice Gonado Somatique  selon le sexe." width="50%" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-139"></span>
+<img src="figure/unnamed-chunk-139-1.png" alt="Indice Gonado Somatique  selon le sexe." width="50%" />
 <p class="caption">
 Figure 6.12: Indice Gonado Somatique selon le sexe.
 </p>
