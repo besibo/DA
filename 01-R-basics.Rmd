@@ -44,8 +44,6 @@ Avant tout, vous devez télécharger et installer R et RStudio, dans cet ordre :
  - Cliquez sur "Download RStudio Desktop".
  - Choisissez la version gratuite et cliquez sur le lien de téléchargement qui correspond à votre système d'exploitation.
  
-Pour plus de détails sur la façon de procéder, vous pouvez consulter [cette vidéo](https://campus.datacamp.com/courses/working-with-the-rstudio-ide-part-1/orientation?ex=3) sur le site de DataCamp. Pour accéder à la vidéo, il est possible que vous deviez vous identifier avec le compte (gratuit) que vous avez créé un peu plus tôt.
-
 
 ### Utiliser R depuis RStudio
 
