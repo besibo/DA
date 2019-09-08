@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.10.19)  24 AUG 2019 18:06
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.10.19)  8 SEP 2019 21:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -945,9 +945,9 @@ mapping=tex-text;"
 LT;mapping=tex-text;"
 . - 'bold italic small caps'  (bx/itsc) with NFSS spec.: 
 .................................................
-LaTeX Info: Redefining \rmfamily on input line 136.
+LaTeX Info: Redefining \rmfamily on input line 137.
 LaTeX Font Info:    Font shape `TU/ArcherPro-Medium(0)/m/n' will be
-(Font)              scaled to size 10.11734pt on input line 136.
+(Font)              scaled to size 10.11734pt on input line 137.
 .................................................
 . fontspec info: "set-scale"
 . 
@@ -973,27 +973,27 @@ LaTeX Font Info:    Font shape `TU/ArcherPro-Medium(0)/m/n' will be
 . 
 . ArcherPro-Medium scale = 1.011734238832594.
 .................................................
-LaTeX Font Info:    Redeclaring math alphabet \mathrm on input line 136.
+LaTeX Font Info:    Redeclaring math alphabet \mathrm on input line 137.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
 (Font)                  TU/ArcherPro-Medium(0)/m/n --> TU/ArcherPro-Medium(0)/b
-x/n on input line 136.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 136.
+x/n on input line 137.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 137.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/lmr/m/it --> TU/ArcherPro-Medium(0)/m/it on input l
-ine 136.
+ine 137.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/lmr/bx/it --> TU/ArcherPro-Medium(0)/m/it on input 
-line 136.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 136.
+line 137.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 137.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/lmr/bx/n --> TU/ArcherPro-Medium(0)/bx/n on input l
-ine 136.
+ine 137.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
 (Font)                  OT1/lmr/bx/n --> TU/ArcherPro-Medium(0)/bx/n on input l
-ine 136.
+ine 137.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  TU/ArcherPro-Medium(0)/m/it --> TU/ArcherPro-Medium(0)/
-bx/it on input line 136.
+bx/it on input line 137.
 \symOperators:m:n=\mathgroup11
 .................................................
 . fontspec info: "set-scale"
@@ -1055,7 +1055,7 @@ tionSpace=WordSpace,Scale=0.85].
 . \fontdimen 4\font =0\fontdimen 4\font \fontdimen 7\font =0\fontdimen 2\font
 . \tex_hyphenchar:D \font =-1\scan_stop: 
 .................................................
-LaTeX Info: Redefining \ttfamily on input line 137.
+LaTeX Info: Redefining \ttfamily on input line 138.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/rotating.sty
@@ -1211,9 +1211,9 @@ Package: enumitem 2011/09/28 v3.5.2 Customized lists
 . <->s*[0.8303539144008678]"FuturaLT-Book/BI/AAT:mapping=tex-text;"
 . - 'bold italic small caps'  (bx/itsc) with NFSS spec.: 
 .................................................
-LaTeX Info: Redefining \rmfamily on input line 146.
+LaTeX Info: Redefining \rmfamily on input line 147.
 LaTeX Font Info:    Font shape `TU/FuturaLT-Book(0)/m/n' will be
-(Font)              scaled to size 9.0886pt on input line 146.
+(Font)              scaled to size 9.0886pt on input line 147.
 .................................................
 . fontspec info: "no-scripts"
 . 
@@ -1224,13 +1224,13 @@ LaTeX Font Info:    Font shape `TU/FuturaLT-Book(0)/m/n' will be
 . 
 . FuturaLT-Book scale = 0.9088601159640395.
 .................................................
-LaTeX Font Info:    Redeclaring symbol font `Digits:m:n' on input line 146.
+LaTeX Font Info:    Redeclaring symbol font `Digits:m:n' on input line 147.
 LaTeX Font Info:    Overwriting symbol font `Digits:m:n' in version `normal'
 (Font)                  TU/ArcherPro-Medium(0)/m/n --> TU/FuturaLT-Book(0)/m/n 
-on input line 146.
+on input line 147.
 LaTeX Font Info:    Overwriting symbol font `Digits:m:n' in version `bold'
 (Font)                  TU/ArcherPro-Medium(0)/m/n --> TU/FuturaLT-Book(0)/m/n 
-on input line 146.
+on input line 147.
 .................................................
 . fontspec info: "no-scripts"
 . 
@@ -1241,20 +1241,20 @@ on input line 146.
 . 
 . FuturaLT-Book scale = 0.9088601159640395.
 .................................................
-LaTeX Font Info:    Redeclaring symbol font `Latin:m:n' on input line 146.
+LaTeX Font Info:    Redeclaring symbol font `Latin:m:n' on input line 147.
 LaTeX Font Info:    Overwriting symbol font `Latin:m:n' in version `normal'
 (Font)                  TU/ArcherPro-Medium(0)/m/n --> TU/FuturaLT-Book(0)/m/n 
-on input line 146.
+on input line 147.
 LaTeX Font Info:    Overwriting symbol font `Latin:m:n' in version `bold'
 (Font)                  TU/ArcherPro-Medium(0)/m/n --> TU/FuturaLT-Book(0)/m/n 
-on input line 146.
-LaTeX Font Info:    Redeclaring symbol font `Latin:m:it' on input line 146.
+on input line 147.
+LaTeX Font Info:    Redeclaring symbol font `Latin:m:it' on input line 147.
 LaTeX Font Info:    Overwriting symbol font `Latin:m:it' in version `normal'
 (Font)                  TU/ArcherPro-Medium(0)/m/it --> TU/FuturaLT-Book(0)/m/i
-t on input line 146.
+t on input line 147.
 LaTeX Font Info:    Overwriting symbol font `Latin:m:it' in version `bold'
 (Font)                  TU/ArcherPro-Medium(0)/m/it --> TU/FuturaLT-Book(0)/m/i
-t on input line 146.
+t on input line 147.
 .................................................
 . fontspec info: "no-scripts"
 . 
@@ -1265,20 +1265,20 @@ t on input line 146.
 . 
 . FuturaLT-Book scale = 0.9088601159640395.
 .................................................
-LaTeX Font Info:    Redeclaring symbol font `Greek:m:n' on input line 146.
+LaTeX Font Info:    Redeclaring symbol font `Greek:m:n' on input line 147.
 LaTeX Font Info:    Overwriting symbol font `Greek:m:n' in version `normal'
 (Font)                  TU/ArcherPro-Medium(0)/m/n --> TU/FuturaLT-Book(0)/m/n 
-on input line 146.
+on input line 147.
 LaTeX Font Info:    Overwriting symbol font `Greek:m:n' in version `bold'
 (Font)                  TU/ArcherPro-Medium(0)/m/n --> TU/FuturaLT-Book(0)/m/n 
-on input line 146.
-LaTeX Font Info:    Redeclaring symbol font `Greek:m:it' on input line 146.
+on input line 147.
+LaTeX Font Info:    Redeclaring symbol font `Greek:m:it' on input line 147.
 LaTeX Font Info:    Overwriting symbol font `Greek:m:it' in version `normal'
 (Font)                  TU/ArcherPro-Medium(0)/m/it --> TU/FuturaLT-Book(0)/m/i
-t on input line 146.
+t on input line 147.
 LaTeX Font Info:    Overwriting symbol font `Greek:m:it' in version `bold'
 (Font)                  TU/ArcherPro-Medium(0)/m/it --> TU/FuturaLT-Book(0)/m/i
-t on input line 146.
+t on input line 147.
 .................................................
 . fontspec info: "no-scripts"
 . 
@@ -1289,41 +1289,41 @@ t on input line 146.
 . 
 . FuturaLT-Book scale = 0.9088601159640395.
 .................................................
-LaTeX Font Info:    Redeclaring math alphabet \mathrm on input line 146.
+LaTeX Font Info:    Redeclaring math alphabet \mathrm on input line 147.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
 (Font)                  TU/ArcherPro-Medium(0)/m/n --> TU/FuturaLT-Book(0)/m/n 
-on input line 146.
+on input line 147.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
 (Font)                  TU/ArcherPro-Medium(0)/bx/n --> TU/FuturaLT-Book(0)/m/n
- on input line 146.
+ on input line 147.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
 (Font)                  TU/FuturaLT-Book(0)/m/n --> TU/FuturaLT-Book(0)/bx/n on
- input line 146.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 146.
+ input line 147.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 147.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  TU/ArcherPro-Medium(0)/m/it --> TU/FuturaLT-Book(0)/m/i
-t on input line 146.
+t on input line 147.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  TU/ArcherPro-Medium(0)/bx/it --> TU/FuturaLT-Book(0)/m/
-it on input line 146.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 146.
+it on input line 147.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 147.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  TU/ArcherPro-Medium(0)/bx/n --> TU/FuturaLT-Book(0)/bx/
-n on input line 146.
+n on input line 147.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
 (Font)                  TU/ArcherPro-Medium(0)/bx/n --> TU/FuturaLT-Book(0)/bx/
-n on input line 146.
+n on input line 147.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  TU/FuturaLT-Book(0)/m/it --> TU/FuturaLT-Book(0)/bx/it 
-on input line 146.
-LaTeX Font Info:    Redeclaring symbol font `Operators:m:n' on input line 146.
+on input line 147.
+LaTeX Font Info:    Redeclaring symbol font `Operators:m:n' on input line 147.
 LaTeX Font Info:    Overwriting symbol font `Operators:m:n' in version `normal'
 
 (Font)                  TU/ArcherPro-Medium(0)/m/n --> TU/FuturaLT-Book(0)/m/n 
-on input line 146.
+on input line 147.
 LaTeX Font Info:    Overwriting symbol font `Operators:m:n' in version `bold'
 (Font)                  TU/ArcherPro-Medium(0)/m/n --> TU/FuturaLT-Book(0)/m/n 
-on input line 146.
+on input line 147.
 
 LaTeX Warning: Unused global option(s):
     [a4paperpaper].
@@ -1331,32 +1331,32 @@ LaTeX Warning: Unused global option(s):
 (./Data-Analysis.aux)
 \openout1 = `Data-Analysis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 149.
-LaTeX Font Info:    ... okay on input line 149.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 149.
-LaTeX Font Info:    ... okay on input line 149.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 149.
-LaTeX Font Info:    ... okay on input line 149.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 149.
-LaTeX Font Info:    ... okay on input line 149.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 149.
-LaTeX Font Info:    ... okay on input line 149.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 149.
-LaTeX Font Info:    ... okay on input line 149.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 149.
-LaTeX Font Info:    ... okay on input line 149.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 149.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 149.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 150.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 150.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 149.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 149.
-LaTeX Font Info:    ... okay on input line 149.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 149.
-LaTeX Font Info:    ... okay on input line 149.
-LaTeX Info: Redefining \microtypecontext on input line 149.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Info: Redefining \microtypecontext on input line 150.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: No adjustment of tracking.
@@ -1686,7 +1686,7 @@ Package microtype Warning: Unknown slot number of character
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box80
-Package hyperref Info: Link coloring ON on input line 149.
+Package hyperref Info: Link coloring ON on input line 150.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -1694,33 +1694,33 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count317
 )
-LaTeX Info: Redefining \ref on input line 149.
-LaTeX Info: Redefining \pageref on input line 149.
-LaTeX Info: Redefining \nameref on input line 149.
+LaTeX Info: Redefining \ref on input line 150.
+LaTeX Info: Redefining \pageref on input line 150.
+LaTeX Info: Redefining \nameref on input line 150.
 (./Data-Analysis.out) (./Data-Analysis.out)
 \@outlinefile=\write4
 \openout4 = `Data-Analysis.out'.
 
-LaTeX Info: Redefining \dots on input line 149.
+LaTeX Info: Redefining \dots on input line 150.
 Package french.ldf Info: Setting StandardItemizeEnv=true for
 (french.ldf)             compatibility with enumitem package,
-(french.ldf)             reported on input line 149.
+(french.ldf)             reported on input line 150.
 Package french.ldf Info: Setting StandardEnumerateEnv=true for
 (french.ldf)             compatibility with enumitem package,
-(french.ldf)             reported on input line 149.
-LaTeX Info: Redefining \up on input line 149.
+(french.ldf)             reported on input line 150.
+LaTeX Info: Redefining \up on input line 150.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `TU/FuturaLT-Book(0)/m/n' will be
-(Font)              scaled to size 18.84973pt on input line 150.
+(Font)              scaled to size 18.84973pt on input line 151.
 LaTeX Font Info:    Font shape `TU/FuturaLT-Book(0)/m/n' will be
-(Font)              scaled to size 10.90631pt on input line 150.
+(Font)              scaled to size 10.90631pt on input line 151.
 LaTeX Font Info:    Font shape `TU/FuturaLT-Book(0)/m/it' will be
-(Font)              scaled to size 10.90631pt on input line 150.
+(Font)              scaled to size 10.90631pt on input line 151.
 LaTeX Font Info:    Font shape `TU/FuturaLT-Book(0)/m/n' will be
-(Font)              scaled to size 13.08755pt on input line 155.
+(Font)              scaled to size 13.08755pt on input line 156.
 LaTeX Font Info:    Font shape `TU/FuturaLT-Book(0)/bx/n' will be
-(Font)              scaled to size 11.95706pt on input line 155.
+(Font)              scaled to size 11.95706pt on input line 156.
 (./Data-Analysis.toc
 LaTeX Font Info:    Font shape `TU/FuturaLT-Book(0)/bx/n' will be
 (Font)              scaled to size 8.30353pt on input line 2.
@@ -1853,7 +1853,7 @@ Overfull \hbox (2.70837pt too wide) detected at line 120
 \openout5 = `Data-Analysis.toc'.
 
 LaTeX Font Info:    Font shape `TU/FuturaLT-Book(0)/bx/n' will be
-(Font)              scaled to size 9.96423pt on input line 161.
+(Font)              scaled to size 9.96423pt on input line 162.
 [2] [3] [4] [5] [6] [7]
 File: images/Rlogo.png Graphic file (type bmp)
 <images/Rlogo.png>
@@ -1866,138 +1866,138 @@ File: figure/unnamed-chunk-5-1.pdf Graphic file (type pdf)
 <use figure/unnamed-chunk-5-1.pdf>
 [13] [14] [15] [16] [17] [18] [19] [20] [21]
 LaTeX Font Info:    Font shape `TU/FiraCode-Regular(0)/bx/n' will be
-(Font)              scaled to size 10.20007pt on input line 1173.
+(Font)              scaled to size 10.20007pt on input line 1174.
 [22] [23] [24] [25] [26]
-Overfull \hbox (195.80495pt too wide) in paragraph at lines 1505--1505
+Overfull \hbox (93.80421pt too wide) in paragraph at lines 1506--1506
 []\TU/FiraCode-Regular(0)/m/n/10 -- Variable type:character -------------------
------------------------------------------------------------------------[] 
+---------------------------------------------------[] 
  []
 
 
-Overfull \hbox (195.80495pt too wide) in paragraph at lines 1505--1505
+Overfull \hbox (93.80421pt too wide) in paragraph at lines 1506--1506
 []\TU/FiraCode-Regular(0)/m/n/10 -- Variable type:integer ---------------------
------------------------------------------------------------------------[] 
+---------------------------------------------------[] 
  []
 
 
-Overfull \hbox (53.00392pt too wide) in paragraph at lines 1505--1505
+Overfull \hbox (53.00392pt too wide) in paragraph at lines 1506--1506
 []       \TU/FiraCode-Regular(0)/m/n/10 variable missing complete      n    mea
 n      sd   p0  p25  p50  p75 p100     hist[] 
  []
 
 
-Overfull \hbox (53.00392pt too wide) in paragraph at lines 1505--1505
+Overfull \hbox (53.00392pt too wide) in paragraph at lines 1506--1506
 []       \TU/FiraCode-Regular(0)/m/n/10 arr_time    8713   328063 336776 1502.0
 5  533.26    1 1104 1535 1940 2400 ▁▁▃▇▆▆▇▆[] 
  []
 
 
-Overfull \hbox (53.00392pt too wide) in paragraph at lines 1505--1505
+Overfull \hbox (53.00392pt too wide) in paragraph at lines 1506--1506
 []            \TU/FiraCode-Regular(0)/m/n/10 day       0   336776 336776   15.7
 1    8.77    1    8   16   23   31 ▇▇▇▇▆▇▇▇[] 
  []
 
 
-Overfull \hbox (53.00392pt too wide) in paragraph at lines 1505--1505
+Overfull \hbox (53.00392pt too wide) in paragraph at lines 1506--1506
 []       \TU/FiraCode-Regular(0)/m/n/10 dep_time    8255   328521 336776 1349.1
 1  488.28    1  907 1401 1744 2400 ▁▁▇▆▆▇▆▂[] 
  []
 
 
-Overfull \hbox (53.00392pt too wide) in paragraph at lines 1505--1505
+Overfull \hbox (53.00392pt too wide) in paragraph at lines 1506--1506
 []         \TU/FiraCode-Regular(0)/m/n/10 flight       0   336776 336776 1971.9
 2 1632.47    1  553 1496 3465 8500 ▇▅▂▃▂▁▁▁[] 
  []
 
 [27]
-Overfull \hbox (53.00392pt too wide) in paragraph at lines 1505--1505
+Overfull \hbox (53.00392pt too wide) in paragraph at lines 1506--1506
 []          \TU/FiraCode-Regular(0)/m/n/10 month       0   336776 336776    6.5
 5    3.41    1    4    7   10   12 ▇▅▇▃▅▇▅▇[] 
  []
 
 
-Overfull \hbox (53.00392pt too wide) in paragraph at lines 1505--1505
+Overfull \hbox (53.00392pt too wide) in paragraph at lines 1506--1506
 [] \TU/FiraCode-Regular(0)/m/n/10 sched_arr_time       0   336776 336776 1536.3
 8  497.46    1 1124 1556 1945 2359 ▁▁▂▇▆▇▇▆[] 
  []
 
 
-Overfull \hbox (53.00392pt too wide) in paragraph at lines 1505--1505
+Overfull \hbox (53.00392pt too wide) in paragraph at lines 1506--1506
 [] \TU/FiraCode-Regular(0)/m/n/10 sched_dep_time       0   336776 336776 1344.2
 5  467.34  106  906 1359 1729 2359 ▁▃▇▆▆▇▇▂[] 
  []
 
 
-Overfull \hbox (53.00392pt too wide) in paragraph at lines 1505--1505
+Overfull \hbox (53.00392pt too wide) in paragraph at lines 1506--1506
 []           \TU/FiraCode-Regular(0)/m/n/10 year       0   336776 336776 2013  
      0    2013 2013 2013 2013 2013 ▁▁▁▇▁▁▁▁[] 
  []
 
 
-Overfull \hbox (195.80495pt too wide) in paragraph at lines 1505--1505
+Overfull \hbox (93.80421pt too wide) in paragraph at lines 1506--1506
 []\TU/FiraCode-Regular(0)/m/n/10 -- Variable type:numeric ---------------------
------------------------------------------------------------------------[] 
+---------------------------------------------------[] 
  []
 
 
-Overfull \hbox (7.10359pt too wide) in paragraph at lines 1505--1505
+Overfull \hbox (7.10359pt too wide) in paragraph at lines 1506--1506
 []  \TU/FiraCode-Regular(0)/m/n/10 variable missing complete      n    mean    
  sd  p0 p25 p50  p75 p100     hist[] 
  []
 
 
-Overfull \hbox (7.10359pt too wide) in paragraph at lines 1505--1505
+Overfull \hbox (7.10359pt too wide) in paragraph at lines 1506--1506
 []  \TU/FiraCode-Regular(0)/m/n/10 air_time    9430   327346 336776  150.69  93
 .69  20  82 129  192  695 ▇▇▂▃▁▁▁▁[] 
  []
 
 
-Overfull \hbox (7.10359pt too wide) in paragraph at lines 1505--1505
+Overfull \hbox (7.10359pt too wide) in paragraph at lines 1506--1506
 [] \TU/FiraCode-Regular(0)/m/n/10 arr_delay    9430   327346 336776    6.9   44
 .63 -86 -17  -5   14 1272 ▇▁▁▁▁▁▁▁[] 
  []
 
 
-Overfull \hbox (7.10359pt too wide) in paragraph at lines 1505--1505
+Overfull \hbox (7.10359pt too wide) in paragraph at lines 1506--1506
 [] \TU/FiraCode-Regular(0)/m/n/10 dep_delay    8255   328521 336776   12.64  40
 .21 -43  -5  -2   11 1301 ▇▁▁▁▁▁▁▁[] 
  []
 
 
-Overfull \hbox (7.10359pt too wide) in paragraph at lines 1505--1505
+Overfull \hbox (7.10359pt too wide) in paragraph at lines 1506--1506
 []  \TU/FiraCode-Regular(0)/m/n/10 distance       0   336776 336776 1039.91 733
 .23  17 502 872 1389 4983 ▆▇▂▂▁▁▁▁[] 
  []
 
 
-Overfull \hbox (7.10359pt too wide) in paragraph at lines 1505--1505
+Overfull \hbox (7.10359pt too wide) in paragraph at lines 1506--1506
 []      \TU/FiraCode-Regular(0)/m/n/10 hour       0   336776 336776   13.18   4
 .66   1   9  13   17   23 ▁▃▇▆▅▇▇▂[] 
  []
 
 
-Overfull \hbox (7.10359pt too wide) in paragraph at lines 1505--1505
+Overfull \hbox (7.10359pt too wide) in paragraph at lines 1506--1506
 []    \TU/FiraCode-Regular(0)/m/n/10 minute       0   336776 336776   26.23  19
 .3    0   8  29   44   59 ▇▂▃▃▅▂▃▅[] 
  []
 
 
-Overfull \hbox (195.80495pt too wide) in paragraph at lines 1505--1505
+Overfull \hbox (93.80421pt too wide) in paragraph at lines 1506--1506
 []\TU/FiraCode-Regular(0)/m/n/10 -- Variable type:POSIXct ---------------------
------------------------------------------------------------------------[] 
+---------------------------------------------------[] 
  []
 
 [28]
 LaTeX Font Info:    Font shape `TU/FiraCode-Regular(0)/bx/n' will be
-(Font)              scaled to size 12.24008pt on input line 1558.
+(Font)              scaled to size 12.24008pt on input line 1559.
 [29] [30]
 
 LaTeX Font Warning: Font shape `TU/FuturaLT-Book(0)/m/sc' undefined
-(Font)              using `TU/FuturaLT-Book(0)/m/n' instead on input line 1630.
+(Font)              using `TU/FuturaLT-Book(0)/m/n' instead on input line 1631.
 
 
 LaTeX Font Info:    Font shape `TU/FuturaLT-Book(0)/m/sc' will be
-(Font)              scaled to size 9.0886pt on input line 1630.
+(Font)              scaled to size 9.0886pt on input line 1631.
 [31]
 File: figure/gapmind-1.pdf Graphic file (type pdf)
 <use figure/gapmind-1.pdf>
@@ -2008,7 +2008,7 @@ File: figure/unnamed-chunk-40-1.pdf Graphic file (type pdf)
 File: figure/points-1.pdf Graphic file (type pdf)
 <use figure/points-1.pdf>
 [35]
-Underfull \hbox (badness 1430) in paragraph at lines 1893--1894
+Underfull \hbox (badness 1430) in paragraph at lines 1894--1895
 []\TU/FuturaLT-Book(0)/m/sc/10 Créez un nouveau nuage de points en utilisant d’
 autres variables du jeu de données
  []
@@ -2037,9 +2037,9 @@ File: figure/shapeplot-1.pdf Graphic file (type pdf)
 <use figure/shapeplot-1.pdf>
 File: figure/shapeplot2-1.pdf Graphic file (type pdf)
 <use figure/shapeplot2-1.pdf>
+[42] [43]
 File: figure/shapecolorplot-1.pdf Graphic file (type pdf)
 <use figure/shapecolorplot-1.pdf>
-[42] [43]
 File: figure/sizeplot-1.pdf Graphic file (type pdf)
 <use figure/sizeplot-1.pdf>
 [44]
@@ -2053,9 +2053,9 @@ File: figure/linegraph-1.pdf Graphic file (type pdf)
 [48]
 File: figure/lineplotgraph-1.pdf Graphic file (type pdf)
 <use figure/lineplotgraph-1.pdf>
+[49]
 File: figure/linecolor-1.pdf Graphic file (type pdf)
 <use figure/linecolor-1.pdf>
-[49]
 File: figure/linetype-1.pdf Graphic file (type pdf)
 <use figure/linetype-1.pdf>
 File: figure/linetypecolor-1.pdf Graphic file (type pdf)
@@ -2118,7 +2118,7 @@ File: figure/notchedboxplot-1.pdf Graphic file (type pdf)
 File: figure/compboxplot-1.pdf Graphic file (type pdf)
 <use figure/compboxplot-1.pdf>
 
-Underfull \hbox (badness 1629) in paragraph at lines 2963--2964
+Underfull \hbox (badness 1629) in paragraph at lines 2965--2966
 \TU/FiraCode-Regular(0)/m/n/10 geom_jitter()\TU/FuturaLT-Book(0)/m/sc/10 , au c
 entre, un histogramme pour les températures de novembre, créé avec
  []
@@ -2165,7 +2165,7 @@ File: figure/barfacetbis-1.pdf Graphic file (type pdf)
 File: figure/barfacetgray-1.pdf Graphic file (type pdf)
 <use figure/barfacetgray-1.pdf>
 
-LaTeX Warning: Reference `fig:brew' on page 87 undefined on input line 3508.
+LaTeX Warning: Reference `fig:brew' on page 87 undefined on input line 3510.
 
 File: images/brewer.png Graphic file (type bmp)
 <images/brewer.png>
@@ -2184,7 +2184,7 @@ File: figure/varcolorviridis-1.pdf Graphic file (type pdf)
 File: figure/varcolorviridis2-1.pdf Graphic file (type pdf)
 <use figure/varcolorviridis2-1.pdf>
 [99] [100] [101] [102]
-Overfull \hbox (0.50215pt too wide) in paragraph at lines 3993--3994
+Overfull \hbox (0.50215pt too wide) in paragraph at lines 3995--3996
 []\TU/FuturaLT-Book(0)/m/sc/10 Si vous ne voulez pas avoir de message d’erreur,
  attention donc, à choisir la fonction \TU/FiraCode-Regular(0)/m/n/10 scale_XXX
 _XXX()
@@ -2244,7 +2244,7 @@ File: figure/unnamed-chunk-93-1.pdf Graphic file (type pdf)
 File: images/filter.png Graphic file (type bmp)
 <images/filter.png>
 [138]
-Underfull \hbox (badness 1655) in paragraph at lines 5462--5464
+Underfull \hbox (badness 1655) in paragraph at lines 5464--5466
 []\TU/FuturaLT-Book(0)/m/sc/10 D’indiquer le nom du nouvel objet dans lequel le
 s données modifiées seront stockées
  []
@@ -2261,7 +2261,7 @@ File: images/groupby.png Graphic file (type bmp)
 File: figure/errorbars-1.pdf Graphic file (type pdf)
 <use figure/errorbars-1.pdf>
 [147]
-Overfull \vbox (0.20076pt too high) detected at line 5936
+Overfull \vbox (0.20076pt too high) detected at line 5938
  []
 
 [148]
@@ -2302,12 +2302,12 @@ File: images/innerjoin.png Graphic file (type bmp)
 File: images/leftjoin.png Graphic file (type bmp)
 <images/leftjoin.png>
 [179] [180] [181] [182] [183] [184]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 7743.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 7745.
 [185]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 7743.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 7745.
 (./Data-Analysis.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 7743.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 7743.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 7745.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 7745.
 
 Package rerunfilecheck Info: File `Data-Analysis.out' has not changed.
 (rerunfilecheck)             Checksum: 1C54446F18F6E1DA0560F130C778D91A.
@@ -2320,7 +2320,7 @@ LaTeX Warning: There were undefined references.
  )
 (\end occurred inside a group at level 1)
 
-### semi simple group (level 1) entered at line 147 (\begingroup)
+### semi simple group (level 1) entered at line 148 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
  26206 strings out of 492970

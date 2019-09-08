@@ -127,11 +127,12 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-08-24}
+    \date{2019-09-08}
 
 \usepackage[french]{babel}
 \usepackage{mathspec}  % \usepackage{fontspec}
 % \usepackage{natbib}
+
 \setallmainfonts[Ligatures = TeX,
                  ItalicFont={ArcherPro-MediumItalic}]{ArcherPro-Medium}
 \setmonofont[Scale=0.85]{FiraCode-Regular}
@@ -1084,7 +1085,7 @@ Il y a deux façons d'installer un package. Par example, pour installer le packa
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \textbf{Le plus simple} : Dans le panneau ``File'' de Rstudio :
+  \textbf{Le plus simple} : Dans le panneau ``Files'' de Rstudio :
 
   \begin{enumerate}
   \def\labelenumii{\alph{enumii})}
@@ -1131,7 +1132,7 @@ rappelez-vous que c'est probablement parce que vous tentez d'utiliser une foncti
 \hypertarget{exercices}{%
 \subsection{Exercices}\label{exercices}}
 
-Créez un nouveau script que vous nommerez \texttt{VotreNomDeFamille.R}. Vous prendrez soin d'ajouter autant de commentaires que nécessaire dans ce script afin de le structurer correctement.
+Créez un nouveau script que vous nommerez \texttt{VotreNomDeFamille.R}. Vous prendrez soin d'ajouter autant de commentaires que nécessaire dans votre script afin de le structurer correctement.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1472,14 +1473,14 @@ Skim summary statistics
  n obs: 336776 
  n variables: 19 
 
--- Variable type:character ------------------------------------------------------------------------------------------
+-- Variable type:character ----------------------------------------------------------------------
  variable missing complete      n min max empty n_unique
   carrier       0   336776 336776   2   2     0       16
      dest       0   336776 336776   3   3     0      105
    origin       0   336776 336776   3   3     0        3
   tailnum    2512   334264 336776   5   6     0     4043
 
--- Variable type:integer --------------------------------------------------------------------------------------------
+-- Variable type:integer ------------------------------------------------------------------------
        variable missing complete      n    mean      sd   p0  p25  p50  p75 p100     hist
        arr_time    8713   328063 336776 1502.05  533.26    1 1104 1535 1940 2400 ▁▁▃▇▆▆▇▆
             day       0   336776 336776   15.71    8.77    1    8   16   23   31 ▇▇▇▇▆▇▇▇
@@ -1490,7 +1491,7 @@ Skim summary statistics
  sched_dep_time       0   336776 336776 1344.25  467.34  106  906 1359 1729 2359 ▁▃▇▆▆▇▇▂
            year       0   336776 336776 2013       0    2013 2013 2013 2013 2013 ▁▁▁▇▁▁▁▁
 
--- Variable type:numeric --------------------------------------------------------------------------------------------
+-- Variable type:numeric ------------------------------------------------------------------------
   variable missing complete      n    mean     sd  p0 p25 p50  p75 p100     hist
   air_time    9430   327346 336776  150.69  93.69  20  82 129  192  695 ▇▇▂▃▁▁▁▁
  arr_delay    9430   327346 336776    6.9   44.63 -86 -17  -5   14 1272 ▇▁▁▁▁▁▁▁
@@ -1499,7 +1500,7 @@ Skim summary statistics
       hour       0   336776 336776   13.18   4.66   1   9  13   17   23 ▁▃▇▆▅▇▇▂
     minute       0   336776 336776   26.23  19.3    0   8  29   44   59 ▇▂▃▃▅▂▃▅
 
--- Variable type:POSIXct --------------------------------------------------------------------------------------------
+-- Variable type:POSIXct ------------------------------------------------------------------------
   variable missing complete      n        min        max     median n_unique
  time_hour       0   336776 336776 2013-01-01 2013-12-31 2013-07-03     6936
 \end{verbatim}
@@ -1900,7 +1901,8 @@ L'over-plotting est la superposition importante d'une grande quantité d'informa
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ alaska_flights, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ dep_delay, }\DataTypeTok{y =}\NormalTok{ arr_delay)) }\OperatorTok{+}\StringTok{ }
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ alaska_flights, }
+       \DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ dep_delay, }\DataTypeTok{y =}\NormalTok{ arr_delay)) }\OperatorTok{+}\StringTok{ }
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{alpha =} \FloatTok{0.2}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -3061,7 +3063,7 @@ Notez que les figures \ref{fig:barplot} et \ref{fig:barplotcol} sont absolument 
   Le code qui génère la figure \ref{fig:barplotcol} utilise le jeu de données \texttt{fruits\_counted}. Ici, la variable \texttt{nombre} est associée à l'axe des \texttt{y} grâce à la fonction \texttt{aes()}. La fonction \texttt{geom\_col()} a besoin de 2 variables (une variable catégorielle pour l'axe des \texttt{x} et une numérique pour l'axe des \texttt{y}) pour fonctionner.
 \end{itemize}
 
-Autrement dit, lorsque vous souhaiterez créer un diagramme bâtons, il faudra au préalable vérifier de quel type de données vous disposez pour choisir l'objet géométrique approprié.
+Autrement dit, lorsque vous souhaiterez créer un diagramme bâtons, il faudra donc au préalable vérifier de quel type de données vous disposez pour choisir l'objet géométrique approprié :
 
 \begin{itemize}
 \tightlist
@@ -4265,13 +4267,13 @@ Vous pouvez télécharger manuellement les 4 jeux de données dont nous aurons b
 \begin{itemize}
 \tightlist
 \item
-  \href{data/cases.rdata}{cases}
+  \href{https://besibo.github.io/DA/data/cases.rdata}{cases}
 \item
-  \href{data/population.rdata}{population}
+  \href{https://besibo.github.io/DA/data/population.rdata}{population}
 \item
-  \href{data/rates.rdata}{rates}
+  \href{https://besibo.github.io/DA/data/rates.rdata}{rates}
 \item
-  \href{data/storms.rdata}{storms}
+  \href{https://besibo.github.io/DA/data/storms.rdata}{storms}
 \end{itemize}
 
 Une fois téléchargés, les données contenues dans ces 4 fichiers peuvent être importées dans RStudio en cliquant sur \texttt{File\ \textgreater{}\ Open\ File...}, puis en sélectionnant un à un chacun des fichiers. Pour chaque fichier un nouvel objet doit apparaître dans votre environnement de travail (onglet \texttt{Environnement}, dans le panneau en haut à droite de RStudio). L'inconvénient de cette méthode est que les fichiers d'aide de ces jeux de données ne seront pas disponibles dans RStudio. Vous pouvez toutefois en consulter une version brute (non mise en forme) \href{https://github.com/rstudio/EDAWR/tree/master/man}{en cliquant ici}.

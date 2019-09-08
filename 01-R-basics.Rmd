@@ -192,7 +192,7 @@ ggplot(data = airquality, mapping = aes(x = Temp, y = Ozone)) +
   geom_point() +
   geom_smooth(method = "loess")
 
-# On constate une augmentation importante de la concentration d'ozone 
+# On constate une augmentation importante de la concentration d'ozone
 # pour des températures supérieures à 75ºF
 ```
 
@@ -407,7 +407,7 @@ Donc, tout comme vous ne pouvez commencer à partager des photos avec vos amis s
 
 Il y a deux façons d'installer un package. Par example, pour installer le package `ggplot2` :
 
-1. **Le plus simple** : Dans le panneau "File" de Rstudio :
+1. **Le plus simple** : Dans le panneau "Files" de Rstudio :
     a) Cliquez sur l'onglet "Packages"
     a) Cliquez sur "Install"
     a) Tapez le nom du package dans le champ "Packages (separate multiple with space or comma):" Pour notre exemple, tapez `ggplot2`
@@ -441,7 +441,7 @@ rappelez-vous que c'est probablement parce que vous tentez d'utiliser une foncti
 
 ## Exercices
 
-Créez un nouveau script que vous nommerez `VotreNomDeFamille.R`. Vous prendrez soin d'ajouter autant de commentaires que nécessaire dans ce script afin de le structurer correctement.
+Créez un nouveau script que vous nommerez `VotreNomDeFamille.R`. Vous prendrez soin d'ajouter autant de commentaires que nécessaire dans votre script afin de le structurer correctement.
 
 1. Téléchargez (si besoin) et chargez le package `ggplot2`
 2. Chargez le jeu de données `diamonds` grâce à la commande `data(diamonds)`

@@ -85,9 +85,7 @@ Examinons maintenant la figure \@ref(fig:gapmind) qui représente ces variables 
 ```{r gapmind, echo=FALSE, fig.cap="Espérance de vie en fonction du PIB par habitant en 2007."}
 gapminder_2007 %>% 
   ggplot(aes(x = `GDP per Capita`, y = `Life Expectancy`, color = Continent, size = Population)) + 
-    geom_point() +
-    labs(x = "GDP per Capita",
-         y = "Life Expectancy")
+    geom_point()
 ```
 
 Si on décrypte ce graphique du point de vue de la grammaire des graphiques, on voit que :
@@ -214,7 +212,8 @@ ggplot(alaska_flights, aes(x = dep_delay, y = arr_delay)) +
 L'over-plotting est la superposition importante d'une grande quantité d'information sur une zone restreinte d'un graphique. Dans notre cas, nous observons un over-plotting important autour de (0,0). Cet effet est gênant car il est difficile de se faire une idée précise du nombre de points accumulés dans cette zone. La façon la plus simple de régler le problème est de modifier la transparence des points grâce à l'argument `alpha` de la fonction `geom_point()`. Par défaut, cette valeur est fixée à 1, pour une opacité totale. Une valeur de 0 rend les points totalement transparents, et donc invisibles. Trouver la bonne valeur peut demander de tâtonner un peu. Le code suivant produit la figure \@ref(fig:transparent) :
 
 ```{r transparent, tidy=FALSE, warning = FALSE, fig.cap="La même figure, avec des points semi-transparents."}
-ggplot(data = alaska_flights, mapping = aes(x = dep_delay, y = arr_delay)) + 
+ggplot(data = alaska_flights, 
+       mapping = aes(x = dep_delay, y = arr_delay)) + 
   geom_point(alpha = 0.2)
 ```
 
@@ -781,7 +780,7 @@ Notez que les figures \@ref(fig:barplot) et \@ref(fig:barplotcol) sont absolumen
 - Le code qui génère la figure \@ref(fig:barplot) utilise le jeu de données `fruits`, et n'associe pas de variable à l'axe des ordonnées : dans la fonction `aes()`, seule la variable associée à `x` est précisée. C'est la fonction `geom_bar()` qui calcule automatiquement les abondances (ou fréquences) pour chaque catégorie de la variable `fruit`. La variable `count` est ainsi générée automatiquement et associée à `y`.
 - Le code qui génère la figure \@ref(fig:barplotcol) utilise le jeu de données `fruits_counted`. Ici, la variable `nombre` est associée à l'axe des `y` grâce à la fonction `aes()`. La fonction `geom_col()` a besoin de 2 variables (une variable catégorielle pour l'axe des `x` et une numérique pour l'axe des `y`) pour fonctionner.
 
-Autrement dit, lorsque vous souhaiterez créer un diagramme bâtons, il faudra au préalable vérifier de quel type de données vous disposez pour choisir l'objet géométrique approprié.
+Autrement dit, lorsque vous souhaiterez créer un diagramme bâtons, il faudra donc au préalable vérifier de quel type de données vous disposez pour choisir l'objet géométrique approprié :
 
 - Si votre variable catégorielle n'est pas pré-comptée dans votre tableau de données, il faut utiliser `geom_bar()`
 - Si votre variable catégorielle est pré-comptée dans votre tableau de données, il faut utiliser `geom_col()` et associer explicitement les comptages à l'aesthétique `y` du graphique.
