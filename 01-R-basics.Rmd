@@ -388,7 +388,7 @@ log(base = 10, x = 100)
 
 ---
 
-## Les packages additionels {#packages}
+## Les packages additionnels {#packages}
 
 Une source de confusion importante pour les nouveaux utilisateurs de R est la notion de package. Les packages étendent les fonctionnalités de R en fournissant des fonctions, des données et de la documentation supplémentaires et peuvent être téléchargés gratuitement sur Internet. Ils sont écrits par une communauté mondiale d'utilisateurs de R. Par exemple, parmi près de 15000 packages disponibles à l'heure actuelle, nous utiliseront fréquemment :
 
@@ -428,7 +428,7 @@ library(dplyr)
 ```
 
 
-**Note** : Vous devez charger à nouveau chaque package que vous souhaitez utiliser **à chaque fois que vous ouvrez une nouvelle session de travail dans RStudio**. Ça peut être un peu pénible et c'est une source d'erreur fréquente pour les débutants. Quand vous vouyez un message d'erreur commençant par :
+**Note** : Vous devez charger à nouveau chaque package que vous souhaitez utiliser **à chaque fois que vous ouvrez une nouvelle session de travail dans RStudio**. Ça peut être un peu pénible et c'est une source d'erreur fréquente pour les débutants. Quand vous vouyez un message d'erreur qui commence par :
 
 ```
 Error: could not find function...

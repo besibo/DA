@@ -65,7 +65,7 @@ Cette façon d'afficher le contenu d'un tableau permet d'y voir (beaucoup) plus 
 
 ## Explorer un `data.frame`
 
-Parmi les nombreuses façons d'avoir une idée des données contenues dans un `data.frame` tel que `flights`, on présente ici 2 fonctions qui prennent le nom du `data.frame` en guise d'argument et un opérateur :
+Parmi les nombreuses façons d'avoir une idée des données contenues dans un `data.frame` tel que `flights`, on présente ici 3 fonctions qui prennent le nom du `data.frame` en guise d'argument et un opérateur :
 
 - la fonction `View()` intégrée à RStudio. C'est celle que vous utiliserez le plus souvent. Attention, elle s'écrit avec un "V" majuscule.
 - la fonction `glimpse()` chargée avec le package `dplyr`. Elle est très similaire à la fonction `str()` découverte dans les tutoriels de DataCamp.
@@ -148,14 +148,10 @@ install.packages("rlang")
 
 Si l'installation de `skimr` s'est bien passée, vous pouvez maintenant taper ceci :
 
-```{r size='tiny', echo = 2:3}
-options(width = 120)
+```{r eval=FALSE}
 library(skimr)
 skim(flights)
-options(width = 70)
 ```
-
-
 
 ### Les fichiers d'aide
 

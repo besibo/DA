@@ -1,120 +1,120 @@
 \babel@toc {french}{}
-\contentsline {section}{\numberline {1}Introduction}{2}{section.1}
-\contentsline {subsection}{\numberline {1.1}Objectifs}{2}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}Organisation}{3}{subsection.1.2}
-\contentsline {subsubsection}{\numberline {1.2.1}Les cours magistraux}{3}{subsubsection.1.2.1}
-\contentsline {subsubsection}{\numberline {1.2.2}Les Travaux pratiques}{4}{subsubsection.1.2.2}
-\contentsline {subsubsection}{\numberline {1.2.3}Le TEA}{5}{subsubsection.1.2.3}
-\contentsline {subsubsection}{\numberline {1.2.4}L'évaluation}{5}{subsubsection.1.2.4}
-\contentsline {section}{\numberline {2}R et RStudio : les bases}{7}{section.2}
-\contentsline {subsection}{\numberline {2.1}Que sont R et RStudio}{7}{subsection.2.1}
-\contentsline {subsubsection}{\numberline {2.1.1}Installation de R et RStudio}{8}{subsubsection.2.1.1}
-\contentsline {subsubsection}{\numberline {2.1.2}Utiliser R depuis RStudio}{8}{subsubsection.2.1.2}
-\contentsline {subsection}{\numberline {2.2}Comment exécuter du code R ?}{9}{subsection.2.2}
-\contentsline {subsubsection}{\numberline {2.2.1}La console}{10}{subsubsection.2.2.1}
-\contentsline {subsubsection}{\numberline {2.2.2}Le répertoire de travail}{10}{subsubsection.2.2.2}
-\contentsline {subsubsection}{\numberline {2.2.3}Les scripts}{11}{subsubsection.2.2.3}
-\contentsline {subsubsection}{\numberline {2.2.4}Concepts de base en programmation et terminologie}{13}{subsubsection.2.2.4}
-\contentsline {paragraph}{\numberline {2.2.4.1}Objets, types, vecteurs, facteurs et tableaux de données}{14}{paragraph.2.2.4.1}
-\contentsline {paragraph}{\numberline {2.2.4.2}Opérateurs de comparaison}{14}{paragraph.2.2.4.2}
-\contentsline {paragraph}{\numberline {2.2.4.3}L'utilisation des fonctions}{18}{paragraph.2.2.4.3}
-\contentsline {subsection}{\numberline {2.3}Les packages additionels}{20}{subsection.2.3}
-\contentsline {subsubsection}{\numberline {2.3.1}Installation d'un package}{20}{subsubsection.2.3.1}
-\contentsline {subsubsection}{\numberline {2.3.2}Charger un package en mémoire}{21}{subsubsection.2.3.2}
-\contentsline {subsection}{\numberline {2.4}Exercices}{21}{subsection.2.4}
-\contentsline {section}{\numberline {3}Explorez votre premier jeu de données}{21}{section.3}
-\contentsline {subsection}{\numberline {3.1}Le package \texttt {nycflights13}}{22}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Le data frame \texttt {flights}}{22}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Explorer un \texttt {data.frame}}{24}{subsection.3.3}
-\contentsline {subsubsection}{\numberline {3.3.1}\texttt {View()}}{24}{subsubsection.3.3.1}
-\contentsline {subsubsection}{\numberline {3.3.2}\texttt {glimpse()}}{25}{subsubsection.3.3.2}
-\contentsline {subsubsection}{\numberline {3.3.3}L'opérateur \texttt {\$}}{26}{subsubsection.3.3.3}
-\contentsline {subsubsection}{\numberline {3.3.4}\texttt {skim()}}{27}{subsubsection.3.3.4}
-\contentsline {subsubsection}{\numberline {3.3.5}Les fichiers d'aide}{28}{subsubsection.3.3.5}
-\contentsline {subsection}{\numberline {3.4}Exercices}{28}{subsection.3.4}
-\contentsline {section}{\numberline {4}Visualiser des données avec \texttt {ggplot2}}{29}{section.4}
-\contentsline {subsection}{\numberline {4.1}Prérequis}{30}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}La grammaire des graphiques}{30}{subsection.4.2}
-\contentsline {subsubsection}{\numberline {4.2.1}Éléments de la grammaire}{31}{subsubsection.4.2.1}
-\contentsline {subsubsection}{\numberline {4.2.2}Gapminder}{31}{subsubsection.4.2.2}
-\contentsline {subsubsection}{\numberline {4.2.3}Autres éléments de la grammaire des graphiques}{32}{subsubsection.4.2.3}
-\contentsline {subsubsection}{\numberline {4.2.4}Le package \texttt {ggplot2}}{33}{subsubsection.4.2.4}
-\contentsline {subsection}{\numberline {4.3}Les nuages de points}{33}{subsection.4.3}
-\contentsline {subsubsection}{\numberline {4.3.1}La couche de base : la fonction \texttt {ggplot()}}{34}{subsubsection.4.3.1}
-\contentsline {subsubsection}{\numberline {4.3.2}Ajout d'une couche supplémentaire : l'objet géométrique}{35}{subsubsection.4.3.2}
-\contentsline {subsubsection}{\numberline {4.3.3}Exercices}{36}{subsubsection.4.3.3}
-\contentsline {subsubsection}{\numberline {4.3.4}Over-plotting}{36}{subsubsection.4.3.4}
-\contentsline {subsubsection}{\numberline {4.3.5}Couleur, taille et forme}{38}{subsubsection.4.3.5}
-\contentsline {subsubsection}{\numberline {4.3.6}Exercices}{45}{subsubsection.4.3.6}
-\contentsline {subsection}{\numberline {4.4}Les graphiques en lignes}{47}{subsection.4.4}
-\contentsline {subsubsection}{\numberline {4.4.1}Un nouveau jeu de données}{47}{subsubsection.4.4.1}
-\contentsline {subsubsection}{\numberline {4.4.2}Exercice}{48}{subsubsection.4.4.2}
-\contentsline {subsubsection}{\numberline {4.4.3}La fonction \texttt {geom\_line()}}{48}{subsubsection.4.4.3}
-\contentsline {subsubsection}{\numberline {4.4.4}À quel endroit placer \texttt {aes()} et les arguments \texttt {color}, \texttt {size}, etc. ?}{50}{subsubsection.4.4.4}
-\contentsline {subsection}{\numberline {4.5}Les histogrammes}{54}{subsection.4.5}
-\contentsline {subsubsection}{\numberline {4.5.1}L'objet \texttt {geom\_histogram()}}{54}{subsubsection.4.5.1}
-\contentsline {subsubsection}{\numberline {4.5.2}La taille des classes}{57}{subsubsection.4.5.2}
-\contentsline {subsubsection}{\numberline {4.5.3}Les densités}{60}{subsubsection.4.5.3}
-\contentsline {subsection}{\numberline {4.6}Les \texttt {facet}s}{61}{subsection.4.6}
-\contentsline {subsubsection}{\numberline {4.6.1}\texttt {facet\_wrap()}}{61}{subsubsection.4.6.1}
-\contentsline {subsubsection}{\numberline {4.6.2}\texttt {facet\_grid()}}{63}{subsubsection.4.6.2}
-\contentsline {subsubsection}{\numberline {4.6.3}Exercices}{66}{subsubsection.4.6.3}
-\contentsline {subsection}{\numberline {4.7}Les boîtes à moustaches ou boxplots}{66}{subsection.4.7}
-\contentsline {subsubsection}{\numberline {4.7.1}Création de boxplots et informations apportées}{66}{subsubsection.4.7.1}
-\contentsline {subsubsection}{\numberline {4.7.2}L'intervalle de confiance à 95\% de la médiane}{68}{subsubsection.4.7.2}
-\contentsline {subsubsection}{\numberline {4.7.3}Une autre façon d'examiner des distributions}{69}{subsubsection.4.7.3}
-\contentsline {subsubsection}{\numberline {4.7.4}Pour conclure}{70}{subsubsection.4.7.4}
-\contentsline {subsection}{\numberline {4.8}Les diagrammes bâtons}{71}{subsection.4.8}
-\contentsline {subsubsection}{\numberline {4.8.1}Représentation graphique avec \texttt {geom\_bar} et \texttt {geom\_col}}{71}{subsubsection.4.8.1}
-\contentsline {subsubsection}{\numberline {4.8.2}Un exemple concret}{73}{subsubsection.4.8.2}
-\contentsline {subsubsection}{\numberline {4.8.3}Exercices}{76}{subsubsection.4.8.3}
-\contentsline {subsubsection}{\numberline {4.8.4}Éviter à tout prix les diagrammes circulaires}{77}{subsubsection.4.8.4}
-\contentsline {subsubsection}{\numberline {4.8.5}Comparer 2 variables catégorielles avec un diagramme bâton}{79}{subsubsection.4.8.5}
-\contentsline {paragraph}{\numberline {4.8.5.1}Graphique empilé}{79}{paragraph.4.8.5.1}
-\contentsline {paragraph}{\numberline {4.8.5.2}Graphique juxtaposé}{80}{paragraph.4.8.5.2}
-\contentsline {paragraph}{\numberline {4.8.5.3}Utilisation des \texttt {facet}s}{81}{paragraph.4.8.5.3}
-\contentsline {subsection}{\numberline {4.9}De l'exploration à l'exposition}{83}{subsection.4.9}
-\contentsline {subsubsection}{\numberline {4.9.1}Les labels}{83}{subsubsection.4.9.1}
-\contentsline {subsubsection}{\numberline {4.9.2}Les échelles}{84}{subsubsection.4.9.2}
-\contentsline {subsubsection}{\numberline {4.9.3}Les thèmes}{103}{subsubsection.4.9.3}
-\contentsline {subsection}{\numberline {4.10}Exercices}{108}{subsection.4.10}
-\contentsline {section}{\numberline {5}(Ar)ranger des données avec \texttt {tidyr}}{110}{section.5}
-\contentsline {subsection}{\numberline {5.1}Prérequis}{111}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}C'est quoi des ``tidy data'' ?}{112}{subsection.5.2}
-\contentsline {subsubsection}{\numberline {5.2.1}La fonction \texttt {gather()}}{114}{subsubsection.5.2.1}
-\contentsline {subsubsection}{\numberline {5.2.2}La fonction \texttt {spread()}}{117}{subsubsection.5.2.2}
-\contentsline {subsubsection}{\numberline {5.2.3}Les fonctions \texttt {separate()} et \texttt {unite()}}{120}{subsubsection.5.2.3}
-\contentsline {subsubsection}{\numberline {5.2.4}Exercices}{122}{subsubsection.5.2.4}
-\contentsline {subsection}{\numberline {5.3}Importer des données depuis un tableur}{122}{subsection.5.3}
-\contentsline {subsubsection}{\numberline {5.3.1}Les règles de base}{122}{subsubsection.5.3.1}
-\contentsline {subsubsection}{\numberline {5.3.2}Fichiers au format tableur (.xls ou .xlsx)}{123}{subsubsection.5.3.2}
-\contentsline {subsubsection}{\numberline {5.3.3}Fichiers au format texte brut (.csv)}{127}{subsubsection.5.3.3}
-\contentsline {subsubsection}{\numberline {5.3.4}En cas de problème\ldots {}}{132}{subsubsection.5.3.4}
-\contentsline {subsubsection}{\numberline {5.3.5}Exercices}{133}{subsubsection.5.3.5}
-\contentsline {section}{\numberline {6}Tripatouiller les données avec \texttt {dplyr}}{135}{section.6}
-\contentsline {subsection}{\numberline {6.1}Pré-requis}{135}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Le pipe \texttt {\%\textgreater {}\%}}{135}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}Les verbes du tripatouillage de données}{137}{subsection.6.3}
-\contentsline {subsection}{\numberline {6.4}Filtrer des lignes avec \texttt {filter()}}{138}{subsection.6.4}
-\contentsline {subsubsection}{\numberline {6.4.1}Principe}{138}{subsubsection.6.4.1}
-\contentsline {subsubsection}{\numberline {6.4.2}Exercice}{139}{subsubsection.6.4.2}
-\contentsline {subsubsection}{\numberline {6.4.3}Les conditions logiques}{139}{subsubsection.6.4.3}
-\contentsline {subsection}{\numberline {6.5}Créer des résumés avec \texttt {summarise()} et \texttt {group\_by()}}{143}{subsection.6.5}
-\contentsline {subsubsection}{\numberline {6.5.1}Principe de la fonction \texttt {summarise()}}{143}{subsubsection.6.5.1}
-\contentsline {subsubsection}{\numberline {6.5.2}Intérêt de la fonction \texttt {group\_by()}}{145}{subsubsection.6.5.2}
-\contentsline {subsubsection}{\numberline {6.5.3}Ajouter des barres d'erreurs sur un graphique}{147}{subsubsection.6.5.3}
-\contentsline {subsubsection}{\numberline {6.5.4}Grouper par plus d'une variable}{149}{subsubsection.6.5.4}
-\contentsline {subsubsection}{\numberline {6.5.5}Un raccourci pratique pour compter des effectifs}{153}{subsubsection.6.5.5}
-\contentsline {subsubsection}{\numberline {6.5.6}Exercices}{154}{subsubsection.6.5.6}
-\contentsline {subsection}{\numberline {6.6}Sélectionner des variables avec \texttt {select()}}{157}{subsection.6.6}
-\contentsline {subsection}{\numberline {6.7}Créer de nouvelles variables avec \texttt {mutate()}}{161}{subsection.6.7}
-\contentsline {subsubsection}{\numberline {6.7.1}Principe}{161}{subsubsection.6.7.1}
-\contentsline {subsubsection}{\numberline {6.7.2}Transformer des variables en facteurs}{163}{subsubsection.6.7.2}
-\contentsline {subsubsection}{\numberline {6.7.3}Exercices}{171}{subsubsection.6.7.3}
-\contentsline {subsection}{\numberline {6.8}Trier des lignes avec \texttt {arrange()}}{172}{subsection.6.8}
-\contentsline {subsection}{\numberline {6.9}Associer plusieurs tableaux avec \texttt {left\_join()} et \texttt {inner\_join()}}{176}{subsection.6.9}
-\contentsline {subsubsection}{\numberline {6.9.1}Principe}{176}{subsubsection.6.9.1}
-\contentsline {subsubsection}{\numberline {6.9.2}\texttt {inner\_join()}}{177}{subsubsection.6.9.2}
-\contentsline {subsubsection}{\numberline {6.9.3}\texttt {left\_join()}}{179}{subsubsection.6.9.3}
-\contentsline {subsubsection}{\numberline {6.9.4}Accoller deux tableaux}{181}{subsubsection.6.9.4}
-\contentsline {subsection}{\numberline {6.10}Exercices}{185}{subsection.6.10}
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Objectifs}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Organisation}{3}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Les cours magistraux}{3}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Les Travaux pratiques}{3}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Le TEA}{5}{subsubsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.4}L'évaluation}{5}{subsubsection.1.2.4}%
+\contentsline {section}{\numberline {2}R et RStudio : les bases}{7}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Que sont R et RStudio}{7}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Installation de R et RStudio}{8}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Utiliser R depuis RStudio}{8}{subsubsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.2}Comment exécuter du code R ?}{9}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}La console}{9}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Le répertoire de travail}{10}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Les scripts}{10}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}Concepts de base en programmation et terminologie}{13}{subsubsection.2.2.4}%
+\contentsline {paragraph}{\numberline {2.2.4.1}Objets, types, vecteurs, facteurs et tableaux de données}{13}{paragraph.2.2.4.1}%
+\contentsline {paragraph}{\numberline {2.2.4.2}Opérateurs de comparaison}{14}{paragraph.2.2.4.2}%
+\contentsline {paragraph}{\numberline {2.2.4.3}L'utilisation des fonctions}{17}{paragraph.2.2.4.3}%
+\contentsline {subsection}{\numberline {2.3}Les packages additionnels}{19}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Installation d'un package}{20}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Charger un package en mémoire}{20}{subsubsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.4}Exercices}{20}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Explorez votre premier jeu de données}{21}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Le package \texttt {nycflights13}}{21}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Le data frame \texttt {flights}}{22}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Explorer un \texttt {data.frame}}{23}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}\texttt {View()}}{23}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}\texttt {glimpse()}}{24}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}L'opérateur \texttt {\$}}{25}{subsubsection.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.4}\texttt {skim()}}{26}{subsubsection.3.3.4}%
+\contentsline {subsubsection}{\numberline {3.3.5}Les fichiers d'aide}{26}{subsubsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.4}Exercices}{27}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Visualiser des données avec \texttt {ggplot2}}{27}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Prérequis}{28}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}La grammaire des graphiques}{28}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Éléments de la grammaire}{28}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Gapminder}{29}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Autres éléments de la grammaire des graphiques}{30}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.4}Le package \texttt {ggplot2}}{31}{subsubsection.4.2.4}%
+\contentsline {subsection}{\numberline {4.3}Les nuages de points}{31}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}La couche de base : la fonction \texttt {ggplot()}}{32}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Ajout d'une couche supplémentaire : l'objet géométrique}{32}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Exercices}{34}{subsubsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.4}Over-plotting}{34}{subsubsection.4.3.4}%
+\contentsline {subsubsection}{\numberline {4.3.5}Couleur, taille et forme}{37}{subsubsection.4.3.5}%
+\contentsline {subsubsection}{\numberline {4.3.6}Exercices}{43}{subsubsection.4.3.6}%
+\contentsline {subsection}{\numberline {4.4}Les graphiques en lignes}{43}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}Un nouveau jeu de données}{43}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}Exercice}{45}{subsubsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.3}La fonction \texttt {geom\_line()}}{45}{subsubsection.4.4.3}%
+\contentsline {subsubsection}{\numberline {4.4.4}À quel endroit placer \texttt {aes()} et les arguments \texttt {color}, \texttt {size}, etc. ?}{47}{subsubsection.4.4.4}%
+\contentsline {subsection}{\numberline {4.5}Les histogrammes}{52}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}L'objet \texttt {geom\_histogram()}}{52}{subsubsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.2}La taille des classes}{53}{subsubsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.3}Les densités}{56}{subsubsection.4.5.3}%
+\contentsline {subsection}{\numberline {4.6}Les \texttt {facet}s}{57}{subsection.4.6}%
+\contentsline {subsubsection}{\numberline {4.6.1}\texttt {facet\_wrap()}}{57}{subsubsection.4.6.1}%
+\contentsline {subsubsection}{\numberline {4.6.2}\texttt {facet\_grid()}}{59}{subsubsection.4.6.2}%
+\contentsline {subsubsection}{\numberline {4.6.3}Exercices}{62}{subsubsection.4.6.3}%
+\contentsline {subsection}{\numberline {4.7}Les boîtes à moustaches ou boxplots}{62}{subsection.4.7}%
+\contentsline {subsubsection}{\numberline {4.7.1}Création de boxplots et informations apportées}{62}{subsubsection.4.7.1}%
+\contentsline {subsubsection}{\numberline {4.7.2}L'intervalle de confiance à 95\% de la médiane}{64}{subsubsection.4.7.2}%
+\contentsline {subsubsection}{\numberline {4.7.3}Une autre façon d'examiner des distributions}{65}{subsubsection.4.7.3}%
+\contentsline {subsubsection}{\numberline {4.7.4}Pour conclure}{66}{subsubsection.4.7.4}%
+\contentsline {subsection}{\numberline {4.8}Les diagrammes bâtons}{66}{subsection.4.8}%
+\contentsline {subsubsection}{\numberline {4.8.1}Représentation graphique avec \texttt {geom\_bar} et \texttt {geom\_col}}{67}{subsubsection.4.8.1}%
+\contentsline {subsubsection}{\numberline {4.8.2}Un exemple concret}{69}{subsubsection.4.8.2}%
+\contentsline {subsubsection}{\numberline {4.8.3}Exercices}{72}{subsubsection.4.8.3}%
+\contentsline {subsubsection}{\numberline {4.8.4}Éviter à tout prix les diagrammes circulaires}{72}{subsubsection.4.8.4}%
+\contentsline {subsubsection}{\numberline {4.8.5}Comparer 2 variables catégorielles avec un diagramme bâton}{73}{subsubsection.4.8.5}%
+\contentsline {paragraph}{\numberline {4.8.5.1}Graphique empilé}{74}{paragraph.4.8.5.1}%
+\contentsline {paragraph}{\numberline {4.8.5.2}Graphique juxtaposé}{74}{paragraph.4.8.5.2}%
+\contentsline {paragraph}{\numberline {4.8.5.3}Utilisation des \texttt {facet}s}{75}{paragraph.4.8.5.3}%
+\contentsline {subsection}{\numberline {4.9}De l'exploration à l'exposition}{77}{subsection.4.9}%
+\contentsline {subsubsection}{\numberline {4.9.1}Les labels}{77}{subsubsection.4.9.1}%
+\contentsline {subsubsection}{\numberline {4.9.2}Les échelles}{79}{subsubsection.4.9.2}%
+\contentsline {subsubsection}{\numberline {4.9.3}Les thèmes}{96}{subsubsection.4.9.3}%
+\contentsline {subsection}{\numberline {4.10}Exercices}{101}{subsection.4.10}%
+\contentsline {section}{\numberline {5}(Ar)ranger des données avec \texttt {tidyr}}{102}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Prérequis}{103}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}C'est quoi des ``tidy data'' ?}{104}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}La fonction \texttt {pivot\_longer()}}{105}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}La fonction \texttt {pivot\_wider()}}{109}{subsubsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.3}Les fonctions \texttt {separate()} et \texttt {unite()}}{112}{subsubsection.5.2.3}%
+\contentsline {subsubsection}{\numberline {5.2.4}Exercices}{114}{subsubsection.5.2.4}%
+\contentsline {subsection}{\numberline {5.3}Importer des données depuis un tableur}{114}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Les règles de base}{114}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}Fichiers au format tableur (.xls ou .xlsx)}{115}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.3}Fichiers au format texte brut (.csv)}{119}{subsubsection.5.3.3}%
+\contentsline {subsubsection}{\numberline {5.3.4}En cas de problème\ldots {}}{123}{subsubsection.5.3.4}%
+\contentsline {subsubsection}{\numberline {5.3.5}Exercices}{124}{subsubsection.5.3.5}%
+\contentsline {section}{\numberline {6}Tripatouiller les données avec \texttt {dplyr}}{126}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Pré-requis}{126}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Le pipe \texttt {\%\textgreater {}\%}}{126}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Les verbes du tripatouillage de données}{128}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Filtrer des lignes avec \texttt {filter()}}{129}{subsection.6.4}%
+\contentsline {subsubsection}{\numberline {6.4.1}Principe}{129}{subsubsection.6.4.1}%
+\contentsline {subsubsection}{\numberline {6.4.2}Exercice}{130}{subsubsection.6.4.2}%
+\contentsline {subsubsection}{\numberline {6.4.3}Les conditions logiques}{130}{subsubsection.6.4.3}%
+\contentsline {subsection}{\numberline {6.5}Créer des résumés avec \texttt {summarise()} et \texttt {group\_by()}}{134}{subsection.6.5}%
+\contentsline {subsubsection}{\numberline {6.5.1}Principe de la fonction \texttt {summarise()}}{134}{subsubsection.6.5.1}%
+\contentsline {subsubsection}{\numberline {6.5.2}Intérêt de la fonction \texttt {group\_by()}}{135}{subsubsection.6.5.2}%
+\contentsline {subsubsection}{\numberline {6.5.3}Ajouter des barres d'erreurs sur un graphique}{138}{subsubsection.6.5.3}%
+\contentsline {subsubsection}{\numberline {6.5.4}Grouper par plus d'une variable}{139}{subsubsection.6.5.4}%
+\contentsline {subsubsection}{\numberline {6.5.5}Un raccourci pratique pour compter des effectifs}{143}{subsubsection.6.5.5}%
+\contentsline {subsubsection}{\numberline {6.5.6}Exercices}{144}{subsubsection.6.5.6}%
+\contentsline {subsection}{\numberline {6.6}Sélectionner des variables avec \texttt {select()}}{147}{subsection.6.6}%
+\contentsline {subsection}{\numberline {6.7}Créer de nouvelles variables avec \texttt {mutate()}}{150}{subsection.6.7}%
+\contentsline {subsubsection}{\numberline {6.7.1}Principe}{150}{subsubsection.6.7.1}%
+\contentsline {subsubsection}{\numberline {6.7.2}Transformer des variables en facteurs}{153}{subsubsection.6.7.2}%
+\contentsline {subsubsection}{\numberline {6.7.3}Exercices}{160}{subsubsection.6.7.3}%
+\contentsline {subsection}{\numberline {6.8}Trier des lignes avec \texttt {arrange()}}{162}{subsection.6.8}%
+\contentsline {subsection}{\numberline {6.9}Associer plusieurs tableaux avec \texttt {left\_join()} et \texttt {inner\_join()}}{164}{subsection.6.9}%
+\contentsline {subsubsection}{\numberline {6.9.1}Principe}{164}{subsubsection.6.9.1}%
+\contentsline {subsubsection}{\numberline {6.9.2}\texttt {inner\_join()}}{165}{subsubsection.6.9.2}%
+\contentsline {subsubsection}{\numberline {6.9.3}\texttt {left\_join()}}{167}{subsubsection.6.9.3}%
+\contentsline {subsubsection}{\numberline {6.9.4}Accoller deux tableaux}{169}{subsubsection.6.9.4}%
+\contentsline {subsection}{\numberline {6.10}Exercices}{172}{subsection.6.10}%
