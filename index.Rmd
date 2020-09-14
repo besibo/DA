@@ -87,7 +87,7 @@ Attention toutefois, venir à une séance de permanence en n'ayant pas préparé
 
 **Comment procéder pour savoir si une séance de permanence a lieu, ou pour poser une question ?**
 
-Tout se passera en ligne, grâce au logiciel [Slack](https://slack.com/intl/fr-fr/), qui fonctionne un peu comme un "twitter privé". Slack facilite la communication des équipes et permet de travailler ensemble. Créez-vous un compte en ligne et installez le logiciel sur votre ordinateur (il existe aussi des versions pour tablettes et smartphones). Lorsque vous aurez installé le logiciel, [cliquez sur ce lien](https://join.slack.com/t/univlrgroupe/shared_invite/zt-grop8wl2-xxV0PNg8DFpVUYmmdk0WAA) pour vous connecter à notre espace de travail commun.
+Tout se passera en ligne, grâce au logiciel [Slack](https://slack.com/intl/fr-fr/), qui fonctionne un peu comme un "twitter privé". Slack facilite la communication des équipes et permet de travailler ensemble. Créez-vous un compte en ligne et installez le logiciel sur votre ordinateur (il existe aussi des versions pour tablettes et smartphones). Lorsque vous aurez installé le logiciel, [cliquez sur ce lien](https://join.slack.com/t/geel2020/shared_invite/zt-grop8wl2-xxV0PNg8DFpVUYmmdk0WAA) pour vous connecter à notre espace de travail commun.
 
 Vous verrez que 3 "chaînes" sont disponibles :
 
