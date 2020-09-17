@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/besibo/DA.svg?branch=master)](https://travis-ci.org/besibo/DA)
+[![Build Status](https://travis-ci.com/besibo/DA.svg?branch=master)](https://travis-ci.com/besibo/DA)
 
 Ce dépôt contient le document permettant de prendre en main les logiciels R et RStudio afin de réaliser des représentations graphiques et des statistiques descriptives simples dans le cadre des travaux pratiques d'Analyse de Données (Master 1, Semestre 1).
 
