@@ -134,7 +134,7 @@
 
 \title{Analyse de Données}
 \author{Benoît Simon-Bouhet}
-\date{2020-09-17}
+\date{2020-09-27}
 
 \begin{document}
 \maketitle
@@ -6058,14 +6058,49 @@ Notez que j'utilise maintenant \texttt{group\ =\ origin} et non plus \texttt{gro
 \caption{Évolution des températures moyenne dans 3 aéroports de New York en 2013}\label{fig:errorbars4}
 \end{figure}
 
-Enfin, lorsque nous groupons par plusieurs variables, il peut être utile de présenter les résultats sous la forme d'un tableau large (grâce à la fonction \texttt{spread()}, voir section \ref{spread}) pour l'intégration dans un rapport par exemple :
+Lorsque nous groupons par plusieurs variables, il peut-être utile d'ajouter l'argument \texttt{.groups\ =\ "drop"} à la fonction \texttt{summarise()} afin que le tibble obtenu soit un tibble ``normal'' et non un tibble toujours groupé par une ou plusieurs variables :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{monthly_orig_temp <-}\StringTok{ }\NormalTok{weather }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(origin, month) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{moyenne =} \KeywordTok{mean}\NormalTok{(temp, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{),}
+            \DataTypeTok{ecart_type =} \KeywordTok{sd}\NormalTok{(temp, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{),}
+            \DataTypeTok{nb_obs =} \KeywordTok{n}\NormalTok{(),}
+            \DataTypeTok{erreur_std =}\NormalTok{ ecart_type }\OperatorTok{/}\StringTok{ }\KeywordTok{sqrt}\NormalTok{(nb_obs),}
+            \DataTypeTok{.groups =} \StringTok{"drop"}\NormalTok{)}
+\NormalTok{monthly_orig_temp}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 36 x 6
+   origin month moyenne ecart_type nb_obs erreur_std
+   <chr>  <int>   <dbl>      <dbl>  <int>      <dbl>
+ 1 EWR        1    35.6      10.8     742      0.396
+ 2 EWR        2    34.3       7.28    669      0.282
+ 3 EWR        3    40.1       6.72    743      0.247
+ 4 EWR        4    53.0       9.60    720      0.358
+ 5 EWR        5    63.3      10.6     744      0.389
+ 6 EWR        6    73.3       8.05    720      0.300
+ 7 EWR        7    80.7       7.37    741      0.271
+ 8 EWR        8    74.5       5.87    740      0.216
+ 9 EWR        9    67.3       9.32    719      0.348
+10 EWR       10    59.8       9.79    736      0.361
+# ... with 26 more rows
+\end{verbatim}
+
+Notez qu'ajouter cet argument permet également de faire disparaître le message d'avertissement qui s'affichait après chaque utilisation de \texttt{group\_by()}. C'est donc une bonne habitude d'ajouter cet argument systématiquement dans la fonction \texttt{summarise()} après utilisation de \texttt{group\_by()}.
+
+Enfin, lorsque nous groupons par plusieurs variables, il peut être utile de présenter les résultats sous la forme d'un tableau large (grâce à la fonction \texttt{pivot\_wider()}, voir section \ref{spread}) pour l'intégration dans un rapport par exemple :
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{weather }\OperatorTok{%>%}\StringTok{ }
 \StringTok{  }\KeywordTok{group_by}\NormalTok{(origin, month) }\OperatorTok{%>%}\StringTok{ }
 \StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{moyenne =} \KeywordTok{mean}\NormalTok{(temp, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{spread}\NormalTok{(origin, moyenne)}
+\StringTok{  }\KeywordTok{pivot_wider}\NormalTok{(}\DataTypeTok{names_from =}\NormalTok{ origin, }
+              \DataTypeTok{values_from =}\NormalTok{ moyenne)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6761,11 +6796,11 @@ De même, la variable \texttt{Sex} est codée sous forme numérique, or il devra
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.5\linewidth]{figure/unnamed-chunk-136-1} 
+{\centering \includegraphics[width=0.5\linewidth]{figure/unnamed-chunk-137-1} 
 
 }
 
-\caption{Indice Gonado Somatique  selon le sexe.}\label{fig:unnamed-chunk-136}
+\caption{Indice Gonado Somatique  selon le sexe.}\label{fig:unnamed-chunk-137}
 \end{figure}
 
 Comment faire pour inverser l'ordre des catégories sur l'axe des abscisses ? Il faut inverser l'ordre des catégories dans le facteur \texttt{Sex}. L'ordre dans lequel les catégories apparaissent sur un graphique est en effet déterminé par l'ordre dans lequel les niveaux du facteur sont organisés. D'habitude, les niveaux sont automatiquement triés par ordre alphabétique quand les catégories sont des chaînes de caractères, et en ordre croissant quand la variable est numérique. Ici les niveaux sont les suivants :
@@ -6806,11 +6841,11 @@ Comment faire pour inverser l'ordre des catégories sur l'axe des abscisses ? Il
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics[width=0.5\linewidth]{figure/unnamed-chunk-139-1} 
+{\centering \includegraphics[width=0.5\linewidth]{figure/unnamed-chunk-140-1} 
 
 }
 
-\caption{Indice Gonado Somatique  selon le sexe.}\label{fig:unnamed-chunk-139}
+\caption{Indice Gonado Somatique  selon le sexe.}\label{fig:unnamed-chunk-140}
 \end{figure}
 
 Revenons maintenant au jeu de données \texttt{dauphin}.

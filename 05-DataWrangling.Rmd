@@ -463,14 +463,29 @@ monthly_orig_temp %>%
        subtitle = "Attention : les barres d'erreurs sont les écarts-types.\nIl faut normalement faire figurer les erreurs standard.")
 ```
 
+Lorsque nous groupons par plusieurs variables, il peut-être utile d'ajouter l'argument `.groups = "drop"` à la fonction `summarise()` afin que le tibble obtenu soit un tibble "normal" et non un tibble toujours groupé par une ou plusieurs variables :
 
-Enfin, lorsque nous groupons par plusieurs variables, il peut être utile de présenter les résultats sous la forme d'un tableau large (grâce à la fonction `spread()`, voir section \@ref(spread)) pour l'intégration dans un rapport par exemple :
+```{r, tidy = FALSE}
+monthly_orig_temp <- weather %>% 
+  group_by(origin, month) %>% 
+  summarise(moyenne = mean(temp, na.rm = TRUE),
+            ecart_type = sd(temp, na.rm = TRUE),
+            nb_obs = n(),
+            erreur_std = ecart_type / sqrt(nb_obs),
+            .groups = "drop")
+monthly_orig_temp
+```
+
+Notez qu'ajouter cet argument permet également de faire disparaître le message d'avertissement qui s'affichait après chaque utilisation de `group_by()`. C'est donc une bonne habitude d'ajouter cet argument systématiquement dans la fonction `summarise()` après utilisation de `group_by()`.
+
+Enfin, lorsque nous groupons par plusieurs variables, il peut être utile de présenter les résultats sous la forme d'un tableau large (grâce à la fonction `pivot_wider()`, voir section \@ref(spread)) pour l'intégration dans un rapport par exemple :
 
 ```{r, tidy = FALSE}
 weather %>% 
   group_by(origin, month) %>% 
   summarise(moyenne = mean(temp, na.rm = TRUE)) %>% 
-  spread(origin, moyenne)
+  pivot_wider(names_from = origin, 
+              values_from = moyenne)
 ```
 
 Sous cette forme, les données ne sont plus "rangées", nous n'avons plus des "tidy data", mais nous avons un tableau plus synthétique, facile à inclure dans un rapport.
