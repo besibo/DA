@@ -134,7 +134,7 @@
 
 \title{Analyse de Données}
 \author{Benoît Simon-Bouhet}
-\date{2020-09-27}
+\date{2020-10-06}
 
 \begin{document}
 \maketitle
@@ -592,7 +592,7 @@ Si j'exécute ce script dans la console de RStudio (en sélectionnant toutes les
 \end{verbatim}
 
 \begin{verbatim}
-'data.frame':   153 obs. of  6 variables:
+'data.frame':	153 obs. of  6 variables:
  $ Ozone  : int  41 36 12 18 NA 28 23 19 8 NA ...
  $ Solar.R: int  190 118 149 313 NA NA 299 99 19 194 ...
  $ Wind   : num  7.4 8 12.6 11.5 14.3 14.9 8.6 13.8 20.1 8.6 ...
@@ -1122,8 +1122,8 @@ rappelez-vous que c'est probablement parce que vous tentez d'utiliser une foncti
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\hypertarget{exercices}{%
-\subsection{Exercices}\label{exercices}}
+\hypertarget{Exo-1}{%
+\subsection{Exercices}\label{Exo-1}}
 
 Créez un nouveau script que vous nommerez \texttt{VotreNomDeFamille.R}. Vous prendrez soin d'ajouter autant de commentaires que nécessaire dans votre script afin de le structurer correctement.
 
@@ -1480,8 +1480,8 @@ Prenez le temps d'examiner le fichier d'aide du jeu de données \texttt{flights}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\hypertarget{exercices-1}{%
-\subsection{Exercices}\label{exercices-1}}
+\hypertarget{Exo-2}{%
+\subsection{Exercices}\label{Exo-2}}
 
 Consultez l'aide du jeu de données \texttt{diamonds} du package \texttt{ggplot2}.
 
@@ -1832,8 +1832,8 @@ Quelques remarques concernant les couches :
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{exercices-2}{%
-\subsubsection{Exercices}\label{exercices-2}}
+\hypertarget{Exo-4}{%
+\subsubsection{Exercices}\label{Exo-4}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2121,8 +2121,8 @@ Enfin un conseil : évitez de trop surcharger vos graphiques. En combinant l'ens
 \caption{Sometimes, less is more!}\label{fig:badplot}
 \end{figure}
 
-\hypertarget{exercices-3}{%
-\subsubsection{Exercices}\label{exercices-3}}
+\hypertarget{Exo-5}{%
+\subsubsection{Exercices}\label{Exo-5}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2216,8 +2216,8 @@ Nous allons nous intéresser à la variable \texttt{temp}, qui contient un enreg
 
 La fonction \texttt{filter()} fonctionne sur le même principe que la fonction \texttt{subset()} découverte dans les tutoriels de DataCamp. Ici, nous demandons à R de créer un nouveau tableau de données, nommé \texttt{small\_weather}, qui ne contiendra que les lignes correspondant à \texttt{origin\ ==\ "EWR"}, \texttt{month\ ==\ 1} et \texttt{day\ \textless{}=\ 15}, c'est à dire les données météorologiques de l'aéroport de Newark pour les 15 premiers jours de janvier 2013.
 
-\hypertarget{exercice}{%
-\subsubsection{Exercice}\label{exercice}}
+\hypertarget{Exo-6}{%
+\subsubsection{Exercice}\label{Exo-6}}
 
 Avec \texttt{View()}, consultez le tableau nouvellement créé. Expliquez pourquoi la variable \texttt{time\_hour} identifie de manière unique le moment ou chaque mesure a été réalisée alors que ce n'est pas le cas de la variable \texttt{hour}.
 
@@ -2787,8 +2787,8 @@ Ici, nous avons utilisé la variable \texttt{month} (transformée en facteur) et
 
 Vous devriez maintenant être convaincus de la puissance de la grammaire des graphiques. En utilisant un langage standardisé et en ajoutant des couches une à une sur un graphique, il est posible d'obtenir rapidement des visualisations très complexes et néanmoins très claires, qui font apparaître des structures intéressantes dans nos données (des tendances, des groupes, des similitudes, des liaisons, des différences, etc.).
 
-\hypertarget{exercices-4}{%
-\subsubsection{Exercices}\label{exercices-4}}
+\hypertarget{Exo-7}{%
+\subsubsection{Exercices}\label{Exo-7}}
 
 Examinez la figure \ref{fig:grid}.
 
@@ -3179,8 +3179,8 @@ Pour parvenir à nos fins, il faut cette fois avoir recours à la fonction \text
 
 Vous voyez donc que selon le type de données dont vous disposez (soit un tableau comme \texttt{flights}, avec toutes les observations, soit un tableau beaucoup plus compact comme \texttt{carrier\_table}), la démarche permettant de produire un diagramme bâtons, dans lequel les catégories seront triées, sera différente.
 
-\hypertarget{exercices-5}{%
-\subsubsection{Exercices}\label{exercices-5}}
+\hypertarget{Exo-8}{%
+\subsubsection{Exercices}\label{Exo-8}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -4095,8 +4095,8 @@ Vous devriez donc maintenant être bien armés pour produire 95\% des graphiques
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\hypertarget{exercices-6}{%
-\subsection{Exercices}\label{exercices-6}}
+\hypertarget{Exo-3}{%
+\subsection{Exercices}\label{Exo-3}}
 
 Commencez par créer un nouveau jeu de données en exécutant ces commandes :
 
@@ -4789,8 +4789,8 @@ La colonne \texttt{new} a été créée par la fusion des colonnes \texttt{centu
 9 US      2013    13000
 \end{verbatim}
 
-\hypertarget{exercices-7}{%
-\subsubsection{Exercices}\label{exercices-7}}
+\hypertarget{Exo-9}{%
+\subsubsection{Exercices}\label{Exo-9}}
 
 Examinez les tableaux \texttt{rates}, \texttt{storms} et \texttt{population} du package \texttt{EDAWR}.
 
@@ -5222,8 +5222,8 @@ Ainsi, par exemple, pour le fichier \texttt{dauphin.csv}, on peut taper ceci :
 
 Puisque la fonction \texttt{read.table()} importe les données sous la forme d'un data.frame, il est nécessaire de transformer le tableau obtenu en \texttt{tibble} grâce à la fonction \texttt{as\_tibble()} afin de bénéficier de tous les avantages de ce format d'objet.
 
-\hypertarget{exercices-8}{%
-\subsubsection{Exercices}\label{exercices-8}}
+\hypertarget{Exo-10}{%
+\subsubsection{Exercices}\label{Exo-10}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -5462,8 +5462,8 @@ Dans les 2 cas, la première ligne de code nous permet :
 
 Le premier argument de la fonction \texttt{filter()} doit être le nom d'un \texttt{data.frame} ou d'un \texttt{tibble}. Ici, puisque nous utilisons le pipe, il est inutile de spécifier cet argument : c'est ce qui est placé à gauche du pipe qui est utilisé comme premier argument de la fonction \texttt{filter()}. Les arguments suivants constituent la ou les conditions qui doivent être respectées par les lignes du tableau de départ afin d'être intégrées au nouveau tableau de données.
 
-\hypertarget{exercice-1}{%
-\subsubsection{Exercice}\label{exercice-1}}
+\hypertarget{exercice}{%
+\subsubsection{Exercice}\label{exercice}}
 
 Dans la section \ref{View}, nous avons utilisé la fonction \texttt{View} et l'application manuelle de filtres pour déterminer combien de vols avaient quitté l'aéroport JFK le 12 février 2013. En utilisant la fonction \texttt{filter()}, créez un objet nommé \texttt{JFK\_12fev} qui contiendra les données de ces vols.
 
@@ -6224,8 +6224,8 @@ Comme avec \texttt{group\_by()}, il est bien sûr possible d'utiliser \texttt{co
 # ... with 26 more rows
 \end{verbatim}
 
-\hypertarget{exercices-9}{%
-\subsubsection{Exercices}\label{exercices-9}}
+\hypertarget{Exo-11}{%
+\subsubsection{Exercices}\label{Exo-11}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -7092,8 +7092,8 @@ Outre les fonctions \texttt{fct\_rev()}, \texttt{fct\_recode()} et \texttt{fct\_
 
 Nous n'avons pas le temps de développer ici des exemples pour chacune de ces fonctions, mais sachez que ces fonctions existent. Vous trouverez des exemples détaillés dans \href{http://r4ds.had.co.nz/factors.html\#modifying-factor-levels}{le chapitre consacré aux facteurs} de l'ouvrage en ligne \href{http://r4ds.had.co.nz/}{R for Data Science}. C'est en anglais, mais les exemples sont très parlants. N'hésitez pas à consulter cet ouvrage et à faire des essais de mise en application avec les jeux de données vus ici (e.g.~\texttt{dauphin} ou \texttt{squid}).
 
-\hypertarget{exercices-10}{%
-\subsubsection{Exercices}\label{exercices-10}}
+\hypertarget{Exo-12}{%
+\subsubsection{Exercices}\label{Exo-12}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -7758,8 +7758,8 @@ Ici, puisque \texttt{a} et \texttt{b} ont le même nombre de lignes, il est poss
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\hypertarget{exercices-11}{%
-\subsection{Exercices}\label{exercices-11}}
+\hypertarget{Exo-13}{%
+\subsection{Exercices}\label{Exo-13}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}

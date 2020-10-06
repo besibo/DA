@@ -298,7 +298,7 @@ unite(cases_split, new, century, year, sep = "")
 ```
 
 
-### Exercices
+### Exercices {#Exo-9}
 
 Examinez les tableaux `rates`, `storms` et `population` du package `EDAWR`.
 
@@ -497,7 +497,7 @@ dauph
 Puisque la fonction `read.table()` importe les données sous la forme d'un data.frame, il est nécessaire de transformer le tableau obtenu en `tibble` grâce à la fonction `as_tibble()` afin de bénéficier de tous les avantages de ce format d'objet.
 
 
-### Exercices
+### Exercices {#Exo-10}
 
 1. L'objet `dauphin` est-il "tidy" (autrement dit, s'agit-il de "données rangées") ? Justifiez.
 2. Produisez le graphique ci-dessous :

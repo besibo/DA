@@ -519,7 +519,7 @@ weather %>%
 ```
 
 
-### Exercices
+### Exercices {#Exo-11}
 
 1. Faites un tableau indiquant combien de vols ont été annulés après le décollage, pour chaque compagnie aérienne. Vous devriez obtenir le tableau suivant :
 
@@ -888,7 +888,7 @@ Outre les fonctions `fct_rev()`, `fct_recode()` et `fct_relevel()` abordées ici
 Nous n'avons pas le temps de développer ici des exemples pour chacune de ces fonctions, mais sachez que ces fonctions existent. Vous trouverez des exemples détaillés dans [le chapitre consacré aux facteurs](http://r4ds.had.co.nz/factors.html#modifying-factor-levels) de l'ouvrage en ligne [R for Data Science](http://r4ds.had.co.nz/). C'est en anglais, mais les exemples sont très parlants. N'hésitez pas à consulter cet ouvrage et à faire des essais de mise en application avec les jeux de données vus ici (e.g. `dauphin` ou `squid`).
 
 
-### Exercices
+### Exercices {#Exo-12}
 
 1. Dans `ggplot2` le jeu de données `mpg` contient des informations sur 234 modèles de voitures. Examinez ce jeu de données avec la fonction `View()` et consultez l'aide de ce jeu de données pour savoir à quoi correspondent les différentes variables. Quelle(s) variable(s) nous renseignent sur la consommation des véhicules ? À quoi correspond la variable `disp` ?
 
@@ -1146,7 +1146,7 @@ Ici, puisque `a` et `b` ont le même nombre de lignes, il est possible de les ac
 
 ----
 
-## Exercices
+## Exercices {#Exo-13}
 
 1. Créez un tableau `delayed` indiquant, pour chaque compagnie aérienne et chaque mois de l'année, le nombre de vols ayant eu un retard supérieur à 30 minutes à l'arrivée à destination. Ce tableau devrait contenir uniquement 3 colonnes :
 
