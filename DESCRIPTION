@@ -1,5 +1,6 @@
 Package: DataAnalysis
 Title: Analyse de Données
-Version: 0.0.1
+Version: 0.1.0
 Imports: bookdown, tidyverse, knitr
 Remotes: rstudio/bookdown
+Encoding: UTF-8
