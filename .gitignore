@@ -1,5 +1,6 @@
 _docs/
 _bookdown_files/
+cache/
 libs/
 **/*.bib
 **/*.html
