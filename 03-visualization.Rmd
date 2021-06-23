@@ -1236,7 +1236,7 @@ small_flights %>%
     theme_bw()
 ```
 
-Quelques indices : 
+Quelques indices :
 
 - Les couleurs utilisées sont celles de la palettes `Accent` du package `RColorBrewer`.
 - Les variables utilisées sont `month`, `carrier` et `origin`.
