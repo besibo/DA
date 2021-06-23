@@ -159,7 +159,7 @@ if( !("EDAWR" %in% installed.packages()[,"Package"]) ) {
   install_github("rstudio/EDAWR")
 }
 
-opts_chunk$set(fig.path = 'figure/', cache.path = 'cache/', tidy = TRUE,
+opts_chunk$set(fig.path = 'figure/', cache.path = 'cache.nosync/', tidy = TRUE,
                fig.align = 'center', out.width = '90%', fig.asp = 0.618,
                fig.show = 'hold', fig.pos = 'htpb', par = TRUE, comment = NA, cache = TRUE)
 ```
