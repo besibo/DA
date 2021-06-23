@@ -24,7 +24,7 @@
 <meta name="author" content="Benoît Simon-Bouhet" />
 
 
-<meta name="date" content="2021-06-22" />
+<meta name="date" content="2021-06-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -462,7 +462,7 @@ Figure 5.2: Position des variables dans le tableau <code>cases</code> du package
 <div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="tidyr.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cases_tidy, <span class="fu">aes</span>(<span class="at">x =</span> country, <span class="at">y =</span> n_cases, <span class="at">fill =</span> year)) <span class="sc">+</span></span>
 <span id="cb180-2"><a href="tidyr.html#cb180-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
 <span id="cb180-3"><a href="tidyr.html#cb180-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Accent&quot;</span>) <span class="sc">+</span></span>
-<span id="cb180-4"><a href="tidyr.html#cb180-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_family =</span> <span class="st">&quot;Futura LT Book&quot;</span>) <span class="sc">+</span></span>
+<span id="cb180-4"><a href="tidyr.html#cb180-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb180-5"><a href="tidyr.html#cb180-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Pays&quot;</span>,</span>
 <span id="cb180-6"><a href="tidyr.html#cb180-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Nombre de cas&quot;</span>,</span>
 <span id="cb180-7"><a href="tidyr.html#cb180-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&quot;Année&quot;</span>,</span>

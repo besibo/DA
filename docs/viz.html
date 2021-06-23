@@ -24,7 +24,7 @@
 <meta name="author" content="Benoît Simon-Bouhet" />
 
 
-<meta name="date" content="2021-06-22" />
+<meta name="date" content="2021-06-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1935,7 +1935,7 @@ Figure 4.68: Utilisation du thème <code>theme_bw()</code>.
 Figure 4.69: Utilisation du thème minimaliste.
 </p>
 </div>
-<p>L’argument <code>base_family</code> de chaque thème permet de spécifier une police de caractères différente de celle utilisée par défaut. Évidemment, vous ne pourrez utiliser que des polices qui sont disponibles sur l’ordinateur que vous utilisez. Dans l’exemple de la figure <a href="viz.html#fig:themefont">4.70</a> ci-dessous, j’utilise la police “Futura LT Book.” Si cette police n’est pas disponible sur votre ordinateur, ce code produira une erreur. Si c’est le cas, remplacez-la par une police de votre ordinateur. Attention, son nom exact doit être utilisé. Cela signifie bien sûr le respect des espaces, majuscules, etc.</p>
+<p>L’argument <code>base_family</code> de chaque thème permet de spécifier une police de caractères différente de celle utilisée par défaut. Évidemment, vous ne pourrez utiliser que des polices qui sont disponibles sur l’ordinateur que vous utilisez. Dans l’exemple de la figure <a href="viz.html#fig:themefont">4.70</a> ci-dessous, j’utilise la police “Futura Medium.” Si cette police n’est pas disponible sur votre ordinateur, ce code produira une erreur. Si c’est le cas, remplacez-la par une police de votre ordinateur. Attention, son nom exact doit être utilisé. Cela signifie bien sûr le respect des espaces, majuscules, etc.</p>
 <div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="viz.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(flights, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_infreq</span>(carrier), <span class="at">fill =</span> origin)) <span class="sc">+</span></span>
 <span id="cb168-2"><a href="viz.html#cb168-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
 <span id="cb168-3"><a href="viz.html#cb168-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>origin, <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
@@ -1943,8 +1943,8 @@ Figure 4.69: Utilisation du thème minimaliste.
 <span id="cb168-5"><a href="viz.html#cb168-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Nombre de vols&quot;</span>,</span>
 <span id="cb168-6"><a href="viz.html#cb168-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&quot;Aéroports de</span><span class="sc">\n</span><span class="st">New York&quot;</span>,</span>
 <span id="cb168-7"><a href="viz.html#cb168-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Couverture inégale des aéroports de New York&quot;</span>) <span class="sc">+</span></span>
-<span id="cb168-8"><a href="viz.html#cb168-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Accent&quot;</span>) <span class="sc">+</span></span>
-<span id="cb168-9"><a href="viz.html#cb168-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_family =</span> <span class="st">&quot;Futura LT Book&quot;</span>)</span></code></pre></div>
+<span id="cb168-8"><a href="viz.html#cb168-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Accent&quot;</span>) <span class="co">#+</span></span>
+<span id="cb168-9"><a href="viz.html#cb168-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">#theme_minimal(base_family = &quot;Futura Medium&quot;)</span></span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:themefont"></span>
 <img src="figure/themefont-1.png" alt="Modification de la police de caractères." width="90%" />
 <p class="caption">
