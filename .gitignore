@@ -1,6 +1,6 @@
 _docs/
 _bookdown_files/
-cache/
+cache.nosync/
 libs/
 **/*.bib
 **/*.html
