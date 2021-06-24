@@ -31,12 +31,9 @@ jobs:
         uses: r-lib/actions/setup-tinytex@v1
       - name: Install rmarkdown
         run: Rscript -e 'install.packages(c("rmarkdown","bookdown"))'
-      - name: Install XQuartz
+      - name: Install XQuartz on macOS
         if: runner.os == 'macOS'
-        run: |
-          wget https://dl.bintray.com/xquartz/downloads/XQuartz-2.7.11.dmg
-          sudo hdiutil attach XQuartz-2.7.11.dmg
-          sudo installer -package /Volumes/XQuartz-2.7.11/XQuartz.pkg -target /
+        run: brew install xquartz --cask
       - name: Render Book
         run: Rscript -e 'rmarkdown::render_site(encoding = "UTF-8")'
       - uses: actions/upload-artifact@v1
