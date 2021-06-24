@@ -1,4 +1,7 @@
+_docs/
 _bookdown_files/
+cache.nosync/
+cache/
 libs/
 **/*.bib
 **/*.html
