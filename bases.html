@@ -24,7 +24,7 @@
 <meta name="author" content="Benoît Simon-Bouhet" />
 
 
-<meta name="date" content="2021-06-23" />
+<meta name="date" content="2021-06-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -384,9 +384,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <li>En ligne de commande, dans la console, utilisez la fonction <code>setwd()</code> pour spécifier le chemin de votre nouveau dossier, par exemple :</li>
 </ol></li>
 </ol>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="bases.html#cb4-1"></a><span class="co"># Attention à bien respecter les majuscules et à utiliser les</span></span>
-<span id="cb4-2"><a href="bases.html#cb4-2"></a><span class="co"># guillemets.</span></span>
-<span id="cb4-3"><a href="bases.html#cb4-3"></a><span class="kw">setwd</span>(<span class="st">&quot;W:/Rstats&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="bases.html#cb4-1"></a><span class="co"># Attention à bien respecter les majuscules et à utiliser les guillemets.</span></span>
+<span id="cb4-2"><a href="bases.html#cb4-2"></a><span class="kw">setwd</span>(<span class="st">&quot;W:/Rstats&quot;</span>)</span></code></pre></div>
 <p>Il ne vous reste plus qu’à vérifier que le changement a bien été pris en compte en tapant à nouveau <code>getwd()</code> dans la console. Attention, vous devrez vous assurer d’être dans le bon répertoire de travail <strong>à chaque nouvelle session</strong> !</p>
 </div>
 <div id="les-scripts" class="section level3">
@@ -533,8 +532,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="bases.html#cb26-1"></a>tailles_pop3</span></code></pre></div>
 <pre><code>[1] 43 56 92</code></pre>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="bases.html#cb28-1"></a>tailles_pop3 <span class="op">&gt;</span><span class="st"> </span>tailles_pop1</span></code></pre></div>
-<pre><code>Warning in tailles_pop3 &gt; tailles_pop1: la taille d&#39;un objet plus long
-n&#39;est pas multiple de la taille d&#39;un objet plus court</code></pre>
+<pre><code>Warning in tailles_pop3 &gt; tailles_pop1: longer object length is not a
+multiple of shorter object length</code></pre>
 <pre><code>[1] FALSE  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE</code></pre>
 <p>Dans un cas comme celui là, R va <em>recycler</em> l’objet le plus court, ici <code>tailles_pop3</code> pour qu’une comparaison puisse être faite avec chaque élément de l’objet le plus long (ici, <code>tailles_pop1</code>). Ainsi, 43 est comparé à 112, 56 est comparé à 28 et 92 est comparé à 86. Puisque <code>tailles_pop3</code> ne contient plus d’éléments, ils sont recyclés, dans le même ordre : 43 est comparé à 14, 56 est comparé à 154, et ainsi de suite jusqu’à ce que tous les éléments de <code>tailles_pop1</code> aient été passés en revue.</p>
 <p>Ce type de recyclage est très risqué car il est difficile de savoir ce qui a été comparé avec quoi. En travaillant avec des tableaux plutôt qu’avec des vecteurs, le problème est généralement évité puisque toutes les colonnes d’un <code>data.frame</code> contiennent le même nombre d’éléments.</p>
