@@ -1,7 +1,7 @@
 book_filename: "Data-Analysis"
 delete_merged_file: true
 output_dir: _docs
-rmd_files: ["index.Rmd", "01-R-basics.Rmd"]
+# rmd_files: ["index.Rmd", "01-R-basics.Rmd"]
 language:
   ui:
     chapter_name: ""
