@@ -154,7 +154,7 @@ Il nous est maintenant plus facile de manipuler ces données pour en tirer de l'
 ggplot(cases_tidy, aes(x = country, y = n_cases, fill = year)) +
   geom_col(position = "dodge", color = "black") +
   scale_fill_brewer(palette = "Accent") +
-  theme_minimal() +
+  theme_minimal(base_family = "Gill Sans") +
   labs(x = "Pays",
        y = "Nombre de cas",
        fill = "Année",
@@ -512,7 +512,7 @@ dauphin %>%
          title = "Évolution de la concentration en Hg avec l'âge chez Delphinus delphis",
          color = "Sexe",
          caption = "Données : dauphin.xls") +
-    theme_bw()
+    theme_bw(base_family = "Gill Sans")
 ```
 Indice : les droites de régression avec les intervalles de confiance sont ajoutés grâce à la fonction `geom_smooth(method = "lm")`.
 
