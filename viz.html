@@ -1893,7 +1893,7 @@ Figure 4.68: Utilisation du thème <code>theme_bw()</code>.
 Figure 4.69: Utilisation du thème minimaliste.
 </p>
 </div>
-<p>L’argument <code>base_family</code> de chaque thème permet de spécifier une police de caractères différente de celle utilisée par défaut. Évidemment, vous ne pourrez utiliser que des polices qui sont disponibles sur l’ordinateur que vous utilisez. Dans l’exemple de la figure <a href="viz.html#fig:themefont">4.70</a> ci-dessous, j’utilise la police “Futura Medium”. Si cette police n’est pas disponible sur votre ordinateur, ce code produira une erreur. Si c’est le cas, remplacez-la par une police de votre ordinateur. Attention, son nom exact doit être utilisé. Cela signifie bien sûr le respect des espaces, majuscules, etc.</p>
+<p>L’argument <code>base_family</code> de chaque thème permet de spécifier une police de caractères différente de celle utilisée par défaut. Évidemment, vous ne pourrez utiliser que des polices qui sont disponibles sur l’ordinateur que vous utilisez. Dans l’exemple de la figure <a href="viz.html#fig:themefont">4.70</a> ci-dessous, j’utilise la police “Gill Sans”. Si cette police n’est pas disponible sur votre ordinateur, ce code produira une erreur. Si c’est le cas, remplacez-la par une police de votre ordinateur. Attention, son nom exact doit être utilisé. Cela signifie bien sûr le respect des espaces, majuscules, etc.</p>
 <div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="viz.html#cb168-1"></a><span class="kw">ggplot</span>(flights, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">fct_infreq</span>(carrier), <span class="dt">fill =</span> origin)) <span class="op">+</span></span>
 <span id="cb168-2"><a href="viz.html#cb168-2"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span></span>
 <span id="cb168-3"><a href="viz.html#cb168-3"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>origin, <span class="dt">ncol =</span> <span class="dv">1</span>) <span class="op">+</span></span>
@@ -1901,8 +1901,8 @@ Figure 4.69: Utilisation du thème minimaliste.
 <span id="cb168-5"><a href="viz.html#cb168-5"></a>       <span class="dt">y =</span> <span class="st">&quot;Nombre de vols&quot;</span>,</span>
 <span id="cb168-6"><a href="viz.html#cb168-6"></a>       <span class="dt">fill =</span> <span class="st">&quot;Aéroports de</span><span class="ch">\n</span><span class="st">New York&quot;</span>,</span>
 <span id="cb168-7"><a href="viz.html#cb168-7"></a>       <span class="dt">title =</span> <span class="st">&quot;Couverture inégale des aéroports de New York&quot;</span>) <span class="op">+</span></span>
-<span id="cb168-8"><a href="viz.html#cb168-8"></a><span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Accent&quot;</span>) <span class="co">#+</span></span>
-<span id="cb168-9"><a href="viz.html#cb168-9"></a>  <span class="co">#theme_minimal(base_family = &quot;Futura Medium&quot;)</span></span></code></pre></div>
+<span id="cb168-8"><a href="viz.html#cb168-8"></a><span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Accent&quot;</span>) <span class="op">+</span></span>
+<span id="cb168-9"><a href="viz.html#cb168-9"></a><span class="st">  </span><span class="kw">theme_minimal</span>(<span class="dt">base_family =</span> <span class="st">&quot;Gill Sans&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:themefont"></span>
 <img src="figure/themefont-1.png" alt="Modification de la police de caractères." width="90%" />
 <p class="caption">
