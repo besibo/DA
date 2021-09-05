@@ -155,9 +155,9 @@ library(remotes)
 library(knitr)
 library(tidyverse)
 
-if( !("EDAWR" %in% installed.packages()[,"Package"]) ) {
-  install_github("rstudio/EDAWR")
-}
+# if( !("EDAWR" %in% installed.packages()[,"Package"]) ) {
+#   install_github("rstudio/EDAWR")
+# }
 
 opts_chunk$set(fig.path = 'figure/', cache.path = 'cache.nosync/', tidy = TRUE,
                fig.align = 'center', out.width = '90%', fig.asp = 0.618,
