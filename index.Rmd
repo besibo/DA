@@ -43,7 +43,7 @@ Ces travaux pratiques ont essentiellement 3 objectifs :
   - d'autre part, pour vous permettre de formuler des hypothèses pertinentes et intéressantes concernant les systèmes que vous étudiez, 
   - et enfin, pour communiquer efficacement vos trouvailles à un public qui ne connaît pas vos données aussi bien que vous (cela inclut évidemment vos enseignants à l'issue de vos stages).  
   Les données que vous serez amenés à traiter lors de vos stages, ou plus tard, lorsque vous serez en poste, ont souvent été acquises à grands frais, et au prix d'efforts importants. Il est donc de votre responsabilité d'en tirer le maximum. Et ça commence toujours (ou presque), par la réalisation de visualisations graphiques parlantes.
-3. Vous apprendre comment calculer des statistiques descriptives simples, sur plusieurs types de variables, afin de vous mettre dans les meilleures conditions possibles pour aborder d'une part les statistiques plus avancées de cet EC et des EC des semestres 2 et 3, et d'autre part les comptes-rendus de TP et rapports de stage que vous aurez à produire dans ce cursus de master. Vos enseigants attendent de vous la plus grande rigueur lorsque vous analysez et présentez des résultats d'analyses statistiques. Ces TP ont pour objectifs de vous fournir les bases nécessaires pour satisfaire ce niveau d'exigence.
+3. Vous apprendre comment calculer des statistiques descriptives simples, sur plusieurs types de variables, afin de vous mettre dans les meilleures conditions possibles pour aborder d'une part les statistiques plus avancées de cet EC et des EC des semestres 2 et 3, et d'autre part les comptes-rendus de TP et rapports de stage que vous aurez à produire dans ce cursus de master. Vos enseignants attendent de vous la plus grande rigueur lorsque vous analysez et présentez des résultats d'analyses statistiques. Ces TP ont pour objectifs de vous fournir les bases nécessaires pour satisfaire ce niveau d'exigence.
 
 
 
@@ -88,7 +88,7 @@ Attention toutefois, venir à une séance de permanence en n'ayant pas préparé
 
 **Comment procéder pour savoir si une séance de permanence a lieu, ou pour poser une question ?**
 
-Tout se passera en ligne, grâce au logiciel [Slack](https://slack.com/intl/fr-fr/), qui fonctionne un peu comme un "twitter privé". Slack facilite la communication des équipes et permet de travailler ensemble. Créez-vous un compte en ligne et installez le logiciel sur votre ordinateur (il existe aussi des versions pour tablettes et smartphones). Lorsque vous aurez installé le logiciel, [cliquez sur ce lien](https://join.slack.com/t/geel2020/shared_invite/zt-grop8wl2-xxV0PNg8DFpVUYmmdk0WAA) pour vous connecter à notre espace de travail commun.
+Tout se passera en ligne, grâce au logiciel [Slack](https://slack.com/intl/fr-fr/), qui fonctionne un peu comme un "twitter privé". Slack facilite la communication des équipes et permet de travailler ensemble. Créez-vous un compte en ligne et installez le logiciel sur votre ordinateur (il existe aussi des versions pour tablettes et smartphones). Lorsque vous aurez installé le logiciel, [cliquez sur ce lien](https://join.slack.com/t/geel2021/shared_invite/zt-vfsq7izo-UNVeJtG_BUt~hoKPjdZB_A) pour vous connecter à notre espace de travail commun.
 
 Vous verrez que 3 "chaînes" sont disponibles :
 
@@ -119,7 +119,7 @@ Vous aurez plusieurs types d'évaluations cette année :
 
 1. Une évaluations par les pairs qui portera sur la qualité de vos scripts. Cette évaluation qui entrera pour une toute petite partie dans la note finale de l'EC a pour objectif principal de vous permettre de vous situer dans vos apprentissages. Vous évaluerez vous même, et de façon anonyme, plusieurs copies de vos camarades en suivant une grille d'évaluation critériée que nous construirons ensemble. De même, votre copie sera évaluée par plusieurs de vos camarades. Cette approche a de nombreux avantages. Elle vous permet notamment de mieux vous approprier les grilles de notations (par exemple, qu'est-ce qu'un bon script sous R ? À l'inverse, qu'est-ce qu'un script médiocre ? Comment être sûr que la méthode statistique choisie est la bonne pour répondre à une question donnée ? Suis-je capable de décrire correctement un tableau de données de grande taille ? Suis-je capable de produire des graphiques informatifs ?) et rends possible un retour personnalisé sur vos travaux beaucoup plus rapidement que si votre enseignant était le seul à corriger l'ensemble de vos travaux. Pas d'inquiétude, vous serez guidés à chaque étape.
 
-2. Une évaluation individuelle courte qui ne portera pas sur les analyses statistiques à proprement parler, mais sur votre capacité à produire un graphique de qualité, original et qui raconte une histoire intéressante sur un jeu de données imposé. 
+2. Une évaluation individuelle courte qui ne portera pas sur les analyses statistiques à proprement parler, mais sur votre capacité à produire un graphique de qualité, original et qui raconte une histoire intéressante sur un jeu de données imposé. Cet exercice n'est pas réalisé chaque année faute de temps.
 
 3. Une évaluation individuelle plus classique avec quelques exercices qui vous demanderont de mettre en œuvre les méthodes statistiques décrites lors de cours magistraux.
 
