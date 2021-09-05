@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 (Ar)ranger des données avec tidyr | Analyse de Données</title>
   <meta name="description" content="Ce livre est un document permettant de prendre en main les logiciels R et RStudio afin de réaliser des représentations graphiques et des statistiques descriptives simples dans le cadre des travaux pratiques d’Analyse de Données." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5 (Ar)ranger des données avec tidyr | Analyse de Données" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Benoît Simon-Bouhet" />
 
 
-<meta name="date" content="2021-06-25" />
+<meta name="date" content="2021-09-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,8 @@
   
 <link rel="prev" href="viz.html"/>
 <link rel="next" href="wrangling.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -41,7 +42,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -352,7 +352,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <li>Chaque ligne correspond à une observation pour chaque variable.</li>
 <li>Les cellules du tableau représentent les valeurs de chaque observation pour chaque variable.</li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:tidyschema"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:tidyschema"></span>
 <img src="images/tidy.png" alt="La définition des 'données rangées', d'après http://r4ds.had.co.nz/tidy-data.html" width="90%" />
 <p class="caption">
 Figure 5.1: La définition des ‘données rangées’, d’après <a href="http://r4ds.had.co.nz/tidy-data.html" class="uri">http://r4ds.had.co.nz/tidy-data.html</a>
@@ -374,7 +374,7 @@ Figure 5.1: La définition des ‘données rangées’, d’après <a href="http
 <li>Et enfin, la troisième variable est le nombre de cas de tuberculose observés dans chaque pays et chaque année. Cette troisième variable occupe 3 lignes et 3 colonnes du tableau.</li>
 </ol>
 <p>Autrement dit, les variables peuvent être visualisées de la façon suivante :</p>
-<div class="figure" style="text-align: center"><span id="fig:gather"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:gather"></span>
 <img src="images/gather.png" alt="Position des variables dans le tableau `cases` du package `EDAWR`" width="50%" />
 <p class="caption">
 Figure 5.2: Position des variables dans le tableau <code>cases</code> du package <code>EDAWR</code>
@@ -395,7 +395,7 @@ Figure 5.2: Position des variables dans le tableau <code>cases</code> du package
 <span id="cb177-2"><a href="tidyr.html#cb177-2"></a>             <span class="dt">cols =</span> <span class="st">`</span><span class="dt">2011</span><span class="st">`</span><span class="op">:</span><span class="st">`</span><span class="dt">2013</span><span class="st">`</span>, </span>
 <span id="cb177-3"><a href="tidyr.html#cb177-3"></a>             <span class="dt">names_to =</span> <span class="st">&quot;year&quot;</span>, </span>
 <span id="cb177-4"><a href="tidyr.html#cb177-4"></a>             <span class="dt">values_to =</span> <span class="st">&quot;n_cases&quot;</span>)</span></code></pre></div>
-<pre><code># A tibble: 9 x 3
+<pre><code># A tibble: 9 × 3
   country year  n_cases
   &lt;chr&gt;   &lt;chr&gt;   &lt;dbl&gt;
 1 FR      2011     7000
@@ -422,7 +422,7 @@ Figure 5.2: Position des variables dans le tableau <code>cases</code> du package
 <span id="cb180-7"><a href="tidyr.html#cb180-7"></a>       <span class="dt">fill =</span> <span class="st">&quot;Année&quot;</span>,</span>
 <span id="cb180-8"><a href="tidyr.html#cb180-8"></a>       <span class="dt">title =</span> <span class="st">&quot;Évolution du nombre de cas de tuberculose entre 2011 et 2013&quot;</span>,</span>
 <span id="cb180-9"><a href="tidyr.html#cb180-9"></a>       <span class="dt">subtitle =</span> <span class="st">&quot;DE : Allemagne, FR : France, US : États-Unis&quot;</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:casesbarplot"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:casesbarplot"></span>
 <img src="figure/casesbarplot-1.png" alt="Évolution du nombre de cas de tuberculose dans 3 pays, de 2011 à 2013." width="90%" />
 <p class="caption">
 Figure 5.3: Évolution du nombre de cas de tuberculose dans 3 pays, de 2011 à 2013.
@@ -453,7 +453,7 @@ Figure 5.3: Évolution du nombre de cas de tuberculose dans 3 pays, de 2011 à 2
 <span id="cb185-5"><a href="tidyr.html#cb185-5"></a>             <span class="dt">names_to =</span> <span class="st">&quot;year&quot;</span>, </span>
 <span id="cb185-6"><a href="tidyr.html#cb185-6"></a>             <span class="dt">values_to =</span> <span class="st">&quot;n_cases&quot;</span>,</span>
 <span id="cb185-7"><a href="tidyr.html#cb185-7"></a>             <span class="dt">names_transform =</span> <span class="kw">list</span>(<span class="dt">year =</span> as.integer))</span></code></pre></div>
-<pre><code># A tibble: 9 x 3
+<pre><code># A tibble: 9 × 3
   country  year n_cases
   &lt;chr&gt;   &lt;int&gt;   &lt;dbl&gt;
 1 FR       2011    7000
@@ -472,7 +472,7 @@ Figure 5.3: Évolution du nombre de cas de tuberculose dans 3 pays, de 2011 à 2
 <span id="cb187-3"><a href="tidyr.html#cb187-3"></a>             <span class="dt">names_to =</span> <span class="st">&quot;year&quot;</span>, </span>
 <span id="cb187-4"><a href="tidyr.html#cb187-4"></a>             <span class="dt">values_to =</span> <span class="st">&quot;n_cases&quot;</span>,</span>
 <span id="cb187-5"><a href="tidyr.html#cb187-5"></a>             <span class="dt">names_transform =</span> <span class="kw">list</span>(<span class="dt">year =</span> as.factor))</span></code></pre></div>
-<pre><code># A tibble: 9 x 3
+<pre><code># A tibble: 9 × 3
   country year  n_cases
   &lt;chr&gt;   &lt;fct&gt;   &lt;dbl&gt;
 1 FR      2011     7000
@@ -490,7 +490,7 @@ Figure 5.3: Évolution du nombre de cas de tuberculose dans 3 pays, de 2011 à 2
 <p>La fonction <code>pivot_wider()</code> permet de réaliser l’opération inverse de <code>pivot_longer()</code>. Elle “disperse” une unique colonne catégorielle en plusieurs colonnes, le tableau obtenue est donc plus large (“wider”) que le tableau de départ.</p>
 <p>Reprenons par exemple notre tableau <code>cases_tidy</code> :</p>
 <div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="tidyr.html#cb189-1"></a>cases_tidy</span></code></pre></div>
-<pre><code># A tibble: 9 x 3
+<pre><code># A tibble: 9 × 3
   country year  n_cases
   &lt;chr&gt;   &lt;chr&gt;   &lt;dbl&gt;
 1 FR      2011     7000
@@ -511,7 +511,7 @@ Figure 5.3: Évolution du nombre de cas de tuberculose dans 3 pays, de 2011 à 2
 <div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="tidyr.html#cb191-1"></a><span class="kw">pivot_wider</span>(<span class="dt">data =</span> cases_tidy, </span>
 <span id="cb191-2"><a href="tidyr.html#cb191-2"></a>            <span class="dt">names_from =</span> year, </span>
 <span id="cb191-3"><a href="tidyr.html#cb191-3"></a>            <span class="dt">values_from =</span> n_cases)</span></code></pre></div>
-<pre><code># A tibble: 3 x 4
+<pre><code># A tibble: 3 × 4
   country `2011` `2012` `2013`
   &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
 1 FR        7000   6900   7000
@@ -522,7 +522,7 @@ Figure 5.3: Évolution du nombre de cas de tuberculose dans 3 pays, de 2011 à 2
 <span id="cb193-2"><a href="tidyr.html#cb193-2"></a><span class="st">  </span><span class="kw">group_by</span>(origin, carrier) <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb193-3"><a href="tidyr.html#cb193-3"></a><span class="st">  </span><span class="kw">count</span>()</span>
 <span id="cb193-4"><a href="tidyr.html#cb193-4"></a>n_vols</span></code></pre></div>
-<pre><code># A tibble: 35 x 3
+<pre><code># A tibble: 35 × 3
 # Groups:   origin, carrier [35]
    origin carrier     n
    &lt;chr&gt;  &lt;chr&gt;   &lt;int&gt;
@@ -541,7 +541,7 @@ Figure 5.3: Évolution du nombre de cas de tuberculose dans 3 pays, de 2011 à 2
 <div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="tidyr.html#cb195-1"></a><span class="kw">pivot_wider</span>(n_vols, </span>
 <span id="cb195-2"><a href="tidyr.html#cb195-2"></a>            <span class="dt">names_from =</span> origin, </span>
 <span id="cb195-3"><a href="tidyr.html#cb195-3"></a>            <span class="dt">values_from =</span> n)</span></code></pre></div>
-<pre><code># A tibble: 16 x 4
+<pre><code># A tibble: 16 × 4
 # Groups:   carrier [16]
    carrier   EWR   JFK   LGA
    &lt;chr&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt;
@@ -567,7 +567,7 @@ Figure 5.3: Évolution du nombre de cas de tuberculose dans 3 pays, de 2011 à 2
 <span id="cb197-2"><a href="tidyr.html#cb197-2"></a>            <span class="dt">names_from =</span> origin, </span>
 <span id="cb197-3"><a href="tidyr.html#cb197-3"></a>            <span class="dt">values_from =</span> n, </span>
 <span id="cb197-4"><a href="tidyr.html#cb197-4"></a>            <span class="dt">values_fill =</span> <span class="dv">0</span>)</span></code></pre></div>
-<pre><code># A tibble: 16 x 4
+<pre><code># A tibble: 16 × 4
 # Groups:   carrier [16]
    carrier   EWR   JFK   LGA
    &lt;chr&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt;
@@ -593,7 +593,7 @@ Figure 5.3: Évolution du nombre de cas de tuberculose dans 3 pays, de 2011 à 2
 <h3><span class="header-section-number">5.2.3</span> Les fonctions <code>separate()</code> et <code>unite()</code></h3>
 <p>Ces fonctions sont complémentaires : tout comme <code>pivot_longer()</code> et <code>pivot_wider()</code>, elles effectuent 2 opérations opposées. Reprenons le jeu de données <code>cases_tidy</code> :</p>
 <div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="tidyr.html#cb199-1"></a>cases_tidy</span></code></pre></div>
-<pre><code># A tibble: 9 x 3
+<pre><code># A tibble: 9 × 3
   country year  n_cases
   &lt;chr&gt;   &lt;chr&gt;   &lt;dbl&gt;
 1 FR      2011     7000
@@ -607,7 +607,7 @@ Figure 5.3: Évolution du nombre de cas de tuberculose dans 3 pays, de 2011 à 2
 9 US      2013    13000</code></pre>
 <p>Imaginons que nous ayons besoin de séparer les données de la colonne <code>year</code> en 2 variables : le siècle d’une part, et l’année d’autre part. La fonction <code>separate()</code> permet de faire exactement cela :</p>
 <div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="tidyr.html#cb201-1"></a><span class="kw">separate</span>(cases_tidy, year, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;century&quot;</span>, <span class="st">&quot;year&quot;</span>), <span class="dt">sep =</span> <span class="dv">2</span>)</span></code></pre></div>
-<pre><code># A tibble: 9 x 4
+<pre><code># A tibble: 9 × 4
   country century year  n_cases
   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;dbl&gt;
 1 FR      20      11       7000
@@ -632,7 +632,7 @@ Figure 5.3: Évolution du nombre de cas de tuberculose dans 3 pays, de 2011 à 2
 <span id="cb203-4"><a href="tidyr.html#cb203-4"></a>                        <span class="dt">sep =</span> <span class="dv">2</span>, </span>
 <span id="cb203-5"><a href="tidyr.html#cb203-5"></a>                        <span class="dt">convert =</span> <span class="ot">TRUE</span>)</span>
 <span id="cb203-6"><a href="tidyr.html#cb203-6"></a>cases_split</span></code></pre></div>
-<pre><code># A tibble: 9 x 4
+<pre><code># A tibble: 9 × 4
   country century  year n_cases
   &lt;chr&gt;     &lt;int&gt; &lt;int&gt;   &lt;dbl&gt;
 1 FR           20    11    7000
@@ -647,7 +647,7 @@ Figure 5.3: Évolution du nombre de cas de tuberculose dans 3 pays, de 2011 à 2
 <p>Notre nouvel objet <code>cases_split</code> contient maintenant 2 nouvelles colonnes de nombres entiers, l’une contenant le siècle, l’autre contenant l’année.</p>
 <p>La fonction <code>unite()</code> fait exactement le contraire : elle fusionne 2 colonnes existantes en accolant leurs contenus (et en ajoutant un séparateur) :</p>
 <div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="tidyr.html#cb205-1"></a><span class="kw">unite</span>(cases_split, new, century, year)</span></code></pre></div>
-<pre><code># A tibble: 9 x 3
+<pre><code># A tibble: 9 × 3
   country new   n_cases
   &lt;chr&gt;   &lt;chr&gt;   &lt;dbl&gt;
 1 FR      20_11    7000
@@ -661,7 +661,7 @@ Figure 5.3: Évolution du nombre de cas de tuberculose dans 3 pays, de 2011 à 2
 9 US      20_13   13000</code></pre>
 <p>La colonne <code>new</code> a été créée par la fusion des colonnes <code>century</code> et <code>year</code> du tableau <code>cases_split</code>. Si l’on souhaite supprimer le tiret, il nous faut le spécifier explicitement :</p>
 <div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="tidyr.html#cb207-1"></a><span class="kw">unite</span>(cases_split, new, century, year, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
-<pre><code># A tibble: 9 x 3
+<pre><code># A tibble: 9 × 3
   country new   n_cases
   &lt;chr&gt;   &lt;chr&gt;   &lt;dbl&gt;
 1 FR      2011     7000
@@ -717,14 +717,14 @@ Figure 5.3: Évolution du nombre de cas de tuberculose dans 3 pays, de 2011 à 2
 </ul>
 <p>Importer un tel jeu de données dans R par les méthodes classiques (c’est-à-dire sans utiliser RStudio et uniquement grâce aux fonctions de base de R) demanderait donc un gros travail de mise en forme préalable. Heureusement, RStudio et le package <code>readxl</code> facilitent grandement le processus.</p>
 <p>Dans RStudio, localisez l’onglet <code>Files</code> situé dans le panneau en bas à droite de l’interface du logiciel. Dans ce panneau, naviguez jusqu’à votre répertoire de travail, qui doit maintenant contenir le fichier daupin.xls que vous avez téléchargé. Cliquez sur son nom, puis, dans le menu qui s’affiche, choisissez <code>Import Dataset...</code> :</p>
-<div class="figure" style="text-align: center"><span id="fig:import"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:import"></span>
 <img src="images/import.png" alt="L'option `Import Dataset...` dans la fenêtre `Files` de RStudio" width="70%" />
 <p class="caption">
 Figure 5.4: L’option <code>Import Dataset...</code> dans la fenêtre <code>Files</code> de RStudio
 </p>
 </div>
 <p>La nouvelle fenêtre qui s’ouvre est un “assistant d’importation” (figure <a href="tidyr.html#fig:import2">5.5</a>).</p>
-<div class="figure" style="text-align: center"><span id="fig:import2"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:import2"></span>
 <img src="images/import2.png" alt="L'assistant d'importation de RStudio" width="100%" />
 <p class="caption">
 Figure 5.5: L’assistant d’importation de RStudio
@@ -738,7 +738,7 @@ Figure 5.5: L’assistant d’importation de RStudio
 <li><code>Code Preview</code> (en bas à droite) : les lignes de codes que vous pourrez copier-coller dans votre script une fois les réglages corrects effectués.</li>
 </ol>
 <p>Ici, nous constatons que les données ne sont pas au bon format. La première chose que nous pouvons faire est d’indiquer à R que nous souhaitons ignorer les 9 premières lignes du fichier. Ensuite, nous précisons à RStudio que l’étoile “<code>*</code>” a été utilisée pour indiquer des données manquantes (figure <a href="tidyr.html#fig:import3">5.6</a>) :</p>
-<div class="figure" style="text-align: center"><span id="fig:import3"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:import3"></span>
 <img src="images/import3.png" alt="Les bons réglages pour ce fichier" width="100%" />
 <p class="caption">
 Figure 5.6: Les bons réglages pour ce fichier
@@ -752,26 +752,26 @@ Figure 5.6: Les bons réglages pour ce fichier
 <div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="tidyr.html#cb209-1"></a>dauphin &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;data/dauphin.xls&quot;</span>, <span class="dt">na =</span> <span class="st">&quot;*&quot;</span>, <span class="dt">skip =</span> <span class="dv">9</span>)</span></code></pre></div>
 <p>La commande <code>library(readxl)</code> est inutile puisque nous l’avons déjà saisie au début de ce chapitre. Nous disposons maintenant d’un nouvel objet nommé <code>dauphin</code>. Il est stocké sous la forme d’un <code>tibble</code> :</p>
 <div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="tidyr.html#cb210-1"></a>dauphin</span></code></pre></div>
-<pre><code># A tibble: 93 x 9
-   `N°`      Sexe  `Statut reproducteu… `Taille en cm` `Age en années`
-   &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;                         &lt;dbl&gt;           &lt;dbl&gt;
- 1 Numéro 1  f     imm                             315               3
- 2 Numéro 2  f     imm                             357               4
- 3 Numéro 3  f     pnl                             439              34
- 4 Numéro 4  f     imm                             316               4
- 5 Numéro 5  f     l                               435              26
- 6 Numéro 6  f     pnl                             388               6
- 7 Numéro 7  f     mat                             410              NA
- 8 Numéro 8  m     imm                             355              NA
- 9 Numéro 9  m     imm                             222              NA
-10 Numéro 10 m     imm                             412               9
+<pre><code># A tibble: 93 × 9
+   `N°`      Sexe  `Statut reproducteur` `Taille en cm` `Age en années`
+   &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;                          &lt;dbl&gt;           &lt;dbl&gt;
+ 1 Numéro 1  f     imm                              315               3
+ 2 Numéro 2  f     imm                              357               4
+ 3 Numéro 3  f     pnl                              439              34
+ 4 Numéro 4  f     imm                              316               4
+ 5 Numéro 5  f     l                                435              26
+ 6 Numéro 6  f     pnl                              388               6
+ 7 Numéro 7  f     mat                              410              NA
+ 8 Numéro 8  m     imm                              355              NA
+ 9 Numéro 9  m     imm                              222              NA
+10 Numéro 10 m     imm                              412               9
 # … with 83 more rows, and 4 more variables: Cd (mg.kg-1) &lt;dbl&gt;,
 #   Cu (mg.kg-1) &lt;dbl&gt;, Hg (mg.kg-1) &lt;dbl&gt;, Organe &lt;chr&gt;</code></pre>
 <p>Notez toutefois que les noms de colonnes complexes sont toujours présents. Avec de tels noms, les variables ne seront pas faciles à manipuler et les risques d’erreurs de frappes seront nombreux. Nous avons tout intérêt à les modifier à l’aide de la fonction <code>names()</code> :</p>
 <div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="tidyr.html#cb212-1"></a><span class="kw">names</span>(dauphin) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;ID&quot;</span>, <span class="st">&quot;Sexe&quot;</span>, <span class="st">&quot;Statut&quot;</span>, <span class="st">&quot;Taille&quot;</span>,</span>
 <span id="cb212-2"><a href="tidyr.html#cb212-2"></a>                    <span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Cd&quot;</span>, <span class="st">&quot;Cu&quot;</span>, <span class="st">&quot;Hg&quot;</span>, <span class="st">&quot;Organe&quot;</span>)</span>
 <span id="cb212-3"><a href="tidyr.html#cb212-3"></a>dauphin</span></code></pre></div>
-<pre><code># A tibble: 93 x 9
+<pre><code># A tibble: 93 × 9
    ID        Sexe  Statut Taille   Age     Cd    Cu    Hg Organe
    &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; 
  1 Numéro 1  f     imm       315     3  29.6   3.24 NA    rein  
@@ -806,14 +806,14 @@ Figure 5.6: Les bons réglages pour ce fichier
 <p>Un travail d’édition du fichier <code>.xls</code> de départ a donc été réalisé en amont de l’enregistrement au format <code>.csv</code>.</p>
 <p>Attention, à ce stade, vous avez ouvert un fichier au format texte brut dans RStudio, mais les données contenues dans ce fichier n’ont pas été importées dans R pour autant. Pour les importer, on procède comme pour les fichiers au format tableur (voir section <a href="tidyr.html#tableur">5.3.2</a> ci-dessus).</p>
 <p>On commence par cliquer sur <code>dauphin.csv</code> dans l’onglet <code>Files</code> de RStudio. On sélectionne ensuite <code>Import Dataset...</code> :</p>
-<div class="figure" style="text-align: center"><span id="fig:importcsv1"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:importcsv1"></span>
 <img src="images/importcsv1.png" alt="Importer un fichier `.csv` depuis l'onglet `Files` de RStudio" width="80%" />
 <p class="caption">
 Figure 5.7: Importer un fichier <code>.csv</code> depuis l’onglet <code>Files</code> de RStudio
 </p>
 </div>
 <p>La fenêtre qui s’ouvre est en tous points identique à celle obtenue pour l’importation de fichiers tableurs (figure <a href="tidyr.html#fig:importcsv2">5.8</a>).</p>
-<div class="figure" style="text-align: center"><span id="fig:importcsv2"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:importcsv2"></span>
 <img src="images/importcsv2.png" alt="Importer un fichier `.csv` depuis l'onglet `Files` de RStudio" width="100%" />
 <p class="caption">
 Figure 5.8: Importer un fichier <code>.csv</code> depuis l’onglet <code>Files</code> de RStudio
@@ -821,14 +821,14 @@ Figure 5.8: Importer un fichier <code>.csv</code> depuis l’onglet <code>Files<
 </div>
 <p>Nous voyons ici que par défaut, RStudio considère qu’une unique colonne est présente. En effet, les fichiers <code>.csv</code> utilisent généralement la virgule pour séparer les colonnes. Ce n’est pas le cas ici. Il nous faut donc sélectionner, dans le champ <code>Delimiter</code>, l’option <code>Tab</code> (tabulation) et non <code>Comma</code> (virgule).</p>
 <p>À ce stade, chaque variable est maintenant reconnue comme telle, chaque variable occupe donc une colonne distincte. Mais les colonnes <code>Cd</code>, <code>Cu</code> et <code>Hg</code> ne contiennent pas les bonnes valeurs (vous pouvez le vérifier en consultant l’onglet <code>dauphin.csv</code> que vous avez ouvert un peu plus tôt à côté de votre script). La cause est simple : R s’attend à ce que les nombres décimaux utilisent le point en guise de symbole des décimales. Or, notre fichier <code>.csv</code> utilise la virgule. C’est une convention qui dépend du pays dans lequel vous vous trouvez, et de la langue de votre système d’exploitation (en langage technique, on parle de <code>Locale</code>). Le fichier <code>dauphin.csv</code> ayant été créé sur un ordinateur français, la virgule a été utilisée en guise de symbole des décimales. Pour l’indiquer à R, cliquez sur <code>Locale &gt; Configure...</code>, changez le <code>.</code> en <code>,</code> dans le champ <code>Decimal Mark</code> et validez en cliquant sur <code>Configure</code>.</p>
-<div class="figure" style="text-align: center"><span id="fig:importcsv3"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:importcsv3"></span>
 <img src="images/importcsv3.png" alt="Changement du symbole utilisé pour les décimales" width="50%" />
 <p class="caption">
 Figure 5.9: Changement du symbole utilisé pour les décimales
 </p>
 </div>
 <p>Les données sont maintenant au bon format, prêtes à être importées dans RStudio. Afin de ne pas écraser l’objet <code>dauphin</code> que nous avons créé à partir du fichier tableur un peu plus tôt, nous stockerons ces nouvelles données dans un objet nommé <code>dauphin2</code>. Pour cela, ajoutez un <code>2</code> au nom <code>dauphin</code> dans le champ <code>Name</code> en bas à gauche :</p>
-<div class="figure" style="text-align: center"><span id="fig:importcsv4"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:importcsv4"></span>
 <img src="images/importcsv4.png" alt="Les données, dans un format correct permettant l'importation" width="100%" />
 <p class="caption">
 Figure 5.10: Les données, dans un format correct permettant l’importation
@@ -838,19 +838,14 @@ Figure 5.10: Les données, dans un format correct permettant l’importation
 <div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="tidyr.html#cb214-1"></a>dauphin2 &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;data/dauphin.csv&quot;</span>, </span>
 <span id="cb214-2"><a href="tidyr.html#cb214-2"></a>    <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">escape_double =</span> <span class="ot">FALSE</span>, <span class="dt">locale =</span> <span class="kw">locale</span>(<span class="dt">decimal_mark =</span> <span class="st">&quot;,&quot;</span>), </span>
 <span id="cb214-3"><a href="tidyr.html#cb214-3"></a>    <span class="dt">trim_ws =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<pre><code>Rows: 93 Columns: 9</code></pre>
+<pre><code>── Column specification ──────────────────────────────────────────────
+Delimiter: &quot;\t&quot;
+chr (3): Sexe, Statut, Organe
+dbl (6): Id, Taille, Age, Cd, Cu, Hg</code></pre>
 <pre><code>
-── Column specification ──────────────────────────────────────────────
-cols(
-  Id = col_double(),
-  Sexe = col_character(),
-  Statut = col_character(),
-  Taille = col_double(),
-  Age = col_double(),
-  Cd = col_double(),
-  Cu = col_double(),
-  Hg = col_double(),
-  Organe = col_character()
-)</code></pre>
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <p>Notez que :</p>
 <ol style="list-style-type: decimal">
 <li>C’est le package <code>readr</code> et non plus <code>readxl</code> qui est utilisé.</li>
@@ -858,8 +853,8 @@ cols(
 <li>R indique de quelle façon les colonnes ont été “parsées”, autrement dit, R indique quelles fonctions ont été utilisées pour reconnaître le type des données présentes dans chaque colonne.</li>
 </ol>
 <p>Toutes les fonctions permettant d’importer des données n’ont pas nécessairement le même comportement. Ainsi, si l’on compare les objets importés depuis le fichier tableur (<code>dauphin</code>) et depuis le fichier texte brut (<code>dauphin2</code>), le type de certaines variables peut être différent :</p>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="tidyr.html#cb216-1"></a>dauphin</span></code></pre></div>
-<pre><code># A tibble: 93 x 9
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="tidyr.html#cb218-1"></a>dauphin</span></code></pre></div>
+<pre><code># A tibble: 93 × 9
    ID        Sexe  Statut Taille   Age     Cd    Cu    Hg Organe
    &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; 
  1 Numéro 1  f     imm       315     3  29.6   3.24 NA    rein  
@@ -873,8 +868,8 @@ cols(
  9 Numéro 9  m     imm       222    NA   0.09  9.5   2.89 foie  
 10 Numéro 10 m     imm       412     9  85.6   5.42 NA    rein  
 # … with 83 more rows</code></pre>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="tidyr.html#cb218-1"></a>dauphin2</span></code></pre></div>
-<pre><code># A tibble: 93 x 9
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="tidyr.html#cb220-1"></a>dauphin2</span></code></pre></div>
+<pre><code># A tibble: 93 × 9
       Id Sexe  Statut Taille   Age     Cd    Cu    Hg Organe
    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; 
  1     1 f     imm       315     3  29.6   3.24 NA    rein  
@@ -889,9 +884,9 @@ cols(
 10    10 m     imm       412     9  85.6   5.42 NA    rein  
 # … with 83 more rows</code></pre>
 <p>En particulier selon la version des packages que vosu utilisez et les réglages spéifiques de vos systèmes d’exploitation, les variables <code>Taille</code> et <code>Age</code> sont parfois considérées comme réelles dans <code>dauphin</code> mais comme entières dans <code>dauphin2</code> (ce n’est pas le cas ici). Afin d’éviter les confusions dans la suite du document, nous allons supprimer <code>dauphin2</code> en tapant :</p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="tidyr.html#cb220-1"></a><span class="kw">rm</span>(dauphin2)</span></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="tidyr.html#cb222-1"></a><span class="kw">rm</span>(dauphin2)</span></code></pre></div>
 <p>Taper <code>dauphin2</code> dans la console devrait maintenant produire une erreur :</p>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="tidyr.html#cb221-1"></a>dauphin2</span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="tidyr.html#cb223-1"></a>dauphin2</span></code></pre></div>
 <pre><code>Error in eval(expr, envir, enclos): object &#39;dauphin2&#39; not found</code></pre>
 </div>
 <div id="importproblem" class="section level3">
@@ -905,13 +900,13 @@ cols(
 <li><code>header</code> : la première ligne du fichier source contient-elle des noms de variables. Si oui, il faut indiquer <code>header = TRUE</code>.</li>
 </ol>
 <p>Ainsi, par exemple, pour le fichier <code>dauphin.csv</code>, on peut taper ceci :</p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="tidyr.html#cb223-1"></a>dauph &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/dauphin.csv&quot;</span>,</span>
-<span id="cb223-2"><a href="tidyr.html#cb223-2"></a>                    <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,</span>
-<span id="cb223-3"><a href="tidyr.html#cb223-3"></a>                    <span class="dt">dec =</span> <span class="st">&quot;,&quot;</span>,</span>
-<span id="cb223-4"><a href="tidyr.html#cb223-4"></a>                    <span class="dt">header =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb223-5"><a href="tidyr.html#cb223-5"></a>dauph &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(dauph)</span>
-<span id="cb223-6"><a href="tidyr.html#cb223-6"></a>dauph</span></code></pre></div>
-<pre><code># A tibble: 93 x 9
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="tidyr.html#cb225-1"></a>dauph &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/dauphin.csv&quot;</span>,</span>
+<span id="cb225-2"><a href="tidyr.html#cb225-2"></a>                    <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,</span>
+<span id="cb225-3"><a href="tidyr.html#cb225-3"></a>                    <span class="dt">dec =</span> <span class="st">&quot;,&quot;</span>,</span>
+<span id="cb225-4"><a href="tidyr.html#cb225-4"></a>                    <span class="dt">header =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb225-5"><a href="tidyr.html#cb225-5"></a>dauph &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(dauph)</span>
+<span id="cb225-6"><a href="tidyr.html#cb225-6"></a>dauph</span></code></pre></div>
+<pre><code># A tibble: 93 × 9
       Id Sexe  Statut Taille   Age     Cd    Cu    Hg Organe
    &lt;int&gt; &lt;chr&gt; &lt;chr&gt;   &lt;int&gt; &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; 
  1     1 f     imm       315     3  29.6   3.24 NA    rein  
@@ -968,7 +963,6 @@ Indice : les droites de régression avec les intervalles de confiance sont ajout
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1005,6 +999,10 @@ gitbook.start({
 "text": null
 },
 "download": ["Data-Analysis.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
