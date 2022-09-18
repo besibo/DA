@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 R et RStudio : les bases | Analyse de Données</title>
   <meta name="description" content="Ce livre est un document permettant de prendre en main les logiciels R et RStudio afin de réaliser des représentations graphiques et des statistiques descriptives simples dans le cadre des travaux pratiques d’Analyse de Données." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 R et RStudio : les bases | Analyse de Données" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://besibo.github.io/DA/" />
   
   <meta property="og:description" content="Ce livre est un document permettant de prendre en main les logiciels R et RStudio afin de réaliser des représentations graphiques et des statistiques descriptives simples dans le cadre des travaux pratiques d’Analyse de Données." />
   <meta name="github-repo" content="besibo/DA" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Benoît Simon-Bouhet" />
 
 
-<meta name="date" content="2021-10-25" />
+<meta name="date" content="2022-09-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -51,8 +50,9 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -299,8 +299,8 @@ code span.wa { color: #bf0303; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="bases" class="section level1">
-<h1><span class="header-section-number">2</span> R et RStudio : les bases</h1>
+<div id="bases" class="section level1 hasAnchor">
+<h1><span class="header-section-number">2</span> R et RStudio : les bases<a href="bases.html#bases" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Avant de commencer à explorer des données dans R, il y a plusieurs concepts clés qu’il faut comprendre en premier lieu :</p>
 <ol style="list-style-type: decimal">
 <li>Que sont R et RStudio ?</li>
@@ -315,8 +315,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <li>Les tutoriels en ligne de DataCamp. DataCamp est une plateforme de e-learning accessible depuis n’importe quel navigateur internet et dont la priorité est l’enseignement des “data sciences”. Leurs tutoriels vous aideront à apprendre certains des concepts développés dans ce livre. Avant d’aller plus loin, rendez-vous sur <a href="https://www.datacamp.com/">le site de DataCamp</a> et créez-vous un compte gratuit.</li>
 </ol>
 <hr />
-<div id="que-sont-r-et-rstudio" class="section level2">
-<h2><span class="header-section-number">2.1</span> Que sont R et RStudio</h2>
+<div id="que-sont-r-et-rstudio" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.1</span> Que sont R et RStudio<a href="bases.html#que-sont-r-et-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Pour l’ensemble de ces TP, j’attends de vous que vous utilisiez R <em>via</em> RStudio. Les utilisateurs novices confondent souvent les deux. Pour tenter une analogie simple :</p>
 <ul>
 <li>R est le moteur d’une voiture</li>
@@ -324,8 +324,8 @@ code span.wa { color: #bf0303; } /* Warning */
 </ul>
 <p>Si vous n’avez pas de moteur, vous n’irez nulle part. En revanche, un moteur sans tableau de bord est difficile à manœuvrer. Il est en effet beaucoup plus simple de faire avancer une voiture depuis l’habitacle, plutôt qu’en actionnant à la main les cables et leviers du moteur.</p>
 <p>En l’occurence, R est un langage de programmation capable de produire des graphiques et de réaliser des analyses statistiques, des plus simples aux plus complexes. RStudio est un “emballage” qui rend l’utilisation de R plus aisée. RStudio est ce qu’on appelle un IDE : Integrated Development Environment. On peut utiliser R sans RStudio, mais c’est nettement plus compliqué, nettement moins pratique.</p>
-<div id="installation-de-r-et-rstudio" class="section level3">
-<h3><span class="header-section-number">2.1.1</span> Installation de R et RStudio</h3>
+<div id="installation-de-r-et-rstudio" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.1.1</span> Installation de R et RStudio<a href="bases.html#installation-de-r-et-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><em>Si vous travaillez exclusivement sur les ordinateurs de l’Université, vous pouvez passer cette section. Si vous souhaitez utiliser R et RStudio sur votre ordinateur personnel, alors suivez le guide !</em></p>
 <p>Avant tout, vous devez télécharger et installer R et RStudio, dans cet ordre :</p>
 <ol style="list-style-type: decimal">
@@ -343,8 +343,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <li>Choisissez la version gratuite et cliquez sur le lien de téléchargement qui correspond à votre système d’exploitation.</li>
 </ul>
 </div>
-<div id="utiliser-r-depuis-rstudio" class="section level3">
-<h3><span class="header-section-number">2.1.2</span> Utiliser R depuis RStudio</h3>
+<div id="utiliser-r-depuis-rstudio" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.1.2</span> Utiliser R depuis RStudio<a href="bases.html#utiliser-r-depuis-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Puisqu’il est beaucoup plus facile d’utiliser Rstudio pour interagir avec R, nous utiliserons exclusivement l’interface de RStudio. Après l’installation des 2 logiciels, vous disposez de 2 nouveaux logiciels sur votre ordinateur. RStudio ne peut fonctionner sans R, mais nous travaillerons exclusivement dans RStudio :</p>
 <ul>
 <li>R, ne pas ouvrir ceci : <img src="images/Rlogo.png" /></li>
@@ -356,20 +356,20 @@ code span.wa { color: #bf0303; } /* Warning */
 <hr />
 </div>
 </div>
-<div id="code" class="section level2">
-<h2><span class="header-section-number">2.2</span> Comment exécuter du code R ?</h2>
+<div id="code" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.2</span> Comment exécuter du code R ?<a href="bases.html#code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Maintenant que vous avez installé R et RStudio, vous vous demandez probablement comment on s’en sert… La première chose à noter est que, contrairement à d’autres logiciels comme Excel, STATA ou SAS qui fournissent des interfaces où tout se fait en cliquant avec sa souris, R est un langage interprété, ce qui signifie que vous devez taper des commandes R, écrites en code R. C’est-à-dire que vous devez <strong>programmer</strong> en R (j’utilise les termes “coder” et “programmer” de manière interchangeable dans ce livre).</p>
 <p>Il n’est pas nécessaire d’être un programmeur pour utiliser R, néanmoins, il est nécessaire de programmer ! Il existe en effet un ensemble de concepts de programmation de base que les utilisateurs de R doivent comprendre et maîtriser. Par conséquent, bien que ce livre ne soit pas un livre sur la programmation, vous en apprendrez juste assez en programmation pour explorer et analyser efficacement des données.</p>
-<div id="la-console" class="section level3">
-<h3><span class="header-section-number">2.2.1</span> La console</h3>
+<div id="la-console" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.2.1</span> La console<a href="bases.html#la-console" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>La façon la plus simle d’interagir avec RStudio (mais pas du tout la meilleure !) consiste à taper directement des commandes que R pourra comprendre dans la Console.</p>
 <p>Cliquez dans la console (après le symbole <code>&gt;</code>) et tapez ceci, sans oublier de valider en tapant sur la touche <code>Entrée</code> :</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="bases.html#cb1-1"></a><span class="dv">3</span> <span class="op">+</span><span class="st"> </span><span class="dv">8</span></span></code></pre></div>
 <pre><code>[1] 11</code></pre>
 <p>Félicitations, vous venez de taper votre première instruction R : vous savez maintenant faire des additions !</p>
 </div>
-<div id="le-répertoire-de-travail" class="section level3">
-<h3><span class="header-section-number">2.2.2</span> Le répertoire de travail</h3>
+<div id="le-répertoire-de-travail" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.2.2</span> Le répertoire de travail<a href="bases.html#le-répertoire-de-travail" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>La première commande que vous devriez connaître quand vous travaillez dans R ou RStudio est la suivante :</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="bases.html#cb3-1"></a><span class="kw">getwd</span>()</span></code></pre></div>
 <p>Si vous tapez cette commande dans la console, RStudio doit vous afficher un emplacement sur votre ordinateur. Cet emplacement est appelé “Répertoire de travail”, ou “Working Directory” en anglais (<code>getwd()</code> est l’abbréviation de “Get Working Directory”).</p>
@@ -388,8 +388,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <span id="cb4-2"><a href="bases.html#cb4-2"></a><span class="kw">setwd</span>(<span class="st">&quot;W:/Rstats&quot;</span>)</span></code></pre></div>
 <p>Il ne vous reste plus qu’à vérifier que le changement a bien été pris en compte en tapant à nouveau <code>getwd()</code> dans la console. Attention, vous devrez vous assurer d’être dans le bon répertoire de travail <strong>à chaque nouvelle session</strong> !</p>
 </div>
-<div id="les-scripts" class="section level3">
-<h3><span class="header-section-number">2.2.3</span> Les scripts</h3>
+<div id="les-scripts" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.2.3</span> Les scripts<a href="bases.html#les-scripts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Taper du code directement dans la console est probablement la pire façon de travailler dans RStudio. Cela est parfois utile pour faire un rapide calcul, ou pour vérifier qu’une commande fonctionne correctement. Mais la plupart du temps, vous devriez taper vos commandes dans un script.</p>
 <p>Un script est un fichier au format “texte brut” (cela signifie qu’il n’y a pas de mise en forme et que ce fichier peut-être ouvert par n’importe quel éditeur de texte, y compris les plus simples comme le bloc notes de Windows), dans lequel vous pouvez taper :</p>
 <ol style="list-style-type: decimal">
@@ -456,12 +456,12 @@ code span.wa { color: #bf0303; } /* Warning */
  $ Day    : int  1 2 3 4 5 6 7 8 9 10 ...</code></pre>
 <p><img src="figure/unnamed-chunk-5-1.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
-<div id="concepts-de-base-en-programmation-et-terminologie" class="section level3">
-<h3><span class="header-section-number">2.2.4</span> Concepts de base en programmation et terminologie</h3>
+<div id="concepts-de-base-en-programmation-et-terminologie" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.2.4</span> Concepts de base en programmation et terminologie<a href="bases.html#concepts-de-base-en-programmation-et-terminologie" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Pour vous présenter les concepts de base et la terminologie de la programmation dont nous aurons besoin dans R, vous allez suivre des tutoriels en ligne sur le site de DataCamp. Pour chacun des tutoriels, j’indique une liste des concepts de programmation couverts. Notez que dans ce livre, nous utiliserons une police différente pour distinguer le texte normal et les <code>commandes-informatiques</code>.</p>
 <p>Il est important de noter que, bien que ces tutoriels sont d’excellentes introductions, une seule lecture est insuffisante pour un apprentissage en profondeur et une rétention à long terme. Les outils ultimes pour l’apprentissage et la rétention à long terme sont “l’apprentissage par la pratique” et “la répétition”. Outre les exercices demandés dans DataCamp, que vous devez effectuer directement dans votre navigateur, je vous encourage donc à multiplier les essais, directement dans la console de RStudio, ou, de préférence, dans un script que vous annoterez, pour vous assurer que vous avez bien compris chaque partie.</p>
-<div id="objects" class="section level4">
-<h4><span class="header-section-number">2.2.4.1</span> Objets, types, vecteurs, facteurs et tableaux de données</h4>
+<div id="objects" class="section level4 hasAnchor">
+<h4><span class="header-section-number">2.2.4.1</span> Objets, types, vecteurs, facteurs et tableaux de données<a href="bases.html#objects" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Dans <a href="https://www.datacamp.com/community/open-courses/introduction-a-r">le cours d’introduction à R</a> sur DataCamp, suivez les chapitres suivants. Au fur et à mesure de votre travail, notez les termes importants et ce à quoi ils font référence.</p>
 <ul>
 <li><a href="https://campus.datacamp.com/courses/introduction-a-r/chapitre-1-introduction?ex=1">Chapitre 1 : introduction</a>
@@ -485,8 +485,8 @@ code span.wa { color: #bf0303; } /* Warning */
 </ul>
 <p>Avant de passer à la suite, il nous reste 2 grandes notions à découvrir dans le domaine du code et de la syntaxe afin de pouvoir travailler efficacement dans R : les opérateurs de comparaison d’une part, et les fonctions d’autre part.</p>
 </div>
-<div id="comparaison" class="section level4">
-<h4><span class="header-section-number">2.2.4.2</span> Opérateurs de comparaison</h4>
+<div id="comparaison" class="section level4 hasAnchor">
+<h4><span class="header-section-number">2.2.4.2</span> Opérateurs de comparaison<a href="bases.html#comparaison" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Comme leur nom l’indique, ils permettent de comparer des valeurs ou des objets. Les principaux opérateurs de comparaison sont :</p>
 <ul>
 <li><code>==</code> : égal à</li>
@@ -560,8 +560,8 @@ multiple of shorter object length</code></pre>
 <pre><code>[1] TRUE TRUE TRUE</code></pre>
 <p>Cette fonction nous sera très utile plus tard pour éliminer toutes les lignes d’un tableau contenant des valeurs manquantes.</p>
 </div>
-<div id="functions" class="section level4">
-<h4><span class="header-section-number">2.2.4.3</span> L’utilisation des fonctions</h4>
+<div id="functions" class="section level4 hasAnchor">
+<h4><span class="header-section-number">2.2.4.3</span> L’utilisation des fonctions<a href="bases.html#functions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Dans R, les fonctions sont des objets particuliers qui permettent d’effectuer des tâches très variées. Du calcul d’une moyenne à la création d’un graphique, en passant par la réalisation d’analyses statistiques complexes ou simplement l’affichage du chemin du répertoire de travail, tout, dans R, repose sur l’utilisation de fonctions. Vous en avez déjà vu un certain nombre :</p>
 <table>
 <thead>
@@ -658,8 +658,8 @@ multiple of shorter object length</code></pre>
 </div>
 </div>
 </div>
-<div id="packages" class="section level2">
-<h2><span class="header-section-number">2.3</span> Les packages additionnels</h2>
+<div id="packages" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.3</span> Les packages additionnels<a href="bases.html#packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Une source de confusion importante pour les nouveaux utilisateurs de R est la notion de package. Les packages étendent les fonctionnalités de R en fournissant des fonctions, des données et de la documentation supplémentaires et peuvent être téléchargés gratuitement sur Internet. Ils sont écrits par une communauté mondiale d’utilisateurs de R. Par exemple, parmi près de 15000 packages disponibles à l’heure actuelle, nous utiliseront fréquemment :</p>
 <ul>
 <li>Le package <code>ggplot2</code> pour la visualisation des données dans le chapitre <a href="viz.html#viz">4</a></li>
@@ -671,8 +671,8 @@ multiple of shorter object length</code></pre>
 <li>Le charger (en d’autres termes, l’ouvrir) en utilisant la commande <code>library()</code> à chaque nouvelle session de travail.</li>
 </ol>
 <p>Donc, tout comme vous ne pouvez commencer à partager des photos avec vos amis sur Instagram que si vous installez d’abord l’application et que vous l’ouvrez, vous ne pouvez accéder aux données et fonctions d’un package R que si vous installez d’abord le package et le chargez avec la fonction <code>library()</code>. Passons en revue ces 2 étapes.</p>
-<div id="installation-dun-package" class="section level3">
-<h3><span class="header-section-number">2.3.1</span> Installation d’un package</h3>
+<div id="installation-dun-package" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.3.1</span> Installation d’un package<a href="bases.html#installation-dun-package" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Il y a deux façons d’installer un package. Par example, pour installer le package <code>ggplot2</code> :</p>
 <ol style="list-style-type: decimal">
 <li><strong>Le plus simple</strong> : Dans le panneau “Files” de Rstudio :
@@ -687,8 +687,8 @@ multiple of shorter object length</code></pre>
 <p>En procédant de l’une ou l’autre façon, installez également les packages suivants : <code>tidyverse</code> et <code>nycflights13</code>.</p>
 <p><strong>Note</strong> : un package doit être installé une fois seulement, sauf si une version plus récente est disponible et que vous souhaitez mettre à jour ce package.</p>
 </div>
-<div id="charger-un-package-en-mémoire" class="section level3">
-<h3><span class="header-section-number">2.3.2</span> Charger un package en mémoire</h3>
+<div id="charger-un-package-en-mémoire" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.3.2</span> Charger un package en mémoire<a href="bases.html#charger-un-package-en-mémoire" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Après avoir installé un package, vous pouvez le charger en utilisant la fonction <code>library()</code>. Par exemple, pour charger <code>ggplot2</code> et <code>dplyr</code> tapez ceci dans la console :</p>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="bases.html#cb60-1"></a><span class="kw">library</span>(ggplot2)</span>
 <span id="cb60-2"><a href="bases.html#cb60-2"></a><span class="kw">library</span>(dplyr)</span></code></pre></div>
@@ -698,8 +698,8 @@ multiple of shorter object length</code></pre>
 <hr />
 </div>
 </div>
-<div id="Exo-1" class="section level2">
-<h2><span class="header-section-number">2.4</span> Exercices</h2>
+<div id="Exo-1" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.4</span> Exercices<a href="bases.html#Exo-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Créez un nouveau script que vous nommerez <code>VotreNomDeFamille.R</code>. Vous prendrez soin d’ajouter autant de commentaires que nécessaire dans votre script afin de le structurer correctement.</p>
 <ol style="list-style-type: decimal">
 <li>Téléchargez (si besoin) et chargez le package <code>ggplot2</code></li>
@@ -776,7 +776,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

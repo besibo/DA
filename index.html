@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Analyse de Données</title>
   <meta name="description" content="Ce livre est un document permettant de prendre en main les logiciels R et RStudio afin de réaliser des représentations graphiques et des statistiques descriptives simples dans le cadre des travaux pratiques d’Analyse de Données." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Analyse de Données" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://besibo.github.io/DA/" />
   
   <meta property="og:description" content="Ce livre est un document permettant de prendre en main les logiciels R et RStudio afin de réaliser des représentations graphiques et des statistiques descriptives simples dans le cadre des travaux pratiques d’Analyse de Données." />
   <meta name="github-repo" content="besibo/DA" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Benoît Simon-Bouhet" />
 
 
-<meta name="date" content="2021-10-25" />
+<meta name="date" content="2022-09-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -51,8 +50,9 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -302,12 +302,12 @@ code span.wa { color: #bf0303; } /* Warning */
 <div id="header">
 <h1 class="title">Analyse de Données</h1>
 <p class="author"><em>Benoît Simon-Bouhet</em></p>
-<p class="date"><em>2021-10-25</em></p>
+<p class="date"><em>2022-09-18</em></p>
 </div>
-<div id="introduction" class="section level1">
-<h1><span class="header-section-number">1</span> Introduction</h1>
-<div id="objectifs" class="section level2">
-<h2><span class="header-section-number">1.1</span> Objectifs</h2>
+<div id="introduction" class="section level1 hasAnchor">
+<h1><span class="header-section-number">1</span> Introduction<a href="index.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="objectifs" class="section level2 hasAnchor">
+<h2><span class="header-section-number">1.1</span> Objectifs<a href="index.html#objectifs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Ce livre contient l’ensemble du matériel (contenus, exemples, exercices…) nécessaire à la réalisation des travaux pratiques d’analyse de données consacrés à la prise en main de R et RStudio.</p>
 <p>Ces travaux pratiques ont essentiellement 3 objectifs :</p>
 <ol style="list-style-type: decimal">
@@ -325,37 +325,37 @@ Les données que vous serez amenés à traiter lors de vos stages, ou plus tard,
 </ol>
 <hr />
 </div>
-<div id="organisation" class="section level2">
-<h2><span class="header-section-number">1.2</span> Organisation</h2>
-<p>Au total, l’EC d’analyse de données contient :</p>
+<div id="organisation" class="section level2 hasAnchor">
+<h2><span class="header-section-number">1.2</span> Organisation<a href="index.html#organisation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Au total, la partie “analyse de données” de l’EC “Stratégie d’échantillonnage et analyse de données” contient :</p>
 <ul>
 <li>15 heures de cours magistraux</li>
 <li>9 heures de travaux pratiques (pour chaque groupe)</li>
 <li>16 heures de TEA</li>
 </ul>
-<div id="les-cours-magistraux" class="section level3">
-<h3><span class="header-section-number">1.2.1</span> Les cours magistraux</h3>
+<div id="les-cours-magistraux" class="section level3 hasAnchor">
+<h3><span class="header-section-number">1.2.1</span> Les cours magistraux<a href="index.html#les-cours-magistraux" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Les cours magistraux sont globalement découpés en 2 blocs à peu près indépendants :</p>
 <ol style="list-style-type: decimal">
 <li><p>un bloc de 10 heures consacrées aux notions statistiques élémentaires, aux statistiques descriptives et aux statistiques inférentielles. Nous couvrirons notamment les notions d’incertitude et d’inférence, les tests d’hypothèses, la comparaison de proportions, l’ajustement de données observées à des distributions théoriques, l’analyse de tables de contingences, les comparaisons de moyennes, les régressions linéaires, les ANOVA et ANCOVA…</p></li>
 <li><p>un bloc de 5 heures consacrées aux statistiques multivariées telles que l’Analyse en Composantes Principales (ACP) et l’Analyse Factorielle des Correspondances (AFC).</p></li>
 </ol>
 <p>Mon objectif n’est pas de survoler l’ensemble du matériel dans ce faible volume horaire : s’il n’est pas suffisant, nous ajouterons quelques séances afin de traiter correctement l’ensemble du matériel. Je suis convaincu que tout le monde est capable de comprendre les grands principes des statistiques, et de réaliser des analyses dans un logiciel tel que R, y compris les plus réfractaires aux mathématiques et à l’informatique. Mais il est nécessaire de démystifier cette discipline essentielle, et si certains ont besoin de plus de temps que d’autres, nous prendrons ce temps. Les TP et TEA, décrits plus bas, sont justement organisés pour permettre à chacun d’avancer à son rythme. Mais ne vous y trompez pas, cela vous demandera <strong>beaucoup</strong> de travail pendant ces 3 semaines.</p>
-<p>Tous les aspects vu en cours seront en effet développés lors des séances de TP et de TEA. Vous aurez, pour chaque partie, des exercices à préparer et à déposer sur l’ENT. Ces exercices seront corrigés lors des séances de TP et/ou de TEA. Tout cela doit d’une part vous préparer à l’évaluation qui aura lieu conjointement avec les EC de stratégie d’échantillonnage, de remise à niveau en biologie marine et d’échantillonnage littoral, mais surtout, cela doit vous permettre d’acquérir des compétences en analyse de données, compétences qui seront attendues de vous lorsque vous sortirez diplômé.e de ce master.</p>
+<p>Tous les aspects vu en cours seront en effet développés lors des séances de TP et de TEA. Vous aurez, pour chaque partie, des exercices à préparer et à déposer sur l’ENT. Ces exercices seront corrigés lors des séances de TP et/ou de TEA. Tout cela doit d’une part vous préparer à l’évaluation qui aura lieu conjointement avec les EC de stratégie d’échantillonnage, de remise à niveau en biologie marine et d’échantillonnage littoral, mais surtout, cela doit vous permettre d’acquérir des compétences en analyse de données, compétences qui seront attendues de vous lorsque vous sortirez diplômé·e de ce master.</p>
 </div>
-<div id="les-travaux-pratiques" class="section level3">
-<h3><span class="header-section-number">1.2.2</span> Les Travaux pratiques</h3>
+<div id="les-travaux-pratiques" class="section level3 hasAnchor">
+<h3><span class="header-section-number">1.2.2</span> Les Travaux pratiques<a href="index.html#les-travaux-pratiques" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Le contenu des séances de travaux pratiques sera découpé en 3 parties :</p>
 <ol style="list-style-type: decimal">
 <li>Prise en main des logiciels R et RStudio</li>
 <li>Illustration du cours sur les statistiques descriptives et inférentielles, mise en pratique et réalisation d’exercices</li>
 <li>Illustration du cours sur les statistiques multivariées, mise en pratique et réalisation d’exercices</li>
 </ol>
-<p>Pour chaque séance de TP, et compte tenu de la situation sanitaire, vous travaillerez soit à distance, soit en salle banalisée, sur vos ordinateurs personnels. La première séance aura lieu en présentiel et sera consacrée à l’installation des logiciels nécessaires à la réalisation des TP ainsi qu’à la présentation de l’organisation des séances.</p>
-<p>Les séances de travaux pratiques ne seront <em>pas toutes obligatoires</em> : seules quelques séances en présentiel (les dates vous seront présentées ulterieurement) le seront, probablement pas plus d’une par semaine. Pour toutes les autres séances, le fonctionnement sera celui d’une permanence non obligatoire : seuls celles et ceux qui en éprouvent le besoin sont tenus de se déplacer. Ces séances de permanence n’auront lieu que si certains parmi vous m’ont fait part de difficultés ou ont formulé des questions en amont des séances. Si aucune question ne m’a été posée en amont, les permanences n’auront pas lieu. Si une permanence a lieu, elle est ouverte à tous, quel que soit votre groupe de TP. Vous n’êtes d’ailleurs pas tenus de rester pendant 90 minutes : vous venez avec votre question, on y répond ensemble, et vous êtes libres de repartir quand bon vous semble. Les années précédentes, je voyais certains de vos collègues à chaque séance de permanence alors que d’autres ne sont jamais venus. Si vous n’en avez pas besoin, libre à vous de ne pas venir. Tant que le travail est fait et que les exercices ne vous posent pas de problème, vous êtes libres de vous organiser comme vous l’entendez.</p>
+<p>Pour chaque séance de TP, vous travaillerez soit à distance, soit en salle banalisée, sur vos ordinateurs personnels. La première séance aura lieu en présentiel et sera consacrée à l’installation des logiciels ainsi qu’à la présentation de l’organisation des séances.</p>
+<p>Les séances de travaux pratiques ne seront <em>pas toutes obligatoires</em> : seules quelques séances en présentiel (les dates vous seront présentées ultérieurement) le seront, probablement pas plus d’une par semaine. Pour toutes les autres séances, le fonctionnement sera celui d’une permanence non obligatoire : seuls celles et ceux qui en éprouvent le besoin sont tenus de se déplacer. Ces séances de permanence n’auront lieu que si certains parmi vous m’ont fait part de difficultés ou ont formulé des questions en amont des séances. Si aucune question ne m’a été posée en amont, les permanences n’auront pas lieu. Si une permanence a lieu, elle est ouverte à tous, quel que soit votre groupe de TP. Vous n’êtes d’ailleurs pas tenus de rester pendant 90 minutes : vous venez avec votre question, on y répond ensemble, et vous êtes libres de repartir quand bon vous semble. Les années précédentes, je voyais certains de vos collègues à chaque séance de permanence alors que d’autres ne sont jamais venus. Si vous n’en avez pas besoin, libre à vous de ne pas venir. Tant que le travail est fait et que les exercices ne vous posent pas de problème, vous êtes libres de vous organiser comme vous l’entendez.</p>
 <p>Attention toutefois, venir à une séance de permanence en n’ayant pas préparé de question au préalable ne vous sera d’aucune aide. C’est parce que vous avez travaillé en amont de ces séances et que vous arrivez avec des questions que ces permanences sont utiles et efficaces. Donc si vous venez, c’est que vous avez bossé en amont !</p>
 <p><strong>Comment procéder pour savoir si une séance de permanence a lieu, ou pour poser une question ?</strong></p>
-<p>Tout se passera en ligne, grâce au logiciel <a href="https://slack.com/intl/fr-fr/">Slack</a>, qui fonctionne un peu comme un “twitter privé”. Slack facilite la communication des équipes et permet de travailler ensemble. Créez-vous un compte en ligne et installez le logiciel sur votre ordinateur (il existe aussi des versions pour tablettes et smartphones). Lorsque vous aurez installé le logiciel, <a href="https://join.slack.com/t/geel2021/shared_invite/zt-vfsq7izo-UNVeJtG_BUt~hoKPjdZB_A">cliquez sur ce lien</a> pour vous connecter à notre espace de travail commun.</p>
+<p>Tout se passera en ligne, grâce au logiciel <a href="https://slack.com/intl/fr-fr/">Slack</a>, qui fonctionne un peu comme un “twitter privé”. Slack facilite la communication des équipes et permet de travailler ensemble. Créez-vous un compte en ligne et installez le logiciel sur votre ordinateur (il existe aussi des versions pour tablettes et smartphones). Lorsque vous aurez installé le logiciel, <a href="https://join.slack.com/t/geel2022/shared_invite/zt-1ga9vd9zn-~aQ~lhmJRgrH2qYNjO111g">cliquez sur ce lien</a> pour vous connecter à notre espace de travail commun.</p>
 <p>Vous verrez que 3 “chaînes” sont disponibles :</p>
 <ul>
 <li>#organisation : c’est là que les questions liées à l’organisation du cours, des TP et TEA doivent être posées. Si vous ne savez pas si une séance de permanence a lieu, posez la question ici.</li>
@@ -365,8 +365,8 @@ Les données que vous serez amenés à traiter lors de vos stages, ou plus tard,
 <p>Ainsi, quand vous travaillerez à vos TP ou TEA, prenez l’habitude de garder Slack ouvert sur votre ordinateur. Même si vous n’avez pas de question à poser, votre participation active pour répondre à vos collègues est souhaitable et souhaitée. Votre niveau de participation sur Slack pourra faire partie de votre note finale.</p>
 <p>Si toutes les questions posées sur Slack ont trouvé une réponse, alors, inutile d’organiser une permanence. Si en revanche, certains n’ont pas compris, si les mêmes questions reviennent fréquemment, ou si des explications “en direct” sont plus efficaces qu’un long message sur Slack, alors une permanence aura lieu.</p>
 </div>
-<div id="le-tea" class="section level3">
-<h3><span class="header-section-number">1.2.3</span> Le TEA</h3>
+<div id="le-tea" class="section level3 hasAnchor">
+<h3><span class="header-section-number">1.2.3</span> Le TEA<a href="index.html#le-tea" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Les séances de TEA auront toutes lieu “à distance”. Je ne suis pas tenu d’être présent lors des séances de TEA, même si une salle banalisée est systématiquement réservée pour vous permettre de vous retrouver et de travailler ensemble. Je m’engage en revanche à être disponible sur Slack pour répondre rapidement aux questions posées lors des TEA. Et si certaines questions n’ont pas trouvé de réponse pendant les séances de TEA, nous y répondront lors du TP suivant.</p>
 <p>Généralement, l’organisation de votre journée sera la suivante :</p>
 <ol style="list-style-type: decimal">
@@ -375,8 +375,8 @@ Les données que vous serez amenés à traiter lors de vos stages, ou plus tard,
 <li>En fin de journée une séance de TEA et/ou de TP/permanence non obligatoire de 90 minutes pour ceux qui en ont besoin et se manifestent.</li>
 </ol>
 </div>
-<div id="lévaluation" class="section level3">
-<h3><span class="header-section-number">1.2.4</span> L’évaluation</h3>
+<div id="lévaluation" class="section level3 hasAnchor">
+<h3><span class="header-section-number">1.2.4</span> L’évaluation<a href="index.html#lévaluation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Vous aurez plusieurs types d’évaluations cette année :</p>
 <ol style="list-style-type: decimal">
 <li><p>Une évaluations par les pairs qui portera sur la qualité de vos scripts. Cette évaluation qui entrera pour une toute petite partie dans la note finale de l’EC a pour objectif principal de vous permettre de vous situer dans vos apprentissages. Vous évaluerez vous même, et de façon anonyme, plusieurs copies de vos camarades en suivant une grille d’évaluation critériée que nous construirons ensemble. De même, votre copie sera évaluée par plusieurs de vos camarades. Cette approche a de nombreux avantages. Elle vous permet notamment de mieux vous approprier les grilles de notations (par exemple, qu’est-ce qu’un bon script sous R ? À l’inverse, qu’est-ce qu’un script médiocre ? Comment être sûr que la méthode statistique choisie est la bonne pour répondre à une question donnée ? Suis-je capable de décrire correctement un tableau de données de grande taille ? Suis-je capable de produire des graphiques informatifs ?) et rends possible un retour personnalisé sur vos travaux beaucoup plus rapidement que si votre enseignant était le seul à corriger l’ensemble de vos travaux. Pas d’inquiétude, vous serez guidés à chaque étape.</p></li>
@@ -462,7 +462,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

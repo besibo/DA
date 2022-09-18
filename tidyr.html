@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 (Ar)ranger des données avec tidyr | Analyse de Données</title>
   <meta name="description" content="Ce livre est un document permettant de prendre en main les logiciels R et RStudio afin de réaliser des représentations graphiques et des statistiques descriptives simples dans le cadre des travaux pratiques d’Analyse de Données." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5 (Ar)ranger des données avec tidyr | Analyse de Données" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://besibo.github.io/DA/" />
   
   <meta property="og:description" content="Ce livre est un document permettant de prendre en main les logiciels R et RStudio afin de réaliser des représentations graphiques et des statistiques descriptives simples dans le cadre des travaux pratiques d’Analyse de Données." />
   <meta name="github-repo" content="besibo/DA" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Benoît Simon-Bouhet" />
 
 
-<meta name="date" content="2021-10-25" />
+<meta name="date" content="2022-09-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -51,8 +50,9 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -299,14 +299,14 @@ code span.wa { color: #bf0303; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="tidyr" class="section level1">
-<h1><span class="header-section-number">5</span> (Ar)ranger des données avec <code>tidyr</code></h1>
+<div id="tidyr" class="section level1 hasAnchor">
+<h1><span class="header-section-number">5</span> (Ar)ranger des données avec <code>tidyr</code><a href="tidyr.html#tidyr" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Dans la section <a href="bases.html#objects">2.2.4.1</a>, nous avons introduit le concept de tableaux de données ou <code>data.frame</code> dans R. Il s’agit d’une représentation rectangulaire des données, à la manière d’un tableur, dans laquelle les lignes correspondent aux observations et les colonnes correspondent à des variables décrivant chaque observation.</p>
 <p>Dans ce chapitre, nous allons aller plus loin en présentant le concept de “tidy data”, ou “données nettes/rangées/soignées/ordonnées”. Vous verrez que l’idée d’avoir des données stockées dans un format “net” va plus loin que la simple définition usuelle que le terme “rangé” peut avoir lorsque les données sont simplement bien organisées dans un tableur. Nous définirons le terme “tidy data” de manière plus rigoureuse, en établissant un ensemble de règles permettant de stocker les données correctement afin de rendre plus aisées les analyses statistiques et les représentations graphiques.</p>
 <p>Jusqu’à maintenant, vous avez utilisé des données qui étaient déjà dans ce format (c’est le cas des données contenues dans <code>flights</code> ou dans <code>diamonds</code> par exemple). Pourtant, la plupart du temps, les données que vous manipulerez dans R seront importées depuis un tableur dans lequel vous ou vos collaborateurs en aurez fait la saisie. S’assurer que les données importées manuellement dans R sont correctement “nettoyées” et mises en forme de “tidy data” est indispensable pour éviter les problèmes lors de la réalisation de graphiques (voir chapitre <a href="viz.html#viz">4</a>) comme lors de la manipulation des données pour en tirer de l’information statistique pertinente (ce que nous verrons au chapitre <a href="wrangling.html#wrangling">6</a>).</p>
 <hr />
-<div id="prerek" class="section level2">
-<h2><span class="header-section-number">5.1</span> Prérequis</h2>
+<div id="prerek" class="section level2 hasAnchor">
+<h2><span class="header-section-number">5.1</span> Prérequis<a href="tidyr.html#prerek" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Dans ce chapitre, nous aurons besoin des packages suivants :</p>
 <div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="tidyr.html#cb170-1"></a><span class="kw">library</span>(tidyr)</span>
 <span id="cb170-2"><a href="tidyr.html#cb170-2"></a><span class="kw">library</span>(dplyr)</span>
@@ -343,8 +343,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <p>Une fois téléchargés, les données contenues dans ces 4 fichiers peuvent être importées dans RStudio en cliquant sur <code>File &gt; Open File...</code>, puis en sélectionnant un à un chacun des fichiers. Pour chaque fichier un nouvel objet doit apparaître dans votre environnement de travail (onglet <code>Environnement</code>, dans le panneau en haut à droite de RStudio). L’inconvénient de cette méthode est que les fichiers d’aide de ces jeux de données ne seront pas disponibles dans RStudio. Vous pouvez toutefois en consulter une version brute (non mise en forme) <a href="https://github.com/rstudio/EDAWR/tree/master/man">en cliquant ici</a>.</p>
 <hr />
 </div>
-<div id="cest-quoi-des-tidy-data" class="section level2">
-<h2><span class="header-section-number">5.2</span> C’est quoi des “tidy data” ?</h2>
+<div id="cest-quoi-des-tidy-data" class="section level2 hasAnchor">
+<h2><span class="header-section-number">5.2</span> C’est quoi des “tidy data” ?<a href="tidyr.html#cest-quoi-des-tidy-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Les “tidy data” (nous les appellerons “données rangées” dans la suite de ce livre), sont des données qui respectent un format standardisé. En particulier :</p>
 <ul>
 <li>Chaque variable est dans une colonne unique.</li>
@@ -381,8 +381,8 @@ Figure 5.2: Position des variables dans le tableau <code>cases</code> du package
 </p>
 </div>
 <p>Donc même si nous disposons ici d’un tableau rectangulaire classique, nous sommes bien loin du format des données rangées.</p>
-<div id="la-fonction-pivot_longer" class="section level3">
-<h3><span class="header-section-number">5.2.1</span> La fonction <code>pivot_longer()</code></h3>
+<div id="la-fonction-pivot_longer" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.2.1</span> La fonction <code>pivot_longer()</code><a href="tidyr.html#la-fonction-pivot_longer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Afin de transformer les données non rangées du tableau <code>cases</code> en données rangées, nous allons utiliser la fonction <code>pivot_longer()</code> du package <code>tidyr</code>. Avant d’aller plus loin, essayez d’imaginer à quoi le tableau rangé devrait ressembler.</p>
 <p>La fonction <code>pivot_longer()</code> prend 4 arguments :</p>
 <ol style="list-style-type: decimal">
@@ -485,8 +485,8 @@ Figure 5.3: Évolution du nombre de cas de tuberculose dans 3 pays, de 2011 à 2
 8 US      2012    14000
 9 US      2013    13000</code></pre>
 </div>
-<div id="spread" class="section level3">
-<h3><span class="header-section-number">5.2.2</span> La fonction <code>pivot_wider()</code></h3>
+<div id="spread" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.2.2</span> La fonction <code>pivot_wider()</code><a href="tidyr.html#spread" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>La fonction <code>pivot_wider()</code> permet de réaliser l’opération inverse de <code>pivot_longer()</code>. Elle “disperse” une unique colonne catégorielle en plusieurs colonnes, le tableau obtenue est donc plus large (“wider”) que le tableau de départ.</p>
 <p>Reprenons par exemple notre tableau <code>cases_tidy</code> :</p>
 <div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="tidyr.html#cb189-1"></a>cases_tidy</span></code></pre></div>
@@ -589,8 +589,8 @@ Figure 5.3: Évolution du nombre de cas de tuberculose dans 3 pays, de 2011 à 2
 16 YV          0     0   601</code></pre>
 <p>D’autres arguments existent. <strong>Je vous encourage vivement</strong> à consulter l’aide des fonctions <code>pivot_longer()</code> et <code>pivot_wider()</code> et à faire des essais.</p>
 </div>
-<div id="les-fonctions-separate-et-unite" class="section level3">
-<h3><span class="header-section-number">5.2.3</span> Les fonctions <code>separate()</code> et <code>unite()</code></h3>
+<div id="les-fonctions-separate-et-unite" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.2.3</span> Les fonctions <code>separate()</code> et <code>unite()</code><a href="tidyr.html#les-fonctions-separate-et-unite" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Ces fonctions sont complémentaires : tout comme <code>pivot_longer()</code> et <code>pivot_wider()</code>, elles effectuent 2 opérations opposées. Reprenons le jeu de données <code>cases_tidy</code> :</p>
 <div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="tidyr.html#cb199-1"></a>cases_tidy</span></code></pre></div>
 <pre><code># A tibble: 9 × 3
@@ -674,8 +674,8 @@ Figure 5.3: Évolution du nombre de cas de tuberculose dans 3 pays, de 2011 à 2
 8 US      2012    14000
 9 US      2013    13000</code></pre>
 </div>
-<div id="Exo-9" class="section level3">
-<h3><span class="header-section-number">5.2.4</span> Exercices</h3>
+<div id="Exo-9" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.2.4</span> Exercices<a href="tidyr.html#Exo-9" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Examinez les tableaux <code>rates</code>, <code>storms</code> et <code>population</code> du package <code>EDAWR</code>.</p>
 <ol style="list-style-type: decimal">
 <li>Ces tableaux sont-ils des “tableaux rangés” (tidy data) ?</li>
@@ -685,10 +685,10 @@ Figure 5.3: Évolution du nombre de cas de tuberculose dans 3 pays, de 2011 à 2
 <hr />
 </div>
 </div>
-<div id="importer-des-données-depuis-un-tableur" class="section level2">
-<h2><span class="header-section-number">5.3</span> Importer des données depuis un tableur</h2>
-<div id="les-règles-de-base" class="section level3">
-<h3><span class="header-section-number">5.3.1</span> Les règles de base</h3>
+<div id="importer-des-données-depuis-un-tableur" class="section level2 hasAnchor">
+<h2><span class="header-section-number">5.3</span> Importer des données depuis un tableur<a href="tidyr.html#importer-des-données-depuis-un-tableur" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="les-règles-de-base" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.3.1</span> Les règles de base<a href="tidyr.html#les-règles-de-base" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Jusqu’à maintenant, nous avons travaillé exclusivement avec des jeux de données déjà disponibles dans R. La plupart du temps, les données sur lesquelles vous devrez travailler devront au préalable être importées dans R, à partir de fichiers issus de tableurs. De tels fichiers se présentent généralement sous l’un des 2 formats suivants :</p>
 <ol style="list-style-type: decimal">
 <li>Fichiers au format “.csv” : il s’agit d’un format de fichier dit “texte brut”, c’est à dire qu’il peut être ouvert avec n’importe quel éditeur de texte, y compris le bloc notes de Windows. L’extension “.csv” est l’abbréviation de Comma Separated Values, autrement dit, dans ce type de fichiers, les colonnes sont séparées par des virgules. Cela peut poser problème en France puisque le symbole des décimales est souvent aussi la virgule (et non le point comme dans les pays anglo-saxons). Le séparateur de colonnes utilisé en France dans les fichiers <code>.csv</code> est alors souvent le point-virgule. Il est possible de créer des fichiers <code>.csv</code> à partir de n’importe quel tableur en choisissant <code>Fichier &gt; Exporter...</code> ou <code>Fichier &gt; Enregistrer sous...</code> puis en sélectionnant le format approprié (les dénomminations sont variables selon les logiciels : format texte brut, format csv, plain text, etc…).</li>
@@ -706,8 +706,8 @@ Figure 5.3: Évolution du nombre de cas de tuberculose dans 3 pays, de 2011 à 2
 <li>La première valeur de votre tableau derait toujours se trouver dans la cellule A1 du tableur. Autrement dit, il ne devrait jamais y avoir de lignes incomplètes ou de lignes de commentaires au-dessus des données, ou de colonne vide à gauche de votre tableau. D’ailleurs, il ne devrait jamais y avoir de commentaires à droite ou en dessous de vos données non plus.</li>
 </ol>
 </div>
-<div id="tableur" class="section level3">
-<h3><span class="header-section-number">5.3.2</span> Fichiers au format tableur (.xls ou .xlsx)</h3>
+<div id="tableur" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.3.2</span> Fichiers au format tableur (.xls ou .xlsx)<a href="tidyr.html#tableur" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>À titre d’exemple, téléchargez le fichier <a href="data/dauphin.xls">dauphin.xls</a> et placez-le dans votre répertoire de travail. Ce jeu de données contient des résultats de dosages de différents métaux lourds (cadmium, cuivre et mercure) dans différents organes (foie et rein) de plusieurs dauphins communs <em>Delphinus delphis</em>. Les informations de taille, d’âge et de statut reproducteur sont également précisées. Ouvrez ce fichier dans un tableur. Vous constaterez que son format ne permet pas de l’importer tel quel dans R :</p>
 <ul>
 <li>Il contient des lignes vides inutiles au-dessus des données.</li>
@@ -753,20 +753,21 @@ Figure 5.6: Les bons réglages pour ce fichier
 <p>La commande <code>library(readxl)</code> est inutile puisque nous l’avons déjà saisie au début de ce chapitre. Nous disposons maintenant d’un nouvel objet nommé <code>dauphin</code>. Il est stocké sous la forme d’un <code>tibble</code> :</p>
 <div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="tidyr.html#cb210-1"></a>dauphin</span></code></pre></div>
 <pre><code># A tibble: 93 × 9
-   `N°`      Sexe  `Statut reproducteu… `Taille en cm` `Age en années`
-   &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;                         &lt;dbl&gt;           &lt;dbl&gt;
- 1 Numéro 1  f     imm                             315               3
- 2 Numéro 2  f     imm                             357               4
- 3 Numéro 3  f     pnl                             439              34
- 4 Numéro 4  f     imm                             316               4
- 5 Numéro 5  f     l                               435              26
- 6 Numéro 6  f     pnl                             388               6
- 7 Numéro 7  f     mat                             410              NA
- 8 Numéro 8  m     imm                             355              NA
- 9 Numéro 9  m     imm                             222              NA
-10 Numéro 10 m     imm                             412               9
-# … with 83 more rows, and 4 more variables: Cd (mg.kg-1) &lt;dbl&gt;,
-#   Cu (mg.kg-1) &lt;dbl&gt;, Hg (mg.kg-1) &lt;dbl&gt;, Organe &lt;chr&gt;</code></pre>
+   `N°`   Sexe  Statu…¹ Taill…² Age e…³ Cd (m…⁴ Cu (m…⁵ Hg (m…⁶ Organe
+   &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt; 
+ 1 Numér… f     imm         315       3   29.6     3.24   NA    rein  
+ 2 Numér… f     imm         357       4   55.1     4.42   NA    rein  
+ 3 Numér… f     pnl         439      34  129.      5.01    9.02 rein  
+ 4 Numér… f     imm         316       4   71.2     4.33   NA    rein  
+ 5 Numér… f     l           435      26  192       5.15   NA    rein  
+ 6 Numér… f     pnl         388       6   NA       4.12    4.53 rein  
+ 7 Numér… f     mat         410      NA   76       5.1    33.9  foie  
+ 8 Numér… m     imm         355      NA   74.4     4.72   13.3  foie  
+ 9 Numér… m     imm         222      NA    0.09    9.5     2.89 foie  
+10 Numér… m     imm         412       9   85.6     5.42   NA    rein  
+# … with 83 more rows, and abbreviated variable names
+#   ¹​`Statut reproducteur`, ²​`Taille en cm`, ³​`Age en années`,
+#   ⁴​`Cd (mg.kg-1)`, ⁵​`Cu (mg.kg-1)`, ⁶​`Hg (mg.kg-1)`</code></pre>
 <p>Notez toutefois que les noms de colonnes complexes sont toujours présents. Avec de tels noms, les variables ne seront pas faciles à manipuler et les risques d’erreurs de frappes seront nombreux. Nous avons tout intérêt à les modifier à l’aide de la fonction <code>names()</code> :</p>
 <div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="tidyr.html#cb212-1"></a><span class="kw">names</span>(dauphin) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;ID&quot;</span>, <span class="st">&quot;Sexe&quot;</span>, <span class="st">&quot;Statut&quot;</span>, <span class="st">&quot;Taille&quot;</span>,</span>
 <span id="cb212-2"><a href="tidyr.html#cb212-2"></a>                    <span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Cd&quot;</span>, <span class="st">&quot;Cu&quot;</span>, <span class="st">&quot;Hg&quot;</span>, <span class="st">&quot;Organe&quot;</span>)</span>
@@ -793,8 +794,8 @@ Figure 5.6: Les bons réglages pour ce fichier
 </ul>
 <p>Nous verrons dans la partie <a href="wrangling.html#wrangling">6</a> comment effectuer simplement ces différentes opérations.</p>
 </div>
-<div id="plaintext" class="section level3">
-<h3><span class="header-section-number">5.3.3</span> Fichiers au format texte brut (.csv)</h3>
+<div id="plaintext" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.3.3</span> Fichiers au format texte brut (.csv)<a href="tidyr.html#plaintext" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Nous allons utiliser les mêmes données que précédemment, mais cette fois-ci, elles sont contenues dans un fichier au format <code>.csv</code>. Téléchargez le fichier <a href="data/dauphin.csv">dauphin.csv</a> (pour cela, faites un clic droit sur le lien et choisissez <code>Enregistrez la cible du lien sous...</code> ou une mention équivalente), placez-le dans votre répertoire de travail, et ouvrez-le avec le bloc notes Windows ou tout autre éditeur de texte brut disponible sur votre ordinateur. <strong>Attention</strong> : Microsoft Word n’est pas un éditeur de texte brut. Un fichier au format <code>.doc</code> ou <code>.docx</code> est illisible dans un éditeur de texte brut car outre le texte, ces formats de documents contiennent toutes les informations concernant la mise en forme du texte (polices de caractères, tailles, couleurs et autres attributs, présence de figures, de tableaux dans le document, etc.).</p>
 <p>À l’inverse, les fichiers au format <code>.txt</code>, <code>.csv</code> et même <code>.R</code> (vos scripts !) sont des fichiers au format texte brut. Vous pouvez d’ailleurs essayer d’ouvrir <code>dauphin.csv</code> depuis RStudio, en allant dans la fenêtre <code>Files</code> puis en cliquant sur le nom du fichier et en choisissant <code>View File</code>. RStudio ouvre un nouvel onglet à côté de votre script vous permettant d’inspecter le contenu de ce fichier. Par rapport au fichier Excel, vous pouvez noter un certain nombre de différences :</p>
 <ol style="list-style-type: decimal">
@@ -838,12 +839,12 @@ Figure 5.10: Les données, dans un format correct permettant l’importation
 <div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="tidyr.html#cb214-1"></a>dauphin2 &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;data/dauphin.csv&quot;</span>, </span>
 <span id="cb214-2"><a href="tidyr.html#cb214-2"></a>    <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">escape_double =</span> <span class="ot">FALSE</span>, <span class="dt">locale =</span> <span class="kw">locale</span>(<span class="dt">decimal_mark =</span> <span class="st">&quot;,&quot;</span>), </span>
 <span id="cb214-3"><a href="tidyr.html#cb214-3"></a>    <span class="dt">trim_ws =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
-<pre><code>Rows: 93 Columns: 9</code></pre>
-<pre><code>── Column specification ──────────────────────────────────────────────
+<pre><code>Rows: 93 Columns: 9
+── Column specification ──────────────────────────────────────────────
 Delimiter: &quot;\t&quot;
 chr (3): Sexe, Statut, Organe
-dbl (6): Id, Taille, Age, Cd, Cu, Hg</code></pre>
-<pre><code>
+dbl (6): Id, Taille, Age, Cd, Cu, Hg
+
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <p>Notez que :</p>
@@ -853,7 +854,7 @@ dbl (6): Id, Taille, Age, Cd, Cu, Hg</code></pre>
 <li>R indique de quelle façon les colonnes ont été “parsées”, autrement dit, R indique quelles fonctions ont été utilisées pour reconnaître le type des données présentes dans chaque colonne.</li>
 </ol>
 <p>Toutes les fonctions permettant d’importer des données n’ont pas nécessairement le même comportement. Ainsi, si l’on compare les objets importés depuis le fichier tableur (<code>dauphin</code>) et depuis le fichier texte brut (<code>dauphin2</code>), le type de certaines variables peut être différent :</p>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="tidyr.html#cb218-1"></a>dauphin</span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="tidyr.html#cb216-1"></a>dauphin</span></code></pre></div>
 <pre><code># A tibble: 93 × 9
    ID        Sexe  Statut Taille   Age     Cd    Cu    Hg Organe
    &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; 
@@ -868,7 +869,7 @@ dbl (6): Id, Taille, Age, Cd, Cu, Hg</code></pre>
  9 Numéro 9  m     imm       222    NA   0.09  9.5   2.89 foie  
 10 Numéro 10 m     imm       412     9  85.6   5.42 NA    rein  
 # … with 83 more rows</code></pre>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="tidyr.html#cb220-1"></a>dauphin2</span></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="tidyr.html#cb218-1"></a>dauphin2</span></code></pre></div>
 <pre><code># A tibble: 93 × 9
       Id Sexe  Statut Taille   Age     Cd    Cu    Hg Organe
    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; 
@@ -884,13 +885,13 @@ dbl (6): Id, Taille, Age, Cd, Cu, Hg</code></pre>
 10    10 m     imm       412     9  85.6   5.42 NA    rein  
 # … with 83 more rows</code></pre>
 <p>En particulier selon la version des packages que vosu utilisez et les réglages spéifiques de vos systèmes d’exploitation, les variables <code>Taille</code> et <code>Age</code> sont parfois considérées comme réelles dans <code>dauphin</code> mais comme entières dans <code>dauphin2</code> (ce n’est pas le cas ici). Afin d’éviter les confusions dans la suite du document, nous allons supprimer <code>dauphin2</code> en tapant :</p>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="tidyr.html#cb222-1"></a><span class="kw">rm</span>(dauphin2)</span></code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="tidyr.html#cb220-1"></a><span class="kw">rm</span>(dauphin2)</span></code></pre></div>
 <p>Taper <code>dauphin2</code> dans la console devrait maintenant produire une erreur :</p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="tidyr.html#cb223-1"></a>dauphin2</span></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="tidyr.html#cb221-1"></a>dauphin2</span></code></pre></div>
 <pre><code>Error in eval(expr, envir, enclos): object &#39;dauphin2&#39; not found</code></pre>
 </div>
-<div id="importproblem" class="section level3">
-<h3><span class="header-section-number">5.3.4</span> En cas de problème…</h3>
+<div id="importproblem" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.3.4</span> En cas de problème…<a href="tidyr.html#importproblem" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Il arrive parfois que l’importation de fichiers textes bruts par la méthode décrite ci-dessus échoue en raison d’un bug du package <code>readr</code> qui gère mal la présence de caractères spéciaux (accents, cédilles, etc) dans le chemin des fichiers que l’on tente d’importer. À l’heure où j’écris ces lignes (28 novembre 2018), le bug a été corrigé dans la version de développement du package, mais toujours pas dans la version stable disponible au téléchargement sur les serveurs du CRAN. Il est donc utile de connaître une méthode alternative pour importer de tels fichiers dans R. Cette méthode repose sur “la mère de toutes les fonctions d’importation” : <code>read.table()</code>.</p>
 <p>La fonction <code>read.table()</code> est à la base de la plupart des fonctions d’importation décrites dans ce chapitre. Il est donc important d’en connaître la syntaxe et les arguments les plus importants. Cette fonction requiert en général les arguments suivants :</p>
 <ol style="list-style-type: decimal">
@@ -900,12 +901,12 @@ dbl (6): Id, Taille, Age, Cd, Cu, Hg</code></pre>
 <li><code>header</code> : la première ligne du fichier source contient-elle des noms de variables. Si oui, il faut indiquer <code>header = TRUE</code>.</li>
 </ol>
 <p>Ainsi, par exemple, pour le fichier <code>dauphin.csv</code>, on peut taper ceci :</p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="tidyr.html#cb225-1"></a>dauph &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/dauphin.csv&quot;</span>,</span>
-<span id="cb225-2"><a href="tidyr.html#cb225-2"></a>                    <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,</span>
-<span id="cb225-3"><a href="tidyr.html#cb225-3"></a>                    <span class="dt">dec =</span> <span class="st">&quot;,&quot;</span>,</span>
-<span id="cb225-4"><a href="tidyr.html#cb225-4"></a>                    <span class="dt">header =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb225-5"><a href="tidyr.html#cb225-5"></a>dauph &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(dauph)</span>
-<span id="cb225-6"><a href="tidyr.html#cb225-6"></a>dauph</span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="tidyr.html#cb223-1"></a>dauph &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/dauphin.csv&quot;</span>,</span>
+<span id="cb223-2"><a href="tidyr.html#cb223-2"></a>                    <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,</span>
+<span id="cb223-3"><a href="tidyr.html#cb223-3"></a>                    <span class="dt">dec =</span> <span class="st">&quot;,&quot;</span>,</span>
+<span id="cb223-4"><a href="tidyr.html#cb223-4"></a>                    <span class="dt">header =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb223-5"><a href="tidyr.html#cb223-5"></a>dauph &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(dauph)</span>
+<span id="cb223-6"><a href="tidyr.html#cb223-6"></a>dauph</span></code></pre></div>
 <pre><code># A tibble: 93 × 9
       Id Sexe  Statut Taille   Age     Cd    Cu    Hg Organe
    &lt;int&gt; &lt;chr&gt; &lt;chr&gt;   &lt;int&gt; &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; 
@@ -922,8 +923,8 @@ dbl (6): Id, Taille, Age, Cd, Cu, Hg</code></pre>
 # … with 83 more rows</code></pre>
 <p>Puisque la fonction <code>read.table()</code> importe les données sous la forme d’un data.frame, il est nécessaire de transformer le tableau obtenu en <code>tibble</code> grâce à la fonction <code>as_tibble()</code> afin de bénéficier de tous les avantages de ce format d’objet.</p>
 </div>
-<div id="Exo-10" class="section level3">
-<h3><span class="header-section-number">5.3.5</span> Exercices</h3>
+<div id="Exo-10" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.3.5</span> Exercices<a href="tidyr.html#Exo-10" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>L’objet <code>dauphin</code> est-il “tidy” (autrement dit, s’agit-il de “données rangées”) ? Justifiez.</li>
 <li>Produisez le graphique ci-dessous :</li>
@@ -1016,7 +1017,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
