@@ -51,7 +51,7 @@ Ces travaux pratiques ont essentiellement 3 objectifs :
 
 ## Organisation
 
-Au total, l'EC d'analyse de données contient :
+Au total, la partie "analyse de données" de l'EC "Stratégie d'échantillonnage et analyse de données" contient :
 
 * 15 heures de cours magistraux
 * 9 heures de travaux pratiques (pour chaque groupe)
@@ -68,7 +68,7 @@ Les cours magistraux sont globalement découpés en 2 blocs à peu près indépe
 
 Mon objectif n'est pas de survoler l'ensemble du matériel dans ce faible volume horaire : s'il n'est pas suffisant, nous ajouterons quelques séances afin de  traiter correctement l'ensemble du matériel. Je suis convaincu que tout le monde est capable de comprendre les grands principes des statistiques, et de réaliser des analyses dans un logiciel tel que R, y compris les plus réfractaires aux mathématiques et à l'informatique. Mais il est nécessaire de démystifier cette discipline essentielle, et si certains ont besoin de plus de temps que d'autres, nous prendrons ce temps. Les TP et TEA, décrits plus bas, sont justement organisés pour permettre à chacun d'avancer à son rythme. Mais ne vous y trompez pas, cela vous demandera **beaucoup** de travail pendant ces 3 semaines.
 
-Tous les aspects vu en cours seront en effet développés lors des séances de TP et de TEA. Vous aurez, pour chaque partie, des exercices à préparer et à déposer sur l'ENT. Ces exercices seront corrigés lors des séances de TP et/ou de TEA. Tout cela doit d'une part vous préparer à l'évaluation qui aura lieu conjointement avec les EC de stratégie d'échantillonnage, de remise à niveau en biologie marine et d'échantillonnage littoral, mais surtout, cela doit vous permettre d'acquérir des compétences en analyse de données, compétences qui seront attendues de vous lorsque vous sortirez diplômé.e de ce master. 
+Tous les aspects vu en cours seront en effet développés lors des séances de TP et de TEA. Vous aurez, pour chaque partie, des exercices à préparer et à déposer sur l'ENT. Ces exercices seront corrigés lors des séances de TP et/ou de TEA. Tout cela doit d'une part vous préparer à l'évaluation qui aura lieu conjointement avec les EC de stratégie d'échantillonnage, de remise à niveau en biologie marine et d'échantillonnage littoral, mais surtout, cela doit vous permettre d'acquérir des compétences en analyse de données, compétences qui seront attendues de vous lorsque vous sortirez diplômé·e de ce master. 
 
 
 
@@ -80,15 +80,15 @@ Le contenu des séances de travaux pratiques sera découpé en 3 parties :
 2. Illustration du cours sur les statistiques descriptives et inférentielles, mise en pratique et réalisation d'exercices
 3. Illustration du cours sur les statistiques multivariées, mise en pratique et réalisation d'exercices
 
-Pour chaque séance de TP, et compte tenu de la situation sanitaire, vous travaillerez soit à distance, soit en salle banalisée, sur vos ordinateurs personnels. La première séance aura lieu en présentiel et sera consacrée à l'installation des logiciels nécessaires à la réalisation des TP ainsi qu'à la présentation de l'organisation des séances.
+Pour chaque séance de TP, vous travaillerez soit à distance, soit en salle banalisée, sur vos ordinateurs personnels. La première séance aura lieu en présentiel et sera consacrée à l'installation des logiciels ainsi qu'à la présentation de l'organisation des séances.
 
-Les séances de travaux pratiques ne seront *pas toutes obligatoires* : seules quelques séances en présentiel (les dates vous seront présentées ulterieurement) le seront, probablement pas plus d'une par semaine. Pour toutes les autres séances, le fonctionnement sera celui d'une permanence non obligatoire : seuls celles et ceux qui en éprouvent le besoin sont tenus de se déplacer. Ces séances de permanence n'auront lieu que si certains parmi vous m'ont fait part de difficultés ou ont formulé des questions en amont des séances. Si aucune question ne m'a été posée en amont, les permanences n'auront pas lieu. Si une permanence a lieu, elle est ouverte à tous, quel que soit votre groupe de TP. Vous n'êtes d'ailleurs pas tenus de rester pendant 90 minutes : vous venez avec votre question, on y répond ensemble, et vous êtes libres de repartir quand bon vous semble. Les années précédentes, je voyais certains de vos collègues à chaque séance de permanence alors que d'autres ne sont jamais venus. Si vous n'en avez pas besoin, libre à vous de ne pas venir. Tant que le travail est fait et que les exercices ne vous posent pas de problème, vous êtes libres de vous organiser comme vous l'entendez.
+Les séances de travaux pratiques ne seront *pas toutes obligatoires* : seules quelques séances en présentiel (les dates vous seront présentées ultérieurement) le seront, probablement pas plus d'une par semaine. Pour toutes les autres séances, le fonctionnement sera celui d'une permanence non obligatoire : seuls celles et ceux qui en éprouvent le besoin sont tenus de se déplacer. Ces séances de permanence n'auront lieu que si certains parmi vous m'ont fait part de difficultés ou ont formulé des questions en amont des séances. Si aucune question ne m'a été posée en amont, les permanences n'auront pas lieu. Si une permanence a lieu, elle est ouverte à tous, quel que soit votre groupe de TP. Vous n'êtes d'ailleurs pas tenus de rester pendant 90 minutes : vous venez avec votre question, on y répond ensemble, et vous êtes libres de repartir quand bon vous semble. Les années précédentes, je voyais certains de vos collègues à chaque séance de permanence alors que d'autres ne sont jamais venus. Si vous n'en avez pas besoin, libre à vous de ne pas venir. Tant que le travail est fait et que les exercices ne vous posent pas de problème, vous êtes libres de vous organiser comme vous l'entendez.
 
 Attention toutefois, venir à une séance de permanence en n'ayant pas préparé de question au préalable ne vous sera d'aucune aide. C'est parce que vous avez travaillé en amont de ces séances et que vous arrivez avec des questions que ces permanences sont utiles et efficaces. Donc si vous venez, c'est que vous avez bossé en amont !
 
 **Comment procéder pour savoir si une séance de permanence a lieu, ou pour poser une question ?**
 
-Tout se passera en ligne, grâce au logiciel [Slack](https://slack.com/intl/fr-fr/), qui fonctionne un peu comme un "twitter privé". Slack facilite la communication des équipes et permet de travailler ensemble. Créez-vous un compte en ligne et installez le logiciel sur votre ordinateur (il existe aussi des versions pour tablettes et smartphones). Lorsque vous aurez installé le logiciel, [cliquez sur ce lien](https://join.slack.com/t/geel2021/shared_invite/zt-vfsq7izo-UNVeJtG_BUt~hoKPjdZB_A) pour vous connecter à notre espace de travail commun.
+Tout se passera en ligne, grâce au logiciel [Slack](https://slack.com/intl/fr-fr/), qui fonctionne un peu comme un "twitter privé". Slack facilite la communication des équipes et permet de travailler ensemble. Créez-vous un compte en ligne et installez le logiciel sur votre ordinateur (il existe aussi des versions pour tablettes et smartphones). Lorsque vous aurez installé le logiciel, [cliquez sur ce lien](https://join.slack.com/t/geel2022/shared_invite/zt-1ga9vd9zn-~aQ~lhmJRgrH2qYNjO111g) pour vous connecter à notre espace de travail commun.
 
 Vous verrez que 3 "chaînes" sont disponibles :
 
@@ -156,7 +156,7 @@ library(knitr)
 library(tidyverse)
 
 # if( !("EDAWR" %in% installed.packages()[,"Package"]) ) {
-#   install_github("rstudio/EDAWR")
+#   remotes::install_github("rstudio/EDAWR")
 # }
 
 opts_chunk$set(fig.path = 'figure/', cache.path = 'cache.nosync/', tidy = TRUE,
